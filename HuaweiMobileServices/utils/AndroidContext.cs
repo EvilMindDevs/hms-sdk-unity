@@ -1,29 +1,29 @@
 ﻿using UnityEngine;
 
-namespace HuaweiMobileServices
+namespace HuaweiMobileServices.Utils
 {
     public class AndroidContext
     {
 
-        private static AndroidJavaClass mUnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-        private static AndroidJavaObject mApplicationContext = null;
+        private static AndroidJavaClass mUnityPlayerClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        private static AndroidJavaObject mApplicationContextJava = null;
 
         private AndroidContext()
         {
         }
 
-        public static AndroidJavaObject getActivityContext()
+        public static AndroidJavaObject GetActivityContext()
         {
-            return mUnityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+            return mUnityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
         }
 
-        public static AndroidJavaObject getApplicationContext()
+        public static AndroidJavaObject GetApplicationContext()
         {
-            if (mApplicationContext == null)
+            if (mApplicationContextJava == null)
             {
-                mApplicationContext = getActivityContext().Call<AndroidJavaObject>("getApplicationContext");
+                mApplicationContextJava = GetActivityContext().Call<AndroidJavaObject>("getApplicationContext");
             }
-            return mApplicationContext;
+            return mApplicationContextJava;
         }
     }
 
