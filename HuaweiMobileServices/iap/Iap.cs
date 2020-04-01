@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace HuaweiMobileServices.IAP
 {
-
+    // Wrapper for com.huawei.hms.iap.Iap
     public class Iap
     {
 

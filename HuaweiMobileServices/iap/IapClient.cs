@@ -1,5 +1,6 @@
 ﻿namespace HuaweiMobileServices.IAP
 {
+    // Wrapper for com.huawei.hms.iap.IapClient
     public interface IapClient
     {
         Task<ProductInfoResult> ObtainProductInfo(ProductInfoReq paramProductInfoReq);
