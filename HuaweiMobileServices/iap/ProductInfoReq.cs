@@ -1,45 +1,48 @@
-﻿using System.Collections.Generic;
+﻿using HuaweiMobileServices.Utils;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace HuaweiMobileServices.IAP
 {
-	using IMessageEntity = com.huawei.hms.core.aidl.IMessageEntity;
-	using Packed = com.huawei.hms.core.aidl.annotation.Packed;
+    // Wrapper for com.huawei.hms.iap.entity.PriceType
+    public class ProductInfoReq
+    {
 
-	public class ProductInfoReq : IMessageEntity
-	{
-//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-//ORIGINAL LINE: @Packed private int priceType;
-	  private int priceType;
+        private AndroidJavaObject mJavaObject = new AndroidJavaObject("com.huawei.hms.iap.entity.ProductInfoReq");
 
-//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-//ORIGINAL LINE: @Packed private java.util.List<String> skuIds;
-	  private IList<string> skuIds;
+        public virtual int PriceType
+        {
+            get
+            {
+                return mJavaObject.Call<int>("getPriceType");
+            }
+            set
+            {
+                mJavaObject.Call("setPriceType", value);
+            }
+        }
 
-	  public virtual int PriceType
-	  {
-		  get
-		  {
-			  return this.priceType;
-		  }
-		  set
-		  {
-			  this.priceType = value;
-		  }
-	  }
-
-	  public virtual IList<string> ProductIds
-	  {
-		  get
-		  {
-			  return this.skuIds;
-		  }
-		  set
-		  {
-			  this.skuIds = value;
-		  }
-	  }
+        public virtual IList<string> ProductIds
+        {
+            get
+            {
+                var javaList = mJavaObject.Call<AndroidJavaObject>("getProductIds");
+                var objectList = AndroidTypes.GetList<AndroidJavaObject>(javaList);
+                return ListUtils.Map<AndroidJavaObject, string>(objectList, (javaObject) => {
+                    return AndroidTypes.GetString(javaObject);
+                });
+            }
+            set
+            {
+                var objectList = ListUtils.Map<string, AndroidJavaObject>(value, (valueString) => {
+                    return AndroidTypes.GetString(valueString);
+                });
+                var javaList = AndroidTypes.GetList<AndroidJavaObject>(objectList);
+                mJavaObject.Call<AndroidJavaObject>("setProductIds", javaList);
+            }
+        }
 
 
-	}
+    }
 
 }
