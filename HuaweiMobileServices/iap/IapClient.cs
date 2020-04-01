@@ -1,22 +1,20 @@
 ﻿namespace HuaweiMobileServices.IAP
 {
-	public interface IapClient
-	{
-	  Task<ProductInfoResult> obtainProductInfo(ProductInfoReq paramProductInfoReq);
+    public interface IapClient
+    {
+        Task<ProductInfoResult> ObtainProductInfo(ProductInfoReq paramProductInfoReq);
 
-	  Task<ConsumeOwnedPurchaseResult> consumeOwnedPurchase(ConsumeOwnedPurchaseReq paramConsumeOwnedPurchaseReq);
+        Task<ConsumeOwnedPurchaseResult> ConsumeOwnedPurchase(ConsumeOwnedPurchaseReq paramConsumeOwnedPurchaseReq);
 
-	  Task<OwnedPurchasesResult> obtainOwnedPurchases(OwnedPurchasesReq paramOwnedPurchasesReq);
+        Task<OwnedPurchasesResult> ObtainOwnedPurchases(OwnedPurchasesReq paramOwnedPurchasesReq);
 
-	  Task<OwnedPurchasesResult> obtainOwnedPurchaseRecord(OwnedPurchasesReq paramOwnedPurchasesReq);
+        Task<OwnedPurchasesResult> ObtainOwnedPurchaseRecord(OwnedPurchasesReq paramOwnedPurchasesReq);
 
-	  Task<PurchaseIntentResult> createPurchaseIntentWithPrice(PurchaseIntentWithPriceReq paramPurchaseIntentWithPriceReq);
+        Task<PurchaseIntentResult> CreatePurchaseIntentWithPrice(PurchaseIntentWithPriceReq paramPurchaseIntentWithPriceReq);
 
-	  Task<PurchaseIntentResult> createPurchaseIntent(PurchaseIntentReq paramPurchaseIntentReq);
+        Task<PurchaseIntentResult> CreatePurchaseIntent(PurchaseIntentReq paramPurchaseIntentReq);
 
-	  PurchaseResultInfo parsePurchaseResultInfoFromIntent(Intent paramIntent);
-
-	  Task<IsEnvReadyResult> EnvReady {get;}
-	}
+        Task<IsEnvReadyResult> EnvReady { get; }
+    }
 
 }
