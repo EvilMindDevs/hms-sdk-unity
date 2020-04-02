@@ -26,18 +26,20 @@ namespace HuaweiMobileServices.IAP
         {
             get
             {
-                var javaList = mJavaObject.Call<AndroidJavaObject>("getProductIds");
-                var objectList = AndroidTypes.GetList<AndroidJavaObject>(javaList);
-                return ListUtils.Map<AndroidJavaObject, string>(objectList, (javaObject) => {
-                    return AndroidTypes.GetString(javaObject);
-                });
+                return mJavaObject
+                    .Call<AndroidJavaObject>("getProductIds")
+                    .AsList<AndroidJavaObject>()
+                    .Map<AndroidJavaObject, string>((javaObject) => {
+                        return javaObject.AsString();
+                    });
             }
             set
             {
-                var objectList = ListUtils.Map<string, AndroidJavaObject>(value, (valueString) => {
-                    return AndroidTypes.GetString(valueString);
-                });
-                var javaList = AndroidTypes.GetList<AndroidJavaObject>(objectList);
+                var javaList =
+                    value.Map<string, AndroidJavaObject>((valueString) => {
+                        return valueString.AsJavaString();
+                    })
+                    .AsJavaList();
                 mJavaObject.Call<AndroidJavaObject>("setProductIds", javaList);
             }
         }

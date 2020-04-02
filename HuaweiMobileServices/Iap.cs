@@ -4,12 +4,10 @@ using UnityEngine;
 namespace HuaweiMobileServices.IAP
 {
     // Wrapper for com.huawei.hms.iap.Iap
-    public class Iap
+    public static class Iap
     {
 
         private static AndroidJavaClass mIapClass = new AndroidJavaClass("com.huawei.hms.iap.Iap");
-
-        private Iap() { }
 
         public static IapClient GetIapClient()
         {

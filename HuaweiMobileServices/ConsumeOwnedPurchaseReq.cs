@@ -13,12 +13,11 @@ namespace HuaweiMobileServices.IAP
         {
             set
             {
-                mJavaObject.Call("setPurchaseToken", AndroidTypes.GetString(value));
+                mJavaObject.Call("setPurchaseToken", value.AsJavaString());
             }
             get
             {
-                var value = mJavaObject.Call<AndroidJavaObject>("getPurchaseToken");
-                return AndroidTypes.GetString(value);
+                return mJavaObject.Call<AndroidJavaObject>("getPurchaseToken").AsString();
             }
         }
 
@@ -26,12 +25,11 @@ namespace HuaweiMobileServices.IAP
         {
             set
             {
-                mJavaObject.Call("setDeveloperChallenge", AndroidTypes.GetString(value));
+                mJavaObject.Call("setDeveloperChallenge", value.AsJavaString());
             }
             get
             {
-                var value = mJavaObject.Call<AndroidJavaObject>("getDeveloperChallenge");
-                return AndroidTypes.GetString(value);
+                return mJavaObject.Call<AndroidJavaObject>("getDeveloperChallenge").AsString();
             }
         }
 
