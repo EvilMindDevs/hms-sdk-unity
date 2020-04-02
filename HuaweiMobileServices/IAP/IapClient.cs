@@ -5,8 +5,7 @@ namespace HuaweiMobileServices.IAP
     // Wrapper for com.huawei.hms.iap.IapClient
     public interface IapClient
     {
-
-        //Task<IsEnvReadyResult> EnvReady { get; }
+        Task<IsEnvReadyResult> EnvReady { get; }
 
         Task<ProductInfoResult> ObtainProductInfo(ProductInfoReq productInfoReq);
 
