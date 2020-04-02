@@ -6,15 +6,9 @@ namespace HuaweiMobileServices.Utils
     static class AndroidTypes
     {
 
-        public static AndroidJavaObject AsJavaString(this string value)
-        {
-            return new AndroidJavaObject("java.lang.String", value);
-        }
+        public static AndroidJavaObject AsJavaString(this string value) => new AndroidJavaObject("java.lang.String", value);
 
-        public static string AsString(this AndroidJavaObject javaString)
-        {
-            return javaString.Call<string>("toString");
-        }
+        public static string AsString(this AndroidJavaObject javaString) => javaString.Call<string>("toString");
 
         public static AndroidJavaObject AsJavaList<T>(this IList<T> list)
         {
