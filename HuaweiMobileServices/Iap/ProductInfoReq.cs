@@ -12,38 +12,23 @@ namespace HuaweiMobileServices.IAP
 
         public virtual int PriceType
         {
-            get
-            {
-                return mJavaObject.Call<int>("getPriceType");
-            }
-            set
-            {
-                mJavaObject.Call("setPriceType", value);
-            }
+            get => mJavaObject.Call<int>("getPriceType");
+            set => mJavaObject.Call("setPriceType", value);
         }
 
         public virtual IList<string> ProductIds
         {
-            get
-            {
-                return mJavaObject
+            get => mJavaObject
                     .Call<AndroidJavaObject>("getProductIds")
                     .AsList<AndroidJavaObject>()
-                    .Map<AndroidJavaObject, string>((javaObject) => {
-                        return javaObject.AsString();
-                    });
-            }
-            set
-            {
-                var javaList =
-                    value.Map<string, AndroidJavaObject>((valueString) => {
-                        return valueString.AsJavaString();
-                    })
-                    .AsJavaList();
-                mJavaObject.Call<AndroidJavaObject>("setProductIds", javaList);
-            }
-        }
+                    .Map<AndroidJavaObject, string>((javaObject) => javaObject.AsString());
 
+            set => mJavaObject
+                    .Call<AndroidJavaObject>(
+                        "setProductIds",
+                        value.Map<string, AndroidJavaObject>((valueString) => valueString.AsJavaString()).AsJavaList()
+                    );
+        }
 
     }
 

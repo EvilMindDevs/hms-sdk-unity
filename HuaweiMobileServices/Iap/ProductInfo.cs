@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using HuaweiMobileServices.Utils;
 
-namespace com.huawei.hms.iap.entity
+namespace HuaweiMobileServices.IAP
 {
     // Wrapper for com.huawei.hms.iap.entity.ProductInfo
     public class ProductInfo
@@ -9,7 +9,7 @@ namespace com.huawei.hms.iap.entity
 
         private readonly AndroidJavaObject mJavaObject;
 
-        ProductInfo(AndroidJavaObject javaObject)
+        internal ProductInfo(AndroidJavaObject javaObject)
         {
             mJavaObject = javaObject;
         }

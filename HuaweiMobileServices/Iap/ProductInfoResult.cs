@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using HuaweiMobileServices.Utils;
+using System.Collections.Generic;
 using UnityEngine;
-using HuaweiMobileServices.Utils;
 
 namespace HuaweiMobileServices.IAP
 {
@@ -18,29 +18,22 @@ namespace HuaweiMobileServices.IAP
 
         public virtual int ReturnCode
         {
-            get
-            {
-                return mJavaObject.Call<int>("getReturnCode");
-            }
+            get => mJavaObject.Call<int>("getReturnCode");
         }
 
 
         public virtual string ErrMsg
         {
-            get
-            {
-                var javaString = mJavaObject.Call<AndroidJavaObject>("getErrMsg");
-                return AndroidTypes.GetString(javaString);
-            }
+            get => mJavaObject.Call<AndroidJavaObject>("getErrMsg").AsString();
         }
 
 
         public virtual IList<ProductInfo> ProductInfoList
         {
-            get
-            {
-                return this.productInfoList;
-            }
+            get => mJavaObject
+                .Call<AndroidJavaObject>("getProductInfoList")
+                .AsList<AndroidJavaObject>()
+                .Map<AndroidJavaObject, ProductInfo>((javaObject) => new ProductInfo(javaObject));
         }
 
     }
