@@ -4,13 +4,31 @@ using UnityEngine;
 
 namespace HuaweiMobileServices.Base
 {
+
     // Wrapper for com.huawei.hmf.tasks.Task
-    public class Task<T>
+    public interface Task<T>
+    {
+        bool Complete { get; }
+
+        bool Successful { get; }
+
+        bool Canceled { get; }
+
+        T Result { get; }
+
+        Exception Exception { get; }
+
+        Task<T> AddOnFailureListener(OnFailureListener onFailureListener);
+
+        Task<T> AddOnSuccessListener(OnSuccessListener<T> onSuccessListener);
+    }
+
+    public class TaskImpl<T> : Task<T>
     {
 
         private AndroidJavaObject mJavaObject;
 
-        internal Task(AndroidJavaObject javaObject)
+        internal TaskImpl(AndroidJavaObject javaObject)
         {
             mJavaObject = javaObject;
         }
