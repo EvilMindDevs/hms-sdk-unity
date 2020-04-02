@@ -5,9 +5,12 @@ namespace HuaweiMobileServices.IAP
     // Wrapper for com.huawei.hms.iap.IapClient
     public interface IapClient
     {
-        Task<ProductInfoResult> ObtainProductInfo(ProductInfoReq paramProductInfoReq);
 
-        //Task<ConsumeOwnedPurchaseResult> ConsumeOwnedPurchase(ConsumeOwnedPurchaseReq paramConsumeOwnedPurchaseReq);
+        //Task<IsEnvReadyResult> EnvReady { get; }
+
+        Task<ProductInfoResult> ObtainProductInfo(ProductInfoReq productInfoReq);
+
+        Task<ConsumeOwnedPurchaseResult> ConsumeOwnedPurchase(ConsumeOwnedPurchaseReq consumeOwnedPurchaseReq);
 
         //Task<OwnedPurchasesResult> ObtainOwnedPurchases(OwnedPurchasesReq paramOwnedPurchasesReq);
 
@@ -16,8 +19,6 @@ namespace HuaweiMobileServices.IAP
         //Task<PurchaseIntentResult> CreatePurchaseIntentWithPrice(PurchaseIntentWithPriceReq paramPurchaseIntentWithPriceReq);
 
         //Task<PurchaseIntentResult> CreatePurchaseIntent(PurchaseIntentReq paramPurchaseIntentReq);
-
-        //Task<IsEnvReadyResult> EnvReady { get; }
     }
 
 }

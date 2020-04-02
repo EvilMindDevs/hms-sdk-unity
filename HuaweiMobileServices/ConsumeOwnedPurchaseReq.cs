@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.IAP
     public class ConsumeOwnedPurchaseReq
     {
 
-        private AndroidJavaObject mJavaObject = new AndroidJavaObject("com.huawei.hms.iap.entity.ConsumeOwnedPurchaseReq");
+        internal AndroidJavaObject mJavaObject = new AndroidJavaObject("com.huawei.hms.iap.entity.ConsumeOwnedPurchaseReq");
 
         public virtual string PurchaseToken
         {
