@@ -4,12 +4,10 @@ using System.Text;
 
 namespace HuaweiMobileServices.Utils
 {
-    class ListUtils
+    static class ListUtils
     {
 
-        private ListUtils() { }
-
-        public static IList<U> Map<T, U>(IList<T> list, Func<T, U> action)
+        public static IList<U> Map<T, U>(this IList<T> list, Func<T, U> action)
         {
             var newList = new List<U>();
             foreach(T element in list)

@@ -2,15 +2,11 @@
 
 namespace HuaweiMobileServices.Utils
 {
-    public class AndroidContext
+    static class AndroidContext
     {
 
         private static AndroidJavaClass mUnityPlayerClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         private static AndroidJavaObject mApplicationContextJava = null;
-
-        private AndroidContext()
-        {
-        }
 
         public static AndroidJavaObject GetActivityContext()
         {

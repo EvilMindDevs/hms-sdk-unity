@@ -3,22 +3,20 @@ using System.Collections.Generic;
 
 namespace HuaweiMobileServices.Utils
 {
-    public class AndroidTypes
+    static class AndroidTypes
     {
 
-        private AndroidTypes() { }
-
-        public static AndroidJavaObject GetString(string value)
+        public static AndroidJavaObject AsJavaString(this string value)
         {
             return new AndroidJavaObject("java.lang.String", value);
         }
 
-        public static string GetString(AndroidJavaObject javaString)
+        public static string AsString(this AndroidJavaObject javaString)
         {
             return javaString.Call<string>("toString");
         }
 
-        public static AndroidJavaObject GetList<T>(IList<T> list)
+        public static AndroidJavaObject AsJavaList<T>(this IList<T> list)
         {
             var javaList = new AndroidJavaObject("java.util.ArrayList");
             foreach(T element in list)
@@ -28,7 +26,7 @@ namespace HuaweiMobileServices.Utils
             return javaList;
         }
 
-        public static IList<T> GetList<T>(AndroidJavaObject javaList)
+        public static IList<T> AsList<T>(this AndroidJavaObject javaList)
         {
             var list = new List<T>();
             int size = javaList.Call<int>("size");
