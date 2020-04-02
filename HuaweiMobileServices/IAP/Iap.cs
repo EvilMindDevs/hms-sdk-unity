@@ -31,20 +31,20 @@ namespace HuaweiMobileServices.IAP
                 get
                 {
                     var javaTask = mIapClientJava.Call<AndroidJavaObject>("isEnvReady");
-                    return new TaskImpl<IsEnvReadyResult>(javaTask);
+                    return new TaskImpl<AndroidJavaObject>(javaTask);
                 }
             }
 
             public Task<ProductInfoResult> ObtainProductInfo(ProductInfoReq productInfoReq)
             {
                 var javaTask = mIapClientJava.Call<AndroidJavaObject>("obtainProductInfo", productInfoReq.mJavaObject);
-                return new TaskImpl<ProductInfoResult>(javaTask);
+                return new TaskImpl<AndroidJavaObject>(javaTask);
             }
 
             public Task<ConsumeOwnedPurchaseResult> ConsumeOwnedPurchase(ConsumeOwnedPurchaseReq consumeOwnedPurchaseReq)
             {
                 var javaTask = mIapClientJava.Call<AndroidJavaObject>("consumeOwnedPurchase", consumeOwnedPurchaseReq.mJavaObject);
-                return new TaskImpl<ConsumeOwnedPurchaseResult>(javaTask);
+                return new TaskImpl<AndroidJavaObject>(javaTask);
             }
         }
     }

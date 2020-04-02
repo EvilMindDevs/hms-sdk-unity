@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.Base
     {
         public OnFailureListener() : base("com.huawei.hmf.tasks.OnFailureListener") { }
 
-        protected abstract void onFailure(Exception paramException);
+        protected abstract void onFailure(AndroidJavaObject exception);
     }
 
 }
