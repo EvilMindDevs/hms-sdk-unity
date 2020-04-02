@@ -1,5 +1,6 @@
-﻿using UnityEngine;
+﻿using HuaweiMobileServices.Base;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace HuaweiMobileServices.Utils
 {
@@ -19,7 +20,7 @@ namespace HuaweiMobileServices.Utils
         public static AndroidJavaObject AsJavaList<T>(this IList<T> list)
         {
             var javaList = new AndroidJavaObject("java.util.ArrayList");
-            foreach(T element in list)
+            foreach (T element in list)
             {
                 javaList.Call("add", element);
             }
@@ -30,12 +31,15 @@ namespace HuaweiMobileServices.Utils
         {
             var list = new List<T>();
             int size = javaList.Call<int>("size");
-            for(int i = 0; i < size; i++)
+            for (int i = 0; i < size; i++)
             {
                 var element = javaList.Call<T>("get", i);
                 list.Add(element);
             }
             return list;
         }
+
+        public static System.Exception AsException(this AndroidJavaObject javaException) =>
+            new HMSException(javaException.Call<AndroidJavaObject>("getMessage").AsString());
     }
 }
