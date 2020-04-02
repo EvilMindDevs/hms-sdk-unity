@@ -1,5 +1,4 @@
-﻿using HuaweiMobileServices.Base;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace HuaweiMobileServices.Utils

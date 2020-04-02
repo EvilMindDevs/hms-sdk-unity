@@ -10,6 +10,11 @@ namespace HuaweiMobileServices.IAP
 
         private AndroidJavaObject mJavaObject = new AndroidJavaObject("com.huawei.hms.iap.entity.ProductInfoReq");
 
+        internal virtual AndroidJavaObject ProductInfoReqJava
+        {
+            get => mJavaObject;
+        }
+
         public virtual int PriceType
         {
             get => mJavaObject.Call<int>("getPriceType");

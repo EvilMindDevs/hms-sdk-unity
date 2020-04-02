@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace HuaweiMobileServices.Base
 {
+    // Wrapper for com.huawei.hmf.tasks.Task
     public class Task<T>
     {
 

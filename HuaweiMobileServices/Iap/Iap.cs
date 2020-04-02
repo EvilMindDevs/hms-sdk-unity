@@ -1,4 +1,5 @@
-﻿using HuaweiMobileServices.Utils;
+﻿using HuaweiMobileServices.Base;
+using HuaweiMobileServices.Utils;
 using UnityEngine;
 
 namespace HuaweiMobileServices.IAP
@@ -24,6 +25,13 @@ namespace HuaweiMobileServices.IAP
             {
                 mIapClientJava = iapClientJava;
             }
+
+            public Task<ProductInfoResult> ObtainProductInfo(ProductInfoReq productInfoReq)
+            {
+                var javaTask = mIapClientJava.Call<AndroidJavaObject>("obtainProductInfo", productInfoReq.ProductInfoReqJava);
+                return new Task<ProductInfoResult>(javaTask);
+            }
+                
         }
     }
 }
