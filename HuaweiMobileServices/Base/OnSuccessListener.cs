@@ -3,11 +3,9 @@
 namespace HuaweiMobileServices.Base
 {
     // Wrapper for com.huawei.hmf.tasks.OnSuccessListener
-    public abstract class OnSuccessListener<T> : AndroidJavaProxy
+    public interface OnSuccessListener<T>
     {
-        public OnSuccessListener() : base("com.huawei.hmf.tasks.OnSuccessListener") { }
-
-        protected abstract void onSuccess(T result);
+        void OnSuccess(T result);
     }
 
 }

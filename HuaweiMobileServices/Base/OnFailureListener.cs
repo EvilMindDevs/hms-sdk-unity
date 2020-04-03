@@ -1,14 +1,11 @@
 ﻿using System;
-using UnityEngine;
 
 namespace HuaweiMobileServices.Base
 {
     // Wrapper for com.huawei.hmf.tasks.OnFailureListener
-    public abstract class OnFailureListener : AndroidJavaProxy
+    public interface OnFailureListener
     {
-        public OnFailureListener() : base("com.huawei.hmf.tasks.OnFailureListener") { }
-
-        protected abstract void onFailure(AndroidJavaObject exception);
+        void OnFailure(Exception exception);
     }
 
 }
