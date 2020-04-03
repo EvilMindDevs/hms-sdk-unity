@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace HuaweiMobileServices.Base
+namespace HuaweiMobileServices.Utils
 {
     public class JavaObjectWrapperByConstructor
     {

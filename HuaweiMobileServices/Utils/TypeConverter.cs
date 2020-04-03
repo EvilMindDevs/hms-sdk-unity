@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace HuaweiMobileServices.Base
+namespace HuaweiMobileServices.Utils
 {
 
     internal static class TypeConverter
