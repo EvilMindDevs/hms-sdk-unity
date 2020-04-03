@@ -1,4 +1,4 @@
-﻿namespace HuaweiMobileServices.Utils
+﻿namespace HuaweiMobileServices.Base
 {
     public class HMSException : System.Exception
     {
