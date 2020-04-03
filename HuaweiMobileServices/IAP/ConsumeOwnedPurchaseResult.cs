@@ -1,5 +1,4 @@
 ﻿using HuaweiMobileServices.Utils;
-using HuaweiMobileServices.Base;
 using UnityEngine;
 
 namespace HuaweiMobileServices.IAP

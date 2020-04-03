@@ -11,7 +11,7 @@ namespace HuaweiMobileServices.IAP
 
         Task<ConsumeOwnedPurchaseResult> ConsumeOwnedPurchase(ConsumeOwnedPurchaseReq consumeOwnedPurchaseReq);
 
-        //Task<OwnedPurchasesResult> ObtainOwnedPurchases(OwnedPurchasesReq paramOwnedPurchasesReq);
+        Task<OwnedPurchasesResult> ObtainOwnedPurchases(OwnedPurchasesReq ownedPurchasesReq);
 
         //Task<OwnedPurchasesResult> ObtainOwnedPurchaseRecord(OwnedPurchasesReq paramOwnedPurchasesReq);
 
