@@ -23,12 +23,12 @@ namespace HuaweiMobileServices.Base
         Task<T> AddOnSuccessListener(OnSuccessListener<T> onSuccessListener);
     }
 
-    public class TaskImpl<T> : Task<T>
+    internal abstract class AbstractTask<T> : Task<T>
     {
 
         private AndroidJavaObject mJavaObject;
 
-        internal TaskImpl(AndroidJavaObject javaObject)
+        internal AbstractTask(AndroidJavaObject javaObject)
         {
             mJavaObject = javaObject;
         }
@@ -45,15 +45,15 @@ namespace HuaweiMobileServices.Base
 
         public Task<T> AddOnFailureListener(OnFailureListener onFailureListener)
         {
-            mJavaObject = mJavaObject.Call<AndroidJavaObject>("addOnFailureListener", onFailureListener);
+            var failureListenerWrapper = new OnFailureListenerWrapper(onFailureListener);
+            mJavaObject = mJavaObject.Call<AndroidJavaObject>("addOnFailureListener", failureListenerWrapper);
             return this;
         }
 
-        public Task<T> AddOnSuccessListener(OnSuccessListener<T> onSuccessListener)
-        {
-            mJavaObject = mJavaObject.Call<AndroidJavaObject>("addOnSuccessListener", onSuccessListener);
-            return this;
-        }
+        // Listener needs to be wrapped as well but since it involves wrapping the Java object received
+        // it needs to be implemented by each task specifically.
+        // Yeah, it's annoying but if you have a better solution, don't hesitate to implement it :)
+        public abstract Task<T> AddOnSuccessListener(OnSuccessListener<T> onSuccessListener);
     }
 
 }
