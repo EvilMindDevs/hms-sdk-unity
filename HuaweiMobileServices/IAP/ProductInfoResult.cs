@@ -1,20 +1,16 @@
 ﻿using HuaweiMobileServices.Utils;
 using System.Collections.Generic;
 using UnityEngine;
+using HuaweiMobileServices.Base;
 
 namespace HuaweiMobileServices.IAP
 {
 
     // Wrapper for com.huawei.hms.iap.entity.ProductInfoResult
-    public class ProductInfoResult
+    public class ProductInfoResult : JavaObjectWrapperByConstructor
     {
 
-        private readonly AndroidJavaObject mJavaObject;
-
-        internal ProductInfoResult(AndroidJavaObject javaObject)
-        {
-            mJavaObject = javaObject;
-        }
+        internal ProductInfoResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int ReturnCode
         {
