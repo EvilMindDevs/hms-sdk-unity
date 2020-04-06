@@ -6,7 +6,7 @@ namespace HuaweiMobileServices.Base
 {
 
     // Wrapper for com.huawei.hmf.tasks.Task
-    public interface Task<T> where T : JavaObjectWrapperByConstructor
+    public interface Task<T> where T : JavaObjectWrapper
     {
         bool Complete { get; }
 

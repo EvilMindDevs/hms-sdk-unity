@@ -4,21 +4,21 @@ using UnityEngine;
 namespace HuaweiMobileServices.IAP
 {
     // Wrapper for com.huawei.hms.iap.entity.ConsumeOwnedPurchaseReq
-    public class ConsumeOwnedPurchaseReq
+    public class ConsumeOwnedPurchaseReq : JavaObjectWrapper
     {
 
-        internal readonly AndroidJavaObject mJavaObject = new AndroidJavaObject("com.huawei.hms.iap.entity.ConsumeOwnedPurchaseReq");
+        public ConsumeOwnedPurchaseReq() : base("com.huawei.hms.iap.entity.ConsumeOwnedPurchaseReq") { }
 
         public virtual string PurchaseToken
         {
-            set => mJavaObject.Call("setPurchaseToken", value.AsJavaString());
-            get => mJavaObject.Call<AndroidJavaObject>("getPurchaseToken").AsString();
+            set => Call("setPurchaseToken", value.AsJavaString());
+            get => Call<AndroidJavaObject>("getPurchaseToken").AsString();
         }
 
         public virtual string DeveloperChallenge
         {
-            set => mJavaObject.Call("setDeveloperChallenge", value.AsJavaString());
-            get => mJavaObject.Call<AndroidJavaObject>("getDeveloperChallenge").AsString();
+            set => Call("setDeveloperChallenge", value.AsJavaString());
+            get => Call<AndroidJavaObject>("getDeveloperChallenge").AsString();
         }
 
     }

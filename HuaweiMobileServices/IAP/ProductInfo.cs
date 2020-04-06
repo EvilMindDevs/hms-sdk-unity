@@ -4,121 +4,115 @@ using HuaweiMobileServices.Utils;
 namespace HuaweiMobileServices.IAP
 {
     // Wrapper for com.huawei.hms.iap.entity.ProductInfo
-    public class ProductInfo
+    public class ProductInfo : JavaObjectWrapper
     {
-
-        private readonly AndroidJavaObject mJavaObject;
-
-        internal ProductInfo(AndroidJavaObject javaObject)
-        {
-            mJavaObject = javaObject;
-        }
+        internal ProductInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string ProductId
         {
-            get => mJavaObject.Call<AndroidJavaObject>("getProductId").AsString();
+            get => Call<AndroidJavaObject>("getProductId").AsString();
         }
 
 
         public virtual int PriceType
         {
-            get => mJavaObject.Call<int>("getPriceType");
+            get => Call<int>("getPriceType");
         }
 
 
         public virtual string Price
         {
-            get => mJavaObject.Call<AndroidJavaObject>("getPrice").AsString();
+            get => Call<AndroidJavaObject>("getPrice").AsString();
         }
 
 
         public virtual long MicrosPrice
         {
-            get => mJavaObject.Call<long>("getMicrosPrice");
+            get => Call<long>("getMicrosPrice");
         }
 
 
         public virtual string OriginalLocalPrice
         {
-            get => mJavaObject.Call<AndroidJavaObject>("getOriginalLocalPrice").AsString();
+            get => Call<AndroidJavaObject>("getOriginalLocalPrice").AsString();
         }
 
 
         public virtual long OriginalMicroPrice
         {
-            get => mJavaObject.Call<long>("getOriginalMicroPrice");
+            get => Call<long>("getOriginalMicroPrice");
         }
 
 
         public virtual string Currency
         {
-            get => mJavaObject.Call<AndroidJavaObject>("getCurrency").AsString();
+            get => Call<AndroidJavaObject>("getCurrency").AsString();
         }
 
 
         public virtual string ProductName
         {
-            get => mJavaObject.Call<AndroidJavaObject>("getProductName").AsString();
+            get => Call<AndroidJavaObject>("getProductName").AsString();
         }
 
 
         public virtual string ProductDesc
         {
-            get => mJavaObject.Call<AndroidJavaObject>("getProductDesc").AsString();
+            get => Call<AndroidJavaObject>("getProductDesc").AsString();
         }
 
 
         public virtual string SubPeriod
         {
-            get => mJavaObject.Call<AndroidJavaObject>("getSubPeriod").AsString();
+            get => Call<AndroidJavaObject>("getSubPeriod").AsString();
         }
 
 
         public virtual string SubSpecialPrice
         {
-            get => mJavaObject.Call<AndroidJavaObject>("getSubSpecialPrice").AsString();
+            get => Call<AndroidJavaObject>("getSubSpecialPrice").AsString();
         }
 
 
         public virtual long SubSpecialPriceMicros
         {
-            get => mJavaObject.Call<long>("getSubSpecialPriceMicros");
+            get => Call<long>("getSubSpecialPriceMicros");
         }
 
 
         public virtual string SubSpecialPeriod
         {
-            get => mJavaObject.Call<AndroidJavaObject>("getSubSpecialPeriod").AsString();
+            get => Call<AndroidJavaObject>("getSubSpecialPeriod").AsString();
         }
 
 
         public virtual int SubSpecialPeriodCycles
         {
-            get => mJavaObject.Call<int>("getSubSpecialPeriodCycles");
+            get => Call<int>("getSubSpecialPeriodCycles");
         }
 
 
         public virtual string SubFreeTrialPeriod
         {
-            get => mJavaObject.Call<AndroidJavaObject>("getSubFreeTrialPeriod").AsString();
+            get => Call<AndroidJavaObject>("getSubFreeTrialPeriod").AsString();
         }
 
 
         public virtual string SubGroupId
         {
-            get => mJavaObject.Call<AndroidJavaObject>("getSubGroupId").AsString();
+            get => Call<AndroidJavaObject>("getSubGroupId").AsString();
         }
 
 
         public virtual string SubGroupTitle
         {
-            get => mJavaObject.Call<AndroidJavaObject>("getSubGroupTitle").AsString();
+            get => Call<AndroidJavaObject>("getSubGroupTitle").AsString();
         }
 
 
         public virtual int SubProductLevel
         {
-            get => mJavaObject.Call<int>("getSubProductLevel");
+            get => Call<int>("getSubProductLevel");
         }
 
     }

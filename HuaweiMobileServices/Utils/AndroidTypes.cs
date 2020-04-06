@@ -37,6 +37,9 @@ namespace HuaweiMobileServices.Utils
         public static IList<string> AsStringList(this AndroidJavaObject javaList) =>
             javaList.AsList<AndroidJavaObject>().Map((javaObject) => javaObject.AsString());
 
+        public static AndroidJavaObject AsJavaStringList(this IList<string> list) =>
+           list.Map((aString) => aString.AsJavaString()).AsJavaList();
+
         public static System.Exception AsException(this AndroidJavaObject javaException) =>
             new HMSException(javaException.Call<AndroidJavaObject>("getMessage").AsString());
     }

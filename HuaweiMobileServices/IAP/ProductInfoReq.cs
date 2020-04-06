@@ -5,29 +5,21 @@ using UnityEngine;
 namespace HuaweiMobileServices.IAP
 {
     // Wrapper for com.huawei.hms.iap.entity.PriceType
-    public class ProductInfoReq
+    public class ProductInfoReq : JavaObjectWrapper
     {
 
-        internal AndroidJavaObject mJavaObject = new AndroidJavaObject("com.huawei.hms.iap.entity.ProductInfoReq");
+        public ProductInfoReq() : base("com.huawei.hms.iap.entity.ProductInfoReq") { }
 
         public virtual int PriceType
         {
-            get => mJavaObject.Call<int>("getPriceType");
-            set => mJavaObject.Call("setPriceType", value);
+            get => Call<int>("getPriceType");
+            set => Call("setPriceType", value);
         }
 
         public virtual IList<string> ProductIds
         {
-            get => mJavaObject
-                    .Call<AndroidJavaObject>("getProductIds")
-                    .AsList<AndroidJavaObject>()
-                    .Map((javaObject) => javaObject.AsString());
-
-            set => mJavaObject
-                    .Call<AndroidJavaObject>(
-                        "setProductIds",
-                        value.Map((valueString) => valueString.AsJavaString()).AsJavaList()
-                    );
+            get => Call<AndroidJavaObject>("getProductIds").AsStringList();
+            set => Call<AndroidJavaObject>("setProductIds", value.AsJavaStringList());
         }
 
     }

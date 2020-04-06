@@ -6,28 +6,28 @@ namespace HuaweiMobileServices.IAP
 {
 
     // Wrapper for com.huawei.hms.iap.entity.ProductInfoResult
-    public class ProductInfoResult : JavaObjectWrapperByConstructor
+    public class ProductInfoResult : JavaObjectWrapper
     {
 
         internal ProductInfoResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int ReturnCode
         {
-            get => mJavaObject.Call<int>("getReturnCode");
+            get => Call<int>("getReturnCode");
         }
 
 
         public virtual string ErrMsg
         {
-            get => mJavaObject.Call<AndroidJavaObject>("getErrMsg").AsString();
+            get => Call<AndroidJavaObject>("getErrMsg").AsString();
         }
 
 
         public virtual IList<ProductInfo> ProductInfoList
         {
-            get => mJavaObject.Call<AndroidJavaObject>("getProductInfoList")
+            get => Call<AndroidJavaObject>("getProductInfoList")
                     .AsList<AndroidJavaObject>()
-                    .Map<AndroidJavaObject, ProductInfo>((javaObject) => new ProductInfo(javaObject));
+                    .Map((javaObject) => new ProductInfo(javaObject));
         }
 
     }
