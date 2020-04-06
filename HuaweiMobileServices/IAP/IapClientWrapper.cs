@@ -35,7 +35,13 @@ namespace HuaweiMobileServices.IAP
 
         public Task<OwnedPurchasesResult> ObtainOwnedPurchases(OwnedPurchasesReq ownedPurchasesReq)
         {
-            var javaTask = Call<AndroidJavaObject>("consumeOwnedPurchase", ownedPurchasesReq.mJavaObject);
+            var javaTask = Call<AndroidJavaObject>("obtainOwnedPurchases", ownedPurchasesReq.mJavaObject);
+            return new TaskImpl<OwnedPurchasesResult>(javaTask);
+        }
+
+        public Task<OwnedPurchasesResult> ObtainOwnedPurchaseRecord(OwnedPurchasesReq ownedPurchasesReq)
+        {
+            var javaTask = Call<AndroidJavaObject>("obtainOwnedPurchaseRecord", ownedPurchasesReq.mJavaObject);
             return new TaskImpl<OwnedPurchasesResult>(javaTask);
         }
     }
