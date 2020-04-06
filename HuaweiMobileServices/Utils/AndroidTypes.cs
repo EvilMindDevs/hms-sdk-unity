@@ -1,4 +1,5 @@
 using HuaweiMobileServices.Base;
+using HuaweiMobileServices.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,6 +33,9 @@ namespace HuaweiMobileServices.Utils
             }
             return list;
         }
+
+        public static IList<string> AsStringList(this AndroidJavaObject javaList) =>
+            javaList.AsList<AndroidJavaObject>().Map((javaObject) => javaObject.AsString());
 
         public static System.Exception AsException(this AndroidJavaObject javaException) =>
             new HMSException(javaException.Call<AndroidJavaObject>("getMessage").AsString());

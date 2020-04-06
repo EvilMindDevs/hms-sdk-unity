@@ -21,12 +21,12 @@ namespace HuaweiMobileServices.IAP
             get => mJavaObject
                     .Call<AndroidJavaObject>("getProductIds")
                     .AsList<AndroidJavaObject>()
-                    .Map<AndroidJavaObject, string>((javaObject) => javaObject.AsString());
+                    .Map((javaObject) => javaObject.AsString());
 
             set => mJavaObject
                     .Call<AndroidJavaObject>(
                         "setProductIds",
-                        value.Map<string, AndroidJavaObject>((valueString) => valueString.AsJavaString()).AsJavaList()
+                        value.Map((valueString) => valueString.AsJavaString()).AsJavaList()
                     );
         }
 

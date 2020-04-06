@@ -1,7 +1,6 @@
 ﻿using HuaweiMobileServices.Utils;
 using System.Collections.Generic;
 using UnityEngine;
-using HuaweiMobileServices.Base;
 
 namespace HuaweiMobileServices.IAP
 {
@@ -26,10 +25,9 @@ namespace HuaweiMobileServices.IAP
 
         public virtual IList<ProductInfo> ProductInfoList
         {
-            get => mJavaObject
-                .Call<AndroidJavaObject>("getProductInfoList")
-                .AsList<AndroidJavaObject>()
-                .Map<AndroidJavaObject, ProductInfo>((javaObject) => new ProductInfo(javaObject));
+            get => mJavaObject.Call<AndroidJavaObject>("getProductInfoList")
+                    .AsList<AndroidJavaObject>()
+                    .Map<AndroidJavaObject, ProductInfo>((javaObject) => new ProductInfo(javaObject));
         }
 
     }
