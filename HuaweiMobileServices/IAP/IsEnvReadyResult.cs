@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace HuaweiMobileServices.IAP
 {
-    public class IsEnvReadyResult : JavaObjectWrapper
+    public class EnvReadyResult : JavaObjectWrapper
     {
 
-        internal IsEnvReadyResult(AndroidJavaObject javaObject) : base(javaObject) { }
+        internal EnvReadyResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int ReturnCode
         {

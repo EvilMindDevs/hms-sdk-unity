@@ -6,9 +6,9 @@ namespace HuaweiMobileServices.Base
     internal class OnFailureListenerWrapper : AndroidJavaProxy
     {
 
-        private readonly OnFailureListener mListener;
+        private readonly IOnFailureListener mListener;
 
-        internal OnFailureListenerWrapper(OnFailureListener listener) : base("com.huawei.hmf.tasks.OnFailureListener")
+        internal OnFailureListenerWrapper(IOnFailureListener listener) : base("com.huawei.hmf.tasks.OnFailureListener")
         {
             mListener = listener;
         }

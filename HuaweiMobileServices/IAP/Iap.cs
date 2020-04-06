@@ -1,5 +1,4 @@
-﻿using HuaweiMobileServices.Base;
-using HuaweiMobileServices.Utils;
+﻿using HuaweiMobileServices.Utils;
 using UnityEngine;
 
 namespace HuaweiMobileServices.IAP
@@ -8,12 +7,18 @@ namespace HuaweiMobileServices.IAP
     public static class Iap
     {
 
-        private static AndroidJavaClass mIapClass = new AndroidJavaClass("com.huawei.hms.iap.Iap");
+        private static AndroidJavaClass sIapClass = new AndroidJavaClass("com.huawei.hms.iap.Iap");
 
-        public static IapClient GetIapClient()
+        private static IIapClient sIapClient = null;
+
+        public static IIapClient GetIapClient()
         {
-            AndroidJavaObject iapClient = mIapClass.CallStatic<AndroidJavaObject>("getIapClient", AndroidContext.GetActivityContext());
-            return new IapClientWrapper(iapClient);
+            if (sIapClient == null)
+            {
+                AndroidJavaObject iapClient = sIapClass.CallStatic<AndroidJavaObject>("getIapClient", AndroidContext.GetActivityContext());
+                sIapClient = new IapClientWrapper(iapClient);
+            }
+            return sIapClient;
         }
 
     }

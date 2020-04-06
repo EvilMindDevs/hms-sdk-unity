@@ -5,7 +5,7 @@ using HuaweiMobileServices.Utils;
 namespace HuaweiMobileServices.Base
 {
 
-    internal class TaskImpl<T> : JavaObjectWrapper, Task<T> where T : JavaObjectWrapper
+    internal class TaskImpl<T> : JavaObjectWrapper, ITask<T> where T : JavaObjectWrapper
     {
 
         internal TaskImpl(AndroidJavaObject javaObject) : base(javaObject) { }
@@ -20,14 +20,14 @@ namespace HuaweiMobileServices.Base
 
         public Exception Exception => Call<AndroidJavaObject>("getException").AsException();
 
-        public Task<T> AddOnFailureListener(OnFailureListener onFailureListener)
+        public ITask<T> AddOnFailureListener(IOnFailureListener onFailureListener)
         {
             var listenerWrapper = new OnFailureListenerWrapper(onFailureListener);
             mJavaObject = Call<AndroidJavaObject>("addOnFailureListener", listenerWrapper);
             return this;
         }
 
-        public Task<T> AddOnSuccessListener(OnSuccessListener<T> onSuccessListener)
+        public ITask<T> AddOnSuccessListener(IOnSuccessListener<T> onSuccessListener)
         {
             var listenerWrapper = new OnSuccessListenerWrapper<T>(onSuccessListener);
             mJavaObject = Call<AndroidJavaObject>("addOnFailureListener", listenerWrapper);

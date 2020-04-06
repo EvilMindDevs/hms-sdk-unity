@@ -6,7 +6,7 @@ namespace HuaweiMobileServices.Base
 {
 
     // Wrapper for com.huawei.hmf.tasks.Task
-    public interface Task<T> where T : JavaObjectWrapper
+    public interface ITask<T> where T : JavaObjectWrapper
     {
         bool Complete { get; }
 
@@ -18,9 +18,9 @@ namespace HuaweiMobileServices.Base
 
         Exception Exception { get; }
 
-        Task<T> AddOnFailureListener(OnFailureListener onFailureListener);
+        ITask<T> AddOnFailureListener(IOnFailureListener onFailureListener);
 
-        Task<T> AddOnSuccessListener(OnSuccessListener<T> onSuccessListener);
+        ITask<T> AddOnSuccessListener(IOnSuccessListener<T> onSuccessListener);
     }
 
 }
