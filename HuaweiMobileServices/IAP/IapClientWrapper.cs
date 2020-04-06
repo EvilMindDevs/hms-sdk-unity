@@ -5,10 +5,8 @@ using UnityEngine;
 namespace HuaweiMobileServices.IAP
 {
 
-    internal class IapClientWrapper : JavaObjectWrapper, IapClient
+    internal class IapClientWrapper : JavaObjectWrapper, IIapClient
     {
-
-        private readonly AndroidJavaObject mIapClientJava;
 
         public IapClientWrapper(AndroidJavaObject iapClientJava) : base(iapClientJava) { }
 
@@ -23,26 +21,37 @@ namespace HuaweiMobileServices.IAP
 
         public Task<ProductInfoResult> ObtainProductInfo(ProductInfoReq productInfoReq)
         {
-            var javaTask = Call<AndroidJavaObject>("obtainProductInfo", productInfoReq.mJavaObject);
+            var javaTask = Call<AndroidJavaObject>("obtainProductInfo", productInfoReq.JavaObject);
             return new TaskImpl<ProductInfoResult>(javaTask);
         }
 
         public Task<ConsumeOwnedPurchaseResult> ConsumeOwnedPurchase(ConsumeOwnedPurchaseReq consumeOwnedPurchaseReq)
         {
-            var javaTask = Call<AndroidJavaObject>("consumeOwnedPurchase", consumeOwnedPurchaseReq.mJavaObject);
+            var javaTask = Call<AndroidJavaObject>("consumeOwnedPurchase", consumeOwnedPurchaseReq.JavaObject);
             return new TaskImpl<ConsumeOwnedPurchaseResult>(javaTask);
         }
 
         public Task<OwnedPurchasesResult> ObtainOwnedPurchases(OwnedPurchasesReq ownedPurchasesReq)
         {
-            var javaTask = Call<AndroidJavaObject>("obtainOwnedPurchases", ownedPurchasesReq.mJavaObject);
+            var javaTask = Call<AndroidJavaObject>("obtainOwnedPurchases", ownedPurchasesReq.JavaObject);
             return new TaskImpl<OwnedPurchasesResult>(javaTask);
         }
 
         public Task<OwnedPurchasesResult> ObtainOwnedPurchaseRecord(OwnedPurchasesReq ownedPurchasesReq)
         {
-            var javaTask = Call<AndroidJavaObject>("obtainOwnedPurchaseRecord", ownedPurchasesReq.mJavaObject);
+            var javaTask = Call<AndroidJavaObject>("obtainOwnedPurchaseRecord", ownedPurchasesReq.JavaObject);
             return new TaskImpl<OwnedPurchasesResult>(javaTask);
+        }
+
+        public Task<PurchaseIntentResult> CreatePurchaseIntentWithPrice(PurchaseIntentWithPriceReq purchaseIntentWithPriceReq)
+        {
+            var javaTask = Call<AndroidJavaObject>("createPurchaseIntentWithPrice", purchaseIntentWithPriceReq.JavaObject);
+            return new TaskImpl<PurchaseIntentResult>(javaTask);
+        }
+
+        public Task<PurchaseIntentResult> CreatePurchaseIntent(PurchaseIntentReq purchaseIntentReq)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

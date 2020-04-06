@@ -4,7 +4,7 @@ namespace HuaweiMobileServices.Utils
 {
     public class JavaObjectWrapper
     {
-        internal protected AndroidJavaObject mJavaObject;
+        private AndroidJavaObject mJavaObject;
 
         internal protected JavaObjectWrapper(AndroidJavaObject javaObject)
         {
@@ -16,7 +16,12 @@ namespace HuaweiMobileServices.Utils
             mJavaObject = new AndroidJavaObject(javaObjectCanonicalName);
         }
 
+        internal protected AndroidJavaObject JavaObject {
+            get => mJavaObject;
+        }
+
         internal protected T Call<T>(string methodName, params object[] args) => Call<T>(methodName, args);
+
         internal protected void Call(string methodName, params object[] args) => Call(methodName, args);
     }
 }
