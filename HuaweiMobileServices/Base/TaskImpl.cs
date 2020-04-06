@@ -23,14 +23,14 @@ namespace HuaweiMobileServices.Base
         public ITask<T> AddOnFailureListener(IOnFailureListener onFailureListener)
         {
             var listenerWrapper = new OnFailureListenerWrapper(onFailureListener);
-            mJavaObject = Call<AndroidJavaObject>("addOnFailureListener", listenerWrapper);
+            JavaObject = Call<AndroidJavaObject>("addOnFailureListener", listenerWrapper);
             return this;
         }
 
         public ITask<T> AddOnSuccessListener(IOnSuccessListener<T> onSuccessListener)
         {
             var listenerWrapper = new OnSuccessListenerWrapper<T>(onSuccessListener);
-            mJavaObject = Call<AndroidJavaObject>("addOnFailureListener", listenerWrapper);
+            JavaObject = Call<AndroidJavaObject>("addOnFailureListener", listenerWrapper);
             return this;
         }
     }

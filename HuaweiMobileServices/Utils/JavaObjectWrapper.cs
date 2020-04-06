@@ -18,6 +18,7 @@ namespace HuaweiMobileServices.Utils
 
         internal protected AndroidJavaObject JavaObject {
             get => mJavaObject;
+            set => mJavaObject = value;
         }
 
         internal protected T Call<T>(string methodName, params object[] args) => Call<T>(methodName, args);
