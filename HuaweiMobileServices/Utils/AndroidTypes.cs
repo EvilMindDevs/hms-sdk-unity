@@ -1,7 +1,6 @@
 namespace HuaweiMobileServices.Utils
 {
     using HuaweiMobileServices.Base;
-    using HuaweiMobileServices.Utils;
     using System.Collections.Generic;
     using UnityEngine;
 
@@ -42,5 +41,15 @@ namespace HuaweiMobileServices.Utils
 
         public static System.Exception AsException(this AndroidJavaObject javaException) =>
             new HMSException(javaException.Call<AndroidJavaObject>("getMessage").AsString());
+
+        public static AndroidJavaObject AsJavaSet<T>(this ISet<T> set)
+        {
+            var javaSet = new AndroidJavaObject("java.util.HashSet");
+            foreach (T element in set)
+            {
+                javaSet.Call("add", element);
+            }
+            return javaSet;
+        }
     }
 }

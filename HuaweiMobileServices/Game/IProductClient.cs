@@ -3,9 +3,9 @@
 namespace com.huawei.hms.jos.product
 {
     using Context = android.content.Context;
-    using HuaweiApiInterface = com.huawei.hms.common.HuaweiApiInterface;
+    using IHuaweiApiInterface = com.huawei.hms.common.IHuaweiApiInterface;
 
-    public interface IProductClient : HuaweiApiInterface
+    public interface IProductClient : IHuaweiApiInterface
     {
         Task<IList<ProductOrderInfo>> GetMissProductOrder(Context paramContext);
     }

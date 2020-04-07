@@ -11,9 +11,9 @@
             mJavaObject = javaObject;
         }
 
-        internal protected JavaObjectWrapper(string javaObjectCanonicalName)
+        internal protected JavaObjectWrapper(string javaObjectCanonicalName, params object[] args)
         {
-            mJavaObject = new AndroidJavaObject(javaObjectCanonicalName);
+            mJavaObject = new AndroidJavaObject(javaObjectCanonicalName, args);
         }
 
         internal protected AndroidJavaObject JavaObject {
