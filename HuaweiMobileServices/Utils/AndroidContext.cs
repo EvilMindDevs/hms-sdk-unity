@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-
-namespace HuaweiMobileServices.Utils
+﻿namespace HuaweiMobileServices.Utils
 {
-    static class AndroidContext
+    using UnityEngine;
+
+    internal static class AndroidContext
     {
 
         private static AndroidJavaClass mUnityPlayerClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");

@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
-
-namespace HuaweiMobileServices.Utils
+﻿namespace HuaweiMobileServices.Utils
 {
+    using System;
+    using UnityEngine;
 
     internal static class TypeWrapper
     {

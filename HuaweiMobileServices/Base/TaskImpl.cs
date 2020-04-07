@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
-using HuaweiMobileServices.Utils;
-
-namespace HuaweiMobileServices.Base
+﻿namespace HuaweiMobileServices.Base
 {
+    using System;
+    using UnityEngine;
+    using HuaweiMobileServices.Utils;
 
     internal class TaskImpl<T> : JavaObjectWrapper, ITask<T> where T : JavaObjectWrapper
     {

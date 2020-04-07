@@ -1,8 +1,7 @@
-﻿using HuaweiMobileServices.Utils;
-using UnityEngine;
-
-namespace HuaweiMobileServices.Base
+﻿namespace HuaweiMobileServices.Base
 {
+    using HuaweiMobileServices.Utils;
+
     // Wrapper for com.huawei.hmf.tasks.OnSuccessListener
     public interface IOnSuccessListener<T> where T : JavaObjectWrapper
     {

@@ -1,9 +1,9 @@
-﻿using HuaweiMobileServices.Utils;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace HuaweiMobileServices.IAP
+﻿namespace HuaweiMobileServices.IAP
 {
+    using HuaweiMobileServices.Utils;
+    using System.Collections.Generic;
+    using UnityEngine;
+
     // Wrapper for com.huawei.hms.iap.entity.PriceType
     public class ProductInfoReq : JavaObjectWrapper
     {

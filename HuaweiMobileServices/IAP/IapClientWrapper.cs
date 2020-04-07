@@ -1,9 +1,8 @@
-﻿using HuaweiMobileServices.Base;
-using HuaweiMobileServices.Utils;
-using UnityEngine;
-
-namespace HuaweiMobileServices.IAP
+﻿namespace HuaweiMobileServices.IAP
 {
+    using HuaweiMobileServices.Base;
+    using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     internal class IapClientWrapper : JavaObjectWrapper, IIapClient
     {

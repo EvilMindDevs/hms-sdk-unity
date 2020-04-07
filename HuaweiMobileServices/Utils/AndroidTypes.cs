@@ -1,11 +1,11 @@
-using HuaweiMobileServices.Base;
-using HuaweiMobileServices.Utils;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace HuaweiMobileServices.Utils
 {
-    static class AndroidTypes
+    using HuaweiMobileServices.Base;
+    using HuaweiMobileServices.Utils;
+    using System.Collections.Generic;
+    using UnityEngine;
+
+    internal static class AndroidTypes
     {
 
         public static AndroidJavaObject AsJavaString(this string value) => new AndroidJavaObject("java.lang.String", value);

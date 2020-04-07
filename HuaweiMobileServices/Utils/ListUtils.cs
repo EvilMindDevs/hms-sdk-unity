@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace HuaweiMobileServices.Utils
+﻿namespace HuaweiMobileServices.Utils
 {
-    static class ListUtils
+    using System;
+    using System.Collections.Generic;
+
+    internal static class ListUtils
     {
 
         public static IList<U> Map<T, U>(this IList<T> list, Func<T, U> action)

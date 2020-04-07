@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-
-namespace HuaweiMobileServices.Utils
+﻿namespace HuaweiMobileServices.Utils
 {
+    using UnityEngine;
+
     public class JavaObjectWrapper
     {
         private AndroidJavaObject mJavaObject;

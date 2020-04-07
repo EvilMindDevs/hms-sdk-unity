@@ -1,7 +1,7 @@
-﻿using HuaweiMobileServices.Base;
-
-namespace HuaweiMobileServices.IAP
+﻿namespace HuaweiMobileServices.IAP
 {
+    using HuaweiMobileServices.Base;
+
     // Wrapper for com.huawei.hms.iap.IapClient
     public interface IIapClient
     {

@@ -1,8 +1,8 @@
-﻿using HuaweiMobileServices.Utils;
-using UnityEngine;
-
-namespace HuaweiMobileServices.Base
+﻿namespace HuaweiMobileServices.Base
 {
+    using HuaweiMobileServices.Utils;
+    using UnityEngine;
+
     internal class OnSuccessListenerWrapper<T> : AndroidJavaProxy where T : JavaObjectWrapper
     {
         protected IOnSuccessListener<T> mListener;

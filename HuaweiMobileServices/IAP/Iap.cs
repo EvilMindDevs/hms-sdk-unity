@@ -1,8 +1,8 @@
-﻿using HuaweiMobileServices.Utils;
-using UnityEngine;
-
-namespace HuaweiMobileServices.IAP
+﻿namespace HuaweiMobileServices.IAP
 {
+    using HuaweiMobileServices.Utils;
+    using UnityEngine;
+
     // Wrapper for com.huawei.hms.iap.Iap
     public static class Iap
     {
