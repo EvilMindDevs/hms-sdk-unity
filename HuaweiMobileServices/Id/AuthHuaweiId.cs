@@ -45,7 +45,7 @@
                     serviceCountryCode.AsJavaString(),
                     status,
                     gender,
-                    extensionScopes.AsJavaSet<AndroidJavaObject>(),
+                    extensionScopes.AsJavaSetFromJavaObjectWrapper(),
                     authorizationCode.AsJavaString(),
                     unionId.AsJavaString(),
                     countryCode.AsJavaString()
@@ -76,12 +76,6 @@
             get => JavaObject.Call<AndroidJavaObject>("getDisplayName").AsString();
         }
 
-        public virtual string AvatarUri
-        {
-            // This is a Uri in the java object, so we need to extract the string from the Uri as well
-            get => JavaObject.Call<AndroidJavaObject>("getAvatarUri").Call<AndroidJavaObject>("toString").AsString();
-        }
-
         public virtual string AccessToken
         {
             get => JavaObject.Call<AndroidJavaObject>("getAccessToken").AsString();
@@ -99,7 +93,9 @@
 
         public virtual ISet<Scope> AuthorizedScopes
         {
-            get => JavaObject.Call<AndroidJavaObject>("getAuthorizedScopes").AsSet();
+            get => JavaObject.Call<AndroidJavaObject>("getAuthorizedScopes")
+                    .AsSet<AndroidJavaObject>()
+                    .Map((javaScope) => new Scope(javaScope));
         }
 
         public virtual string ServiceCountryCode
@@ -123,140 +119,78 @@
         }
 
 
-        public virtual Account HuaweiAccount
+        public virtual AndroidAccountWrapper HuaweiAccount
         {
             get
             {
-                return TextUtils.isEmpty(this.m) ? null : new Account(this.m, "com.huawei");
+                var javaObject = JavaObject.Call<AndroidJavaObject>("getHuaweiAccount");
+                return new AndroidAccountWrapper(javaObject);
             }
         }
 
         public virtual ISet<Scope> ExtensionScopes
         {
-            get
-            {
-                return this.n;
-            }
-            set
-            {
-                this.n = value;
-            }
+            get => JavaObject.Call<AndroidJavaObject>("getExtensionScopes")
+                    .AsSet<AndroidJavaObject>()
+                    .Map((javaScope) => new Scope(javaScope));
         }
 
 
         public virtual string IdToken
         {
-            get
-            {
-                return this.o;
-            }
-            set
-            {
-                this.o = value;
-            }
+            get => JavaObject.Call<AndroidJavaObject>("getIdToken").AsString();
         }
 
 
         public virtual long ExpirationTimeSecs
         {
-            get
-            {
-                return this.p;
-            }
-            set
-            {
-                this.p = value;
-            }
+            get => JavaObject.Call<long>("getExpirationTimeSecs");
         }
 
 
         public virtual string GivenName
         {
-            get
-            {
-                return this.q;
-            }
-            set
-            {
-                this.q = value;
-            }
+            get => JavaObject.Call<AndroidJavaObject>("getGivenName").AsString();
         }
 
 
         public virtual string FamilyName
         {
-            get
-            {
-                return this.r;
-            }
-            set
-            {
-                this.r = value;
-            }
+            get => JavaObject.Call<AndroidJavaObject>("getFamilyName").AsString();
         }
 
         public virtual string UnionId
         {
-            get
-            {
-                return this.l;
-            }
+            get => JavaObject.Call<AndroidJavaObject>("getUnionId").AsString();
         }
 
         public virtual bool Expired
         {
-            get
-            {
-                if (this.p > 300L)
-                {
-                    return (DateTimeHelper.CurrentUnixTimeMillis() / 1000L >= this.p - 300L);
-                }
-                return false;
-            }
+            get => JavaObject.Call<bool>("getExpired");
         }
 
-        public virtual AuthHuaweiId RequestExtraScopes(IList<Scope> paramList)
+        public virtual AuthHuaweiId RequestExtraScopes(IList<Scope> list)
         {
-            if (a.b(paramList).booleanValue())
-            {
-                this.n.addAll(paramList);
-            }
-            return this;
+            var javaList = list.AsJavaListFromJavaObjectWrapper();
+            var authHuaweiIdJava = JavaObject.Call<AndroidJavaObject>("getRequestExtraScopes", javaList);
+            return new AuthHuaweiId(authHuaweiIdJava);
         }
 
         public virtual ISet<Scope> RequestedScopes
         {
-            get
-            {
-                HashSet<object> hashSet = new HashSet<object>(this.j);
-                hashSet.addAll(this.n);
-                return hashSet;
-            }
+            get => JavaObject.Call<AndroidJavaObject>("getRequestedScopes")
+                    .AsSet<AndroidJavaObject>()
+                    .Map((javaScope) => new Scope(javaScope));
         }
 
         public virtual string AvatarUriString
         {
-            get
-            {
-                return this.d;
-            }
-            set
-            {
-                this.d = value;
-            }
+            get => JavaObject.Call<AndroidJavaObject>("getAvatarUriString").AsString();
         }
-
 
         public virtual string AgeRange
         {
-            get
-            {
-                return this.s;
-            }
-            set
-            {
-                this.s = value;
-            }
+            get => JavaObject.Call<AndroidJavaObject>("getAgeRange").AsString();
         }
 
     }

@@ -21,6 +21,9 @@ namespace HuaweiMobileServices.Utils
             return javaList;
         }
 
+        public static AndroidJavaObject AsJavaListFromJavaObjectWrapper<T>(this IList<T> list) where T : JavaObjectWrapper =>
+            list.Map((javaWrapper) => javaWrapper.JavaObject).AsJavaList();
+
         public static IList<T> AsList<T>(this AndroidJavaObject javaList)
         {
             var list = new List<T>();
@@ -50,6 +53,15 @@ namespace HuaweiMobileServices.Utils
                 javaSet.Call("add", element);
             }
             return javaSet;
+        }
+
+        public static AndroidJavaObject AsJavaSetFromJavaObjectWrapper<T>(this ISet<T> set) where T : JavaObjectWrapper =>
+            set.Map((javaWrapper) => javaWrapper.JavaObject).AsJavaSet();
+
+        public static ISet<T> AsSet<T>(this AndroidJavaObject javaSet)
+        {
+            var list = new AndroidJavaObject("java.util.ArrayList", javaSet).AsList<T>();
+            return new HashSet<T>(list);
         }
     }
 }
