@@ -1,12 +1,12 @@
-﻿namespace com.huawei.hms.jos.product
+﻿namespace HuaweiMobileServices.Game
 {
     using System.Collections.Generic;
     using HuaweiMobileServices.Base;
 
-    // Wrapper for com.huawei.hms.jos.product.IProductClient
-    public interface IProductClient : IHuaweiApiInterface
+    // Wrapper for com.huawei.hms.jos.product.ProductClient
+    public interface IProductClient
     {
-        ITask<IList<ProductOrderInfo>> GetMissProductOrder(Context paramContext);
+        ITask<IList<ProductOrderInfo>> GetMissProductOrder();
     }
 
 }

@@ -6,8 +6,8 @@
 
     internal class OnSuccessListenerWrapper<T> : AndroidJavaProxy
     {
-        protected IOnSuccessListener<T> mListener;
-        private Func<AndroidJavaObject, T> mConverter;
+        protected readonly IOnSuccessListener<T> mListener;
+        private readonly Func<AndroidJavaObject, T> mConverter;
 
         public OnSuccessListenerWrapper(IOnSuccessListener<T> listener, Func<AndroidJavaObject, T> func) : base("com.huawei.hmf.tasks.OnSuccessListener")
         {

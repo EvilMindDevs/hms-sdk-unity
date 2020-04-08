@@ -1,10 +1,7 @@
-﻿namespace com.huawei.hms.jos
+﻿namespace HuaweiMobileServices.Game
 {
     using UnityEngine;
     using HuaweiMobileServices.Utils;
-    using AuthHuaweiId = com.huawei.hms.support.hwid.result.AuthHuaweiId;
-    using IProductClient = com.huawei.hms.jos.product.IProductClient;
-    using ProductClientImpl = com.huawei.hms.jos.product.ProductClientImpl;
 
     // Wrapper for com.huawei.hms.jos.JosApps
     public sealed class JosApps

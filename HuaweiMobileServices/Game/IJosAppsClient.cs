@@ -1,8 +1,8 @@
-﻿namespace com.huawei.hms.jos
+﻿namespace HuaweiMobileServices.Game
 {
     using HuaweiMobileServices.Base;
 
-    public interface IJosAppsClient : IHuaweiApiInterface
+    public interface IJosAppsClient
     {
         void Init();
 
