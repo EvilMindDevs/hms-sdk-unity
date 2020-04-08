@@ -5,7 +5,7 @@
     using UnityEngine;
 
     // Wrapper for com.huawei.hmf.tasks.Task
-    public interface ITask<T> where T : JavaObjectWrapper
+    public interface ITask<T>
     {
         bool Complete { get; }
 

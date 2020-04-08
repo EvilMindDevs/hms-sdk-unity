@@ -1,20 +1,24 @@
 ﻿namespace HuaweiMobileServices.Base
 {
+    using System;
     using HuaweiMobileServices.Utils;
     using UnityEngine;
 
-    internal class OnSuccessListenerWrapper<T> : AndroidJavaProxy where T : JavaObjectWrapper
+    internal class OnSuccessListenerWrapper<T> : AndroidJavaProxy
     {
         protected IOnSuccessListener<T> mListener;
+        private Func<AndroidJavaObject, T> mConverter;
 
-        public OnSuccessListenerWrapper(IOnSuccessListener<T> listener) : base("com.huawei.hmf.tasks.OnSuccessListener")
+        public OnSuccessListenerWrapper(IOnSuccessListener<T> listener, Func<AndroidJavaObject, T> func) : base("com.huawei.hmf.tasks.OnSuccessListener")
         {
             mListener = listener;
+            mConverter = func;
         }
 
         public void onSuccess(AndroidJavaObject result)
         {
-            mListener.OnSuccess(result.AsWrapper<T>());
+            T convertedResult = mConverter(result);
+            mListener.OnSuccess(convertedResult);
         }
     }
 }

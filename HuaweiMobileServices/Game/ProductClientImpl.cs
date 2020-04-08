@@ -16,7 +16,7 @@ namespace com.huawei.hms.jos.product
         {
         }
 
-        public virtual Task<IList<ProductOrderInfo>> GetMissProductOrder(Context paramContext)
+        public virtual ITask<IList<ProductOrderInfo>> GetMissProductOrder(Context paramContext)
         {
             string str = HiAnalyticsClient.reportEntry(Context, "jos.getMissProductOrder", e.b(Context));
             ApiException apiException = CheckInit();

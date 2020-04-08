@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
-
-namespace com.huawei.hms.jos.product
+﻿namespace com.huawei.hms.jos.product
 {
-    using Context = android.content.Context;
-    using IHuaweiApiInterface = com.huawei.hms.common.IHuaweiApiInterface;
+    using System.Collections.Generic;
+    using HuaweiMobileServices.Base;
 
+    // Wrapper for com.huawei.hms.jos.product.IProductClient
     public interface IProductClient : IHuaweiApiInterface
     {
-        Task<IList<ProductOrderInfo>> GetMissProductOrder(Context paramContext);
+        ITask<IList<ProductOrderInfo>> GetMissProductOrder(Context paramContext);
     }
 
 }

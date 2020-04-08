@@ -1,13 +1,18 @@
 ﻿namespace HuaweiMobileServices.Base
 {
+    using HuaweiMobileServices.Utils;
     using System;
     using UnityEngine;
-    using HuaweiMobileServices.Utils;
 
-    internal class TaskImpl<T> : JavaObjectWrapper, ITask<T> where T : JavaObjectWrapper
+    internal class TaskWrapper<T> : JavaObjectWrapper, ITask<T>
     {
 
-        internal TaskImpl(AndroidJavaObject javaObject) : base(javaObject) { }
+        private readonly Func<AndroidJavaObject, T> mConverter;
+
+        internal TaskWrapper(AndroidJavaObject javaObject, Func<AndroidJavaObject, T> func) : base(javaObject)
+        {
+            mConverter = func;
+        }
 
         public bool Complete => Call<bool>("isComplete");
 
@@ -15,7 +20,14 @@
 
         public bool Canceled => Call<bool>("isCanceled");
 
-        public T Result => Call<AndroidJavaObject>("getResult").AsWrapper<T>();
+        public virtual T Result
+        {
+            get
+            {
+                var result = Call<AndroidJavaObject>("getResult");
+                return mConverter.Invoke(result);
+            }
+        }
 
         public Exception Exception => Call<AndroidJavaObject>("getException").AsException();
 
@@ -28,7 +40,7 @@
 
         public ITask<T> AddOnSuccessListener(IOnSuccessListener<T> onSuccessListener)
         {
-            var listenerWrapper = new OnSuccessListenerWrapper<T>(onSuccessListener);
+            var listenerWrapper = new OnSuccessListenerWrapper<T>(onSuccessListener, mConverter);
             JavaObject = Call<AndroidJavaObject>("addOnFailureListener", listenerWrapper);
             return this;
         }

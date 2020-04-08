@@ -6,6 +6,6 @@
     {
         void Init();
 
-        Task<string> AppId { get; }
+        ITask<string> AppId { get; }
     }
 }
