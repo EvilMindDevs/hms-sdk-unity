@@ -6,6 +6,6 @@
 
     internal class TaskJavaObjectWrapper<T> : TaskWrapper<T> where T : JavaObjectWrapper
     {
-        internal TaskJavaObjectWrapper(AndroidJavaObject javaObject) : base(javaObject, (jObject) => jObject.AsWrapper<T>()) { }
+        internal TaskJavaObjectWrapper(AndroidJavaObject javaObject) : base(javaObject, AndroidTypes.AsWrapper<T>) { }
     }
 }

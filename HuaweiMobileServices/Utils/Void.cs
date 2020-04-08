@@ -2,6 +2,9 @@
 {
     public sealed class Void
     {
-        internal Void() { }
+
+        internal static readonly Void INSTANCE = new Void();
+
+        private Void() { }
     }
 }
