@@ -30,5 +30,8 @@
 
         internal protected T CallAsWrapper<T>(string methodName, params object[] args) where T : JavaObjectWrapper =>
             Call<AndroidJavaObject>(methodName, args).AsWrapper<T>();
+
+        internal protected string CallAsUriString(string methodName, params object[] args) =>
+            Call<AndroidJavaObject>(methodName, args).Call<AndroidJavaObject>("toString").AsString();
     }
 }

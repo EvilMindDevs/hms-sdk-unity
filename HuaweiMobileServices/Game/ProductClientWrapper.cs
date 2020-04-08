@@ -6,10 +6,10 @@
     using System.Collections.Generic;
 
     // Wrapper for com.huawei.hms.jos.product.ProductClientImpl
-    public class ProductClientImpl : JavaObjectWrapper, IProductClient
+    public class ProductClientWrapper : JavaObjectWrapper, IProductClient
     {
 
-        internal ProductClientImpl(AndroidJavaObject javaObject) : base(javaObject) { }
+        internal ProductClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual ITask<IList<ProductOrderInfo>> GetMissProductOrder()
         {

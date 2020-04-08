@@ -23,7 +23,7 @@
         public static IProductClient GetProductClient()
         {
             var productClient = sJavaClass.CallStatic<AndroidJavaObject>("getProductClient", AndroidContext.GetApplicationContext());
-            return new ProductClientImpl(productClient);
+            return new ProductClientWrapper(productClient);
         }
     }
 
