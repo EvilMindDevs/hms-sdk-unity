@@ -9,7 +9,7 @@
     public class ProductClientImpl : JavaObjectWrapper, IProductClient
     {
 
-        internal ProductClientImpl() : base("com.huawei.hms.jos.product.ProductClientImpl", AndroidContext.GetActivityContext()) { }
+        internal ProductClientImpl(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual ITask<IList<ProductOrderInfo>> GetMissProductOrder()
         {

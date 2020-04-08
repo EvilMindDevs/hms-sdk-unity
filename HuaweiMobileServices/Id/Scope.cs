@@ -1,4 +1,4 @@
-﻿namespace HuaweiMobileServices.Base
+﻿namespace HuaweiMobileServices.Id
 {
     using HuaweiMobileServices.Utils;
     using UnityEngine;
