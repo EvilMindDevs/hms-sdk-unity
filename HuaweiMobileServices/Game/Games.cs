@@ -2,15 +2,18 @@
 {
     using UnityEngine;
     using HuaweiMobileServices.Id;
+    using HuaweiMobileServices.Utils;
 
     // Wrapper for com.huawei.hms.jos.games.Games
-    public sealed class Games
+    public static class Games
     {
-        public static IEventsClient GetEventsClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
+
+        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.jos.games.Games");
+
+        public static IEventsClient GetEventsClient(AuthHuaweiId authHuaweiId)
         {
-            Checker.assertNonNull(paramActivity);
-            b.a().a(paramActivity);
-            return new EventsClientImpl(paramActivity, paramAuthHuaweiId);
+            var javaClient = sJavaClass.CallStatic<AndroidJavaObject>("getEventsClient", AndroidContext.GetActivityContext(), authHuaweiId.JavaObject);
+            return new EventsClientWrapper(javaClient);
         }
 
         public static PlayersClient GetPlayersClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
