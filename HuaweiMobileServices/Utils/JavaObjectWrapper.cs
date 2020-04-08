@@ -25,6 +25,10 @@
 
         internal protected void Call(string methodName, params object[] args) => Call(methodName, args);
 
-        internal protected string CallAsString(string methodName, params object[] args) => Call<AndroidJavaObject>(methodName, args).AsString();
+        internal protected string CallAsString(string methodName, params object[] args) =>
+            Call<AndroidJavaObject>(methodName, args).AsString();
+
+        internal protected T CallAsWrapper<T>(string methodName, params object[] args) where T : JavaObjectWrapper =>
+            Call<AndroidJavaObject>(methodName, args).AsWrapper<T>();
     }
 }
