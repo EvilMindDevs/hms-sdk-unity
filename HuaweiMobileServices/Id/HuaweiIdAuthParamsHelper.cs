@@ -36,7 +36,7 @@
 
         public HuaweiIdAuthParamsHelper SetScopeList(IList<Scope> list)
         {
-            JavaObject = Call<AndroidJavaObject>("setScopeList", list.AsJavaListFromJavaObjectWrapper());
+            JavaObject = Call<AndroidJavaObject>("setScopeList", list.AsJavaListFromWrapper());
             return this;
         }
 

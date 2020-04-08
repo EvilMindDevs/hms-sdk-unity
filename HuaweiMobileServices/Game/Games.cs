@@ -6,7 +6,7 @@
     // Wrapper for com.huawei.hms.jos.games.Games
     public sealed class Games
     {
-        public static EventsClient GetEventsClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
+        public static IEventsClient GetEventsClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
         {
             Checker.assertNonNull(paramActivity);
             b.a().a(paramActivity);

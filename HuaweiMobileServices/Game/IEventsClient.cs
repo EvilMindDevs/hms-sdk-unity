@@ -1,18 +1,16 @@
-﻿using System.Collections.Generic;
-
-namespace com.huawei.hms.jos.games
+﻿namespace HuaweiMobileServices.Game
 {
-    using Event = com.huawei.hms.jos.games.@event.Event;
-    using HuaweiApiInterface = com.huawei.hms.common.HuaweiApiInterface;
+    using System.Collections.Generic;
+    using HuaweiMobileServices.Base;
 
     // Wrapper for com.huawei.hms.jos.games.EventsClient
-    public interface IEventsClient : HuaweiApiInterface
+    public interface IEventsClient
     {
-        void Grow(string paramString, int paramInt);
+        void Grow(string aString, int aInt);
 
-        Task<IList<Event>> GetEventList(bool paramBoolean);
+        ITask<IList<Event>> GetEventList(bool paramBoolean);
 
-        Task<IList<Event>> GetEventListByIds(bool paramBoolean, params string[] paramVarArgs);
+        ITask<IList<Event>> GetEventListByIds(bool paramBoolean, params string[] paramVarArgs);
     }
 
 }

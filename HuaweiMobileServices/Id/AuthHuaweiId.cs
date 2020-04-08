@@ -45,7 +45,7 @@
                     serviceCountryCode.AsJavaString(),
                     status,
                     gender,
-                    extensionScopes.AsJavaSetFromJavaObjectWrapper(),
+                    extensionScopes.AsJavaSetFromWrapper(),
                     authorizationCode.AsJavaString(),
                     unionId.AsJavaString(),
                     countryCode.AsJavaString()
@@ -171,7 +171,7 @@
 
         public virtual AuthHuaweiId RequestExtraScopes(IList<Scope> list)
         {
-            var javaList = list.AsJavaListFromJavaObjectWrapper();
+            var javaList = list.AsJavaListFromWrapper();
             var authHuaweiIdJava = JavaObject.Call<AndroidJavaObject>("getRequestExtraScopes", javaList);
             return new AuthHuaweiId(authHuaweiIdJava);
         }
