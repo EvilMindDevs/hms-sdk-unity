@@ -19,7 +19,7 @@
         public virtual IList<string> ProductIds
         {
             get => Call<AndroidJavaObject>("getProductIds").AsStringList();
-            set => Call<AndroidJavaObject>("setProductIds", value.AsJavaStringList());
+            set => Call("setProductIds", value.AsJavaStringList());
         }
 
     }

@@ -1,4 +1,4 @@
-﻿namespace HuaweiMobileServices.IAP
+namespace HuaweiMobileServices.IAP
 {
     using HuaweiMobileServices.Utils;
     using UnityEngine;

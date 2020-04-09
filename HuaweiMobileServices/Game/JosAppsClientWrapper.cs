@@ -1,4 +1,4 @@
-﻿namespace HuaweiMobileServices.Game
+namespace HuaweiMobileServices.Game
 {
     using HuaweiMobileServices.Base;
     using HuaweiMobileServices.Utils;

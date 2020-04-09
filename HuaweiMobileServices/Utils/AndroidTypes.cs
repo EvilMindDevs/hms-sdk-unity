@@ -2,16 +2,23 @@ namespace HuaweiMobileServices.Utils
 {
     using HuaweiMobileServices.Base;
     using System;
+    using System.Reflection;
     using System.Collections.Generic;
     using UnityEngine;
+    using System.Globalization;
 
     internal static class AndroidTypes
     {
 
         private static readonly AndroidJavaClass sArrays = new AndroidJavaClass("java.util.Arrays");
 
-        public static T AsWrapper<T>(this AndroidJavaObject javaObject) where T : JavaObjectWrapper =>
-            Activator.CreateInstance(typeof(T), javaObject) as T;
+        public static T AsWrapper<T>(this AndroidJavaObject javaObject) where T : JavaObjectWrapper
+        {
+            BindingFlags flags = BindingFlags.NonPublic | BindingFlags.Instance;
+            object[] parameters = new object[1];
+            parameters[0] = javaObject;
+            return Activator.CreateInstance(typeof(T), flags, null, parameters, null) as T;
+        }
 
         public static AndroidJavaObject AsJavaString(this string value) => new AndroidJavaObject("java.lang.String", value);
 
@@ -22,7 +29,7 @@ namespace HuaweiMobileServices.Utils
             var javaList = new AndroidJavaObject("java.util.ArrayList");
             foreach (T element in list)
             {
-                javaList.Call("add", element);
+                javaList.Call<bool>("add", element);
             }
             return javaList;
         }
@@ -59,7 +66,7 @@ namespace HuaweiMobileServices.Utils
             var javaSet = new AndroidJavaObject("java.util.HashSet");
             foreach (T element in set)
             {
-                javaSet.Call("add", element);
+                javaSet.Call<bool>("add", element);
             }
             return javaSet;
         }

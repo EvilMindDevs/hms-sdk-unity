@@ -1,4 +1,4 @@
-﻿namespace HuaweiMobileServices.Base
+namespace HuaweiMobileServices.Base
 {
     using HuaweiMobileServices.Utils;
     using System;
@@ -26,7 +26,7 @@
         override public ITask<T> AddOnSuccessListener(Action<T> onSuccessListener)
         {
             var listenerWrapper = new OnSuccessListenerConverterWrapper<T>(onSuccessListener, mConverter);
-            JavaObject = Call<AndroidJavaObject>("addOnFailureListener", listenerWrapper);
+            JavaObject = Call<AndroidJavaObject>("addOnSuccessListener", listenerWrapper);
             return this;
         }
     }

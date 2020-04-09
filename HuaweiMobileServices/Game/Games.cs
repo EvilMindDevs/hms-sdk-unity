@@ -28,40 +28,40 @@
         public static IGamesClient GetGamesClient(AuthHuaweiId authHuaweiId) =>
             sJavaClass.CallStaticAsWrapper<GamesClientWrapper>("getGamesClient", AndroidContext.GetActivityContext(), authHuaweiId.JavaObject);
 
-        public static RankingsClient GetRankingsClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
-        {
-            Checker.assertNonNull(paramActivity);
-            b.a().a(paramActivity);
-            return new RankingsClientImpl(paramActivity, paramAuthHuaweiId);
-        }
+        //public static RankingsClient GetRankingsClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
+        //{
+        //    Checker.assertNonNull(paramActivity);
+        //    b.a().a(paramActivity);
+        //    return new RankingsClientImpl(paramActivity, paramAuthHuaweiId);
+        //}
 
-        public static GameSummaryClient GetGameSummaryClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
-        {
-            Checker.assertNonNull(paramActivity);
-            b.a().a(paramActivity);
-            return new GameSummaryClientImpl(paramActivity, paramAuthHuaweiId);
-        }
+        //public static GameSummaryClient GetGameSummaryClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
+        //{
+        //    Checker.assertNonNull(paramActivity);
+        //    b.a().a(paramActivity);
+        //    return new GameSummaryClientImpl(paramActivity, paramAuthHuaweiId);
+        //}
 
-        public static GamePlayerStatisticsClient GetGamePlayerStatsClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
-        {
-            Checker.assertNonNull(paramActivity);
-            b.a().a(paramActivity);
-            return new PlayerStatsClientImpl(paramActivity, paramAuthHuaweiId);
-        }
+        //public static GamePlayerStatisticsClient GetGamePlayerStatsClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
+        //{
+        //    Checker.assertNonNull(paramActivity);
+        //    b.a().a(paramActivity);
+        //    return new PlayerStatsClientImpl(paramActivity, paramAuthHuaweiId);
+        //}
 
-        public static ArchivesClient GetArchiveClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
-        {
-            Checker.assertNonNull(paramActivity);
-            b.a().a(paramActivity);
-            return new a(paramActivity, paramAuthHuaweiId);
-        }
+        //public static ArchivesClient GetArchiveClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
+        //{
+        //    Checker.assertNonNull(paramActivity);
+        //    b.a().a(paramActivity);
+        //    return new a(paramActivity, paramAuthHuaweiId);
+        //}
 
-        public static BuoyClient GetBuoyClient(Activity paramActivity)
-        {
-            Checker.assertNonNull(paramActivity);
-            b.a().a(paramActivity);
-            return new BuoyClientImpl(paramActivity);
-        }
+        //public static BuoyClient GetBuoyClient(Activity paramActivity)
+        //{
+        //    Checker.assertNonNull(paramActivity);
+        //    b.a().a(paramActivity);
+        //    return new BuoyClientImpl(paramActivity);
+        //}
     }
 
 }
