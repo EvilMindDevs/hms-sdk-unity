@@ -31,14 +31,14 @@
 
         public Exception Exception => Call<AndroidJavaObject>("getException").AsException();
 
-        public ITask<T> AddOnFailureListener(IOnFailureListener onFailureListener)
+        public ITask<T> AddOnFailureListener(Action<Exception> onFailureListener)
         {
             var listenerWrapper = new OnFailureListenerWrapper(onFailureListener);
             JavaObject = Call<AndroidJavaObject>("addOnFailureListener", listenerWrapper);
             return this;
         }
 
-        public ITask<T> AddOnSuccessListener(IOnSuccessListener<T> onSuccessListener)
+        public ITask<T> AddOnSuccessListener(Action<T> onSuccessListener)
         {
             var listenerWrapper = new OnSuccessListenerWrapper<T>(onSuccessListener, mConverter);
             JavaObject = Call<AndroidJavaObject>("addOnFailureListener", listenerWrapper);
