@@ -7,6 +7,9 @@ namespace HuaweiMobileServices.Utils
 
     internal static class AndroidTypes
     {
+
+        private static readonly AndroidJavaClass sArrays = new AndroidJavaClass("java.util.Arrays");
+
         public static T AsWrapper<T>(this AndroidJavaObject javaObject) where T : JavaObjectWrapper =>
             Activator.CreateInstance(typeof(T), javaObject) as T;
 
@@ -81,5 +84,13 @@ namespace HuaweiMobileServices.Utils
                 .Map((element) => element.JavaObject)
                 .AsJavaList<AndroidJavaObject>()
                 .Call<AndroidJavaObject>("toArray");
+
+        public static T[] AsArray<T>(this AndroidJavaObject javaObject) where T : JavaObjectWrapper
+        {
+            var list = sArrays.CallStatic<AndroidJavaObject>("asList", javaObject).AsListFromWrappable<T>();
+            var array = new T[list.Count];
+            list.CopyTo(array, 0);
+            return array;
+        }
     }
 }

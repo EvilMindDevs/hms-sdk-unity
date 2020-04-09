@@ -1,6 +1,7 @@
 ﻿namespace HuaweiMobileServices.Utils
 {
     using UnityEngine;
+    using System.Collections.Generic;
 
     public class JavaObjectWrapper
     {
@@ -33,5 +34,11 @@
 
         internal protected string CallAsUriString(string methodName, params object[] args) =>
             Call<AndroidJavaObject>(methodName, args).Call<AndroidJavaObject>("toString").AsString();
+
+        internal protected IList<T> CallAsWrapperList<T>(string methodName, params object[] args) where T : JavaObjectWrapper =>
+            Call<AndroidJavaObject>(methodName, args).AsListFromWrappable<T>();
+
+        internal protected T[] CallAsWrapperArray<T>(string methodName, params object[] args) where T : JavaObjectWrapper =>
+            Call<AndroidJavaObject>(methodName, args).AsArray<T>();
     }
 }
