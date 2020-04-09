@@ -1,7 +1,7 @@
 ﻿namespace HuaweiMobileServices.Game
 {
-    using System.Collections.Generic;
     using HuaweiMobileServices.Base;
+    using System.Collections.Generic;
 
     // Wrapper for com.huawei.hms.jos.games.EventsClient
     public interface IEventsClient

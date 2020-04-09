@@ -1,8 +1,7 @@
 namespace HuaweiMobileServices.Game
 {
-    using System;
-    using HuaweiMobileServices.Utils;
     using HuaweiMobileServices.Id;
+    using HuaweiMobileServices.Utils;
     using UnityEngine;
 
     // Wrapper for com.huawei.hms.jos.games.player.Player
@@ -11,7 +10,7 @@ namespace HuaweiMobileServices.Game
 
         internal Player(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public Player(string json, AuthHuaweiId authHuaweiId) 
+        public Player(string json, AuthHuaweiId authHuaweiId)
             : base("com.huawei.hms.jos.games.player.Player", json.AsJavaString(), authHuaweiId.JavaObject) { }
 
         public virtual string DisplayName

@@ -1,6 +1,5 @@
 namespace HuaweiMobileServices.Base
 {
-    using HuaweiMobileServices.Utils;
     using System;
     using UnityEngine;
 

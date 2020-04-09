@@ -1,7 +1,7 @@
 namespace HuaweiMobileServices.Utils
 {
-    using UnityEngine;
     using System.Collections.Generic;
+    using UnityEngine;
 
     public class JavaObjectWrapper
     {

@@ -1,9 +1,9 @@
 namespace HuaweiMobileServices.Game
 {
-    using UnityEngine;
     using HuaweiMobileServices.Base;
     using HuaweiMobileServices.Utils;
     using System.Collections.Generic;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.jos.product.ProductClientImpl
     public class ProductClientWrapper : JavaObjectWrapper, IProductClient

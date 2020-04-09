@@ -1,9 +1,6 @@
-﻿using System;
-
-namespace HuaweiMobileServices.Game
+﻿namespace HuaweiMobileServices.Game
 {
     using HuaweiMobileServices.Utils;
-    using UnityEngine;
 
     // Wrapper for com.huawei.hms.jos.games.ranking.RankingScore
     public class RankingScore : JavaObjectWrapper

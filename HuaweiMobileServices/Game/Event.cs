@@ -1,6 +1,5 @@
 namespace HuaweiMobileServices.Game
 {
-    using System;
     using HuaweiMobileServices.Utils;
     using UnityEngine;
 

@@ -1,7 +1,6 @@
 ﻿namespace HuaweiMobileServices.Base
 {
     using System;
-    using HuaweiMobileServices.Utils;
     using UnityEngine;
 
     // Wrapper for com.huawei.hmf.tasks.OnSuccessListener
@@ -24,7 +23,7 @@
             mListener.Invoke(convertedResult);
         }
     }
-    
+
     // Wrapper for com.huawei.hmf.tasks.OnSuccessListener
     // For primitive types, no conversion needed
     internal class OnSuccessListenerWrapper<T> : AndroidJavaProxy

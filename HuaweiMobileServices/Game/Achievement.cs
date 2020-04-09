@@ -1,5 +1,3 @@
-using System;
-
 namespace HuaweiMobileServices.Game
 {
     using HuaweiMobileServices.Utils;

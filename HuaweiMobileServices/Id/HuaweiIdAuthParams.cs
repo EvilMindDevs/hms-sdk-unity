@@ -1,8 +1,7 @@
 ﻿namespace HuaweiMobileServices.Id
 {
-    using System.Collections.Generic;
     using HuaweiMobileServices.Utils;
-    using HuaweiMobileServices.Base;
+    using System.Collections.Generic;
     using UnityEngine;
 
     // Wrapper for com.huawei.hms.support.hwid.request.HuaweiIdAuthParams

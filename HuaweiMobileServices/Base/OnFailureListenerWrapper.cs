@@ -1,7 +1,7 @@
 ﻿namespace HuaweiMobileServices.Base
 {
-    using System;
     using HuaweiMobileServices.Utils;
+    using System;
     using UnityEngine;
 
     // Wrapper for com.huawei.hmf.tasks.OnFailureListener

@@ -1,8 +1,7 @@
 ﻿namespace HuaweiMobileServices.Base
 {
-    using System;
-    using UnityEngine;
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     internal class TaskJavaObjectWrapper<T> : TaskWrapper<T> where T : JavaObjectWrapper
     {

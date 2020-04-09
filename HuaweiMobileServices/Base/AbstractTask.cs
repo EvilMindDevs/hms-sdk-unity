@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace HuaweiMobileServices.Base
 {
     using HuaweiMobileServices.Utils;
     using UnityEngine;
-    
+
     internal abstract class AbstractTask<T> : JavaObjectWrapper, ITask<T>
     {
 

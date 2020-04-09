@@ -1,7 +1,7 @@
 ﻿namespace HuaweiMobileServices.Id
 {
-    using UnityEngine;
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.support.api.entity.auth.PermissionInfo
     public class PermissionInfo : JavaObjectWrapper
@@ -11,7 +11,7 @@
 
         public PermissionInfo() : base(CLASS_NAME) { }
 
-        public PermissionInfo(string appID, string packageName, string permission) 
+        public PermissionInfo(string appID, string packageName, string permission)
             : base(CLASS_NAME, appID.AsJavaString(), packageName.AsJavaString(), permission.AsJavaString()) { }
 
         public virtual string AppID

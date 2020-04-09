@@ -1,8 +1,6 @@
 ﻿namespace HuaweiMobileServices.Base
 {
-    using HuaweiMobileServices.Utils;
     using System;
-    using UnityEngine;
 
     // Wrapper for com.huawei.hmf.tasks.Task
     public interface ITask<T>

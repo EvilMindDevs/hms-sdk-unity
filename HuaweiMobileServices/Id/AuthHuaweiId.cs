@@ -1,6 +1,5 @@
 ﻿namespace HuaweiMobileServices.Id
 {
-    using HuaweiMobileServices.Base;
     using HuaweiMobileServices.Utils;
     using System.Collections.Generic;
     using UnityEngine;
@@ -17,21 +16,21 @@
 
         public AuthHuaweiId(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public static AuthHuaweiId CreateDefault() => 
+        public static AuthHuaweiId CreateDefault() =>
             Build(null, null, null, null, null, null, 0, -1, new HashSet<Scope>(), null, null, null);
 
         public static AuthHuaweiId Build(
                 string openId,
-                string uid, 
+                string uid,
                 string displayName,
-                string avatarUriString, 
-                string accessToken, 
-                string serviceCountryCode, 
-                int status, 
-                int gender, 
-                ISet<Scope> extensionScopes, 
-                string authorizationCode, 
-                string unionId, 
+                string avatarUriString,
+                string accessToken,
+                string serviceCountryCode,
+                int status,
+                int gender,
+                ISet<Scope> extensionScopes,
+                string authorizationCode,
+                string unionId,
                 string countryCode
             )
         {
@@ -53,7 +52,7 @@
             return new AuthHuaweiId(javaObject);
         }
 
-        public static AuthHuaweiId FromJson(string aString) 
+        public static AuthHuaweiId FromJson(string aString)
         {
             var javaObject = sJavaClass.CallStatic<AndroidJavaObject>("fromJson", aString.AsJavaString());
             return new AuthHuaweiId(javaObject);

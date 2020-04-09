@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HuaweiMobileServices.Game
+﻿namespace HuaweiMobileServices.Game
 {
 
+    using HuaweiMobileServices.Base;
     using HuaweiMobileServices.Utils;
     using UnityEngine;
-    using HuaweiMobileServices.Base;
 
     internal class GamesClientWrapper : JavaObjectWrapper, IGamesClient
     {

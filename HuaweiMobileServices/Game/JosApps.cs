@@ -1,8 +1,8 @@
 ﻿namespace HuaweiMobileServices.Game
 {
-    using UnityEngine;
-    using HuaweiMobileServices.Utils;
     using HuaweiMobileServices.Id;
+    using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.jos.JosApps
     public static class JosApps

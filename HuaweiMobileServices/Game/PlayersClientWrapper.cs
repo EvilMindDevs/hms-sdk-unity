@@ -25,7 +25,7 @@ namespace HuaweiMobileServices.Game
         public ITask<Void> SavePlayerInfo(AppPlayerInfo paramAppPlayerInfo)
         {
             var javaTask = Call<AndroidJavaObject>("savePlayerInfo", paramAppPlayerInfo.JavaObject);
-            return new TaskVoidWrapper(javaTask) ;
+            return new TaskVoidWrapper(javaTask);
         }
 
         public ITask<string> SubmitPlayerEvent(string paramString1, string paramString2, string paramString3) =>
