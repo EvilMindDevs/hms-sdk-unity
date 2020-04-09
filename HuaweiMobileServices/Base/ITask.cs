@@ -17,9 +17,9 @@
 
         Exception Exception { get; }
 
-        ITask<T> AddOnFailureListener(IOnFailureListener onFailureListener);
+        ITask<T> AddOnFailureListener(Action<Exception> onFailureListener);
 
-        ITask<T> AddOnSuccessListener(IOnSuccessListener<T> onSuccessListener);
+        ITask<T> AddOnSuccessListener(Action<T> onSuccessListener);
     }
 
 }

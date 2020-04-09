@@ -1,4 +1,4 @@
-﻿namespace com.huawei.hms.support.api.entity.auth
+﻿namespace HuaweiMobileServices.Id
 {
     using UnityEngine;
     using HuaweiMobileServices.Utils;
