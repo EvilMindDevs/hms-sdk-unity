@@ -22,7 +22,7 @@
             return new PlayersClientWrapper(javaClient);
         }
 
-        public static AchievementsClient GetAchievementsClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
+        public static IAchievementsClient GetAchievementsClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
         {
             Checker.assertNonNull(paramActivity);
             b.a().a(paramActivity);
