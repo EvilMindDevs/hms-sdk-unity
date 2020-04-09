@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.Game
     internal class JosAppsClientWrapper : JavaObjectWrapper, IJosAppsClient
     {
 
-        internal JosAppsClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
+        public JosAppsClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public ITask<string> AppId
         {

@@ -6,7 +6,7 @@
     public class PurchaseIntentResult : JavaObjectWrapper
     {
 
-        internal PurchaseIntentResult(AndroidJavaObject javaObject) : base(javaObject) { }
+        public PurchaseIntentResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int ReturnCode
         {

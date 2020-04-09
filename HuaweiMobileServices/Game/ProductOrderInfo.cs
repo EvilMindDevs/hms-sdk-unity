@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.Game
     public class ProductOrderInfo : JavaObjectWrapper
     {
 
-        internal ProductOrderInfo(AndroidJavaObject javaObject) : base(javaObject) { }
+        public ProductOrderInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string TradeId
         {

@@ -11,13 +11,8 @@ namespace HuaweiMobileServices.Utils
 
         private static readonly AndroidJavaClass sArrays = new AndroidJavaClass("java.util.Arrays");
 
-        public static T AsWrapper<T>(this AndroidJavaObject javaObject) where T : JavaObjectWrapper
-        {
-            BindingFlags flags = BindingFlags.NonPublic | BindingFlags.Instance;
-            object[] parameters = new object[1];
-            parameters[0] = javaObject;
-            return Activator.CreateInstance(typeof(T), flags, null, parameters, null) as T;
-        }
+        public static T AsWrapper<T>(this AndroidJavaObject javaObject) where T : JavaObjectWrapper =>
+            Activator.CreateInstance(typeof(T), javaObject) as T;
 
         public static AndroidJavaObject AsJavaString(this string value) => new AndroidJavaObject("java.lang.String", value);
 

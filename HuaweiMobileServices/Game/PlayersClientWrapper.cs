@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.Game
     internal class PlayersClientWrapper : JavaObjectWrapper, IPlayersClient
     {
 
-        internal PlayersClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
+        public PlayersClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public ITask<Player> CurrentPlayer
         {

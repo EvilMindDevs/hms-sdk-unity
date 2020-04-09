@@ -6,7 +6,7 @@
     // Wrapper for com.huawei.hms.iap.entity.ProductInfo
     public class ProductInfo : JavaObjectWrapper
     {
-        internal ProductInfo(AndroidJavaObject javaObject) : base(javaObject) { }
+        public ProductInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string ProductId
         {

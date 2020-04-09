@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.Game
     public class Player : JavaObjectWrapper
     {
 
-        internal Player(AndroidJavaObject javaObject) : base(javaObject) { }
+        public Player(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public Player(string json, AuthHuaweiId authHuaweiId)
             : base("com.huawei.hms.jos.games.player.Player", json.AsJavaString(), authHuaweiId.JavaObject) { }

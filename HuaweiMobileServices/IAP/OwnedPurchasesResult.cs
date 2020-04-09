@@ -8,7 +8,7 @@
     public class OwnedPurchasesResult : JavaObjectWrapper
     {
 
-        internal OwnedPurchasesResult(AndroidJavaObject javaObject) : base(javaObject) { }
+        public OwnedPurchasesResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int ReturnCode
         {

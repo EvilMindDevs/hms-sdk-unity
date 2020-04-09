@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.IAP
     public class ConsumeOwnedPurchaseResult : JavaObjectWrapper
     {
 
-        internal ConsumeOwnedPurchaseResult(AndroidJavaObject javaObject) : base(javaObject) { }
+        public ConsumeOwnedPurchaseResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string ConsumePurchaseData
         {

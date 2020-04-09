@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Game
     public class ProductClientWrapper : JavaObjectWrapper, IProductClient
     {
 
-        internal ProductClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
+        public ProductClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual ITask<IList<ProductOrderInfo>> GetMissProductOrder()
         {

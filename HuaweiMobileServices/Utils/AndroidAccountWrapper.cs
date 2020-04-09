@@ -6,7 +6,7 @@
     public class AndroidAccountWrapper : JavaObjectWrapper
     {
 
-        internal AndroidAccountWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
+        public AndroidAccountWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual AndroidJavaObject Account
         {

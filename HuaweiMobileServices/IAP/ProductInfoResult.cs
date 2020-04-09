@@ -9,7 +9,7 @@
     public class ProductInfoResult : JavaObjectWrapper
     {
 
-        internal ProductInfoResult(AndroidJavaObject javaObject) : base(javaObject) { }
+        public ProductInfoResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int ReturnCode
         {
@@ -26,8 +26,7 @@
         public virtual IList<ProductInfo> ProductInfoList
         {
             get => Call<AndroidJavaObject>("getProductInfoList")
-                    .AsList<AndroidJavaObject>()
-                    .Map((javaObject) => new ProductInfo(javaObject));
+                    .AsListFromWrappable<ProductInfo>();
         }
 
     }

@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.Game
     public class AppPlayerInfo : JavaObjectWrapper
     {
 
-        internal AppPlayerInfo(AndroidJavaObject javaObject) : base(javaObject) { }
+        public AppPlayerInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string Rank
         {

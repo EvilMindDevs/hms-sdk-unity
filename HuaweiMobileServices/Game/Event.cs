@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.Game
     public class Event : JavaObjectWrapper
     {
 
-        internal Event(AndroidJavaObject javaObject) : base(javaObject) { }
+        public Event(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string Description
         {
