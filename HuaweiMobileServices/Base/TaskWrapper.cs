@@ -4,7 +4,7 @@
     using System;
     using UnityEngine;
 
-    internal class TaskWrapper<T> : JavaObjectWrapper, ITask<T>
+    internal class TaskWrapper<T> : AbstractTask<T>
     {
 
         private readonly Func<AndroidJavaObject, T> mConverter;
@@ -14,13 +14,7 @@
             mConverter = func;
         }
 
-        public bool Complete => Call<bool>("isComplete");
-
-        public bool Successful => Call<bool>("isSuccessful");
-
-        public bool Canceled => Call<bool>("isCanceled");
-
-        public virtual T Result
+        override public T Result
         {
             get
             {
@@ -29,18 +23,9 @@
             }
         }
 
-        public Exception Exception => Call<AndroidJavaObject>("getException").AsException();
-
-        public ITask<T> AddOnFailureListener(Action<Exception> onFailureListener)
+        override public ITask<T> AddOnSuccessListener(Action<T> onSuccessListener)
         {
-            var listenerWrapper = new OnFailureListenerWrapper(onFailureListener);
-            JavaObject = Call<AndroidJavaObject>("addOnFailureListener", listenerWrapper);
-            return this;
-        }
-
-        public ITask<T> AddOnSuccessListener(Action<T> onSuccessListener)
-        {
-            var listenerWrapper = new OnSuccessListenerWrapper<T>(onSuccessListener, mConverter);
+            var listenerWrapper = new OnSuccessListenerConverterWrapper<T>(onSuccessListener, mConverter);
             JavaObject = Call<AndroidJavaObject>("addOnFailureListener", listenerWrapper);
             return this;
         }

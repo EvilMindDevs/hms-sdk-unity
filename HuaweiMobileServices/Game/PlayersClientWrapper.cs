@@ -25,7 +25,7 @@
         public ITask<Void> SavePlayerInfo(AppPlayerInfo paramAppPlayerInfo)
         {
             var javaTask = Call<AndroidJavaObject>("savePlayerInfo", paramAppPlayerInfo.JavaObject);
-            return new TaskWrapper<Void>(javaTask, (javaObject) => Void.INSTANCE) ;
+            return new TaskVoidWrapper(javaTask) ;
         }
 
         public ITask<string> SubmitPlayerEvent(string paramString1, string paramString2, string paramString3) =>

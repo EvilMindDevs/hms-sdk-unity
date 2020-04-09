@@ -22,12 +22,8 @@
             return new PlayersClientWrapper(javaClient);
         }
 
-        public static IAchievementsClient GetAchievementsClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
-        {
-            Checker.assertNonNull(paramActivity);
-            b.a().a(paramActivity);
-            return new AchievementsClientImpl(paramActivity, paramAuthHuaweiId);
-        }
+        public static IAchievementsClient GetAchievementsClient(AuthHuaweiId authHuaweiId) =>
+            sJavaClass.CallStaticAsWrapper<AcheivementClientWrapper>("getAchievementsClient", AndroidContext.GetActivityContext(), authHuaweiId.JavaObject);
 
         public static GamesClient GetGamesClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
         {

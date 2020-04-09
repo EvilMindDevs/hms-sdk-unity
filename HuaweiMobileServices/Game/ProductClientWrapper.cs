@@ -13,7 +13,7 @@
 
         public virtual ITask<IList<ProductOrderInfo>> GetMissProductOrder()
         {
-            var javaResult = JavaObject.Call<AndroidJavaObject>("getMissProductOrder", AndroidContext.GetActivityContext());
+            var javaResult = Call<AndroidJavaObject>("getMissProductOrder", AndroidContext.GetActivityContext());
             return new TaskWrapper<IList<ProductOrderInfo>>(javaResult, AndroidTypes.AsListFromWrappable<ProductOrderInfo>);
         }
     }
