@@ -3,9 +3,10 @@ namespace HuaweiMobileServices.Utils
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class JavaObjectWrapper
+    public abstract class JavaObjectWrapper
     {
-        internal protected JavaObjectWrapper(AndroidJavaObject javaObject)
+        
+        public JavaObjectWrapper(AndroidJavaObject javaObject)
         {
             JavaObject = javaObject;
         }
