@@ -31,6 +31,8 @@
         public static IGamePlayerStatisticsClient GetGamePlayerStatsClient(AuthHuaweiId paramAuthHuaweiId) =>
             sJavaClass.CallStaticAsWrapper<GamePlayerStatisticsClientWrapper>("getGamePlayerStatsClient", AndroidContext.GetActivityContext(), paramAuthHuaweiId);
 
+        public static IArchivesClient GetArchiveClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
+
         // TODO
 
         //public static ArchivesClient GetArchiveClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
