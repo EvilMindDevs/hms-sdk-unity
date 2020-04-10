@@ -31,16 +31,10 @@
         public static IGamePlayerStatisticsClient GetGamePlayerStatsClient(AuthHuaweiId paramAuthHuaweiId) =>
             sJavaClass.CallStaticAsWrapper<GamePlayerStatisticsClientWrapper>("getGamePlayerStatsClient", AndroidContext.GetActivityContext(), paramAuthHuaweiId);
 
-        public static IArchivesClient GetArchiveClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
+        public static IArchivesClient GetArchiveClient(AuthHuaweiId paramAuthHuaweiId) =>
+            sJavaClass.CallStaticAsWrapper<ArchivesClientWrapper>("getArchiveClient", AndroidContext.GetActivityContext(), paramAuthHuaweiId);
 
         // TODO
-
-        //public static ArchivesClient GetArchiveClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
-        //{
-        //    Checker.assertNonNull(paramActivity);
-        //    b.a().a(paramActivity);
-        //    return new a(paramActivity, paramAuthHuaweiId);
-        //}
 
         //public static BuoyClient GetBuoyClient(Activity paramActivity)
         //{

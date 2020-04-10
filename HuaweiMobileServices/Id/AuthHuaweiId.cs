@@ -118,12 +118,12 @@
         }
 
 
-        public virtual AndroidAccountWrapper HuaweiAccount
+        public virtual AndroidAccount HuaweiAccount
         {
             get
             {
                 var javaObject = JavaObject.Call<AndroidJavaObject>("getHuaweiAccount");
-                return new AndroidAccountWrapper(javaObject);
+                return new AndroidAccount(javaObject);
             }
         }
 

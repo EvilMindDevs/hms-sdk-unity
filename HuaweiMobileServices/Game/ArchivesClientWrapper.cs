@@ -13,68 +13,46 @@ namespace HuaweiMobileServices.Game
     {
         public ArchivesClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public ITask<int> LimitThumbnailSize => throw new NotImplementedException();
+        public ITask<int> LimitThumbnailSize => CallAsWrapper<TaskPrimitive<int>>("getLimitThumbnailSize");
 
-        public ITask<int> LimitDetailsSize => throw new NotImplementedException();
+        public ITask<int> LimitDetailsSize => CallAsWrapper<TaskPrimitive<int>>("getLimitDetailsSize");
 
-        public ITask<ArchiveSummary> AddArchive(ArchiveDetails paramArchiveDetails, ArchiveSummaryUpdate paramArchiveSummaryUpdate, bool paramBoolean)
-        {
-            throw new NotImplementedException();
-        }
+        public ITask<ArchiveSummary> AddArchive(ArchiveDetails paramArchiveDetails, ArchiveSummaryUpdate paramArchiveSummaryUpdate, bool paramBoolean) =>
+            CallAsWrapper<TaskJavaObjectWrapper<ArchiveSummary>>("addArchive", paramArchiveDetails, paramArchiveSummaryUpdate, paramBoolean);
 
         public ITask<IList<ArchiveSummary>> GetArchiveSummaryList(bool paramBoolean)
         {
-            throw new NotImplementedException();
+            var task = Call<AndroidJavaObject>("getArchiveSummaryList", paramBoolean);
+            return new TaskWrapper<IList<ArchiveSummary>>(task, AndroidJavaObjectExtensions.AsListFromWrappable<ArchiveSummary>);
         }
 
-        public ITask<AndroidIntent> GetShowArchiveListIntent(string paramString, bool paramBoolean1, bool paramBoolean2, int paramInt)
-        {
-            throw new NotImplementedException();
-        }
+        public ITask<AndroidIntent> GetShowArchiveListIntent(string paramString, bool paramBoolean1, bool paramBoolean2, int paramInt) =>
+            CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getShowArchiveListIntent", paramString, paramBoolean1, paramBoolean2, paramInt);
 
-        public ITask<AndroidBitmap> GetThumbnail(string paramString)
-        {
-            throw new NotImplementedException();
-        }
+        public ITask<AndroidBitmap> GetThumbnail(string paramString) =>
+            CallAsWrapper<TaskJavaObjectWrapper<AndroidBitmap>>("getThumbnail", paramString);
 
-        public ITask<OperationResult> LoadArchiveDetails(ArchiveSummary paramArchiveSummary)
-        {
-            throw new NotImplementedException();
-        }
+        public ITask<OperationResult> LoadArchiveDetails(ArchiveSummary paramArchiveSummary) =>
+            CallAsWrapper<TaskJavaObjectWrapper<OperationResult>>("loadArchiveDetails", paramArchiveSummary);
 
-        public ITask<OperationResult> LoadArchiveDetails(ArchiveSummary paramArchiveSummary, int paramInt)
-        {
-            throw new NotImplementedException();
-        }
+        public ITask<OperationResult> LoadArchiveDetails(ArchiveSummary paramArchiveSummary, int paramInt) =>
+            CallAsWrapper<TaskJavaObjectWrapper<OperationResult>>("loadArchiveDetails", paramArchiveSummary, paramInt);
 
-        public ITask<OperationResult> LoadArchiveDetails(string paramString, int paramInt)
-        {
-            throw new NotImplementedException();
-        }
+        public ITask<OperationResult> LoadArchiveDetails(string paramString, int paramInt) =>
+            CallAsWrapper<TaskJavaObjectWrapper<OperationResult>>("loadArchiveDetails", paramString, paramInt);
 
-        public ITask<OperationResult> LoadArchiveDetails(string paramString)
-        {
-            throw new NotImplementedException();
-        }
+        public ITask<OperationResult> LoadArchiveDetails(string paramString) =>
+            CallAsWrapper<TaskJavaObjectWrapper<OperationResult>>("loadArchiveDetails", paramString);
 
-        public ITask<ArchiveSummary> ParseSummary(AndroidBundle paramBundle)
-        {
-            throw new NotImplementedException();
-        }
+        public ITask<ArchiveSummary> ParseSummary(AndroidBundle paramBundle) =>
+            CallAsWrapper<TaskJavaObjectWrapper<ArchiveSummary>>("parseSummary", paramBundle);
 
-        public ITask<string> RemoveArchive(ArchiveSummary paramArchiveSummary)
-        {
-            throw new NotImplementedException();
-        }
+        public ITask<string> RemoveArchive(ArchiveSummary paramArchiveSummary) => CallAsWrapper<TaskStringWrapper>("removeArchive", paramArchiveSummary);
 
-        public ITask<OperationResult> UpdateArchive(string paramString, ArchiveSummaryUpdate paramArchiveSummaryUpdate, ArchiveDetails paramArchiveDetails)
-        {
-            throw new NotImplementedException();
-        }
+        public ITask<OperationResult> UpdateArchive(string paramString, ArchiveSummaryUpdate paramArchiveSummaryUpdate, ArchiveDetails paramArchiveDetails) =>
+            CallAsWrapper<TaskJavaObjectWrapper<OperationResult>>("updateArchive", paramString, paramArchiveSummaryUpdate, paramArchiveDetails);
 
-        public ITask<OperationResult> UpdateArchive(Archive paramArchive)
-        {
-            throw new NotImplementedException();
-        }
+        public ITask<OperationResult> UpdateArchive(Archive paramArchive) =>
+            CallAsWrapper<TaskJavaObjectWrapper<OperationResult>>("updateArchive", paramArchive);
     }
 }
