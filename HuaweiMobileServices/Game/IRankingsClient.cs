@@ -3,18 +3,21 @@
 namespace HuaweiMobileServices.Game
 {
     using HuaweiMobileServices.Base;
+    using HuaweiMobileServices.Utils;
     using UnityEngine;
 
     // Wrapper for com.huawei.hms.jos.games.RankingsClient
     public interface IRankingsClient
     {
-        ITask<AndroidJavaObject> TotalRankingsIntent { get; }
+        ITask<AndroidIntent> TotalRankingsIntent { get; }
 
-        ITask<AndroidJavaObject> GetRankingIntent(string paramString, int paramInt);
+        ITask<AndroidIntent> GetRankingIntent(string paramString, int paramInt);
 
-        ITask<AndroidJavaObject> GetRankingIntent(string paramString);
+        ITask<AndroidIntent> GetRankingIntent(string paramString);
 
-        //ITask<RankingScores> GetRankingTopScores(string paramString, int paramInt1, int paramInt2, long paramLong, int paramInt3);
+        ITask<RankingScores> GetRankingTopScores(string paramString, int paramInt1, int paramInt2, long paramLong, int paramInt3);
+
+        // TODO
 
         //ITask<RankingScores> GetRankingTopScores(string paramString, int paramInt1, int paramInt2, bool paramBoolean);
 

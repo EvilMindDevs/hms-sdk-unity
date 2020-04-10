@@ -3,6 +3,7 @@
     using HuaweiMobileServices.Utils;
     using UnityEngine;
 
+    // TODO extends Result
     public class PurchaseIntentResult : JavaObjectWrapper
     {
 

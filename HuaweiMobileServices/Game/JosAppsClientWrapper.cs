@@ -14,7 +14,7 @@ namespace HuaweiMobileServices.Game
             get
             {
                 var javaTask = JavaObject.Call<AndroidJavaObject>("getAppId");
-                return new TaskWrapper<string>(javaTask, AndroidTypes.AsString);
+                return new TaskWrapper<string>(javaTask, AndroidJavaObjectExtensions.AsString);
             }
         }
 

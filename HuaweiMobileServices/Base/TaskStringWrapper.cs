@@ -5,6 +5,6 @@
 
     internal class TaskStringWrapper : TaskWrapper<string>
     {
-        public TaskStringWrapper(AndroidJavaObject javaObject) : base(javaObject, AndroidTypes.AsString) { }
+        public TaskStringWrapper(AndroidJavaObject javaObject) : base(javaObject, AndroidJavaObjectExtensions.AsString) { }
     }
 }

@@ -6,7 +6,7 @@ namespace HuaweiMobileServices.Utils
     using System.Reflection;
     using UnityEngine;
 
-    internal static class AndroidTypes
+    internal static class AndroidJavaObjectExtensions
     {
 
         private static readonly AndroidJavaClass sArrays = new AndroidJavaClass("java.util.Arrays");

@@ -38,13 +38,10 @@
             get => Call<long>("getPlayerRawScore");
         }
 
-        //public virtual Player ScoreOwnerPlayer
-        //{
-        //    get
-        //    {
-        //        return this.f;
-        //    }
-        //}
+        public virtual Player ScoreOwnerPlayer
+        {
+            get => CallAsWrapper<Player>("getScoreOwnerPlayer");
+        }
 
         public virtual string ScoreOwnerDisplayName
         {

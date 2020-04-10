@@ -19,7 +19,7 @@ namespace HuaweiMobileServices.Game
         public ITask<IList<Achievement>> GetAchievementList(bool paramBoolean)
         {
             var javaTask = Call<AndroidJavaObject>("getAchievementList", paramBoolean);
-            return new TaskWrapper<IList<Achievement>>(javaTask, AndroidTypes.AsListFromWrappable<Achievement>);
+            return new TaskWrapper<IList<Achievement>>(javaTask, AndroidJavaObjectExtensions.AsListFromWrappable<Achievement>);
         }
 
         public void Grow(string paramString, int paramInt) => Call("grow", paramString.AsJavaString(), paramInt);

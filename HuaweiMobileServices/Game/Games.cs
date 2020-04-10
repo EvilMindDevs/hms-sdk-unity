@@ -28,6 +28,8 @@
         public static IGamesClient GetGamesClient(AuthHuaweiId authHuaweiId) =>
             sJavaClass.CallStaticAsWrapper<GamesClientWrapper>("getGamesClient", AndroidContext.GetActivityContext(), authHuaweiId.JavaObject);
 
+        // TODO
+
         //public static RankingsClient GetRankingsClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
         //{
         //    Checker.assertNonNull(paramActivity);
