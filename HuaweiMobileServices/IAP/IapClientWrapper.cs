@@ -48,10 +48,7 @@
             return new TaskJavaObjectWrapper<PurchaseIntentResult>(javaTask);
         }
 
-        // TODO Missing!
-        public ITask<PurchaseIntentResult> CreatePurchaseIntent(PurchaseIntentReq purchaseIntentReq)
-        {
-            throw new System.NotImplementedException();
-        }
+        public ITask<PurchaseIntentResult> CreatePurchaseIntent(PurchaseIntentReq purchaseIntentReq) =>
+            CallAsWrapper<TaskJavaObjectWrapper<PurchaseIntentResult>>("createPurchaseIntent", purchaseIntentReq.JavaObject);
     }
 }
