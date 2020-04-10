@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Game
     // Wrapper for com.huawei.hms.jos.games.AchievementsClient
     public interface IAchievementsClient
     {
-        ITask<AndroidJavaObject> ShowAchievementListIntent { get; }
+        ITask<AndroidIntent> ShowAchievementListIntent { get; }
 
         void Grow(string paramString, int paramInt);
 

@@ -11,13 +11,9 @@ namespace HuaweiMobileServices.Game
 
         public AcheivementClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public ITask<AndroidJavaObject> ShowAchievementListIntent
+        public ITask<AndroidIntent> ShowAchievementListIntent
         {
-            get
-            {
-                var javaTask = Call<AndroidJavaObject>("getShowAchievementListIntent");
-                return new TaskAndroidJavaObject(javaTask);
-            }
+            get => CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getShowAchievementListIntent");
         }
 
         public ITask<IList<Achievement>> GetAchievementList(bool paramBoolean)

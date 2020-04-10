@@ -3,6 +3,7 @@ namespace HuaweiMobileServices.Base
     using System;
     using UnityEngine;
 
+    // Note: this class cannot be called with AsWrapper() since constructor has 2 parameters
     internal class TaskWrapper<T> : AbstractTask<T>
     {
 
