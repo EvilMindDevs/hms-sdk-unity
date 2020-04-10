@@ -8,7 +8,6 @@ namespace HuaweiMobileServices.Game
     using HuaweiMobileServices.Utils;
     using HuaweiMobileServices.Base;
 
-    // TODO Implement
     internal class ArchivesClientWrapper : JavaObjectWrapper, IArchivesClient
     {
         public ArchivesClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }

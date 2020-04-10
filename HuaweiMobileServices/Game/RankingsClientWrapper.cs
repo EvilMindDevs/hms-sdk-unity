@@ -20,5 +20,8 @@ namespace HuaweiMobileServices.Game
 
         public ITask<AndroidIntent> GetRankingIntent(string paramString) =>
             CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getRankingIntent", paramString);
+
+        public ITask<RankingScores> GetRankingTopScores(string paramString, int paramInt1, int paramInt2, long paramLong, int paramInt3) =>
+            CallAsWrapper<TaskJavaObjectWrapper<RankingScores>>("getRankingTopScores", paramString, paramInt1, paramInt2, paramLong, paramInt3);
     }
 }
