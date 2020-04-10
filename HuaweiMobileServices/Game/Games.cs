@@ -34,14 +34,8 @@
         public static IArchivesClient GetArchiveClient(AuthHuaweiId paramAuthHuaweiId) =>
             sJavaClass.CallStaticAsWrapper<ArchivesClientWrapper>("getArchiveClient", AndroidContext.GetActivityContext(), paramAuthHuaweiId);
 
-        // TODO
-
-        //public static BuoyClient GetBuoyClient(Activity paramActivity)
-        //{
-        //    Checker.assertNonNull(paramActivity);
-        //    b.a().a(paramActivity);
-        //    return new BuoyClientImpl(paramActivity);
-        //}
+        public static IBuoyClient GetBuoyClient() =>
+            sJavaClass.CallStaticAsWrapper<BuoyClientWrapper>("getBuoyClient", AndroidContext.GetActivityContext());
     }
 
 }
