@@ -10,17 +10,11 @@
 
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.jos.games.Games");
 
-        public static IEventsClient GetEventsClient(AuthHuaweiId authHuaweiId)
-        {
-            var javaClient = sJavaClass.CallStatic<AndroidJavaObject>("getEventsClient", AndroidContext.GetActivityContext(), authHuaweiId.JavaObject);
-            return new EventsClientWrapper(javaClient);
-        }
+        public static IEventsClient GetEventsClient(AuthHuaweiId authHuaweiId) =>
+            sJavaClass.CallStaticAsWrapper<EventsClientWrapper>("getEventsClient", AndroidContext.GetActivityContext(), authHuaweiId.JavaObject);
 
-        public static IPlayersClient GetPlayersClient(AuthHuaweiId authHuaweiId)
-        {
-            var javaClient = sJavaClass.CallStatic<AndroidJavaObject>("getPlayersClient", AndroidContext.GetActivityContext(), authHuaweiId.JavaObject);
-            return new PlayersClientWrapper(javaClient);
-        }
+        public static IPlayersClient GetPlayersClient(AuthHuaweiId authHuaweiId) =>
+            sJavaClass.CallStaticAsWrapper<PlayersClientWrapper>("getPlayersClient", AndroidContext.GetActivityContext(), authHuaweiId.JavaObject);
 
         public static IAchievementsClient GetAchievementsClient(AuthHuaweiId authHuaweiId) =>
             sJavaClass.CallStaticAsWrapper<AcheivementClientWrapper>("getAchievementsClient", AndroidContext.GetActivityContext(), authHuaweiId.JavaObject);
@@ -31,21 +25,13 @@
         public static IRankingsClient GetRankingsClient(AuthHuaweiId authHuaweiId) =>
             sJavaClass.CallStaticAsWrapper<RankingsClientWrapper>("getRankingsClient", AndroidContext.GetActivityContext(), authHuaweiId);
 
+        public static IGameSummaryClient GetGameSummaryClient(AuthHuaweiId paramAuthHuaweiId) =>
+            sJavaClass.CallStaticAsWrapper<GameSummaryClientWrapper>("getGameSummaryClient", AndroidContext.GetActivityContext(), paramAuthHuaweiId);
+
+        public static IGamePlayerStatisticsClient GetGamePlayerStatsClient(AuthHuaweiId paramAuthHuaweiId) =>
+            sJavaClass.CallStaticAsWrapper<GamePlayerStatisticsClientWrapper>("getGamePlayerStatsClient", AndroidContext.GetActivityContext(), paramAuthHuaweiId);
+
         // TODO
-
-        //public static GameSummaryClient GetGameSummaryClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
-        //{
-        //    Checker.assertNonNull(paramActivity);
-        //    b.a().a(paramActivity);
-        //    return new GameSummaryClientImpl(paramActivity, paramAuthHuaweiId);
-        //}
-
-        //public static GamePlayerStatisticsClient GetGamePlayerStatsClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
-        //{
-        //    Checker.assertNonNull(paramActivity);
-        //    b.a().a(paramActivity);
-        //    return new PlayerStatsClientImpl(paramActivity, paramAuthHuaweiId);
-        //}
 
         //public static ArchivesClient GetArchiveClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
         //{
