@@ -1,10 +1,10 @@
 ﻿namespace HuaweiMobileServices.IAP
 {
     using HuaweiMobileServices.Utils;
+    using HuaweiMobileServices.Base;
     using UnityEngine;
 
-    // TODO extends Result
-    public class PurchaseIntentResult : JavaObjectWrapper
+    public class PurchaseIntentResult : Result
     {
 
         public PurchaseIntentResult(AndroidJavaObject javaObject) : base(javaObject) { }

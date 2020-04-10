@@ -15,7 +15,7 @@ namespace HuaweiMobileServices.Game
 
         ITask<AndroidIntent> GetRankingIntent(string paramString);
 
-        ITask<RankingScores> GetRankingTopScores(string paramString, int paramInt1, int paramInt2, long paramLong, int paramInt3);
+        //ITask<RankingScores> GetRankingTopScores(string paramString, int paramInt1, int paramInt2, long paramLong, int paramInt3);
 
         // TODO
 
