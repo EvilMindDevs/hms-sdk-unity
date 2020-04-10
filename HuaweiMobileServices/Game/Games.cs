@@ -28,14 +28,10 @@
         public static IGamesClient GetGamesClient(AuthHuaweiId authHuaweiId) =>
             sJavaClass.CallStaticAsWrapper<GamesClientWrapper>("getGamesClient", AndroidContext.GetActivityContext(), authHuaweiId.JavaObject);
 
-        // TODO
+        public static IRankingsClient GetRankingsClient(AuthHuaweiId authHuaweiId) =>
+            sJavaClass.CallStaticAsWrapper<RankingsClientWrapper>("getRankingsClient", AndroidContext.GetActivityContext(), authHuaweiId);
 
-        //public static RankingsClient GetRankingsClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
-        //{
-        //    Checker.assertNonNull(paramActivity);
-        //    b.a().a(paramActivity);
-        //    return new RankingsClientImpl(paramActivity, paramAuthHuaweiId);
-        //}
+        // TODO
 
         //public static GameSummaryClient GetGameSummaryClient(Activity paramActivity, AuthHuaweiId paramAuthHuaweiId)
         //{

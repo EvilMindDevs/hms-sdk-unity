@@ -1,17 +1,14 @@
 ﻿namespace HuaweiMobileServices.Game
 {
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.jos.games.ranking.RankingScore
     public class RankingScore : JavaObjectWrapper
     {
         public const int RANK_UNKNOWN = -1;
 
-        private const string CLASS_NAME = "com.huawei.hms.jos.games.ranking.RankingScore";
-
-        public RankingScore(RankingScore rankingScore) : base(CLASS_NAME, rankingScore) { }
-
-        public RankingScore(string json) : base(CLASS_NAME, json) { }
+        public RankingScore(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string DisplayRank
         {

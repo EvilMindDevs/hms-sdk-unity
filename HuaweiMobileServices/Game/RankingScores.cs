@@ -1,23 +1,25 @@
-﻿// TODO
-//using System;
-//using System.Collections.Generic;
-//using System.Text;
+﻿using System.Collections.Generic;
 
-//namespace HuaweiMobileServices.Game
-//{
-//    // Wrapper for com.huawei.hms.jos.games.RankingsClient.RankingScores
-//    public class RankingScores
-//    {
+namespace HuaweiMobileServices.Game
+{
 
-//        // TODO
-//        public Ranking Ranking
-//        {
-//            get;
-//        }
+    using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
-//        public IList<RankingScore> RankingScore
-//        {
-//            get;
-//        }
-//    }
-//}
+    // Wrapper for com.huawei.hms.jos.games.RankingsClient.RankingScores
+    public class RankingScores : JavaObjectWrapper
+    {
+
+        public RankingScores(AndroidJavaObject javaObject) : base(javaObject) { }
+
+        public Ranking Ranking
+        {
+            get => CallAsWrapper<Ranking>("getRanking");
+        }
+
+        public IList<RankingScore> RankingScore
+        {
+            get => CallAsWrapperList<RankingScore>("getRankingScore");
+        }
+    }
+}
