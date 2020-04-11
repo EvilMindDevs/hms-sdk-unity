@@ -14,11 +14,11 @@ namespace HuaweiMobileServices.Game
 
         public ScoreSubmissionInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public string RankingId => CallAuto<string>("getRankingId");
+        public string RankingId => CallAsString("getRankingId");
 
-        public string PlayerId => CallAuto<string>("getPlayerId");
+        public string PlayerId => CallAsString("getPlayerId");
 
-        public Result GetSubmissionScoreResult(int paramInt) => CallAuto<Result>("getSubmissionScoreResult", paramInt);
+        public Result GetSubmissionScoreResult(int paramInt) => CallAsWrapper<Result>("getSubmissionScoreResult", paramInt);
     }
 
 }
