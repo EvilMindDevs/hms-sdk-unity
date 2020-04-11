@@ -1,6 +1,5 @@
 namespace HuaweiMobileServices.Utils
 {
-    using System;
     using System.Collections.Generic;
     using UnityEngine;
 
@@ -34,33 +33,15 @@ namespace HuaweiMobileServices.Utils
             return arg;
         }
 
-        private T AsAutoType<T>(object arg) where T : class
-        {
-            if (typeof(T).Equals(typeof(JavaObjectWrapper))) return Activator.CreateInstance(typeof(T), arg) as T;
-            if (typeof(T).Equals(typeof(string))) return (arg as AndroidJavaObject).AsString() as T;
-            return arg as T;
-        }
-
         internal protected virtual AndroidJavaObject JavaObject { get; set; }
 
-        internal protected T CallAuto<T>(string methodName, params object[] args) where T : class
-        {
-            var result = Call<T>(methodName, args);
-            return AsAutoType<T>(result);
-        }
-
-        // Consider using CallAuto instead
         internal protected T Call<T>(string methodName, params object[] args) => JavaObject.Call<T>(methodName, AsAutoParams(args));
 
         internal protected void Call(string methodName, params object[] args) => JavaObject.Call(methodName, AsAutoParams(args));
 
-        // Use CallAuto instead
-        [Obsolete]
         internal protected string CallAsString(string methodName, params object[] args) =>
             Call<AndroidJavaObject>(methodName, args).AsString();
 
-        // Use CallAuto instead
-        [Obsolete]
         internal protected T CallAsWrapper<T>(string methodName, params object[] args) where T : JavaObjectWrapper =>
             Call<AndroidJavaObject>(methodName, args).AsWrapper<T>();
 
