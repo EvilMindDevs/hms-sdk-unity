@@ -1,21 +1,23 @@
-﻿using HuaweiMobileServices.Utils;
-using UnityEngine;
-
-namespace HuaweiMobileServices.Base
+﻿namespace HuaweiMobileServices.Base
 {
+    using HuaweiMobileServices.Utils;
+    using System;
+    using UnityEngine;
+
+    // Wrapper for com.huawei.hmf.tasks.OnFailureListener
     internal class OnFailureListenerWrapper : AndroidJavaProxy
     {
 
-        private readonly IOnFailureListener mListener;
+        private readonly Action<Exception> mListener;
 
-        internal OnFailureListenerWrapper(IOnFailureListener listener) : base("com.huawei.hmf.tasks.OnFailureListener")
+        internal OnFailureListenerWrapper(Action<Exception> listener) : base("com.huawei.hmf.tasks.OnFailureListener")
         {
             mListener = listener;
         }
 
         public void onFailure(AndroidJavaObject javaException)
         {
-            mListener.OnFailure(javaException.AsException());
+            mListener.Invoke(javaException.AsException());
         }
     }
 }

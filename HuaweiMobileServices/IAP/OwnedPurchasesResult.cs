@@ -1,14 +1,14 @@
-﻿using HuaweiMobileServices.Utils;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace HuaweiMobileServices.IAP
+﻿namespace HuaweiMobileServices.IAP
 {
+
+    using HuaweiMobileServices.Utils;
+    using System.Collections.Generic;
+    using UnityEngine;
 
     public class OwnedPurchasesResult : JavaObjectWrapper
     {
 
-        internal OwnedPurchasesResult(AndroidJavaObject javaObject) : base(javaObject) { }
+        public OwnedPurchasesResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int ReturnCode
         {

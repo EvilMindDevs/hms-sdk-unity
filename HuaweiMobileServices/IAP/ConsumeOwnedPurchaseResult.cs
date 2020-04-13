@@ -1,14 +1,13 @@
-﻿using HuaweiMobileServices.Utils;
-using UnityEngine;
-
 namespace HuaweiMobileServices.IAP
 {
+    using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.iap.entity.ConsumeOwnedPurchaseResult
     public class ConsumeOwnedPurchaseResult : JavaObjectWrapper
     {
 
-        internal ConsumeOwnedPurchaseResult(AndroidJavaObject javaObject) : base(javaObject) { }
+        public ConsumeOwnedPurchaseResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string ConsumePurchaseData
         {

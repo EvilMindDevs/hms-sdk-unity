@@ -1,12 +1,9 @@
-﻿using HuaweiMobileServices.Utils;
-using System;
-using UnityEngine;
-
-namespace HuaweiMobileServices.Base
+﻿namespace HuaweiMobileServices.Base
 {
+    using System;
 
     // Wrapper for com.huawei.hmf.tasks.Task
-    public interface ITask<T> where T : JavaObjectWrapper
+    public interface ITask<T>
     {
         bool Complete { get; }
 
@@ -18,9 +15,9 @@ namespace HuaweiMobileServices.Base
 
         Exception Exception { get; }
 
-        ITask<T> AddOnFailureListener(IOnFailureListener onFailureListener);
+        ITask<T> AddOnFailureListener(Action<Exception> onFailureListener);
 
-        ITask<T> AddOnSuccessListener(IOnSuccessListener<T> onSuccessListener);
+        ITask<T> AddOnSuccessListener(Action<T> onSuccessListener);
     }
 
 }

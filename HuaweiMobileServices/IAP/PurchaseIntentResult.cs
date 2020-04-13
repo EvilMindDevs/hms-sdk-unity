@@ -1,12 +1,13 @@
-﻿using HuaweiMobileServices.Utils;
-using UnityEngine;
-
-namespace HuaweiMobileServices.IAP
+﻿namespace HuaweiMobileServices.IAP
 {
-    public class PurchaseIntentResult : JavaObjectWrapper
+    using HuaweiMobileServices.Utils;
+    using HuaweiMobileServices.Base;
+    using UnityEngine;
+
+    public class PurchaseIntentResult : Result
     {
 
-        internal PurchaseIntentResult(AndroidJavaObject javaObject) : base(javaObject) { }
+        public PurchaseIntentResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int ReturnCode
         {

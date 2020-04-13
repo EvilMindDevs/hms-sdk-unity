@@ -1,9 +1,9 @@
-﻿using HuaweiMobileServices.Utils;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace HuaweiMobileServices.IAP
+﻿namespace HuaweiMobileServices.IAP
 {
+    using HuaweiMobileServices.Utils;
+    using System.Collections.Generic;
+    using UnityEngine;
+
     // Wrapper for com.huawei.hms.iap.entity.PriceType
     public class ProductInfoReq : JavaObjectWrapper
     {
@@ -19,7 +19,7 @@ namespace HuaweiMobileServices.IAP
         public virtual IList<string> ProductIds
         {
             get => Call<AndroidJavaObject>("getProductIds").AsStringList();
-            set => Call<AndroidJavaObject>("setProductIds", value.AsJavaStringList());
+            set => Call("setProductIds", value.AsJavaStringList());
         }
 
     }

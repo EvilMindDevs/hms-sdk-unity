@@ -1,12 +1,12 @@
-﻿using UnityEngine;
-using HuaweiMobileServices.Utils;
-
-namespace HuaweiMobileServices.IAP
+﻿namespace HuaweiMobileServices.IAP
 {
+    using HuaweiMobileServices.Utils;
+    using UnityEngine;
+
     // Wrapper for com.huawei.hms.iap.entity.ProductInfo
     public class ProductInfo : JavaObjectWrapper
     {
-        internal ProductInfo(AndroidJavaObject javaObject) : base(javaObject) { }
+        public ProductInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string ProductId
         {
