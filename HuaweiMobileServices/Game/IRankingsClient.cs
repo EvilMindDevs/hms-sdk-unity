@@ -43,7 +43,6 @@ namespace HuaweiMobileServices.Game
 
         ITask<RankingScores> GetPlayerCenteredRankingScores(string paramString, int paramInt1, int paramInt2, long paramLong, int paramInt3);
 
-        // TODO
     }
 
 }
