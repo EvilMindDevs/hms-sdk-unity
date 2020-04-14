@@ -30,7 +30,7 @@ namespace HuaweiMobileServices.Base
         public void StartResolutionForResult(Action<int> onSuccessListener, Action<Exception> onFailureListener)
         {
             mOnSuccessListener = onSuccessListener;
-            new AndroidNativeBridge<int>()
+            new AndroidNativeBridge()
                     .AddJavaObject(CLASS_NAME, JavaObject)
                     .AddOnFailureListener(onFailureListener)
                     .AddOnSuccessListener((intent) => intent.GetExtra<int>("returnCode"))
