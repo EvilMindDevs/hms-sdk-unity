@@ -8,6 +8,7 @@ namespace HuaweiMobileServices.Base
     // Wrapper for com.huawei.hms.support.api.client.Status
     public sealed class Status : JavaObjectWrapper
     {
+
         private const string CLASS_NAME = "com.huawei.hms.support.api.client.Status";
 
         public static readonly Status SUCCESS = new Status(0);
@@ -24,8 +25,14 @@ namespace HuaweiMobileServices.Base
 
         public bool HasResolution() => Call<bool>("hasResolution");
 
-        public void StartResolutionForResult(int code) => 
-            Call("startResolutionForResult", AndroidContext.GetActivityContext(), code);
+        public void StartResolutionForResult(Action<int> onSuccessListener, Action<Exception> onFailureListener)
+        {
+            new AndroidNativeBridge<int>()
+                    .AddJavaObject(CLASS_NAME, JavaObject)
+                    .AddOnFailureListener(onFailureListener)
+                    .AddOnSuccessListener(onSuccessListener)
+                    .Execute();
+        }
 
         public int StatusCode
         {
