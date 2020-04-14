@@ -15,7 +15,19 @@ namespace HuaweiMobileServices.Utils
         private AndroidIntent mIntent = new AndroidIntent(NATIVE_BRIDGE_ACTIVITY);
 
         private Action<Exception> mFailureAction;
-        private Action<T> mSuccessAction;
+        private Action<AndroidIntent> mSuccessAction;
+
+        internal void OnFinished(bool isSuccess, int resultCode, AndroidJavaObject resultIntent)
+        {
+            if (isSuccess)
+            {
+                mSuccessAction.Invoke(resultIntent.AsWrapper<AndroidIntent>());
+            }
+            else
+            {
+                mFailureAction.Invoke(new HMSException(resultCode));
+            }
+        }
 
         public AndroidNativeBridge<T> AddOnFailureListener(Action<Exception> onFailureListener)
         {
@@ -23,7 +35,7 @@ namespace HuaweiMobileServices.Utils
             return this;
         }
 
-        public AndroidNativeBridge<T> AddOnSuccessListener(Action<T> onSuccessListener)
+        public AndroidNativeBridge<T> AddOnSuccessListener(Action<AndroidIntent> onSuccessListener)
         {
             mSuccessAction = onSuccessListener;
             return this;

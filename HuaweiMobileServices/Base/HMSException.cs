@@ -4,5 +4,6 @@
     {
         internal HMSException() : base() { }
         internal HMSException(string message) : base(message) { }
+        internal HMSException(int errorCode) : base(errorCode.ToString()) { }
     }
 }
