@@ -5,7 +5,7 @@ namespace HuaweiMobileServices.Utils
     using UnityEngine;
     using HuaweiMobileServices.Base;
 
-    internal class AndroidNativeBridge<T>
+    internal class AndroidNativeBridge
     {
 
         private static readonly AndroidJavaClass NATIVE_BRIDGE_ACTIVITY = new AndroidJavaClass("com.pues.lo.que.sea.NativeBridgeActivity");
@@ -29,19 +29,19 @@ namespace HuaweiMobileServices.Utils
             }
         }
 
-        public AndroidNativeBridge<T> AddOnFailureListener(Action<Exception> onFailureListener)
+        public AndroidNativeBridge AddOnFailureListener(Action<Exception> onFailureListener)
         {
             mFailureAction = onFailureListener;
             return this;
         }
 
-        public AndroidNativeBridge<T> AddOnSuccessListener(Action<AndroidIntent> onSuccessListener)
+        public AndroidNativeBridge AddOnSuccessListener(Action<AndroidIntent> onSuccessListener)
         {
             mSuccessAction = onSuccessListener;
             return this;
         }
 
-        public AndroidNativeBridge<T> AddJavaObject(string name, AndroidJavaObject javaObject)
+        public AndroidNativeBridge AddJavaObject(string name, AndroidJavaObject javaObject)
         {
             mIntent.PutExtra(name, javaObject);
             return this;

@@ -14,9 +14,10 @@
 
         public AndroidIntent PutExtra(string name, AndroidJavaObject value)
         {
-            JavaObject = JavaObject.Call<AndroidJavaObject>("putExtra", value);
+            JavaObject = JavaObject.Call<AndroidJavaObject>("putExtra", name, value);
             return this;
         }
 
+        public T GetExtra<T>(string name) => JavaObject.Call<T>("getExtra", name);
     }
 }

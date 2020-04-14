@@ -19,7 +19,7 @@ namespace HuaweiMobileServices.Base
 
         public static readonly Status CORE_EXCEPTION = new Status(500);
 
-        private Action<Void> mOnSuccessListener;
+        private Action<int> mOnSuccessListener;
 
         public Status(AndroidJavaObject javaObject) : base(javaObject) { }
 
@@ -27,13 +27,13 @@ namespace HuaweiMobileServices.Base
 
         public bool HasResolution() => Call<bool>("hasResolution");
 
-        public void StartResolutionForResult(Action<Void> onSuccessListener, Action<Exception> onFailureListener)
+        public void StartResolutionForResult(Action<int> onSuccessListener, Action<Exception> onFailureListener)
         {
             mOnSuccessListener = onSuccessListener;
             new AndroidNativeBridge<int>()
                     .AddJavaObject(CLASS_NAME, JavaObject)
                     .AddOnFailureListener(onFailureListener)
-                    .AddOnSuccessListener((intent) => mOnSuccessListener.Invoke(Void.INSTANCE))
+                    .AddOnSuccessListener((intent) => intent.GetExtra<int>("returnCode"))
                     .Execute();
         }
 
