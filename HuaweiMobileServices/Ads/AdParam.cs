@@ -4,12 +4,13 @@ namespace HuaweiMobileServices.Ads
 {
     using UnityEngine;
     using HuaweiMobileServices.Utils;
+    using HuaweiMobileServices.Base;
 
-    // Wrapper for com.huawei.hms.ads.AdParam
-    public class AdParam : JavaObjectWrapper
+    // Wrapper for com.huawei.hms.ads.Adparam
+    public class Adparam : JavaObjectWrapper
     {
 
-        public AdParam(AndroidJavaObject javaObject) : base(javaObject) { }
+        public Adparam(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string TargetingContentUrl => CallAsString("getTargetingContentUrl");
 
@@ -17,121 +18,84 @@ namespace HuaweiMobileServices.Ads
 
         public ISet<string> Keywords => Call<AndroidJavaObject>("getKeywords").AsStringSet();
 
-        public Location Code()
-        {
-            return this.Code_Conflict.B();
-        }
-
-        public RequestOptions V()
-        {
-            return this.Code_Conflict.C();
-        }
-
-        // Wrapper for com.huawei.hms.ads.AdParam.Builder
+        // Wrapper for com.huawei.hms.ads.Adparam.Builder
         public class Builder : JavaObjectWrapper
         {
 
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
-
+            public Builder() : base("com.huawei.hms.ads.Adparam.Builder") { }
 
             public Builder AddKeyword(string param1String)
             {
-                this.Code.Code(Param1String);
+                JavaObject = Call<AndroidJavaObject>("addKeyword", param1String);
                 return this;
             }
 
-            //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-            //ORIGINAL LINE: @GlobalApi public final AdParam build()
-            public AdParam Build()
-            {
-                return new AdParam(this, (sbyte)0);
-            }
+            public Adparam Build() => CallAsWrapper<Adparam>("build");
 
-            //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-            //ORIGINAL LINE: @GlobalApi public final Builder setTargetingContentUrl(String param1String)
-            public Builder setTargetingContentUrl(string Param1String)
+            public Builder SetTargetingContentUrl(string param1String)
             {
-                this.Code.V(Param1String);
+                JavaObject = Call<AndroidJavaObject>("setTargetingContentUrl", param1String);
                 return this;
             }
 
-            //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-            //ORIGINAL LINE: @GlobalApi public final Builder setGender(int param1Int)
-            public Builder setGender(int Param1Int)
+            public Builder SetGender(int param1Int)
             {
-                this.Code.Code(Param1Int);
+                JavaObject = Call<AndroidJavaObject>("setGender", param1Int);
                 return this;
             }
 
-            //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-            //ORIGINAL LINE: @GlobalApi public final Builder setRequestOrigin(String param1String)
-            public Builder setRequestOrigin(string Param1String)
+            public Builder SetRequestOrigin(string param1String)
             {
-                this.Code.I(Param1String);
+                JavaObject = Call<AndroidJavaObject>("setRequestOrigin", param1String);
                 return this;
             }
 
-            //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-            //ORIGINAL LINE: @GlobalApi public final Builder setBelongCountryCode(String param1String)
-            public Builder setBelongCountryCode(string Param1String)
+            public Builder SetBelongCountryCode(string param1String)
             {
-                this.Code.S(Param1String);
+                JavaObject = Call<AndroidJavaObject>("setBelongCountryCode", param1String);
                 return this;
             }
 
-            //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-            //ORIGINAL LINE: @GlobalApi public final Builder setTagForChildProtection(System.Nullable<int> param1Integer)
-            public Builder setTagForChildProtection(int? Param1Integer)
+            public Builder SetTagForChildProtection(int? param1Integer)
             {
-                this.Code.Code(Param1Integer.Value);
+                JavaObject = Call<AndroidJavaObject>("setTagForChildProtection", param1Integer);
                 return this;
             }
 
-            //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-            //ORIGINAL LINE: @GlobalApi public final Builder setNonPersonalizedAd(System.Nullable<int> param1Integer)
-            public Builder setNonPersonalizedAd(int? Param1Integer)
+            public Builder SetNonPersonalizedAd(int? param1Integer)
             {
-                this.Code.V(Param1Integer);
+                JavaObject = Call<AndroidJavaObject>("setNonPersonalizedAd", param1Integer);
                 return this;
             }
 
-            //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-            //ORIGINAL LINE: @GlobalApi public final Builder setAppLang(String param1String)
-            public Builder setAppLang(string Param1String)
+            public Builder SetAppLang(string param1String)
             {
-                this.Code.Z(Param1String);
+                JavaObject = Call<AndroidJavaObject>("setAppLang", param1String);
                 return this;
             }
 
-            //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-            //ORIGINAL LINE: @GlobalApi public final Builder setAppCountry(String param1String)
-            public Builder setAppCountry(string Param1String)
+            public Builder SetAppCountry(string param1String)
             {
-                this.Code.B(Param1String);
+                JavaObject = Call<AndroidJavaObject>("setAppCountry", param1String);
                 return this;
             }
 
-            //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-            //ORIGINAL LINE: @GlobalApi public final Builder setTagForUnderAgeOfPromise(System.Nullable<int> param1Integer)
-            public Builder setTagForUnderAgeOfPromise(int? Param1Integer)
+            public Builder SetTagForUnderAgeOfPromise(int? param1Integer)
             {
-                this.Code.I(Param1Integer);
+                JavaObject = Call<AndroidJavaObject>("setTagForUnderAgeOfPromise", param1Integer);
                 return this;
             }
 
-            //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-            //ORIGINAL LINE: @GlobalApi public final Builder setAdContentClassification(String param1String)
-            public Builder setAdContentClassification(string Param1String)
+            public Builder SetAdContentClassification(string param1String)
             {
-                this.Code.C(Param1String);
+                JavaObject = Call<AndroidJavaObject>("setAdContentClassification", param1String);
                 return this;
             }
         }
 
-        //JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-        //ORIGINAL LINE: @GlobalApi public static interface ErrorCode
-        public interface ErrorCode
+        public static class ErrorCode
         {
             public static int INNER = 0;
 
