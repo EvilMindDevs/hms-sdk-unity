@@ -15,7 +15,13 @@ android {
 }
 
 dependencies {
+    // Unity
     compileOnly files("libs/UnityPlayer.jar")
+
+    // Android
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.2.0'
+
+    // HMS
+    implementation 'com.huawei.hms:iap:4.0.2.300'
 }
