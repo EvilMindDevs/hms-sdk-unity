@@ -8,7 +8,8 @@ namespace HuaweiMobileServices.Base
     // Wrapper for com.huawei.hms.support.api.client.Status
     public sealed class Status : JavaObjectWrapper
     {
-        private static readonly AndroidJavaClass NATIVE_BRIDGE = new AndroidJavaClass("org.m0skit0.android.hms.unity.base.StatusWrapper");
+
+        private static readonly AndroidJavaClass sJavaBridge = new AndroidJavaClass("org.m0skit0.android.hms.unity.base.StatusBridge");
 
         private const string CLASS_NAME = "com.huawei.hms.support.api.client.Status";
 
@@ -20,18 +21,18 @@ namespace HuaweiMobileServices.Base
 
         public static readonly Status CORE_EXCEPTION = new Status(500);
 
-        private Action<int> mOnSuccessListener;
-
         public Status(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private Status(int paramInt) : base(CLASS_NAME, paramInt, null) { }
 
         public bool HasResolution() => Call<bool>("hasResolution");
 
-        public void StartResolutionForResult(Action<int> onSuccessListener, Action<Exception> onFailureListener)
+        public void StartResolutionForResult(Action<AndroidIntent> onSuccessListener, Action<Exception> onFailureListener)
         {
-            mOnSuccessListener = onSuccessListener;
-            NATIVE_BRIDGE.CallStatic("receiveStartResolutionForResult", AndroidContext.GetActivityContext(), JavaObject);
+            var callback = new GenericBridgeCallbackWrapper()
+                            .AddOnSuccessListener(onSuccessListener)
+                            .AddOnFailureListener(onFailureListener);
+            sJavaBridge.CallStatic("receiveStartResolutionForResult", JavaObject, callback);
         }
 
         public int StatusCode
