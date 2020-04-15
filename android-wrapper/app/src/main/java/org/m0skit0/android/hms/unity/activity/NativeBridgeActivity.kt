@@ -28,5 +28,6 @@ class NativeBridgeActivity : Activity() {
         when (requestCode) {
             StatusBridge.CODE -> StatusBridge.returnStartResolutionForResult()
         }
+        finish()
     }
 }
