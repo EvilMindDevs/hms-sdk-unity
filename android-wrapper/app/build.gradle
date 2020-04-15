@@ -23,5 +23,5 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.2.0'
 
     // HMS
-    implementation 'com.huawei.hms:iap:4.0.2.300'
+    compileOnly 'com.huawei.hms:iap:4.0.2.300'
 }
