@@ -50,5 +50,9 @@
 
         public ITask<PurchaseIntentResult> CreatePurchaseIntent(PurchaseIntentReq purchaseIntentReq) =>
             CallAsWrapper<TaskJavaObjectWrapper<PurchaseIntentResult>>("createPurchaseIntent", purchaseIntentReq.JavaObject);
+
+        public PurchaseResultInfo ParsePurchaseResultInfoFromIntent(AndroidIntent paramIntent) =>
+            CallAsWrapper<PurchaseResultInfo>("parsePurchaseResultInfoFromIntent", paramIntent);
+
     }
 }

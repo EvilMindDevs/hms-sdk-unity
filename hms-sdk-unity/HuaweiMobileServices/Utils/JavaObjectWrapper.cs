@@ -3,18 +3,8 @@ namespace HuaweiMobileServices.Utils
     using System.Collections.Generic;
     using UnityEngine;
 
-    public abstract class JavaObjectWrapper
+    public abstract class JavaObjectWrapper : MonoBehaviour
     {
-
-        public JavaObjectWrapper(AndroidJavaObject javaObject)
-        {
-            JavaObject = javaObject;
-        }
-
-        internal protected JavaObjectWrapper(string javaObjectCanonicalName, params object[] args)
-        {
-            JavaObject = new AndroidJavaObject(javaObjectCanonicalName, args);
-        }
 
         private static object[] AsAutoParams(object[] args)
         {
@@ -31,6 +21,16 @@ namespace HuaweiMobileServices.Utils
             if (arg is JavaObjectWrapper) return (arg as JavaObjectWrapper).JavaObject;
             if (arg is string) return (arg as string).AsJavaString();
             return arg;
+        }
+
+        public JavaObjectWrapper(AndroidJavaObject javaObject)
+        {
+            JavaObject = javaObject;
+        }
+
+        internal protected JavaObjectWrapper(string javaObjectCanonicalName, params object[] args)
+        {
+            JavaObject = new AndroidJavaObject(javaObjectCanonicalName, AsAutoParams(args));
         }
 
         internal protected virtual AndroidJavaObject JavaObject { get; set; }
