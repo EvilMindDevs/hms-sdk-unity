@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.Ads
     using HuaweiMobileServices.Utils;
 
     // Wrapper for com.huawei.hms.ads.reward.OnMetadataChangedListener
-    public class OnMetadataChangedListenerWrapper : JavaObjectWrapper
+    public class OnMetadataChangedListener : JavaObjectWrapper
     {
         internal class OnMetadataChangedListenerInterfaceWrapper : AndroidJavaProxy
         {
@@ -26,7 +26,7 @@ namespace HuaweiMobileServices.Ads
             }
         }
 
-        public OnMetadataChangedListenerWrapper(IOnMetadataChangedListener listener) 
+        public OnMetadataChangedListener(IOnMetadataChangedListener listener) 
             : base("org.m0skit0.android.hms.unity.ads.OnMetadataChangedListenerWrapper", new OnMetadataChangedListenerInterfaceWrapper(listener)) { }
     }
 }

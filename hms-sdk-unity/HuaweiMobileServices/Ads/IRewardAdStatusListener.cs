@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HuaweiMobileServices.Ads
 {
-    public interface IRewardAdStausListener
+    public interface IRewardAdStatusListener
     {
         void OnRewardAdClosed();
         void OnRewardAdFailedToShow(int errorCode);
