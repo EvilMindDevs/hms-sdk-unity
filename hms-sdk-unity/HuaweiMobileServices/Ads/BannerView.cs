@@ -28,10 +28,7 @@ namespace HuaweiMobileServices.Ads
 
         public virtual bool Loading => Call<bool>("isLoading");
 
-        public virtual void LoadAd(AdParam ParamAdParam)
-        {
-            this.I.Code(ParamAdParam);
-        }
+        public virtual void LoadAd(AdParam paramAdParam) => Call("loadAd", paramAdParam);
 
         public virtual void Pause() => Call("pause");
 
