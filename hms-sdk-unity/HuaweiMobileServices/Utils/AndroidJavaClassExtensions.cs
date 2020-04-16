@@ -9,5 +9,8 @@
 
         public static string CallStaticAsString(this AndroidJavaClass javaClass, string methodName, params object[] args) =>
             javaClass.CallStatic<AndroidJavaObject>(methodName, args).AsString();
+
+        public static T GetStaticAsWrapper<T>(this AndroidJavaClass javaClass, string fieldName) where T : JavaObjectWrapper =>
+            javaClass.GetStatic<AndroidJavaObject>(fieldName).AsWrapper<T>();
     }
 }

@@ -74,6 +74,12 @@ namespace HuaweiMobileServices.Utils
             return new HashSet<T>(list);
         }
 
+        public static ISet<string> AsStringSet(this AndroidJavaObject javaSet)
+        {
+            var list = new AndroidJavaObject("java.util.ArrayList", javaSet).AsStringList();
+            return new HashSet<string>(list);
+        }
+
         public static AndroidJavaObject AsJavaArray<T>(this T[] array, Func<T, AndroidJavaObject> converter) =>
             new List<T>(array)
                 .Map(converter)
