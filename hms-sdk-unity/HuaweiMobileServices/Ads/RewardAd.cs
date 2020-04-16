@@ -27,11 +27,11 @@ namespace HuaweiMobileServices.Ads
         public virtual void LoadAd(AdParam paramAdParam, IRewardAdLoadListener paramRewardAdLoadListener) =>
             Call("loadAd", paramAdParam, new RewardAdLoadListenerWrapper(paramRewardAdLoadListener));
 
-        public virtual OnMetadataChangedListener OnMetadataChangedListener
+        public virtual IOnMetadataChangedListener OnMetadataChangedListener
         {
             set
             {
-                this.Code_Conflict = value;
+                Call("setOnMetadataChangedListener", new OnMetadataChangedListenerWrapper(value));
             }
         }
 
