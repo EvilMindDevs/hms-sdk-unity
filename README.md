@@ -1,3 +1,3 @@
-# Uniy HMS SDK
+# Unity HMS SDK
 
 Unity C# wrapper SDK for HMS SDK kits.
