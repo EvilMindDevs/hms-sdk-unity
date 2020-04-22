@@ -17,20 +17,25 @@ public class NativeBridgeActivity extends Activity {
 
     public static final String TYPE = "TYPE";
 
-    public static void start() {
-        final Intent intent = new Intent(UnityPlayer.currentActivity, NativeBridgeActivity.class);
+    public static void start(final String type) {
+        final Intent intent = new Intent(UnityPlayer.currentActivity, NativeBridgeActivity.class)
+                .putExtra(TYPE, type);
         UnityPlayer.currentActivity.startActivity(intent);
     }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "[HMS] onCreate");
         final Intent intent = getIntent();
         if (intent != null) {
+            Log.d(TAG, "[HMS] onCreate getIntent " + intent);
             final String type = intent.getStringExtra(TYPE);
             if (type != null) {
+                Log.d(TAG, "[HMS] onCreate type " + type);
                 switch (type) {
                     case StatusBridge.STATUS:
+                        Log.d(TAG, "[HMS] onCreate type StatusBridge.STATUS");
                         StatusBridge.launchStartResolutionForResult(this);
                         break;
                     default:
@@ -42,6 +47,7 @@ public class NativeBridgeActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d(TAG, "[HMS] onActivityResult");
         super.onActivityResult(requestCode, resultCode, data);
         final Intent intent = getIntent();
         if (intent != null) {
