@@ -54,7 +54,7 @@ Where $KIT_NAME is the HMS kit name (e.g. iap), $KIT_VERSION is the HMS kit vers
 
 TODO
 
-### Usage
+## Usage
 
 This wrapper was designed to be as similar as possible to the original API. It also takes into account C# particularities (e.g. no anonymous classes or interfaces) and transparently provides callbacks for Activity-based flows.
 
