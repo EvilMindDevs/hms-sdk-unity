@@ -1,11 +1,36 @@
 ﻿namespace HuaweiMobileServices.Ads
 {
+    using System;
     using HuaweiMobileServices.Utils;
     using UnityEngine;
 
     // Wrapper for com.huawei.hms.ads.reward.RewardAd
     public class RewardAd : JavaObjectWrapper
     {
+
+        private class LoadAdListener : IRewardAdLoadListener
+        {
+
+            private readonly Action mOnSuccess;
+            private readonly Action<int> mOnError;
+
+            public LoadAdListener(Action onSuccess, Action<int> onError)
+            {
+                mOnSuccess = onSuccess;
+                mOnError = onError;
+            }
+
+            public void OnRewardAdFailedToLoad(int errorCode)
+            {
+                mOnError.Invoke(errorCode);
+            }
+
+            public void OnRewardedLoaded()
+            {
+                mOnSuccess.Invoke();
+            }
+        }
+
         private const string CLASS_NAME = "com.huawei.hms.ads.reward.RewardAd";
 
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
@@ -21,8 +46,11 @@
 
         public virtual bool Loaded => Call<bool>("isLoaded");
 
-        public virtual void LoadAd(AdParam paramAdParam, IRewardAdLoadListener paramRewardAdLoadListener) =>
-            Call("loadAd", paramAdParam, new RewardAdLoadListener(paramRewardAdLoadListener));
+        public virtual void LoadAd(AdParam paramAdParam, Action onSuccess, Action<int> onError)
+        {
+            var listener = new LoadAdListener(onSuccess, onError);
+            Call("loadAd", paramAdParam, new RewardAdLoadListener(listener));
+        }
 
         public virtual IOnMetadataChangedListener OnMetadataChangedListener
         {

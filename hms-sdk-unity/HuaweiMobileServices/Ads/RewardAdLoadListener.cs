@@ -4,10 +4,10 @@
     using HuaweiMobileServices.Utils;
 
     // Wrapper for com.huawei.hms.ads.reward.RewardAdLoadListener
-    public class RewardAdLoadListener : JavaObjectWrapper
+    internal class RewardAdLoadListener : JavaObjectWrapper
     {
 
-        internal class RewardAdLoadListenerInterfaceWrapper : AndroidJavaProxy
+        private class RewardAdLoadListenerInterfaceWrapper : AndroidJavaProxy
         {
 
             private readonly IRewardAdLoadListener mListener;

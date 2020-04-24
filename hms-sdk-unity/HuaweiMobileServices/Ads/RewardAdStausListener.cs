@@ -7,9 +7,9 @@ namespace HuaweiMobileServices.Ads
     using UnityEngine;
     using HuaweiMobileServices.Utils;
 
-    public class RewardAdStausListener : JavaObjectWrapper
+    internal class RewardAdStausListener : JavaObjectWrapper
     {
-        internal class RewardAdStausListenerInterfaceWrapper : AndroidJavaProxy
+        private class RewardAdStausListenerInterfaceWrapper : AndroidJavaProxy
         {
 
             private readonly IRewardAdStatusListener mListener;
