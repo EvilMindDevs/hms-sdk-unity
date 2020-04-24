@@ -15,7 +15,7 @@ namespace com.huawei.agconnect.config
         public AGConnectServicesConfig(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public static AGConnectServicesConfig FromContext() =>
-            sJavaClass.CallStaticAsWrapper<AGConnectServicesConfig>("fromContext", AndroidContext.GetApplicationContext());
+            sJavaClass.CallStaticAsWrapper<AGConnectServicesConfig>("fromContext", AndroidContext.ApplicationContext);
 
         public virtual bool GetBoolean(string path) => Call<bool>("getBoolean", path);
 

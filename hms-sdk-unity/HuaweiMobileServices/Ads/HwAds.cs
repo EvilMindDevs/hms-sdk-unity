@@ -13,7 +13,7 @@ namespace HuaweiMobileServices.Ads
 
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.ads.HwAds");
 
-        public static void Init() => sJavaClass.CallStatic("init", AndroidContext.GetActivityContext());
+        public static void Init() => sJavaClass.CallStatic("init", AndroidContext.ActivityContext);
 
     }
 }

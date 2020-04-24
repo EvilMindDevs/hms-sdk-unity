@@ -10,7 +10,7 @@
 
         private static void SetApplication()
         {
-            sJavaClass.Call("setApplication", AndroidContext.GetApplicationContext());
+            sJavaClass.Call("setApplication", AndroidContext.ApplicationContext);
         }
     }
 }

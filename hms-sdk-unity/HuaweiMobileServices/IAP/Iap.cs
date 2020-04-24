@@ -15,7 +15,7 @@
         {
             if (sIapClient == null)
             {
-                AndroidJavaObject iapClient = sIapClass.CallStatic<AndroidJavaObject>("getIapClient", AndroidContext.GetActivityContext());
+                AndroidJavaObject iapClient = sIapClass.CallStatic<AndroidJavaObject>("getIapClient", AndroidContext.ActivityContext);
                 sIapClient = new IapClientWrapper(iapClient);
             }
             return sIapClient;
