@@ -32,6 +32,6 @@ public class RewardAdStatusListenerWrapper extends com.huawei.hms.ads.reward.Rew
     @Override
     public void onRewarded(Reward reward) {
         super.onRewarded(reward);
-        listener.onRewardAdClosed();
+        listener.onRewarded(reward);
     }
 }
