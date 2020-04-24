@@ -23,7 +23,7 @@ namespace HuaweiMobileServices.Ads
 
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            public Builder() : base("com.huawei.hms.ads.Adparam.Builder") { }
+            public Builder() : base("com.huawei.hms.ads.AdParam$Builder") { }
 
             public Builder AddKeyword(string param1String)
             {

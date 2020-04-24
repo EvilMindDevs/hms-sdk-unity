@@ -61,10 +61,10 @@
         }
 
         public virtual void Show(IRewardAdStatusListener paramRewardAdStatusListener, bool paramBoolean) =>
-            Call("show", AndroidContext.GetActivityContext(), new RewardAdStausListener(paramRewardAdStatusListener), paramBoolean);
+            Call("show", AndroidContext.GetActivityContext(), new RewardAdStatusListener(paramRewardAdStatusListener), paramBoolean);
 
         public virtual void Show(IRewardAdStatusListener paramRewardAdStatusListener) =>
-            Call("show", AndroidContext.GetActivityContext(), new RewardAdStausListener(paramRewardAdStatusListener));
+            Call("show", AndroidContext.GetActivityContext(), new RewardAdStatusListener(paramRewardAdStatusListener));
 
         public virtual RewardVerifyConfig RewardVerifyConfig => CallAsWrapper<RewardVerifyConfig>("getRewardVerifyConfig");
 

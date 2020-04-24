@@ -7,14 +7,14 @@ namespace HuaweiMobileServices.Ads
     using UnityEngine;
     using HuaweiMobileServices.Utils;
 
-    internal class RewardAdStausListener : JavaObjectWrapper
+    internal class RewardAdStatusListener : JavaObjectWrapper
     {
-        private class RewardAdStausListenerInterfaceWrapper : AndroidJavaProxy
+        private class RewardAdStatusListenerInterfaceWrapper : AndroidJavaProxy
         {
 
             private readonly IRewardAdStatusListener mListener;
 
-            public RewardAdStausListenerInterfaceWrapper(IRewardAdStatusListener listener) : base("org.m0skit0.android.hms.unity.ads.RewardAdStausListener")
+            public RewardAdStatusListenerInterfaceWrapper(IRewardAdStatusListener listener) : base("org.m0skit0.android.hms.unity.ads.RewardAdStatusListener")
             {
                 mListener = listener;
             }
@@ -40,7 +40,7 @@ namespace HuaweiMobileServices.Ads
             }
         }
 
-        public RewardAdStausListener(IRewardAdStatusListener listener)
-            : base("org.m0skit0.android.hms.unity.ads.RewardAdStausListenerWrapper", new RewardAdStausListenerInterfaceWrapper(listener)) { }
+        public RewardAdStatusListener(IRewardAdStatusListener listener)
+            : base("org.m0skit0.android.hms.unity.ads.RewardAdStatusListenerWrapper", new RewardAdStatusListenerInterfaceWrapper(listener)) { }
     }
 }
