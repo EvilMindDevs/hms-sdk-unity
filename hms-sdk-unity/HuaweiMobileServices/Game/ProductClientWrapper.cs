@@ -13,7 +13,7 @@ namespace HuaweiMobileServices.Game
 
         public virtual ITask<IList<ProductOrderInfo>> GetMissProductOrder()
         {
-            var javaResult = Call<AndroidJavaObject>("getMissProductOrder", AndroidContext.GetActivityContext());
+            var javaResult = Call<AndroidJavaObject>("getMissProductOrder", AndroidContext.ActivityContext);
             return new TaskWrapper<IList<ProductOrderInfo>>(javaResult, AndroidJavaObjectExtensions.AsListFromWrappable<ProductOrderInfo>);
         }
     }

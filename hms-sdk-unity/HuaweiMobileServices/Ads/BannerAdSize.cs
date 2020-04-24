@@ -24,13 +24,13 @@
         public static BannerAdSize BANNER_SIZE_160_600 => sJavaClass.GetStaticAsWrapper<BannerAdSize>("BANNER_SIZE_160_600");
 
         public static BannerAdSize GetCurrentDirectionBannerSize(int paramInt) =>
-            sJavaClass.CallStaticAsWrapper<BannerAdSize>("getCurrentDirectionBannerSize", AndroidContext.GetActivityContext(), paramInt);
+            sJavaClass.CallStaticAsWrapper<BannerAdSize>("getCurrentDirectionBannerSize", AndroidContext.ActivityContext, paramInt);
 
         public static BannerAdSize GetLandscapeBannerSize(int paramInt) =>
-            sJavaClass.CallStaticAsWrapper<BannerAdSize>("getLandscapeBannerSize", AndroidContext.GetActivityContext(), paramInt);
+            sJavaClass.CallStaticAsWrapper<BannerAdSize>("getLandscapeBannerSize", AndroidContext.ActivityContext, paramInt);
 
         public static BannerAdSize GetPortraitBannerSize(int paramInt) =>
-            sJavaClass.CallStaticAsWrapper<BannerAdSize>("getPortraitBannerSize", AndroidContext.GetActivityContext(), paramInt);
+            sJavaClass.CallStaticAsWrapper<BannerAdSize>("getPortraitBannerSize", AndroidContext.ActivityContext, paramInt);
 
         public BannerAdSize(int paramInt1, int paramInt2) : base(CLASS_NAME, paramInt1, paramInt2) { }
 
@@ -40,9 +40,9 @@
 
         public int Width => Call<int>("getWidth");
 
-        public int HeightPx => Call<int>("getHeightPx", AndroidContext.GetActivityContext());
+        public int HeightPx => Call<int>("getHeightPx", AndroidContext.ActivityContext);
 
-        public int WidthPx => Call<int>("getWidthPx", AndroidContext.GetActivityContext());
+        public int WidthPx => Call<int>("getWidthPx", AndroidContext.ActivityContext);
 
         public bool AutoHeightSize => Call<bool>("isAutoHeightSize");
 

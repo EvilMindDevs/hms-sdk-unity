@@ -14,7 +14,7 @@
         {
             var josAppsClient = sJavaClass.CallStatic<AndroidJavaObject>(
                     "getJosAppsClient",
-                    AndroidContext.GetActivityContext(),
+                    AndroidContext.ActivityContext,
                     authHuaweiId.JavaObject
                 );
             return new JosAppsClientWrapper(josAppsClient);
@@ -22,7 +22,7 @@
 
         public static IProductClient GetProductClient()
         {
-            var productClient = sJavaClass.CallStatic<AndroidJavaObject>("getProductClient", AndroidContext.GetApplicationContext());
+            var productClient = sJavaClass.CallStatic<AndroidJavaObject>("getProductClient", AndroidContext.ApplicationContext);
             return new ProductClientWrapper(productClient);
         }
     }

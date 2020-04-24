@@ -36,11 +36,11 @@
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
 
         public static RewardAd CreateRewardAdInstance() =>
-            sJavaClass.CallStaticAsWrapper<RewardAd>("createRewardAdInstance", AndroidContext.GetActivityContext());
+            sJavaClass.CallStaticAsWrapper<RewardAd>("createRewardAdInstance", AndroidContext.ActivityContext);
 
         public RewardAd(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public RewardAd(string paramString) : base("com.huawei.hms.ads.reward.RewardAd", AndroidContext.GetActivityContext(), paramString) { }
+        public RewardAd(string paramString) : base("com.huawei.hms.ads.reward.RewardAd", AndroidContext.ActivityContext, paramString) { }
 
         public virtual Reward Reward => CallAsWrapper<Reward>("getReward");
 
@@ -61,14 +61,14 @@
         }
 
         public virtual void Show(IRewardAdStatusListener paramRewardAdStatusListener, bool paramBoolean) =>
-            Call("show", AndroidContext.GetActivityContext(), new RewardAdStatusListener(paramRewardAdStatusListener), paramBoolean);
+            Call("show", AndroidContext.ActivityContext, new RewardAdStatusListener(paramRewardAdStatusListener), paramBoolean);
 
         public virtual void Show(IRewardAdStatusListener paramRewardAdStatusListener) =>
-            Call("show", AndroidContext.GetActivityContext(), new RewardAdStatusListener(paramRewardAdStatusListener));
+            Call("show", AndroidContext.ActivityContext, new RewardAdStatusListener(paramRewardAdStatusListener));
 
         public virtual RewardVerifyConfig RewardVerifyConfig => CallAsWrapper<RewardVerifyConfig>("getRewardVerifyConfig");
 
-        public virtual void Destroy() => Call("destroy", AndroidContext.GetActivityContext());
+        public virtual void Destroy() => Call("destroy", AndroidContext.ActivityContext);
 
         public virtual IRewardAdListener RewardAdListener
         {
@@ -84,9 +84,9 @@
 
         public virtual void LoadAd(string paramString, AdParam paramAdParam) => Call("loadAd", paramString, paramAdParam);
 
-        public virtual void Pause() => Call("pause", AndroidContext.GetActivityContext());
+        public virtual void Pause() => Call("pause", AndroidContext.ActivityContext);
 
-        public virtual void Resume() => Call("resume", AndroidContext.GetActivityContext());
+        public virtual void Resume() => Call("resume", AndroidContext.ActivityContext);
 
         public virtual bool Immersive => Call<bool>("isImmersive");
 

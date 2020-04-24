@@ -16,7 +16,7 @@ namespace HuaweiMobileServices.Id
         public HmsInstanceId(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public static HmsInstanceId GetInstance() =>
-            sJavaClass.CallStaticAsWrapper<HmsInstanceId>("getInstance", AndroidContext.GetApplicationContext());
+            sJavaClass.CallStaticAsWrapper<HmsInstanceId>("getInstance", AndroidContext.ApplicationContext);
 
         public virtual string Id => CallAsString("getId");
 

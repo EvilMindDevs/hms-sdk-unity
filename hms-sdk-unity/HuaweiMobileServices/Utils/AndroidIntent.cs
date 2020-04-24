@@ -8,7 +8,7 @@
 
         public AndroidIntent(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public AndroidIntent(AndroidJavaClass activityClass) : base(CLASS_NAME, AndroidContext.GetActivityContext(), activityClass) { }
+        public AndroidIntent(AndroidJavaClass activityClass) : base(CLASS_NAME, AndroidContext.ActivityContext, activityClass) { }
 
         public AndroidJavaObject Intent => JavaObject;
 

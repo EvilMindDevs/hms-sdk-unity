@@ -8,18 +8,18 @@
         private static AndroidJavaClass mUnityPlayerClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         private static AndroidJavaObject mApplicationContextJava = null;
 
-        public static AndroidJavaObject GetActivityContext()
-        {
-            return mUnityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
-        }
+        public static AndroidJavaObject ActivityContext => mUnityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
 
-        public static AndroidJavaObject GetApplicationContext()
+        public static AndroidJavaObject ApplicationContext
         {
-            if (mApplicationContextJava == null)
+            get
             {
-                mApplicationContextJava = GetActivityContext().Call<AndroidJavaObject>("getApplicationContext");
+                if (mApplicationContextJava == null)
+                {
+                    mApplicationContextJava = ActivityContext.Call<AndroidJavaObject>("getApplicationContext");
+                }
+                return mApplicationContextJava;
             }
-            return mApplicationContextJava;
         }
     }
 
