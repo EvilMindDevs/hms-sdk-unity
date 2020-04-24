@@ -1,9 +1,18 @@
-﻿namespace HuaweiMobileServices.Base
+﻿using System;
+
+namespace HuaweiMobileServices.Base
 {
-    public class HMSException : System.Exception
+
+    using UnityEngine;
+
+    public class HMSException : Exception
     {
-        internal HMSException() : base() { }
-        internal HMSException(string message) : base(message) { }
-        internal HMSException(int errorCode) : base(errorCode.ToString()) { }
+        internal HMSException(AndroidJavaObject javaObject) : base()
+        {
+            JavaException = javaObject;
+        }
+
+        internal AndroidJavaObject JavaException { get; }
     }
+
 }

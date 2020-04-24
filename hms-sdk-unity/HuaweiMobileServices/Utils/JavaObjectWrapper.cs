@@ -1,3 +1,5 @@
+using System;
+
 namespace HuaweiMobileServices.Utils
 {
     using System.Collections.Generic;
