@@ -29,19 +29,13 @@ namespace HuaweiMobileServices.Utils
         // WARNING: DO NO MODIFY METHOD NAME, THIS IS CALLED DIRECTLY FROM JAVA!
         public void onSuccess(AndroidJavaObject intent)
         {
-            if (mOnSuccessListener != null)
-            {
-                mOnSuccessListener.Invoke(intent.AsWrapper<AndroidIntent>());
-            }
+            mOnSuccessListener?.Invoke(intent.AsWrapper<AndroidIntent>());
         }
 
         // WARNING: DO NO MODIFY METHOD NAME, THIS IS CALLED DIRECTLY FROM JAVA!
         public void onFailure(AndroidJavaObject exception)
         {
-           if (mOnFailureListener != null)
-            {
-                mOnFailureListener.Invoke(exception.AsException());
-            }
+            mOnFailureListener?.Invoke(exception.AsException());
         }
     }
 }

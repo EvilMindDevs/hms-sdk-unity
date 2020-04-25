@@ -12,8 +12,8 @@ namespace HuaweiMobileServices.Id
 
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.support.hwid.HuaweiIdAuthManager");
 
-        public static IHuaweiIdAuthService GetService(HuaweiIdAuthParams paramHuaweiIdAuthParams) =>
-            sJavaClass.CallStaticAsWrapper<HuaweiIdAuthServiceWrapper>("getService", AndroidContext.ActivityContext, paramHuaweiIdAuthParams);
+        public static HuaweiIdAuthService GetService(HuaweiIdAuthParams paramHuaweiIdAuthParams) =>
+            sJavaClass.CallStaticAsWrapper<HuaweiIdAuthService>("getService", AndroidContext.ActivityContext, paramHuaweiIdAuthParams);
 
         public static ITask<AuthHuaweiId> ParseAuthResultFromIntent(AndroidIntent paramIntent) =>
             sJavaClass.CallStaticAsWrapper<TaskJavaObjectWrapper<AuthHuaweiId>>("parseAuthResultFromIntent", paramIntent);

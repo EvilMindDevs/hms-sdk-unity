@@ -25,5 +25,6 @@ dependencies {
     // HMS
     compileOnly 'com.huawei.hms:iap:4.0.2.300'
     compileOnly 'com.huawei.hms:push:4.0.2.300'
+    compileOnly 'com.huawei.hms:game:4.0.1.300'
     compileOnly 'com.huawei.hms:ads-lite:13.4.28.305'
 }
