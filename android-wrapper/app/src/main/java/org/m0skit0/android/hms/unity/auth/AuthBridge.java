@@ -1,14 +1,10 @@
 package org.m0skit0.android.hms.unity.auth;
 
 import android.content.Intent;
-import android.content.IntentSender;
 import android.util.Log;
-
-import com.huawei.hms.support.api.client.Status;
 
 import org.m0skit0.android.hms.unity.GenericBridgeCallback;
 import org.m0skit0.android.hms.unity.activity.NativeBridgeActivity;
-import org.m0skit0.android.hms.unity.base.StatusBridge;
 
 public class AuthBridge {
 
