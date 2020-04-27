@@ -20,9 +20,7 @@ You need to:
 
 ### Downloading HMS AARs
 
-You need to import the HMS kit AAR 
-
-To download the HMS kit AAR with its dependencies you can use Gradle with the following build.gradle:
+You need to include the HMS kit AAR and all its dependencies. To download the HMS kit AAR with all its dependencies you can use Gradle with the following build.gradle:
 
 ```gradle
 apply plugin: 'java'
