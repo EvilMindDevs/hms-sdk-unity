@@ -107,16 +107,15 @@ Becomes
 var task = Iap.GetIapClient().EnvReady;
 // Listeners are Action lambdas, more concise and idiomatic since C#
 // does not have anonymous interface implementations.
-task.AddOnSuccessListener(
-    (isEnvReadyResult) =>
+task.AddOnSuccessListener((isEnvReadyResult) =>
     {
         // Obtain the execution result.
-    },
-    (exception) => 
+    })
+    .AddOnFailureListener((exception) => 
     {
-        if (exception is IapApiException)
+        if (exception.IsIapApiException())
         {
-            var iapException = exception as IapApiException;
+            var iapException = exception.AsIapApiException();
             var status = iapException.Status;
             if (status.StatusCode == OrderStatusCode.ORDER_HWID_NOT_LOGIN)
             {
@@ -138,5 +137,5 @@ task.AddOnSuccessListener(
             }
         }
     }
-}
+);
 ```
