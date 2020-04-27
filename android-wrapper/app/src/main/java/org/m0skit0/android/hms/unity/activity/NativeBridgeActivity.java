@@ -54,14 +54,13 @@ public class NativeBridgeActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d(TAG, "[HMS] onActivityResult");
         super.onActivityResult(requestCode, resultCode, data);
-        final Intent intent = getIntent();
-        if (intent != null) {
+        if (data != null) {
             switch (requestCode) {
                 case StatusBridge.CODE:
-                    StatusBridge.returnStartResolutionForResult(intent);
+                    StatusBridge.returnStartResolutionForResult(data);
                     break;
                 case AuthBridge.CODE:
-                    AuthBridge.returnStartSignIn(intent);
+                    AuthBridge.returnStartSignIn(data);
                     break;
                 default:
                     Log.e(TAG, "Unknown request code " + requestCode);
