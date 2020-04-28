@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace com.huawei.agconnect.config
+namespace HuaweiMobileServices.Base
 {
     using UnityEngine;
     using HuaweiMobileServices.Utils;
