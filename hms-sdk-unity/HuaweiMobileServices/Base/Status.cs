@@ -27,7 +27,7 @@ namespace HuaweiMobileServices.Base
 
         public bool HasResolution() => Call<bool>("hasResolution");
 
-        public void StartResolutionForResult(Action<AndroidIntent> onSuccessListener, Action<Exception> onFailureListener)
+        public void StartResolutionForResult(Action<AndroidIntent> onSuccessListener, Action<HMSException> onFailureListener)
         {
             var callback = new GenericBridgeCallbackWrapper()
                             .AddOnSuccessListener(onSuccessListener)
