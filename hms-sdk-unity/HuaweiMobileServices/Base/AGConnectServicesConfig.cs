@@ -25,7 +25,7 @@ namespace HuaweiMobileServices.Base
 
         public virtual int GetInt(string path, int def) => Call<int>("getInt", path, def);
 
-        public virtual string GetString(string path) => CallAsString("getInt", path);
+        public virtual string GetString(string path) => CallAsString("getString", path);
 
         public virtual string GetString(string path, string def) => CallAsString("getString", path);
     }
