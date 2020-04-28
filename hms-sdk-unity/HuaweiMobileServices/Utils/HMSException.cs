@@ -1,8 +1,7 @@
 ﻿using System;
 
-namespace HuaweiMobileServices.Base
+namespace HuaweiMobileServices.Utils
 {
-
     using UnityEngine;
 
     public class HMSException : Exception

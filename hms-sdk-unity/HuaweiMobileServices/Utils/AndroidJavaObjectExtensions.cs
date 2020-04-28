@@ -52,7 +52,7 @@ namespace HuaweiMobileServices.Utils
         public static AndroidJavaObject AsJavaStringList(this IList<string> list) =>
            list.Map((aString) => aString.AsJavaString()).AsJavaList();
 
-        public static Exception AsException(this AndroidJavaObject javaException) => new HMSException(javaException);
+        public static HMSException AsException(this AndroidJavaObject javaException) => new HMSException(javaException);
 
         public static AndroidJavaObject AsJavaSet<T>(this ISet<T> set)
         {

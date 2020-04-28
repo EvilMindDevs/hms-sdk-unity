@@ -10,7 +10,7 @@ namespace HuaweiMobileServices.Utils
     {
 
         private Action<AndroidIntent> mOnSuccessListener;
-        private Action<Exception> mOnFailureListener;
+        private Action<HMSException> mOnFailureListener;
         
         public GenericBridgeCallbackWrapper() : base("org.m0skit0.android.hms.unity.GenericBridgeCallback") { }
 
@@ -20,7 +20,7 @@ namespace HuaweiMobileServices.Utils
             return this;
         }
 
-        public GenericBridgeCallbackWrapper AddOnFailureListener(Action<Exception> onFailureListener)
+        public GenericBridgeCallbackWrapper AddOnFailureListener(Action<HMSException> onFailureListener)
         {
             mOnFailureListener = onFailureListener;
             return this;

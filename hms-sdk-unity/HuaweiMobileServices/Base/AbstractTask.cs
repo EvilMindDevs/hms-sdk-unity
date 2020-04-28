@@ -20,7 +20,7 @@ namespace HuaweiMobileServices.Base
 
         public Exception Exception => Call<AndroidJavaObject>("getException").AsException();
 
-        public ITask<T> AddOnFailureListener(Action<Exception> onFailureListener)
+        public ITask<T> AddOnFailureListener(Action<HMSException> onFailureListener)
         {
             var listenerWrapper = new OnFailureListenerWrapper(onFailureListener);
             JavaObject = Call<AndroidJavaObject>("addOnFailureListener", listenerWrapper);

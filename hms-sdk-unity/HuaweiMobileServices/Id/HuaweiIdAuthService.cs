@@ -17,7 +17,7 @@ namespace HuaweiMobileServices.Id
 
         public void StartSignIn(Action<AuthHuaweiId> onSuccess, Action<Exception> onFailure)
         {
-            var intent = Call<AndroidJavaObject>("signInIntent");
+            var intent = Call<AndroidJavaObject>("getSignInIntent");
             var callback = new GenericBridgeCallbackWrapper()
                 .AddOnFailureListener(onFailure)
                 .AddOnSuccessListener((resultIntent) =>

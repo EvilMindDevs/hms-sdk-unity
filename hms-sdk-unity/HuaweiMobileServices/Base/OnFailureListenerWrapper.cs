@@ -8,9 +8,9 @@
     internal class OnFailureListenerWrapper : AndroidJavaProxy
     {
 
-        private readonly Action<Exception> mListener;
+        private readonly Action<HMSException> mListener;
 
-        internal OnFailureListenerWrapper(Action<Exception> listener) : base("com.huawei.hmf.tasks.OnFailureListener")
+        internal OnFailureListenerWrapper(Action<HMSException> listener) : base("com.huawei.hmf.tasks.OnFailureListener")
         {
             mListener = listener;
         }
