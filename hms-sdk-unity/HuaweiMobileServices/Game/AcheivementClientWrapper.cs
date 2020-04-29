@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace HuaweiMobileServices.Game
 {
@@ -8,12 +9,20 @@ namespace HuaweiMobileServices.Game
 
     internal class AcheivementClientWrapper : JavaObjectWrapper, IAchievementsClient
     {
+        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.auth.GameBridge");
 
         public AcheivementClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public ITask<AndroidIntent> ShowAchievementListIntent
+        public void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure)
         {
-            get => CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getShowAchievementListIntent");
+            var intent = Call<AndroidJavaObject>("getShowAchievementList");
+            var callback = new GenericBridgeCallbackWrapper()
+                .AddOnFailureListener(onFailure)
+                .AddOnSuccessListener((nothing) =>
+                {
+                    onSuccess.Invoke();
+                });
+            sJavaClass.CallStatic("receiveShowAchievementList", intent, callback);
         }
 
         public ITask<IList<Achievement>> GetAchievementList(bool paramBoolean)
