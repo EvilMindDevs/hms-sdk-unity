@@ -15,7 +15,7 @@ namespace HuaweiMobileServices.Base
         public AGConnectServicesConfig(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public static AGConnectServicesConfig FromContext() =>
-            sJavaClass.CallStaticAsWrapper<AGConnectServicesConfig>("fromContext", AndroidContext.ApplicationContext);
+            sJavaClass.CallStaticAsWrapper<AGConnectServicesConfig>("fromContext", AndroidContext.ActivityContext);
 
         public virtual bool GetBoolean(string path) => Call<bool>("getBoolean", path);
 
@@ -27,6 +27,6 @@ namespace HuaweiMobileServices.Base
 
         public virtual string GetString(string path) => CallAsString("getString", path);
 
-        public virtual string GetString(string path, string def) => CallAsString("getString", path);
+        public virtual string GetString(string path, string def) => CallAsString("getString", path, def);
     }
 }
