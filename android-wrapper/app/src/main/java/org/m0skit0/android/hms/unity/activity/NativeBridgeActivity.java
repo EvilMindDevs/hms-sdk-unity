@@ -9,7 +9,8 @@ import androidx.annotation.Nullable;
 
 import com.unity3d.player.UnityPlayer;
 
-import org.m0skit0.android.hms.unity.auth.AuthBridge;
+import org.m0skit0.android.hms.unity.BridgeType;
+import org.m0skit0.android.hms.unity.GenericBridge;
 import org.m0skit0.android.hms.unity.base.StatusBridge;
 
 public class NativeBridgeActivity extends Activity {
@@ -39,9 +40,9 @@ public class NativeBridgeActivity extends Activity {
                         Log.d(TAG, "[HMS] onCreate type StatusBridge.STATUS");
                         StatusBridge.launchStartResolutionForResult(this);
                         break;
-                    case AuthBridge.AUTH:
-                        Log.d(TAG, "[HMS] onCreate type AuthBridge.AUTH");
-                        AuthBridge.launchStartSignIn(this);
+                    case GenericBridge.GENERIC:
+                        Log.d(TAG, "[HMS] onCreate type GenericBridge.GENERIC");
+                        GenericBridge.launchShow(this);
                         break;
                     default:
                         Log.e(TAG, "Unknown type " + type);
@@ -56,11 +57,11 @@ public class NativeBridgeActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if (data != null) {
             switch (requestCode) {
-                case StatusBridge.CODE:
-                    StatusBridge.returnStartResolutionForResult(data);
+                case BridgeType.GENERIC:
+                    GenericBridge.returnShow(data);
                     break;
-                case AuthBridge.CODE:
-                    AuthBridge.returnStartSignIn(data);
+                case BridgeType.STATUS:
+                    StatusBridge.returnStartResolutionForResult(data);
                     break;
                 default:
                     Log.e(TAG, "Unknown request code " + requestCode);

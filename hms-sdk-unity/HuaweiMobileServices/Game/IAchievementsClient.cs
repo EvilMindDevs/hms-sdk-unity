@@ -1,15 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace HuaweiMobileServices.Game
 {
     using HuaweiMobileServices.Base;
     using HuaweiMobileServices.Utils;
-    using UnityEngine;
 
     // Wrapper for com.huawei.hms.jos.games.AchievementsClient
     public interface IAchievementsClient
     {
-        ITask<AndroidIntent> ShowAchievementListIntent { get; }
+        void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure);
 
         void Grow(string paramString, int paramInt);
 

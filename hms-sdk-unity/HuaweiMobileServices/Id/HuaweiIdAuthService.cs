@@ -11,7 +11,7 @@ namespace HuaweiMobileServices.Id
     public class HuaweiIdAuthService : JavaObjectWrapper
     {
 
-        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.auth.AuthBridge");
+        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
 
         public HuaweiIdAuthService(AndroidJavaObject javaObject) : base(javaObject) { }
 
@@ -29,7 +29,7 @@ namespace HuaweiMobileServices.Id
                             onSuccess.Invoke(authHuaweiId);
                         });
                 });
-            sJavaClass.CallStatic("receiveStartSignIn", intent, callback);
+            sJavaClass.CallStatic("receiveShow", intent, callback);
         }
 
         public ITask<Void> CancelAuthorization() => CallAsWrapper<TaskVoidWrapper>("cancelAuthorization");

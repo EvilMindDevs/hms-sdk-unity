@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace HuaweiMobileServices.Game
 {
@@ -6,14 +7,26 @@ namespace HuaweiMobileServices.Game
     using HuaweiMobileServices.Utils;
     using UnityEngine;
 
-    internal class AcheivementClientWrapper : JavaObjectWrapper, IAchievementsClient
+    internal class AchievementClientWrapper : JavaObjectWrapper, IAchievementsClient
     {
+        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
 
-        public AcheivementClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
+        public AchievementClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public ITask<AndroidIntent> ShowAchievementListIntent
+        public void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure)
         {
-            get => CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getShowAchievementListIntent");
+            CallAsWrapper<TaskAndroidJavaObject>("getShowAchievementListIntent")
+                .AddOnSuccessListener((intent) =>
+                {
+                    var callback = new GenericBridgeCallbackWrapper()
+                   .AddOnFailureListener(onFailure)
+                   .AddOnSuccessListener((nothing) =>
+                   {
+                       onSuccess.Invoke();
+                   });
+                    sJavaClass.CallStatic("receiveShow", intent, callback);
+
+                }).AddOnFailureListener((exception) => onFailure.Invoke(exception));
         }
 
         public ITask<IList<Achievement>> GetAchievementList(bool paramBoolean)

@@ -9,6 +9,7 @@ import com.huawei.hms.iap.entity.PurchaseResultInfo;
 import com.huawei.hms.support.api.client.Status;
 import com.unity3d.player.UnityPlayer;
 
+import org.m0skit0.android.hms.unity.BridgeType;
 import org.m0skit0.android.hms.unity.GenericBridgeCallback;
 import org.m0skit0.android.hms.unity.activity.NativeBridgeActivity;
 
@@ -16,7 +17,7 @@ public class StatusBridge {
 
     private static final String TAG = StatusBridge.class.getSimpleName();
 
-    public static final int CODE = 0;
+    private static final int CODE = BridgeType.STATUS;
     public static final String STATUS = "STATUS";
 
     private static Status status;
