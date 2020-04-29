@@ -7,22 +7,26 @@ namespace HuaweiMobileServices.Game
     using HuaweiMobileServices.Utils;
     using UnityEngine;
 
-    internal class AcheivementClientWrapper : JavaObjectWrapper, IAchievementsClient
+    internal class AchievementClientWrapper : JavaObjectWrapper, IAchievementsClient
     {
-        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.auth.AchievementBridge");
+        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
 
-        public AcheivementClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
+        public AchievementClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure)
         {
-            var intent = Call<AndroidJavaObject>("getShowAchievementList");
-            var callback = new GenericBridgeCallbackWrapper()
-                .AddOnFailureListener(onFailure)
-                .AddOnSuccessListener((nothing) =>
+            CallAsWrapper<TaskAndroidJavaObject>("getShowAchievementListIntent")
+                .AddOnSuccessListener((intent) =>
                 {
-                    onSuccess.Invoke();
-                });
-            sJavaClass.CallStatic("receiveShowAchievementList", intent, callback);
+                    var callback = new GenericBridgeCallbackWrapper()
+                   .AddOnFailureListener(onFailure)
+                   .AddOnSuccessListener((nothing) =>
+                   {
+                       onSuccess.Invoke();
+                   });
+                    sJavaClass.CallStatic("receiveShow", intent, callback);
+
+                }).AddOnFailureListener((exception) => onFailure.Invoke(exception));
         }
 
         public ITask<IList<Achievement>> GetAchievementList(bool paramBoolean)

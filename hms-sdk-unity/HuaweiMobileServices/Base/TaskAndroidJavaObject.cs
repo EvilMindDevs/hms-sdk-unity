@@ -4,6 +4,6 @@
 
     internal class TaskAndroidJavaObject : TaskWrapper<AndroidJavaObject>
     {
-        internal TaskAndroidJavaObject(AndroidJavaObject javaObject) : base(javaObject, (jObject) => jObject) { }
+        public TaskAndroidJavaObject(AndroidJavaObject javaObject) : base(javaObject, (jObject) => jObject) { }
     }
 }

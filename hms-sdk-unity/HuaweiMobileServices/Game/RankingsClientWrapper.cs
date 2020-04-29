@@ -10,10 +10,26 @@ namespace HuaweiMobileServices.Game
 
     internal class RankingsClientWrapper : JavaObjectWrapper, IRankingsClient
     {
+
+        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
+
         public RankingsClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public ITask<AndroidIntent> TotalRankingsIntent => 
-            CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getTotalRankingsIntent");
+        public void ShowTotalRankings(Action onSuccess, Action<HMSException> onFailure)
+        {
+            CallAsWrapper<TaskAndroidJavaObject>("getTotalRankingsIntent")
+                .AddOnSuccessListener((intent) =>
+                {
+                    var callback = new GenericBridgeCallbackWrapper()
+                   .AddOnFailureListener(onFailure)
+                   .AddOnSuccessListener((nothing) =>
+                   {
+                       onSuccess.Invoke();
+                   });
+                    sJavaClass.CallStatic("receiveShow", intent, callback);
+
+                }).AddOnFailureListener((exception) => onFailure.Invoke(exception));
+        }
 
         public ITask<RankingScore> GetCurrentPlayerRankingScore(string paramString, int paramInt) =>
             CallAsWrapper<TaskJavaObjectWrapper<RankingScore>>("getCurrentPlayerRankingScore", paramString, paramInt);

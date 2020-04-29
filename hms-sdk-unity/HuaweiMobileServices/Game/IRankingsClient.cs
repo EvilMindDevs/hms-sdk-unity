@@ -1,15 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace HuaweiMobileServices.Game
 {
     using HuaweiMobileServices.Base;
     using HuaweiMobileServices.Utils;
-    using UnityEngine;
 
     // Wrapper for com.huawei.hms.jos.games.RankingsClient
     public interface IRankingsClient
     {
-        ITask<AndroidIntent> TotalRankingsIntent { get; }
+
+        void ShowTotalRankings(Action onSuccess, Action<HMSException> onFailure);
 
         ITask<AndroidIntent> GetRankingIntent(string paramString, int paramInt);
 
