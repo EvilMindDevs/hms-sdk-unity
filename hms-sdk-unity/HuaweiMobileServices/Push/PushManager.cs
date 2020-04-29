@@ -11,9 +11,12 @@ namespace HuaweiMobileServices.Push
 
         public static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.push.HMSPushService");
 
-        public static void SetListener(IPushListener listener)
+        public static IPushListener Listener
         {
-            sJavaClass.CallStatic("setListener", new PushListenerWrapper(listener));
+            set
+            {
+                sJavaClass.CallStatic("setListener", new PushListenerWrapper(value));
+            }
         }
     }
 }
