@@ -5,6 +5,8 @@ using System.Text;
 namespace HuaweiMobileServices.Push
 {
     using UnityEngine;
+    using HuaweiMobileServices.Base;
+    using HuaweiMobileServices.Id;
 
     public static class PushManager
     {
@@ -13,10 +15,10 @@ namespace HuaweiMobileServices.Push
 
         public static IPushListener Listener
         {
-            set
-            {
-                sJavaClass.CallStatic("setListener", new PushListenerWrapper(value));
-            }
+            set => sJavaClass.CallStatic("setListener", new PushListenerWrapper(value));
         }
+
+        public static string Token => HmsInstanceId.GetInstance().GetToken(MetadataHelper.AppId, "HCM");
+
     }
 }
