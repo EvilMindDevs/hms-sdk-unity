@@ -36,6 +36,7 @@
 
         public static IBuoyClient GetBuoyClient() =>
             sJavaClass.CallStaticAsWrapper<BuoyClientWrapper>("getBuoyClient", AndroidContext.ActivityContext);
+
     }
 
 }

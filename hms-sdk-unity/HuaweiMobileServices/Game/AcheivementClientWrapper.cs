@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Game
 
     internal class AcheivementClientWrapper : JavaObjectWrapper, IAchievementsClient
     {
-        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.auth.GameBridge");
+        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.auth.AchievementBridge");
 
         public AcheivementClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 

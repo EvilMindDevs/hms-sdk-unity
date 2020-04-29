@@ -17,7 +17,7 @@ public class StatusBridge {
 
     private static final String TAG = StatusBridge.class.getSimpleName();
 
-    public static final int CODE = BridgeType.STATUS;
+    private static final int CODE = BridgeType.STATUS;
     public static final String STATUS = "STATUS";
 
     private static Status status;

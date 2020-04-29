@@ -8,9 +8,9 @@
     {
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.api.HuaweiMobileServicesUtil");
 
-        private static void SetApplication()
+        public static void SetApplication()
         {
-            sJavaClass.Call("setApplication", AndroidContext.ApplicationContext);
+            sJavaClass.CallStatic("setApplication", AndroidContext.ApplicationContext);
         }
     }
 }
