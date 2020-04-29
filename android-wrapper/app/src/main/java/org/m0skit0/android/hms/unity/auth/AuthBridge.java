@@ -3,6 +3,7 @@ package org.m0skit0.android.hms.unity.auth;
 import android.content.Intent;
 import android.util.Log;
 
+import org.m0skit0.android.hms.unity.BridgeType;
 import org.m0skit0.android.hms.unity.GenericBridgeCallback;
 import org.m0skit0.android.hms.unity.activity.NativeBridgeActivity;
 
@@ -10,7 +11,7 @@ public class AuthBridge {
 
     private static final String TAG = AuthBridge.class.getSimpleName();
 
-    public static final int CODE = 1;
+    public static final int CODE = BridgeType.AUTH;
     public static final String AUTH = "AUTH";
 
     private static Intent intent;

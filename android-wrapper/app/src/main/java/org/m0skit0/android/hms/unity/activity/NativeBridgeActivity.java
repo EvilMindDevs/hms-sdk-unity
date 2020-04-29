@@ -9,8 +9,10 @@ import androidx.annotation.Nullable;
 
 import com.unity3d.player.UnityPlayer;
 
+import org.m0skit0.android.hms.unity.BridgeType;
 import org.m0skit0.android.hms.unity.auth.AuthBridge;
 import org.m0skit0.android.hms.unity.base.StatusBridge;
+import org.m0skit0.android.hms.unity.game.GameBridge;
 
 public class NativeBridgeActivity extends Activity {
 
@@ -56,12 +58,14 @@ public class NativeBridgeActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if (data != null) {
             switch (requestCode) {
-                case StatusBridge.CODE:
+                case BridgeType.STATUS:
                     StatusBridge.returnStartResolutionForResult(data);
                     break;
-                case AuthBridge.CODE:
+                case BridgeType.AUTH:
                     AuthBridge.returnStartSignIn(data);
                     break;
+                case BridgeType.GAME:
+                    GameBridge.returnShowAchievementList(data);
                 default:
                     Log.e(TAG, "Unknown request code " + requestCode);
             }
