@@ -17,8 +17,8 @@ public class HMSPushService extends HmsMessageService {
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        super.onMessageReceived(remoteMessage);
         Log.d(TAG, "[HMS] onMessageReceived");
+        super.onMessageReceived(remoteMessage);
         if (listener != null) {
             listener.onMessageReceived(remoteMessage);
         }
@@ -26,8 +26,8 @@ public class HMSPushService extends HmsMessageService {
 
     @Override
     public void onNewToken(String token) {
-        super.onNewToken(token);
         Log.d(TAG, "[HMS] onNewToken");
+        super.onNewToken(token);
         if (listener != null) {
             listener.onNewToken(token);
         }
@@ -35,8 +35,8 @@ public class HMSPushService extends HmsMessageService {
 
     @Override
     public void onTokenError(Exception e) {
-        super.onTokenError(e);
         Log.d(TAG, "[HMS] onTokenError");
+        super.onTokenError(e);
         if (listener != null) {
             listener.onTokenError(e);
         }
