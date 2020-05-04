@@ -1,9 +1,8 @@
+using System;
+using System.Collections.Generic;
+
 namespace HuaweiMobileServices.Utils
 {
-    using HuaweiMobileServices.Base;
-    using System;
-    using System.Collections.Generic;
-    using System.Reflection;
     using UnityEngine;
 
     internal static class AndroidJavaObjectExtensions
@@ -44,13 +43,12 @@ namespace HuaweiMobileServices.Utils
         }
 
         public static IList<T> AsListFromWrappable<T>(this AndroidJavaObject javaList) where T : JavaObjectWrapper =>
-            javaList.AsList<AndroidJavaObject>().Map((javaObject) => javaObject.AsWrapper<T>());
+            javaList.AsList<AndroidJavaObject>().Map(AsWrapper<T>);
 
-        public static IList<string> AsStringList(this AndroidJavaObject javaList) =>
-            javaList.AsList<AndroidJavaObject>().Map((javaObject) => javaObject.AsString());
+        public static IList<string> AsStringList(this AndroidJavaObject javaList) => 
+            javaList.AsList<AndroidJavaObject>().Map(AsString);
 
-        public static AndroidJavaObject AsJavaStringList(this IList<string> list) =>
-           list.Map((aString) => aString.AsJavaString()).AsJavaList();
+        public static AndroidJavaObject AsJavaStringList(this IList<string> list) => list.Map(AsJavaString).AsJavaList();
 
         public static HMSException AsException(this AndroidJavaObject javaException) => new HMSException(javaException);
 
@@ -73,6 +71,9 @@ namespace HuaweiMobileServices.Utils
             return new HashSet<T>(list);
         }
 
+        public static ISet<T> AsSetFromWrappable<T>(this AndroidJavaObject javaSet) where T : JavaObjectWrapper =>
+            javaSet.AsSet<AndroidJavaObject>().Map(AsWrapper<T>);
+
         public static ISet<string> AsStringSet(this AndroidJavaObject javaSet)
         {
             var list = new AndroidJavaObject("java.util.ArrayList", javaSet).AsStringList();
@@ -82,13 +83,13 @@ namespace HuaweiMobileServices.Utils
         public static AndroidJavaObject AsJavaArray<T>(this T[] array, Func<T, AndroidJavaObject> converter) =>
             new List<T>(array)
                 .Map(converter)
-                .AsJavaList<AndroidJavaObject>()
+                .AsJavaList()
                 .Call<AndroidJavaObject>("toArray");
 
         public static AndroidJavaObject AsJavaArrayFromWrapper<T>(this T[] array) where T : JavaObjectWrapper =>
             new List<T>(array)
                 .Map((element) => element.JavaObject)
-                .AsJavaList<AndroidJavaObject>()
+                .AsJavaList()
                 .Call<AndroidJavaObject>("toArray");
 
         public static T[] AsArray<T>(this AndroidJavaObject javaObject) where T : JavaObjectWrapper

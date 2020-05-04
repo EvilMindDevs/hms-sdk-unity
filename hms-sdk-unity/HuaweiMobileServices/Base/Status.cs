@@ -35,40 +35,20 @@ namespace HuaweiMobileServices.Base
             sJavaBridge.CallStatic("receiveStartResolutionForResult", JavaObject, callback);
         }
 
-        public int StatusCode
-        {
-            get => Call<int>("getStatusCode");
-        }
+        public int StatusCode => Call<int>("getStatusCode");
 
-        public string StatusMessage
-        {
-            get => CallAsString("getStatusMessage");
-        }
+        public string StatusMessage => CallAsString("getStatusMessage");
 
-        public AndroidPendingIntent Resolution
-        {
-            get => CallAsWrapper<AndroidPendingIntent>("getResolution");
-        }
+        public AndroidPendingIntent Resolution => CallAsWrapper<AndroidPendingIntent>("getResolution");
 
-        public bool Success
-        {
-            get => Call<bool>("isSuccess");
-        }
+        public bool Success => Call<bool>("isSuccess");
 
-        public string ErrorString
-        {
-            get => CallAsString("getErrorString");
-        }
+        public string ErrorString => CallAsString("getErrorString");
 
-        public bool Canceled
-        {
-            get => Call<bool>("isCanceled");
-        }
+        public bool Canceled => Call<bool>("isCanceled");
 
-        public bool Interrupted
-        {
-            get => Call<bool>("isInterrupted");
-        }
+        public bool Interrupted => Call<bool>("isInterrupted");
+
     }
 
 }
