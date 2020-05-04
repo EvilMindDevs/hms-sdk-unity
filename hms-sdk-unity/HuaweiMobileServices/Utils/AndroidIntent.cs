@@ -12,6 +12,6 @@
 
         public AndroidJavaObject Intent => JavaObject;
 
-        public int GetIntExtra<T>(string name) => JavaObject.Call<int>("getIntExtra", name, 1);
+        public int GetIntExtra<T>(string name) => Call<int>("getIntExtra", name, 1);
     }
 }

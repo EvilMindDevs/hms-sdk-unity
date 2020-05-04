@@ -9,10 +9,7 @@
 
         public Result(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public virtual Status Status
-        {
-            get => CallAsWrapper<Status>("getStatus");
-        }
+        public virtual Status Status => CallAsWrapper<Status>("getStatus");
 
     }
 
