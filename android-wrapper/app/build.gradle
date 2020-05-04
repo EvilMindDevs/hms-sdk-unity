@@ -1,6 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 29
@@ -19,8 +17,8 @@ dependencies {
     compileOnly files("libs/UnityPlayer.jar")
 
     // Android
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.2.0'
+    compileOnly 'androidx.core:core-ktx:1.2.0'
+    compileOnly 'com.google.android.gms:play-services-base:17.2.1'
 
     // HMS
     compileOnly 'com.huawei.hms:iap:4.0.2.300'
