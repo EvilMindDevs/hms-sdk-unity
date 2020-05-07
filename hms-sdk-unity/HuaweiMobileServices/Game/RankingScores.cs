@@ -12,14 +12,9 @@ namespace HuaweiMobileServices.Game
 
         public RankingScores(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public Ranking Ranking
-        {
-            get => CallAsWrapper<Ranking>("getRanking");
-        }
+        public Ranking Ranking => CallAsWrapper<Ranking>("getRanking");
 
-        public IList<RankingScore> RankingScore
-        {
-            get => CallAsWrapperList<RankingScore>("getRankingScore");
-        }
+        public IList<RankingScore> RankingScore => CallAsWrapperList<RankingScore>("getRankingScore");
+
     }
 }

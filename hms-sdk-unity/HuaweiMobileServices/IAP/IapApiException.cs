@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HuaweiMobileServices.IAP
+﻿namespace HuaweiMobileServices.IAP
 {
 
-    using UnityEngine;
-    using HuaweiMobileServices.Utils;
     using HuaweiMobileServices.Base;
+    using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     public class IapApiException : HMSException
     {

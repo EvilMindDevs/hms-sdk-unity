@@ -2,7 +2,6 @@
 {
 
     using HuaweiMobileServices.Utils;
-    using UnityEngine;
 
     public class PurchaseIntentReq : JavaObjectWrapper
     {
@@ -11,7 +10,7 @@
 
         public virtual string DeveloperPayload
         {
-            get => Call<AndroidJavaObject>("getDeveloperPayload").AsString();
+            get => CallAsString("getDeveloperPayload");
             set => Call("setDeveloperPayload", value.AsJavaString());
         }
 
@@ -23,7 +22,7 @@
 
         public virtual string ProductId
         {
-            get => Call<AndroidJavaObject>("getProductId").AsString();
+            get => CallAsString("getProductId");
             set => Call("setProductId", value.AsJavaString());
         }
 

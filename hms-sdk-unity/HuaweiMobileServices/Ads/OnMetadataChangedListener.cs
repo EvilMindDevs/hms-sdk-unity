@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HuaweiMobileServices.Ads
+﻿namespace HuaweiMobileServices.Ads
 {
-    using UnityEngine;
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.ads.reward.OnMetadataChangedListener
     internal class OnMetadataChangedListener : JavaObjectWrapper
@@ -26,7 +22,7 @@ namespace HuaweiMobileServices.Ads
             }
         }
 
-        public OnMetadataChangedListener(IOnMetadataChangedListener listener) 
+        public OnMetadataChangedListener(IOnMetadataChangedListener listener)
             : base("org.m0skit0.android.hms.unity.ads.OnMetadataChangedListenerWrapper", new OnMetadataChangedListenerInterfaceWrapper(listener)) { }
     }
 }

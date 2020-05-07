@@ -1,5 +1,3 @@
-using System;
-
 namespace HuaweiMobileServices.Utils
 {
     using System.Collections.Generic;
@@ -24,7 +22,7 @@ namespace HuaweiMobileServices.Utils
 
         internal protected void Call(string methodName, params object[] args) => JavaObject.Call(methodName, args.AsAutoParams());
 
-        internal protected string CallAsString(string methodName, params object[] args) => 
+        internal protected string CallAsString(string methodName, params object[] args) =>
             Call<AndroidJavaObject>(methodName, args.AsAutoParams())?.AsString();
 
         internal protected T CallAsWrapper<T>(string methodName, params object[] args) where T : JavaObjectWrapper =>

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace HuaweiMobileServices.Game
 {
-    using UnityEngine;
-    using HuaweiMobileServices.Utils;
     using HuaweiMobileServices.Base;
+    using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     internal class ArchivesClientWrapper : JavaObjectWrapper, IArchivesClient
     {

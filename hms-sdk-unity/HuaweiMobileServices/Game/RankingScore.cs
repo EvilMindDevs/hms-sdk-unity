@@ -10,60 +10,28 @@
 
         public RankingScore(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public virtual string DisplayRank
-        {
-            get => CallAsString("getDisplayRank");
-        }
+        public virtual string DisplayRank => CallAsString("getDisplayRank");
 
-        public virtual int TimeDimension
-        {
-            get => Call<int>("getTimeDimension");
-        }
+        public virtual int TimeDimension => Call<int>("getTimeDimension");
 
-        public virtual string RankingDisplayScore
-        {
-            get => CallAsString("getRankingDisplayScore");
-        }
+        public virtual string RankingDisplayScore => CallAsString("getRankingDisplayScore");
 
-        public virtual long PlayerRank
-        {
-            get => Call<long>("getPlayerRank");
-        }
+        public virtual long PlayerRank => Call<long>("getPlayerRank");
 
-        public virtual long PlayerRawScore
-        {
-            get => Call<long>("getPlayerRawScore");
-        }
+        public virtual long PlayerRawScore => Call<long>("getPlayerRawScore");
 
-        public virtual Player ScoreOwnerPlayer
-        {
-            get => CallAsWrapper<Player>("getScoreOwnerPlayer");
-        }
+        public virtual Player ScoreOwnerPlayer => CallAsWrapper<Player>("getScoreOwnerPlayer");
 
-        public virtual string ScoreOwnerDisplayName
-        {
-            get => CallAsString("getScoreOwnerDisplayName");
-        }
+        public virtual string ScoreOwnerDisplayName => CallAsString("getScoreOwnerDisplayName");
 
-        public virtual string ScoreOwnerHiIconUri
-        {
-            get => CallAsUriString("getScoreOwnerHiIconUri");
-        }
+        public virtual string ScoreOwnerHiIconUri => CallAsUriString("getScoreOwnerHiIconUri");
 
-        public virtual string ScoreOwnerIconUri
-        {
-            get => CallAsUriString("getScoreOwnerIconUri");
-        }
+        public virtual string ScoreOwnerIconUri => CallAsUriString("getScoreOwnerIconUri");
 
-        public virtual string ScoreTips
-        {
-            get => CallAsString("getScoreTips");
-        }
+        public virtual string ScoreTips => CallAsString("getScoreTips");
 
-        public virtual long ScoreTimestamp
-        {
-            get => Call<long>("getScoreTimestamp");
-        }
+        public virtual long ScoreTimestamp => Call<long>("getScoreTimestamp");
+
     }
 
 }

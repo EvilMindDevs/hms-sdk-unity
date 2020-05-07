@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace HuaweiMobileServices.Utils
 {
@@ -11,7 +9,7 @@ namespace HuaweiMobileServices.Utils
 
         private Action<AndroidIntent> mOnSuccessListener;
         private Action<HMSException> mOnFailureListener;
-        
+
         public GenericBridgeCallbackWrapper() : base("org.m0skit0.android.hms.unity.GenericBridgeCallback") { }
 
         public GenericBridgeCallbackWrapper AddOnSuccessListener(Action<AndroidIntent> onSuccessListener)

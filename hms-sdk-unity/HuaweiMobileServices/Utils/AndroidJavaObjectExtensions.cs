@@ -45,7 +45,7 @@ namespace HuaweiMobileServices.Utils
         public static IList<T> AsListFromWrappable<T>(this AndroidJavaObject javaList) where T : JavaObjectWrapper =>
             javaList.AsList<AndroidJavaObject>().Map(AsWrapper<T>);
 
-        public static IList<string> AsStringList(this AndroidJavaObject javaList) => 
+        public static IList<string> AsStringList(this AndroidJavaObject javaList) =>
             javaList.AsList<AndroidJavaObject>().Map(AsString);
 
         public static AndroidJavaObject AsJavaStringList(this IList<string> list) => list.Map(AsJavaString).AsJavaList();

@@ -1,11 +1,9 @@
-﻿using System;
-
-namespace HuaweiMobileServices.Id
+﻿namespace HuaweiMobileServices.Id
 {
 
-    using UnityEngine;
-    using HuaweiMobileServices.Utils;
     using HuaweiMobileServices.Base;
+    using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.aaid.HmsInstanceId
     public class HmsInstanceId : JavaObjectWrapper

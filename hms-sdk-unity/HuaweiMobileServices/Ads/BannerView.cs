@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace HuaweiMobileServices.Ads
+﻿namespace HuaweiMobileServices.Ads
 {
     using HuaweiMobileServices.Utils;
     using UnityEngine;

@@ -12,31 +12,20 @@
 
         public static readonly Scope SCOPE_GAMES = new Scope("https://www.huawei.com/auth/games");
 
-        public static readonly HuaweiIdAuthParams DEFAULT_AUTH_REQUEST_PARAM = (new HuaweiIdAuthParamsHelper()).SetId().SetProfile().CreateParams();
+        public static readonly HuaweiIdAuthParams DEFAULT_AUTH_REQUEST_PARAM =
+            (new HuaweiIdAuthParamsHelper()).SetId().SetProfile().CreateParams();
 
-        public static readonly HuaweiIdAuthParams DEFAULT_AUTH_REQUEST_PARAM_GAME = (new HuaweiIdAuthParamsHelper()).SetScope(SCOPE_GAMES).CreateParams();
+        public static readonly HuaweiIdAuthParams DEFAULT_AUTH_REQUEST_PARAM_GAME =
+            (new HuaweiIdAuthParamsHelper()).SetScope(SCOPE_GAMES).CreateParams();
 
         public HuaweiIdAuthParams(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public virtual IList<Scope> RequestScopeList
-        {
-            get => CallAsWrapperList<Scope>("getRequestScopeList");
-        }
+        public virtual IList<Scope> RequestScopeList => CallAsWrapperList<Scope>("getRequestScopeList");
 
-        public virtual IList<PermissionInfo> PermissionInfos
-        {
-            get => CallAsWrapperList<PermissionInfo>("getPermissionInfos");
-        }
+        public virtual IList<PermissionInfo> PermissionInfos => CallAsWrapperList<PermissionInfo>("getPermissionInfos");
 
-        public virtual string ToJson() => CallAsString("toJson");
+        public virtual Scope[] ScopeArray => CallAsWrapperArray<Scope>("getScopeArray");
 
-        public static HuaweiIdAuthParams FromJson(string json) =>
-            sJavaClass.CallStaticAsWrapper<HuaweiIdAuthParams>("fromJson", json.AsJavaString());
-
-        public virtual Scope[] ScopeArray
-        {
-            get => CallAsWrapperArray<Scope>("getScopeArray");
-        }
     }
 
 }

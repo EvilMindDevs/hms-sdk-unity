@@ -11,7 +11,7 @@
         ITask<string> CachePlayerId { get; }
 
         ITask<Void> SavePlayerInfo(AppPlayerInfo paramAppPlayerInfo);
-    
+
         ITask<PlayerExtraInfo> GetPlayerExtraInfo(string paramString);
 
         ITask<string> SubmitPlayerEvent(string paramString1, string paramString2, string paramString3);

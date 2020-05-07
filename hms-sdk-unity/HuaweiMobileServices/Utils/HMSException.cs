@@ -9,12 +9,19 @@ namespace HuaweiMobileServices.Utils
 
         public HMSException(string message) : base(message) { }
 
+        internal HMSException(int errorCode) : base()
+        {
+            ErrorCode = errorCode;
+        }
+
         internal HMSException(AndroidJavaObject javaObject) : base()
         {
             JavaException = javaObject;
         }
 
         internal AndroidJavaObject JavaException { get; }
+
+        public int ErrorCode { get; }
     }
 
     public static class HMSExceptionUtils

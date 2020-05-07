@@ -2,9 +2,9 @@
 
 namespace HuaweiMobileServices.Id
 {
-    using UnityEngine;
     using HuaweiMobileServices.Base;
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.support.hwid.HuaweiIdAuthManager
     public static class HuaweiIdAuthManager

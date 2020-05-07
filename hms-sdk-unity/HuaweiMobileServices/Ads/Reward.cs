@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HuaweiMobileServices.Ads
+﻿namespace HuaweiMobileServices.Ads
 {
-    using UnityEngine;
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.ads.reward.Reward
     public class Reward : JavaObjectWrapper

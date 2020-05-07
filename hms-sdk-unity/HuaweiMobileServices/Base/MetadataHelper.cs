@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HuaweiMobileServices.Base
+﻿namespace HuaweiMobileServices.Base
 {
-    using UnityEngine;
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     public static class MetadataHelper
     {

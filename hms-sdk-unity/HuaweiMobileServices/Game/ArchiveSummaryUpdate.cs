@@ -2,8 +2,8 @@
 
 namespace HuaweiMobileServices.Game
 {
-    using UnityEngine;
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate
     public class ArchiveSummaryUpdate : JavaObjectWrapper

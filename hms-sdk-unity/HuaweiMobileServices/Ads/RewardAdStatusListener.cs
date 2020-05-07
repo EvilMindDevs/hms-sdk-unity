@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HuaweiMobileServices.Ads
+﻿namespace HuaweiMobileServices.Ads
 {
-    using UnityEngine;
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     internal class RewardAdStatusListener : JavaObjectWrapper
     {

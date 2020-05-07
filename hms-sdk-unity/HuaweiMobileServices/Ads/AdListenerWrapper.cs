@@ -1,7 +1,7 @@
 ﻿namespace HuaweiMobileServices.Ads
 {
-    using UnityEngine;
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     internal class AdListenerWrapper : JavaObjectWrapper
     {
@@ -52,7 +52,7 @@
             }
         }
 
-        public AdListenerWrapper(IAdListener listener) 
+        public AdListenerWrapper(IAdListener listener)
             : base("org.m0skit0.android.hms.unity.ads.AdListenerWrapper", new AdListenerInterfaceWrapper(listener)) { }
 
     }

@@ -8,9 +8,7 @@
 
         public AndroidAccount(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public virtual AndroidJavaObject Account
-        {
-            get => JavaObject;
-        }
+        public virtual AndroidJavaObject Account => JavaObject;
+
     }
 }

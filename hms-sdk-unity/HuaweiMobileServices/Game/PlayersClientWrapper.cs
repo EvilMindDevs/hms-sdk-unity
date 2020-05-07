@@ -9,15 +9,9 @@ namespace HuaweiMobileServices.Game
 
         public PlayersClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public ITask<Player> CurrentPlayer
-        {
-            get => CallAsWrapper<TaskJavaObjectWrapper<Player>>("getCurrentPlayer");
-        }
+        public ITask<Player> CurrentPlayer => CallAsWrapper<TaskJavaObjectWrapper<Player>>("getCurrentPlayer");
 
-        public ITask<string> CachePlayerId
-        {
-            get => CallAsWrapper<TaskStringWrapper>("getCurrentPlayer");
-        }
+        public ITask<string> CachePlayerId => CallAsWrapper<TaskStringWrapper>("getCurrentPlayer");
 
         public ITask<PlayerExtraInfo> GetPlayerExtraInfo(string paramString) =>
              CallAsWrapper<TaskJavaObjectWrapper<PlayerExtraInfo>>("getPlayerExtraInfo", paramString.AsJavaString());

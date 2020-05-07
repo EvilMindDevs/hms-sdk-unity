@@ -11,13 +11,13 @@ namespace HuaweiMobileServices.IAP
 
         public virtual string ConsumePurchaseData
         {
-            get => Call<AndroidJavaObject>("getConsumePurchaseData").AsString();
+            get => CallAsString("getConsumePurchaseData");
         }
 
 
         public virtual string DataSignature
         {
-            get => Call<AndroidJavaObject>("getDataSignature").AsString();
+            get => CallAsString("getDataSignature");
         }
 
 
@@ -29,7 +29,7 @@ namespace HuaweiMobileServices.IAP
 
         public virtual string ErrMsg
         {
-            get => Call<AndroidJavaObject>("getErrMsg").AsString();
+            get => CallAsString("getErrMsg");
         }
 
     }

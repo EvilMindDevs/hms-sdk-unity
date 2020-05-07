@@ -10,52 +10,23 @@
 
         public OwnedPurchasesResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public virtual int ReturnCode
-        {
-            get => Call<int>("getReturnCode");
-        }
+        public virtual int ReturnCode => Call<int>("getReturnCode");
 
+        public virtual string ErrMsg => CallAsString("getErrMsg");
 
-        public virtual string ErrMsg
-        {
-            get => Call<AndroidJavaObject>("getErrMsg").AsString();
-        }
+        public virtual string ContinuationToken => CallAsString("getContinuationToken");
 
+        public virtual IList<string> ItemList => Call<AndroidJavaObject>("getItemList").AsStringList();
 
-        public virtual string ContinuationToken
-        {
-            get => Call<AndroidJavaObject>("getContinuationToken").AsString();
-        }
+        public virtual IList<string> InAppSignature => Call<AndroidJavaObject>("getInAppSignature").AsStringList();
 
+        public virtual IList<string> InAppPurchaseDataList => Call<AndroidJavaObject>("getInAppPurchaseDataList").AsStringList();
 
-        public virtual IList<string> ItemList
-        {
-            get => Call<AndroidJavaObject>("getItemList").AsStringList();
-        }
+        public virtual IList<string> PlacedInappPurchaseDataList =>
+            Call<AndroidJavaObject>("getPlacedInappPurchaseDataList").AsStringList();
 
-
-        public virtual IList<string> InAppSignature
-        {
-            get => Call<AndroidJavaObject>("getInAppSignature").AsStringList();
-        }
-
-
-        public virtual IList<string> InAppPurchaseDataList
-        {
-            get => Call<AndroidJavaObject>("getInAppPurchaseDataList").AsStringList();
-        }
-
-
-        public virtual IList<string> PlacedInappPurchaseDataList
-        {
-            get => Call<AndroidJavaObject>("getPlacedInappPurchaseDataList").AsStringList();
-        }
-
-
-        public virtual IList<string> PlacedInappSignatureList
-        {
-            get => Call<AndroidJavaObject>("getPlacedInappSignatureList").AsStringList();
-        }
+        public virtual IList<string> PlacedInappSignatureList =>
+            Call<AndroidJavaObject>("getPlacedInappSignatureList").AsStringList();
 
     }
 

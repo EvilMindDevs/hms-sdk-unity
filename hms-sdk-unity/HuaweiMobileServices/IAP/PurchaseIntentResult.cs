@@ -1,6 +1,5 @@
 ﻿namespace HuaweiMobileServices.IAP
 {
-    using HuaweiMobileServices.Utils;
     using HuaweiMobileServices.Base;
     using UnityEngine;
 
@@ -9,28 +8,13 @@
 
         public PurchaseIntentResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public virtual int ReturnCode
-        {
-            get => Call<int>("getReturnCode");
-        }
+        public virtual int ReturnCode => Call<int>("getReturnCode");
 
+        public virtual string ErrMsg => CallAsString("getErrMsg");
 
-        public virtual string ErrMsg
-        {
-            get => Call<AndroidJavaObject>("getErrMsg").AsString();
-        }
+        public virtual string PaymentData => CallAsString("getPaymentData");
 
-
-        public virtual string PaymentData
-        {
-            get => Call<AndroidJavaObject>("getPaymentData").AsString();
-        }
-
-
-        public virtual string PaymentSignature
-        {
-            get => Call<AndroidJavaObject>("getPaymentSignature").AsString();
-        }
+        public virtual string PaymentSignature => CallAsString("getPaymentSignature");
 
     }
 

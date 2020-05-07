@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HuaweiMobileServices.Utils
+﻿namespace HuaweiMobileServices.Utils
 {
     internal static class ParameterUtils
     {

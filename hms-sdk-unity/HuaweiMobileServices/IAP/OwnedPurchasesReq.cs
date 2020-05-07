@@ -1,7 +1,6 @@
 ﻿namespace HuaweiMobileServices.IAP
 {
     using HuaweiMobileServices.Utils;
-    using UnityEngine;
 
     public class OwnedPurchasesReq : JavaObjectWrapper
     {
@@ -10,7 +9,7 @@
 
         public virtual string ContinuationToken
         {
-            get => Call<AndroidJavaObject>("getContinuationToken").AsString();
+            get => CallAsString("getContinuationToken");
             set => Call("setContinuationToken", value.AsJavaString());
         }
 

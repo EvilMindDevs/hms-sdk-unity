@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HuaweiMobileServices.Push
+﻿namespace HuaweiMobileServices.Push
 {
-    using UnityEngine;
-    using HuaweiMobileServices.Base;
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     internal class PushListenerWrapper : AndroidJavaProxy
     {

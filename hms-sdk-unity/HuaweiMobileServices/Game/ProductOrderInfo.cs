@@ -9,25 +9,14 @@ namespace HuaweiMobileServices.Game
 
         public ProductOrderInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public virtual string TradeId
-        {
-            get => Call<AndroidJavaObject>("getTradeId").AsString();
-        }
+        public virtual string TradeId => CallAsString("getTradeId");
 
-        public virtual string ProductNo
-        {
-            get => Call<AndroidJavaObject>("getProductNo").AsString();
-        }
+        public virtual string ProductNo => CallAsString("getProductNo");
 
-        public virtual string OrderId
-        {
-            get => Call<AndroidJavaObject>("getOrderId").AsString();
-        }
+        public virtual string OrderId => CallAsString("getOrderId");
 
-        public virtual string Sign
-        {
-            get => Call<AndroidJavaObject>("getSign").AsString();
-        }
+        public virtual string Sign => CallAsString("getSign");
+
     }
 
 }

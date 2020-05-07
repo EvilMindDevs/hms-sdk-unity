@@ -11,23 +11,12 @@
 
         public ProductInfoResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public virtual int ReturnCode
-        {
-            get => Call<int>("getReturnCode");
-        }
+        public virtual int ReturnCode => Call<int>("getReturnCode");
 
+        public virtual string ErrMsg => CallAsString("getErrMsg");
 
-        public virtual string ErrMsg
-        {
-            get => Call<AndroidJavaObject>("getErrMsg").AsString();
-        }
-
-
-        public virtual IList<ProductInfo> ProductInfoList
-        {
-            get => Call<AndroidJavaObject>("getProductInfoList")
-                    .AsListFromWrappable<ProductInfo>();
-        }
+        public virtual IList<ProductInfo> ProductInfoList =>
+            Call<AndroidJavaObject>("getProductInfoList").AsListFromWrappable<ProductInfo>();
 
     }
 

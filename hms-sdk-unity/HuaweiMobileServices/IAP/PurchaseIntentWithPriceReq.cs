@@ -14,7 +14,7 @@
 
         public virtual string ProductId
         {
-            get => Call<AndroidJavaObject>("getProductId").AsString();
+            get => CallAsString("getProductId");
             set => Call("setProductId", value.AsJavaString());
         }
 
@@ -26,43 +26,43 @@
 
         public virtual string ProductName
         {
-            get => Call<AndroidJavaObject>("getProductName").AsString();
+            get => CallAsString("getProductName");
             set => Call("setProductName", value.AsJavaString());
         }
 
         public virtual string Amount
         {
-            get => Call<AndroidJavaObject>("getAmount").AsString();
+            get => CallAsString("getAmount");
             set => Call("setAmount", value.AsJavaString());
         }
 
         public virtual string Country
         {
-            get => Call<AndroidJavaObject>("getCountry").AsString();
+            get => CallAsString("getCountry");
             set => Call("setCountry", value.AsJavaString());
         }
 
         public virtual string Currency
         {
-            get => Call<AndroidJavaObject>("getCurrency").AsString();
+            get => CallAsString("getCurrency");
             set => Call("setCurrency", value.AsJavaString());
         }
 
         public virtual string SdkChannel
         {
-            get => Call<AndroidJavaObject>("getSdkChannel").AsString();
+            get => CallAsString("getSdkChannel");
             set => Call("setSdkChannel", value.AsJavaString());
         }
 
         public virtual string ServiceCatalog
         {
-            get => Call<AndroidJavaObject>("getServiceCatalog").AsString();
+            get => CallAsString("getServiceCatalog");
             set => Call("setServiceCatalog", value.AsJavaString());
         }
 
         public string DeveloperPayload
         {
-            get => Call<AndroidJavaObject>("getDeveloperPayload").AsString();
+            get => CallAsString("getDeveloperPayload");
             set => Call("setDeveloperPayload", value.AsJavaString());
         }
     }

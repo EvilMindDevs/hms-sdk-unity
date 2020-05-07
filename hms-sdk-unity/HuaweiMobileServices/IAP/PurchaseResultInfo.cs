@@ -1,7 +1,7 @@
 ﻿namespace HuaweiMobileServices.IAP
 {
-    using UnityEngine;
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.iap.entity.PurchaseResultInfo
     public class PurchaseResultInfo : JavaObjectWrapper

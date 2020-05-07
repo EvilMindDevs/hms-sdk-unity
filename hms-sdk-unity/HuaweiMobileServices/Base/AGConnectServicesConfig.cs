@@ -1,11 +1,5 @@
-﻿using System.Collections.Generic;
-using System.IO;
-
-namespace HuaweiMobileServices.Base
+﻿namespace HuaweiMobileServices.Base
 {
-    using UnityEngine;
-    using HuaweiMobileServices.Utils;
-    using System;
 
     // Wrapper for com.huawei.agconnect.config.AGConnectServicesConfig
     // TODO Do not use this class, it is not supported (yet). Consider MetadataHelper instead.

@@ -2,7 +2,7 @@
 {
 
     // Wrapper for com.huawei.hms.ads.reward.RewardAdListener
-    public interface IRewardAdListener 
+    public interface IRewardAdListener
     {
         void OnRewarded(Reward reward);
 

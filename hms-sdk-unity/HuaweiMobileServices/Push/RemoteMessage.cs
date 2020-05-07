@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace HuaweiMobileServices.Push
+﻿namespace HuaweiMobileServices.Push
 {
     using HuaweiMobileServices.Utils;
     using UnityEngine;

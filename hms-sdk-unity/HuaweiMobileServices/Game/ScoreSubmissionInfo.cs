@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-
-namespace HuaweiMobileServices.Game
+﻿namespace HuaweiMobileServices.Game
 {
     using HuaweiMobileServices.Base;
-    using UnityEngine;
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.jos.games.ranking.ScoreSubmissionInfo
     public sealed class ScoreSubmissionInfo : JavaObjectWrapper
@@ -19,6 +15,7 @@ namespace HuaweiMobileServices.Game
         public string PlayerId => CallAsString("getPlayerId");
 
         public Result GetSubmissionScoreResult(int paramInt) => CallAsWrapper<Result>("getSubmissionScoreResult", paramInt);
+
     }
 
 }

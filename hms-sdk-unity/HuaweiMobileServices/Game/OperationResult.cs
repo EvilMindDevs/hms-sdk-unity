@@ -1,7 +1,7 @@
 ﻿namespace HuaweiMobileServices.Game
 {
-    using UnityEngine;
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.jos.games.archive.OperationResult
     public class OperationResult : JavaObjectWrapper

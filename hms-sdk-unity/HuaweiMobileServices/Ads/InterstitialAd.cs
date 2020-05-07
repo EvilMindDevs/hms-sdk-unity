@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace HuaweiMobileServices.Ads
+﻿namespace HuaweiMobileServices.Ads
 {
 
     using HuaweiMobileServices.Utils;
-    using UnityEngine;
 
     // Wrapper for com.huawei.hms.ads.InterstitialAd
     public class InterstitialAd : JavaObjectWrapper
     {
 
         public InterstitialAd() : base("com.huawei.hms.ads.InterstitialAd", AndroidContext.ActivityContext) { }
-        
+
         public IAdListener AdListener
         {
             set => Call("setAdListener", new AdListenerWrapper(value));
@@ -41,7 +37,7 @@ namespace HuaweiMobileServices.Ads
         {
             set => Call("setRewardAdListener", new RewardAdListenerWrapper(value));
         }
-        
+
     }
 
 }

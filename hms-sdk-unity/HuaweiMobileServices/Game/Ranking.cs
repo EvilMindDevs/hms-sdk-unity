@@ -2,8 +2,8 @@
 
 namespace HuaweiMobileServices.Game
 {
-    using UnityEngine;
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.jos.games.ranking.Ranking
     public class Ranking : JavaObjectWrapper
@@ -19,30 +19,17 @@ namespace HuaweiMobileServices.Game
 
         public Ranking(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public virtual string RankingDisplayName
-        {
-            get => CallAsString("getRankingDisplayName");
-        }
+        public virtual string RankingDisplayName => CallAsString("getRankingDisplayName");
 
-        public virtual string RankingImageUri
-        {
-            get => CallAsUriString("getRankingImageUri");
-        }
+        public virtual string RankingImageUri => CallAsUriString("getRankingImageUri");
 
-        public virtual string RankingId
-        {
-            get => CallAsString("getRankingId");
-        }
+        public virtual string RankingId => CallAsString("getRankingId");
 
-        public virtual int RankingScoreOrder
-        {
-            get => Call<int>("getRankingScoreOrder");
-        }
+        public virtual int RankingScoreOrder => Call<int>("getRankingScoreOrder");
 
-        public virtual IList<RankingVariant> RankingVariants
-        {
-            get => Call<AndroidJavaObject>("getRankingVariants").AsListFromWrappable<RankingVariant>();
-        }
+        public virtual IList<RankingVariant> RankingVariants =>
+            Call<AndroidJavaObject>("getRankingVariants").AsListFromWrappable<RankingVariant>();
+
     }
 
 }

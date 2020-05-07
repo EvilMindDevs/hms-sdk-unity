@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace HuaweiMobileServices.Game
 {
-    using System.Threading.Tasks;
     using HuaweiMobileServices.Base;
     using HuaweiMobileServices.Utils;
+    using System.Threading.Tasks;
     using UnityEngine;
 
     internal class AchievementClientWrapper : JavaObjectWrapper, IAchievementsClient

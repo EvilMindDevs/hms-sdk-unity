@@ -1,7 +1,7 @@
 ﻿namespace HuaweiMobileServices.Ads
 {
-    using UnityEngine;
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.ads.reward.RewardAdLoadListener
     internal class RewardAdLoadListener : JavaObjectWrapper
@@ -29,7 +29,7 @@
 
         }
 
-        public RewardAdLoadListener(IRewardAdLoadListener listener) 
+        public RewardAdLoadListener(IRewardAdLoadListener listener)
             : base("org.m0skit0.android.hms.unity.ads.RewardAdLoadListenerWrapper", new RewardAdLoadListenerInterfaceWrapper(listener)) { }
 
     }

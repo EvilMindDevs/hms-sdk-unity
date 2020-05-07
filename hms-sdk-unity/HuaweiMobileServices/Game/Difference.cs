@@ -1,7 +1,7 @@
 ﻿namespace HuaweiMobileServices.Game
 {
-    using UnityEngine;
     using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     public class Difference : JavaObjectWrapper
     {

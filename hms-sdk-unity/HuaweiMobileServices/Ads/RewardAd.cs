@@ -1,8 +1,8 @@
 ﻿namespace HuaweiMobileServices.Ads
 {
+    using HuaweiMobileServices.Utils;
     using System;
     using System.Threading.Tasks;
-    using HuaweiMobileServices.Utils;
     using UnityEngine;
 
     // Wrapper for com.huawei.hms.ads.reward.RewardAd

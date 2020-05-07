@@ -14,23 +14,11 @@
         public PermissionInfo(string appID, string packageName, string permission)
             : base(CLASS_NAME, appID.AsJavaString(), packageName.AsJavaString(), permission.AsJavaString()) { }
 
-        public virtual string AppID
-        {
-            get => CallAsString("getAppID");
-        }
+        public virtual string AppID => CallAsString("getAppID");
 
+        public virtual string PackageName => CallAsString("getPackageName");
 
-        public virtual string PackageName
-        {
-            get => CallAsString("getPackageName");
-        }
-
-
-        public virtual string Permission
-        {
-            get => CallAsString("getPermission");
-        }
-
+        public virtual string Permission => CallAsString("getPermission");
 
         public virtual PermissionInfo SetPermissionUri(string uri)
         {
