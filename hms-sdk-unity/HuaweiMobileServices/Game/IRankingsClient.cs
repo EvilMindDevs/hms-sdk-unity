@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace HuaweiMobileServices.Game
 {
@@ -11,6 +12,8 @@ namespace HuaweiMobileServices.Game
     {
 
         void ShowTotalRankings(Action onSuccess, Action<HMSException> onFailure);
+
+        Task ShowTotalRankingsAsync();
 
         ITask<AndroidIntent> GetRankingIntent(string paramString, int paramInt);
 

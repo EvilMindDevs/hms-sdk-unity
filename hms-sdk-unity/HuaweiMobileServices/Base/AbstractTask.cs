@@ -3,6 +3,7 @@
 namespace HuaweiMobileServices.Base
 {
     using HuaweiMobileServices.Utils;
+    using System.Threading.Tasks;
     using UnityEngine;
 
     internal abstract class AbstractTask<T> : JavaObjectWrapper, ITask<T>
@@ -28,5 +29,13 @@ namespace HuaweiMobileServices.Base
         }
 
         abstract public ITask<T> AddOnSuccessListener(Action<T> onSuccessListener);
+
+        public Task<T> Async()
+        {
+            var task = new TaskCompletionSource<T>();
+            AddOnSuccessListener(task.SetResult);
+            AddOnFailureListener(task.SetException);
+            return task.Task;
+        }
     }
 }

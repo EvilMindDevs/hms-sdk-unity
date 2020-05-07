@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace HuaweiMobileServices.Base
 {
@@ -33,6 +34,13 @@ namespace HuaweiMobileServices.Base
                             .AddOnSuccessListener(onSuccessListener)
                             .AddOnFailureListener(onFailureListener);
             sJavaBridge.CallStatic("receiveStartResolutionForResult", JavaObject, callback);
+        }
+
+        public Task<AndroidIntent> StartResolutionForResultAsync()
+        {
+            var task = new TaskCompletionSource<AndroidIntent>();
+            StartResolutionForResult((intent) => { task.SetResult(intent); }, (error) => { task.SetException(error); });
+            return task.Task;
         }
 
         public int StatusCode => Call<int>("getStatusCode");

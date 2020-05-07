@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace HuaweiMobileServices.Id
 {
-    using UnityEngine;
-    using HuaweiMobileServices.Utils;
     using HuaweiMobileServices.Base;
+    using HuaweiMobileServices.Utils;
+    using UnityEngine;
 
     public class HuaweiIdAuthService : JavaObjectWrapper
     {
@@ -30,6 +29,13 @@ namespace HuaweiMobileServices.Id
                         });
                 });
             sJavaClass.CallStatic("receiveShow", intent, callback);
+        }
+
+        public Task<AuthHuaweiId> StartSignInAsync()
+        {
+            var task = new TaskCompletionSource<AuthHuaweiId>();
+            StartSignIn(task.SetResult, task.SetException);
+            return task.Task;
         }
 
         public ITask<Void> CancelAuthorization() => CallAsWrapper<TaskVoidWrapper>("cancelAuthorization");

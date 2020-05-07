@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace HuaweiMobileServices.Game
 {
     using HuaweiMobileServices.Base;
     using HuaweiMobileServices.Utils;
+    using System.Threading.Tasks;
     using UnityEngine;
 
     internal class RankingsClientWrapper : JavaObjectWrapper, IRankingsClient
@@ -21,14 +21,21 @@ namespace HuaweiMobileServices.Game
                 .AddOnSuccessListener((intent) =>
                 {
                     var callback = new GenericBridgeCallbackWrapper()
-                   .AddOnFailureListener(onFailure)
-                   .AddOnSuccessListener((nothing) =>
-                   {
-                       onSuccess.Invoke();
-                   });
+                       .AddOnFailureListener(onFailure)
+                       .AddOnSuccessListener((nothing) =>
+                       {
+                           onSuccess.Invoke();
+                       });
                     sJavaClass.CallStatic("receiveShow", intent, callback);
 
                 }).AddOnFailureListener((exception) => onFailure.Invoke(exception));
+        }
+
+        public Task ShowTotalRankingsAsync()
+        {
+            var task = new TaskCompletionSource<int>();
+            ShowTotalRankings(() => task.SetResult(0), task.SetException);
+            return task.Task;
         }
 
         public ITask<RankingScore> GetCurrentPlayerRankingScore(string paramString, int paramInt) =>
@@ -78,6 +85,5 @@ namespace HuaweiMobileServices.Game
 
         public ITask<ScoreSubmissionInfo> SubmitScoreWithResult(string paramString, long paramLong) =>
             CallAsWrapper<TaskJavaObjectWrapper<ScoreSubmissionInfo>>("submitScoreWithResult", paramString, paramLong);
-
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace HuaweiMobileServices.Game
 {
+    using System.Threading.Tasks;
     using HuaweiMobileServices.Base;
     using HuaweiMobileServices.Utils;
     using UnityEngine;
@@ -27,6 +28,13 @@ namespace HuaweiMobileServices.Game
                     sJavaClass.CallStatic("receiveShow", intent, callback);
 
                 }).AddOnFailureListener((exception) => onFailure.Invoke(exception));
+        }
+
+        public Task ShowAchievementListAsync()
+        {
+            var task = new TaskCompletionSource<int>();
+            ShowAchievementList(() => task.SetResult(0), task.SetException);
+            return task.Task;
         }
 
         public ITask<IList<Achievement>> GetAchievementList(bool paramBoolean)

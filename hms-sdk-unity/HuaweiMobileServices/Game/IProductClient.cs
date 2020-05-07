@@ -1,6 +1,7 @@
-﻿namespace HuaweiMobileServices.Game
+﻿using System.Collections.Generic;
+
+namespace HuaweiMobileServices.Game
 {
-    using System.Collections.Generic;
     using HuaweiMobileServices.Base;
 
     // Wrapper for com.huawei.hms.jos.product.ProductClient

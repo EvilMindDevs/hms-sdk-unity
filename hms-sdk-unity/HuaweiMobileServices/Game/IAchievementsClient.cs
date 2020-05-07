@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace HuaweiMobileServices.Game
 {
@@ -10,6 +11,8 @@ namespace HuaweiMobileServices.Game
     public interface IAchievementsClient
     {
         void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure);
+
+        Task ShowAchievementListAsync();
 
         void Grow(string paramString, int paramInt);
 

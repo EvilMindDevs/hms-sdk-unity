@@ -1,6 +1,7 @@
 ﻿namespace HuaweiMobileServices.Ads
 {
     using System;
+    using System.Threading.Tasks;
     using HuaweiMobileServices.Utils;
     using UnityEngine;
 
@@ -50,6 +51,17 @@
         {
             var listener = new LoadAdListener(onSuccess, onError);
             Call("loadAd", paramAdParam, new RewardAdLoadListener(listener));
+        }
+
+        public virtual Task LoadAdAsync(AdParam paramAdParam)
+        {
+            var task = new TaskCompletionSource<int>();
+            LoadAd(paramAdParam, () => task.SetResult(0), (errorCode) =>
+            {
+                var error = new HMSException(errorCode);
+                task.SetException(error);
+            });
+            return task.Task;
         }
 
         public virtual IOnMetadataChangedListener OnMetadataChangedListener
