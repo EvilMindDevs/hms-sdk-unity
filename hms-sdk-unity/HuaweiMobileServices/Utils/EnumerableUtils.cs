@@ -8,6 +8,7 @@
 
         public static IList<U> Map<T, U>(this IList<T> list, Func<T, U> action)
         {
+            if (list == null) return null;
             var newList = new List<U>();
             foreach (T element in list)
             {
@@ -16,10 +17,11 @@
             return newList;
         }
 
-        public static ISet<U> Map<T, U>(this ISet<T> list, Func<T, U> action)
+        public static ISet<U> Map<T, U>(this ISet<T> set, Func<T, U> action)
         {
+            if (set == null) return null;
             var newSet = new HashSet<U>();
-            foreach (T element in list)
+            foreach (T element in set)
             {
                 newSet.Add(action.Invoke(element));
             }
