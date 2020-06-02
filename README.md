@@ -16,7 +16,8 @@ You need to:
 
 - Import latest DLL and AAR releases of this project to your Unity project.
 - Import HMS kit AARs and their dependencies to your Unity project.
-- Tweak AndroidManifest.xml to include HMS-related data (this can be automated using the agconnect-services.json).
+- *Optional* Import Play Services AAR and its dependencies to your Unity project. Allows checking if Play Services are available on the device through *HuaweiMobileServices.Base.ServiceHelper* API.
+- Tweak AndroidManifest.xml to include HMS-related data (this can be automated using Android Studio and agconnect-services.json).
 
 ### Downloading HMS AARs
 
@@ -47,6 +48,10 @@ gradle -Pkit=$KIT_NAME -Pversion=$KIT_VERSION -PaarDirectory=$AAR_DIRECTORY getD
 ```
 
 Where $KIT_NAME is the HMS kit name (e.g. iap), $KIT_VERSION is the HMS kit version (e.g. 4.0.1.300), and $AAR_DIRECTORY is the output directory where to download the AAR and its dependencies. All these AARs must be imported into your Unity project.
+
+### Downloading Play Services AARs
+
+TODO
 
 ### Tweak AndroidManifest.xml
 
