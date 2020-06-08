@@ -39,9 +39,9 @@
 
             public virtual Builder SetNonPersonalizedAd(int? Param1Integer) => CallAsWrapper<Builder>("setNonPersonalizedAd", Param1Integer);
 
-            public virtual Builder setAppLang(string Param1String) => CallAsWrapper<Builder>("setAppLang", Param1String);
+            public virtual Builder SetAppLang(string Param1String) => CallAsWrapper<Builder>("setAppLang", Param1String);
 
-            public virtual Builder setAppCountry(string Param1String) => CallAsWrapper<Builder>("setAppCountry", Param1String);
+            public virtual Builder SetAppCountry(string Param1String) => CallAsWrapper<Builder>("setAppCountry", Param1String);
 
         }
     }
