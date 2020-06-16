@@ -12,7 +12,7 @@
         public static RequestOptions RequestOptions
         {
             get => sJavaClass.CallStaticAsWrapper<RequestOptions>("getRequestOptions");
-            set => sJavaClass.CallStatic("setRequestOptions", value);
+            set => sJavaClass.CallStatic("setRequestOptions", value.JavaObject);
         }
 
         public static void Init() => sJavaClass.CallStatic("init", AndroidContext.ActivityContext);
