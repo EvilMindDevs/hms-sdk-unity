@@ -31,13 +31,13 @@
 
             public virtual RequestOptions Build() => CallAsWrapper<RequestOptions>("build");
 
-            public virtual Builder SetTagForChildProtection(int? Param1Integer) => CallAsWrapper<Builder>("setTagForChildProtection", Param1Integer);
+            public virtual Builder SetTagForChildProtection(int? Param1Integer) => CallAsWrapper<Builder>("setTagForChildProtection", Param1Integer?.AsJavaInteger());
 
-            public virtual Builder SetTagForUnderAgeOfPromise(int? Param1Integer) => CallAsWrapper<Builder>("setTagForUnderAgeOfPromise", Param1Integer);
+            public virtual Builder SetTagForUnderAgeOfPromise(int? Param1Integer) => CallAsWrapper<Builder>("setTagForUnderAgeOfPromise", Param1Integer?.AsJavaInteger());
 
             public virtual Builder SetAdContentClassification(string Param1String) => CallAsWrapper<Builder>("setAdContentClassification", Param1String);
 
-            public virtual Builder SetNonPersonalizedAd(int? Param1Integer) => CallAsWrapper<Builder>("setNonPersonalizedAd", Param1Integer);
+            public virtual Builder SetNonPersonalizedAd(int? Param1Integer) => CallAsWrapper<Builder>("setNonPersonalizedAd", Param1Integer?.AsJavaInteger());
 
             public virtual Builder SetAppLang(string Param1String) => CallAsWrapper<Builder>("setAppLang", Param1String);
 

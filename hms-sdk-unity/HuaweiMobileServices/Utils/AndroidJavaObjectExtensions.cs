@@ -103,7 +103,6 @@ namespace HuaweiMobileServices.Utils
                 .Call<AndroidJavaObject>("toArray");
         }
             
-
         public static T[] AsArray<T>(this AndroidJavaObject javaObject) where T : JavaObjectWrapper
         {
             if (javaObject == null) return null;
@@ -112,5 +111,7 @@ namespace HuaweiMobileServices.Utils
             list.CopyTo(array, 0);
             return array;
         }
+
+        public static AndroidJavaObject AsJavaInteger(this int value) => new AndroidJavaObject("java.lang.Integer", value);
     }
 }
