@@ -9,7 +9,11 @@
 
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.ads.HwAds");
 
-        public static RequestOptions RequestOptions => sJavaClass.CallStaticAsWrapper<RequestOptions>("getRequestOptions");
+        public static RequestOptions RequestOptions
+        {
+            get => sJavaClass.CallStaticAsWrapper<RequestOptions>("getRequestOptions");
+            set => sJavaClass.CallStatic("setRequestOptions");
+        }
 
         public static void Init() => sJavaClass.CallStatic("init", AndroidContext.ActivityContext);
 
