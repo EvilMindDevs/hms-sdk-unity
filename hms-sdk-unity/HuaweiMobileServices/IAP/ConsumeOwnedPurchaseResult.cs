@@ -7,6 +7,7 @@ namespace HuaweiMobileServices.IAP
     public class ConsumeOwnedPurchaseResult : JavaObjectWrapper
     {
 
+        [UnityEngine.Scripting.Preserve]
         public ConsumeOwnedPurchaseResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string ConsumePurchaseData

@@ -8,6 +8,7 @@
     public sealed class ScoreSubmissionInfo : JavaObjectWrapper
     {
 
+        [UnityEngine.Scripting.Preserve]
         public ScoreSubmissionInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public string RankingId => CallAsString("getRankingId");

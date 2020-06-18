@@ -39,6 +39,7 @@
         public static RewardAd CreateRewardAdInstance() =>
             sJavaClass.CallStaticAsWrapper<RewardAd>("createRewardAdInstance", AndroidContext.ActivityContext);
 
+        [UnityEngine.Scripting.Preserve]
         public RewardAd(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public RewardAd(string paramString) : base("com.huawei.hms.ads.reward.RewardAd", AndroidContext.ActivityContext, paramString) { }

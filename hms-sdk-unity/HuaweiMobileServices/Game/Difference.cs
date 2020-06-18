@@ -5,6 +5,7 @@
 
     public class Difference : JavaObjectWrapper
     {
+        [UnityEngine.Scripting.Preserve]
         public Difference(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public Archive ServerArchive => CallAsWrapper<Archive>("getServerArchive");

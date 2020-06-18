@@ -9,6 +9,7 @@
         public class Notification : JavaObjectWrapper
         {
 
+            [UnityEngine.Scripting.Preserve]
             public Notification(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public virtual string Title => CallAsString("getTitle");
@@ -65,6 +66,7 @@
         public const int PRIORITY_HIGH = 1;
         public const int PRIORITY_NORMAL = 2;
 
+        [UnityEngine.Scripting.Preserve]
         public RemoteMessage(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public string CollapseKey => CallAsString("getCollapseKey");

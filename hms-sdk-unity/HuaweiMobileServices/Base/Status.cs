@@ -22,6 +22,7 @@ namespace HuaweiMobileServices.Base
 
         public static readonly Status CORE_EXCEPTION = new Status(500);
 
+        [UnityEngine.Scripting.Preserve]
         public Status(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private Status(int paramInt) : base(CLASS_NAME, paramInt, null) { }

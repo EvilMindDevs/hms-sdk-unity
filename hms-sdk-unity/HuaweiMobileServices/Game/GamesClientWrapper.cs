@@ -8,6 +8,7 @@
     internal class GamesClientWrapper : JavaObjectWrapper, IGamesClient
     {
 
+        [UnityEngine.Scripting.Preserve]
         public GamesClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public ITask<string> AppId => CallAsWrapper<TaskStringWrapper>("getAppId");

@@ -12,6 +12,7 @@ namespace HuaweiMobileServices.Id
 
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
 
+        [UnityEngine.Scripting.Preserve]
         public HuaweiIdAuthService(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public void StartSignIn(Action<AuthHuaweiId> onSuccess, Action<HMSException> onFailure)

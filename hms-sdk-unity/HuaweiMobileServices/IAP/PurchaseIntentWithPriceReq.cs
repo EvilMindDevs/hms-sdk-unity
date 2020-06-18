@@ -8,6 +8,7 @@
 
         private readonly static string CLASS_NAME = "com.huawei.hms.iap.entity.PurchaseIntentWithPriceReq";
 
+        [UnityEngine.Scripting.Preserve]
         private static AndroidJavaClass javaClass = new AndroidJavaClass(CLASS_NAME);
 
         public PurchaseIntentWithPriceReq() : base(CLASS_NAME) { }

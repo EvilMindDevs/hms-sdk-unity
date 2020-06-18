@@ -8,6 +8,8 @@ namespace HuaweiMobileServices.Game
     // Wrapper for com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate
     public class ArchiveSummaryUpdate : JavaObjectWrapper
     {
+
+        [UnityEngine.Scripting.Preserve]
         public ArchiveSummaryUpdate(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public string DescInfo => throw new NotImplementedException();

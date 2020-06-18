@@ -9,6 +9,7 @@ namespace HuaweiMobileServices.Ads
     public class AdParam : JavaObjectWrapper
     {
 
+        [UnityEngine.Scripting.Preserve]
         public AdParam(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string TargetingContentUrl => CallAsString("getTargetingContentUrl");
@@ -21,6 +22,7 @@ namespace HuaweiMobileServices.Ads
         public class Builder : JavaObjectWrapper
         {
 
+            [UnityEngine.Scripting.Preserve]
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public Builder() : base("com.huawei.hms.ads.AdParam$Builder") { }

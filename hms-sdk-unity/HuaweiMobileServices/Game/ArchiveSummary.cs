@@ -8,6 +8,7 @@
     public class ArchiveSummary : JavaObjectWrapper
     {
 
+        [UnityEngine.Scripting.Preserve]
         public ArchiveSummary(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string Id => CallAsString("getId");

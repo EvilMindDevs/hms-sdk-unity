@@ -102,7 +102,7 @@ namespace HuaweiMobileServices.Utils
                 .AsJavaList()
                 .Call<AndroidJavaObject>("toArray");
         }
-            
+
         public static T[] AsArray<T>(this AndroidJavaObject javaObject) where T : JavaObjectWrapper
         {
             if (javaObject == null) return null;

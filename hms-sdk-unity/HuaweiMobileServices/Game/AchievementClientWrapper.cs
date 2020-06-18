@@ -12,6 +12,7 @@ namespace HuaweiMobileServices.Game
     {
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
 
+        [UnityEngine.Scripting.Preserve]
         public AchievementClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure)

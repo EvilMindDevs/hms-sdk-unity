@@ -34,6 +34,7 @@
 
         public BannerAdSize(int paramInt1, int paramInt2) : base(CLASS_NAME, paramInt1, paramInt2) { }
 
+        [UnityEngine.Scripting.Preserve]
         public BannerAdSize(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public int Height => Call<int>("getHeight");

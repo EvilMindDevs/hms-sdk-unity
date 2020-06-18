@@ -8,6 +8,7 @@
     public class OwnedPurchasesResult : JavaObjectWrapper
     {
 
+        [UnityEngine.Scripting.Preserve]
         public OwnedPurchasesResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int ReturnCode => Call<int>("getReturnCode");
