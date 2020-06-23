@@ -3,12 +3,16 @@ using System.Collections.Generic;
 
 namespace HuaweiMobileServices.Utils
 {
+    using System.Reflection;
     using UnityEngine;
 
     internal static class AndroidJavaObjectExtensions
     {
 
         private static readonly AndroidJavaClass sJavaArrays = new AndroidJavaClass("java.util.Arrays");
+
+        public static T AsWrapperStatic<T>(this AndroidJavaObject javaObject) where T : JavaObjectWrapper =>
+            typeof(T).GetRuntimeMethod("NewInstance", new Type[] { javaObject.GetType() }).Invoke(null, new object[] { javaObject }) as T;
 
         public static T AsWrapper<T>(this AndroidJavaObject javaObject) where T : JavaObjectWrapper =>
             Activator.CreateInstance(typeof(T), javaObject) as T;
@@ -102,7 +106,7 @@ namespace HuaweiMobileServices.Utils
                 .AsJavaList()
                 .Call<AndroidJavaObject>("toArray");
         }
-            
+
         public static T[] AsArray<T>(this AndroidJavaObject javaObject) where T : JavaObjectWrapper
         {
             if (javaObject == null) return null;
