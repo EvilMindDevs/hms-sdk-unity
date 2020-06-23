@@ -10,6 +10,9 @@
 
         private static readonly string CLASS_NAME = "com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper";
 
+        [UnityEngine.Scripting.Preserve]
+        public static HuaweiIdAuthParamsHelper NewInstance(AndroidJavaObject javaObject) => new HuaweiIdAuthParamsHelper(javaObject);
+
         public HuaweiIdAuthParamsHelper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public HuaweiIdAuthParamsHelper() : base(CLASS_NAME) { }

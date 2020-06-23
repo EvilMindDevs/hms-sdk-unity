@@ -8,6 +8,9 @@
     public class RequestOptions : JavaObjectWrapper
     {
 
+        [UnityEngine.Scripting.Preserve]
+        public static RequestOptions NewInstance(AndroidJavaObject javaObject) => new RequestOptions(javaObject);
+
         public RequestOptions(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int? TagForChildProtection => Call<int?>("getTagForChildProtection");
@@ -26,6 +29,9 @@
 
         public class Builder : JavaObjectWrapper
         {
+
+            [UnityEngine.Scripting.Preserve]
+            public static Builder NewInstance(AndroidJavaObject javaObject) => new Builder(javaObject);
 
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 

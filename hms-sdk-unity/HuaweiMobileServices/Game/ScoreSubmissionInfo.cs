@@ -8,6 +8,9 @@
     public sealed class ScoreSubmissionInfo : JavaObjectWrapper
     {
 
+        [UnityEngine.Scripting.Preserve]
+        public static ScoreSubmissionInfo NewInstance(AndroidJavaObject javaObject) => new ScoreSubmissionInfo(javaObject);
+
         public ScoreSubmissionInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public string RankingId => CallAsString("getRankingId");

@@ -7,6 +7,9 @@
     internal class IapClientWrapper : JavaObjectWrapper, IIapClient
     {
 
+        [UnityEngine.Scripting.Preserve]
+        public static IapClientWrapper NewInstance(AndroidJavaObject javaObject) => new IapClientWrapper(javaObject);
+
         public IapClientWrapper(AndroidJavaObject iapClientJava) : base(iapClientJava) { }
 
         public ITask<EnvReadyResult> EnvReady

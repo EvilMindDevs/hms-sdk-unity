@@ -9,6 +9,9 @@
         public class Notification : JavaObjectWrapper
         {
 
+            [UnityEngine.Scripting.Preserve]
+            public static Notification NewInstance(AndroidJavaObject javaObject) => new Notification(javaObject);
+
             public Notification(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public virtual string Title => CallAsString("getTitle");
@@ -64,6 +67,9 @@
         public const int PRIORITY_UNKNOWN = 0;
         public const int PRIORITY_HIGH = 1;
         public const int PRIORITY_NORMAL = 2;
+
+        [UnityEngine.Scripting.Preserve]
+        public static RemoteMessage NewInstance(AndroidJavaObject javaObject) => new RemoteMessage(javaObject);
 
         public RemoteMessage(AndroidJavaObject javaObject) : base(javaObject) { }
 

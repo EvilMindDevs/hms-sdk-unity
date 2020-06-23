@@ -4,7 +4,11 @@
 
     public class AndroidIntent : JavaObjectWrapper
     {
+
         private const string CLASS_NAME = "android.content.Intent";
+
+        [UnityEngine.Scripting.Preserve]
+        public static AndroidIntent NewInstance(AndroidJavaObject javaObject) => new AndroidIntent(javaObject);
 
         public AndroidIntent(AndroidJavaObject javaObject) : base(javaObject) { }
 

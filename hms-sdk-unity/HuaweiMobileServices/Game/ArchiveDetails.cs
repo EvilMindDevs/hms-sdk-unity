@@ -8,6 +8,9 @@ namespace HuaweiMobileServices.Game
     // Wrapper for com.huawei.hms.jos.games.archive.ArchiveDetails
     public class ArchiveDetails : JavaObjectWrapper
     {
+        [UnityEngine.Scripting.Preserve]
+        public static ArchiveDetails NewInstance(AndroidJavaObject javaObject) => new ArchiveDetails(javaObject);
+
         public ArchiveDetails(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public sbyte[] Get() => throw new NotImplementedException();

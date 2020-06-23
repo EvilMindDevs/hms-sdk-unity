@@ -24,6 +24,9 @@ namespace HuaweiMobileServices.Ads
         public class Builder : JavaObjectWrapper
         {
 
+            [UnityEngine.Scripting.Preserve]
+            public static Builder NewInstance(AndroidJavaObject javaObject) => new Builder(javaObject);
+
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public Builder() : base("com.huawei.hms.ads.AdParam$Builder") { }

@@ -5,6 +5,8 @@ namespace HuaweiMobileServices.IAP
 
     public class EnvReadyResult : JavaObjectWrapper
     {
+        [UnityEngine.Scripting.Preserve]
+        public static EnvReadyResult NewInstance(AndroidJavaObject javaObject) => new EnvReadyResult(javaObject);
 
         public EnvReadyResult(AndroidJavaObject javaObject) : base(javaObject) { }
 

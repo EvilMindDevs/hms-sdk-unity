@@ -8,6 +8,10 @@ namespace HuaweiMobileServices.Game
 
     internal class ArchivesClientWrapper : JavaObjectWrapper, IArchivesClient
     {
+
+        [UnityEngine.Scripting.Preserve]
+        public static ArchivesClientWrapper NewInstance(AndroidJavaObject javaObject) => new ArchivesClientWrapper(javaObject);
+
         public ArchivesClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public ITask<int> LimitThumbnailSize => CallAsWrapper<TaskPrimitive<int>>("getLimitThumbnailSize");

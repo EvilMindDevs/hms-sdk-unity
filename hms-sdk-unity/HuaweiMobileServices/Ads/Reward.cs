@@ -7,6 +7,9 @@
     public class Reward : JavaObjectWrapper
     {
 
+        [UnityEngine.Scripting.Preserve]
+        public static Reward NewInstance(AndroidJavaObject javaObject) => new Reward(javaObject);
+
         public Reward(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public string Name => CallAsString("getName");

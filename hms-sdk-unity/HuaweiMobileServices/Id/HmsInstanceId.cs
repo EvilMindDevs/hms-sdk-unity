@@ -11,6 +11,9 @@
 
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.aaid.HmsInstanceId");
 
+        [UnityEngine.Scripting.Preserve]
+        public static HmsInstanceId NewInstance(AndroidJavaObject javaObject) => new HmsInstanceId(javaObject);
+
         public HmsInstanceId(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public static HmsInstanceId GetInstance() =>

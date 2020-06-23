@@ -6,6 +6,9 @@
     public class PurchaseIntentResult : Result
     {
 
+        [UnityEngine.Scripting.Preserve]
+        public static PurchaseIntentResult NewInstance(AndroidJavaObject javaObject) => new PurchaseIntentResult(javaObject);
+
         public PurchaseIntentResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int ReturnCode => Call<int>("getReturnCode");

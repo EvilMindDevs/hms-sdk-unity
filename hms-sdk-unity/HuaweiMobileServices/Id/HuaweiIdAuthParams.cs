@@ -18,6 +18,9 @@
         public static readonly HuaweiIdAuthParams DEFAULT_AUTH_REQUEST_PARAM_GAME =
             (new HuaweiIdAuthParamsHelper()).SetScope(SCOPE_GAMES).CreateParams();
 
+        [UnityEngine.Scripting.Preserve]
+        public static HuaweiIdAuthParams NewInstance(AndroidJavaObject javaObject) => new HuaweiIdAuthParams(javaObject);
+
         public HuaweiIdAuthParams(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual IList<Scope> RequestScopeList => CallAsWrapperList<Scope>("getRequestScopeList");

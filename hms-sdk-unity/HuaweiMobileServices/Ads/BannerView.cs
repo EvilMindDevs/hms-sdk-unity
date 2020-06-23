@@ -6,6 +6,8 @@
     // Wrapper for com.huawei.hms.ads.banner.BannerView
     public class BannerView : JavaObjectWrapper
     {
+        [UnityEngine.Scripting.Preserve]
+        public static BannerView NewInstance(AndroidJavaObject javaObject) => new BannerView(javaObject);
 
         public BannerView(AndroidJavaObject javaObject) : base(javaObject) { }
 

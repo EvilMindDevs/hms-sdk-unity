@@ -6,6 +6,10 @@
     // Wrapper for com.huawei.hms.iap.entity.ProductInfo
     public class ProductInfo : JavaObjectWrapper
     {
+
+        [UnityEngine.Scripting.Preserve]
+        public static ProductInfo NewInstance(AndroidJavaObject javaObject) => new ProductInfo(javaObject);
+
         public ProductInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string ProductId => CallAsString("getProductId");

@@ -8,6 +8,9 @@ namespace HuaweiMobileServices.Game
     public class Player : JavaObjectWrapper
     {
 
+        [UnityEngine.Scripting.Preserve]
+        public static Player NewInstance(AndroidJavaObject javaObject) => new Player(javaObject);
+
         public Player(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public Player(string json, AuthHuaweiId authHuaweiId)

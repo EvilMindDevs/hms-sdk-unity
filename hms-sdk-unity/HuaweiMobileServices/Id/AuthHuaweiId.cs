@@ -9,6 +9,9 @@ namespace HuaweiMobileServices.Id
     public class AuthHuaweiId : JavaObjectWrapper
     {
 
+        [UnityEngine.Scripting.Preserve]
+        public static AuthHuaweiId NewInstance(AndroidJavaObject javaObject) => new AuthHuaweiId(javaObject);
+
         public AuthHuaweiId(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string Uid => CallAsString("getUid");

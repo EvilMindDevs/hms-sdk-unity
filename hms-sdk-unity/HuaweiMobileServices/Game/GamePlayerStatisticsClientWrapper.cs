@@ -6,6 +6,10 @@
 
     internal class GamePlayerStatisticsClientWrapper : JavaObjectWrapper, IGamePlayerStatisticsClient
     {
+
+        [UnityEngine.Scripting.Preserve]
+        public static GamePlayerStatisticsClientWrapper NewInstance(AndroidJavaObject javaObject) => new GamePlayerStatisticsClientWrapper(javaObject);
+
         public GamePlayerStatisticsClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public ITask<GamePlayerStatistics> GetGamePlayerStatistics(bool paramBoolean) =>

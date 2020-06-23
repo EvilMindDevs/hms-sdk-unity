@@ -7,6 +7,9 @@
     public sealed class GamePlayerStatistics : JavaObjectWrapper
     {
 
+        [UnityEngine.Scripting.Preserve]
+        public static GamePlayerStatistics NewInstance(AndroidJavaObject javaObject) => new GamePlayerStatistics(javaObject);
+
         public GamePlayerStatistics(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public float AverageOnLineMinutes => Call<float>("getAverageOnLineMinutes");

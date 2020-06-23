@@ -7,6 +7,9 @@ namespace HuaweiMobileServices.Game
     public class Event : JavaObjectWrapper
     {
 
+        [UnityEngine.Scripting.Preserve]
+        public static Event NewInstance(AndroidJavaObject javaObject) => new Event(javaObject);
+
         public Event(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string Description

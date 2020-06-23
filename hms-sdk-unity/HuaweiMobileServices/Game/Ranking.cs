@@ -17,6 +17,9 @@ namespace HuaweiMobileServices.Game
 
         public const int SCORE_VALUE_SMALL_BETTER = 0;
 
+        [UnityEngine.Scripting.Preserve]
+        public static Ranking NewInstance(AndroidJavaObject javaObject) => new Ranking(javaObject);
+
         public Ranking(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string RankingDisplayName => CallAsString("getRankingDisplayName");

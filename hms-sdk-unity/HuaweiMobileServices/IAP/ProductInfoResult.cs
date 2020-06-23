@@ -9,6 +9,9 @@
     public class ProductInfoResult : JavaObjectWrapper
     {
 
+        [UnityEngine.Scripting.Preserve]
+        public static ProductInfoResult NewInstance(AndroidJavaObject javaObject) => new ProductInfoResult(javaObject);
+
         public ProductInfoResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int ReturnCode => Call<int>("getReturnCode");

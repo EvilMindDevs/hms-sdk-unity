@@ -9,6 +9,9 @@ namespace HuaweiMobileServices.Game
     public class ProductClientWrapper : JavaObjectWrapper, IProductClient
     {
 
+        [UnityEngine.Scripting.Preserve]
+        public static ProductClientWrapper NewInstance(AndroidJavaObject javaObject) => new ProductClientWrapper(javaObject);
+
         public ProductClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual ITask<IList<ProductOrderInfo>> GetMissProductOrder()

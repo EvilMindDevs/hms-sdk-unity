@@ -13,6 +13,9 @@
         public const int TIME_DIMENSION_WEEKLY = 1;
         public const int TIME_DIMENSION_ALL_TIME = 2;
 
+        [UnityEngine.Scripting.Preserve]
+        public static RankingVariant NewInstance(AndroidJavaObject javaObject) => new RankingVariant(javaObject);
+
         public RankingVariant(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public string DisplayRanking => CallAsString("getDisplayRanking");
