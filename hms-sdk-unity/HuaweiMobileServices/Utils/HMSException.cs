@@ -22,5 +22,12 @@ namespace HuaweiMobileServices.Utils
         internal AndroidJavaObject JavaException { get; }
 
         public int ErrorCode { get; }
+
+        public string WrappedExceptionMessage => JavaException.Call<AndroidJavaObject>("getMessage").AsString();
+
+        public string WrappedCauseMessage => JavaException
+            .Call<AndroidJavaObject>("getCause")
+            ?.Call<AndroidJavaObject>("getMessage")
+            .AsString();
     }
 }
