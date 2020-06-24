@@ -20,7 +20,7 @@
 
         public void onTokenError(AndroidJavaObject e)
         {
-            mListener?.OnTokenError(e.AsHMSException());
+            mListener?.OnTokenError(e.AsException());
         }
 
         public void onMessageReceived(AndroidJavaObject remoteMessage)

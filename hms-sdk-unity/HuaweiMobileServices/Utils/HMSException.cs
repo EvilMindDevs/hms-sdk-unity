@@ -23,11 +23,4 @@ namespace HuaweiMobileServices.Utils
 
         public int ErrorCode { get; }
     }
-
-    public static class HMSExceptionUtils
-    {
-        public static HMSException AsHMSException(this AndroidJavaObject javaObject) =>
-            new HMSException(javaObject);
-    }
-
 }
