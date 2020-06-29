@@ -4,6 +4,7 @@ namespace HuaweiMobileServices.Game
 {
     using HuaweiMobileServices.Base;
     using HuaweiMobileServices.Utils;
+    using System;
     using UnityEngine;
 
     internal class ArchivesClientWrapper : JavaObjectWrapper, IArchivesClient
@@ -25,9 +26,9 @@ namespace HuaweiMobileServices.Game
             return new TaskWrapper<IList<ArchiveSummary>>(task, AndroidJavaObjectExtensions.AsListFromWrappable<ArchiveSummary>);
         }
 
-        public ITask<AndroidIntent> GetShowArchiveListIntent(string paramString, bool paramBoolean1, bool paramBoolean2, int paramInt) =>
-            CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getShowArchiveListIntent", paramString, paramBoolean1, paramBoolean2, paramInt);
-
+   
+        public void ShowArchiveListIntent(Action onSuccess, Action<HMSException> onFailure) => new GenericBridgeWrapper(base.JavaObject).CallGenericBridge(onSuccess, onFailure, "getShowArchiveListIntent");
+     
         public ITask<AndroidBitmap> GetThumbnail(string paramString) =>
             CallAsWrapper<TaskJavaObjectWrapper<AndroidBitmap>>("getThumbnail", paramString);
 
