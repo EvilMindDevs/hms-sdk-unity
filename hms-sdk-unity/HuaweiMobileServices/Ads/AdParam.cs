@@ -11,7 +11,8 @@ namespace HuaweiMobileServices.Ads
 
         [UnityEngine.Scripting.Preserve]
         public static AdParam NewInstance(AndroidJavaObject javaObject) => new AdParam(javaObject);
-
+        
+        
         public AdParam(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string TargetingContentUrl => CallAsString("getTargetingContentUrl");
