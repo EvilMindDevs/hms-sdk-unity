@@ -1,21 +1,18 @@
-﻿using HuaweiMobileServices.Base;
-using System;
-using UnityEngine;
+﻿using System;
 
 namespace HuaweiMobileServices.Utils
 {
-    public class GenericBridgeWrapper : JavaObjectWrapper
+    using HuaweiMobileServices.Base;
+    using UnityEngine;
+
+    internal static class GenericBridgeWrapper
     {
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
 
+        public static void CallGenericBridge(this JavaObjectWrapper javaObjectWrapper, String methodName, Action onSuccess, Action<HMSException> onFailure)
+        {
 
-        public GenericBridgeWrapper(AndroidJavaObject javaObject): base(javaObject) { }
-        
-        protected internal override AndroidJavaObject JavaObject { get => base.JavaObject; set => base.JavaObject = value; }
-
-        public void CallGenericBridge(Action onSuccess, Action<HMSException> onFailure, String methodName){
-
-            CallAsWrapper<TaskAndroidJavaObject>(methodName)
+            javaObjectWrapper.CallAsWrapper<TaskAndroidJavaObject>(methodName)
                 .AddOnSuccessListener((intent) =>
                 {
                     var callback = new GenericBridgeCallbackWrapper()
@@ -27,21 +24,6 @@ namespace HuaweiMobileServices.Utils
                     sJavaClass.CallStatic("receiveShow", intent, callback);
 
                 }).AddOnFailureListener((exception) => onFailure.Invoke(exception));
-        }
-
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return base.ToString();
         }
     }
 }
