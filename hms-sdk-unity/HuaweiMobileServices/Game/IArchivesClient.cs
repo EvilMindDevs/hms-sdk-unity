@@ -4,6 +4,7 @@ namespace HuaweiMobileServices.Game
 {
     using HuaweiMobileServices.Base;
     using HuaweiMobileServices.Utils;
+    using System;
 
     // Wrapper for com.huawei.hms.jos.games.ArchivesClient
     public interface IArchivesClient
@@ -30,7 +31,7 @@ namespace HuaweiMobileServices.Game
 
         ITask<int> LimitDetailsSize { get; }
 
-        ITask<AndroidIntent> GetShowArchiveListIntent(string paramString, bool paramBoolean1, bool paramBoolean2, int paramInt);
+        void ShowArchiveListIntent(Action onSuccess, Action<HMSException> onFailure);
 
         ITask<IList<ArchiveSummary>> GetArchiveSummaryList(bool paramBoolean);
 
