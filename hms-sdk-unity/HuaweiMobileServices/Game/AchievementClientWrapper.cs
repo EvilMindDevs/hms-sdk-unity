@@ -15,7 +15,8 @@ namespace HuaweiMobileServices.Game
         [UnityEngine.Scripting.Preserve]
         public AchievementClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure) => new GenericBridgeWrapper(base.JavaObject).CallGenericBridge(onSuccess, onFailure, "getShowAchievementListIntent");
+        public void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure) => 
+            this.CallGenericBridge("getShowAchievementListIntent", onSuccess, onFailure);
         
         public Task ShowAchievementListAsync()
         {
