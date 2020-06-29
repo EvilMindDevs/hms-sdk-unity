@@ -10,27 +10,13 @@ namespace HuaweiMobileServices.Game
 
     internal class AchievementClientWrapper : JavaObjectWrapper, IAchievementsClient
     {
-        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
+        
 
         [UnityEngine.Scripting.Preserve]
         public AchievementClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure)
-        {
-            CallAsWrapper<TaskAndroidJavaObject>("getShowAchievementListIntent")
-                .AddOnSuccessListener((intent) =>
-                {
-                    var callback = new GenericBridgeCallbackWrapper()
-                   .AddOnFailureListener(onFailure)
-                   .AddOnSuccessListener((nothing) =>
-                   {
-                       onSuccess.Invoke();
-                   });
-                    sJavaClass.CallStatic("receiveShow", intent, callback);
-
-                }).AddOnFailureListener((exception) => onFailure.Invoke(exception));
-        }
-
+        public void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure) => new GenericBridgeWrapper(base.JavaObject).CallGenericBridge(onSuccess, onFailure, "getShowAchievementListIntent");
+        
         public Task ShowAchievementListAsync()
         {
             var task = new TaskCompletionSource<int>();
