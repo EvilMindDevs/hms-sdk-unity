@@ -32,10 +32,15 @@
         public static BannerAdSize GetPortraitBannerSize(int paramInt) =>
             sJavaClass.CallStaticAsWrapper<BannerAdSize>("getPortraitBannerSize", AndroidContext.ActivityContext, paramInt);
 
-        public BannerAdSize(int paramInt1, int paramInt2) : base(CLASS_NAME, paramInt1, paramInt2) { }
 
         [UnityEngine.Scripting.Preserve]
         public static BannerAdSize NewInstance(AndroidJavaObject javaObject) => new BannerAdSize(javaObject);
+
+        [UnityEngine.Scripting.Preserve]
+        public static BannerAdSize NewInstance(int paramInt1, int paramInt2) => new BannerAdSize(paramInt1, paramInt2);
+
+
+        public BannerAdSize(int paramInt1, int paramInt2) : base(CLASS_NAME, paramInt1, paramInt2) { }
 
         public BannerAdSize(AndroidJavaObject javaObject) : base(javaObject) { }
 
