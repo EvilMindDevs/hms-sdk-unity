@@ -12,34 +12,23 @@ namespace HuaweiMobileServices.Ads
         [UnityEngine.Scripting.Preserve]
         public AdvertisingIdClient(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public bool verifyAdId(String adId, bool isLimitAdTrackin)
-        {
-            return Call<bool>("verifyAdId", adId, isLimitAdTrackin);
-        }
-
-        [UnityEngine.Scripting.Preserve]
+        public bool verifyAdId(string adId, bool isLimitAdTracking) => Call<bool>("verifyAdId", adId, isLimitAdTracking);
+   
         public static Info AdVertisingIdInfo() => new Info();
       
-
-
         // Wrapper for com.huawei.hms.ads.identifier.AdvertisingIdClient.Info
-        [UnityEngine.Scripting.Preserve]
         public class Info : JavaObjectWrapper
         {
             [UnityEngine.Scripting.Preserve]
             public Info(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            [UnityEngine.Scripting.Preserve]
             public Info() : base("com.huawei.hms.ads.identifier.AdvertisingIdClient$Info") { }
 
-            [UnityEngine.Scripting.Preserve]
-            public String Id() => CallAsString("getId");
-            
-            [UnityEngine.Scripting.Preserve]
-            public bool LimitAdTrackingEnabled() => Call<bool>("isLimitAdTrackingEnabled");
+            public string Id => CallAsString("getId");
+           
+            public bool LimitAdTrackingEnabled => Call<bool>("isLimitAdTrackingEnabled");
 
         }
     }
 
-    
 }
