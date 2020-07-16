@@ -9,7 +9,7 @@
         private const string CLASS_NAME = "com.huawei.hms.ads.identifier.AdvertisingIdClient";
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
 
-        public static bool verifyAdId(string adId, bool isLimitAdTracking) => sJavaClass.CallStatic<bool>("verifyAdId", AndroidContext.ActivityContext, adId, isLimitAdTracking);
+        public static bool VerifyAdId(string adId, bool isLimitAdTracking) => sJavaClass.CallStatic<bool>("verifyAdId", AndroidContext.ActivityContext, adId, isLimitAdTracking);
         
         public static Info AdVertisingIdInfo => sJavaClass.CallStaticAsWrapper<Info>("getAdvertisingIdInfo", AndroidContext.ActivityContext);
         
@@ -18,8 +18,6 @@
         {
             [UnityEngine.Scripting.Preserve]
             public Info(AndroidJavaObject javaObject) : base(javaObject) { }
-
-            public Info() : base("com.huawei.hms.ads.identifier.AdvertisingIdClient$Info") { }
 
             public string Id => CallAsString("getId");
 
