@@ -10,7 +10,7 @@
 
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
 
-        public static bool verifyAdId(string adId, bool isLimitAdTracking) => sJavaClass.CallStatic<bool>("verifyAdId", 
+        public static bool VerifyAdId(string adId, bool isLimitAdTracking) => sJavaClass.CallStatic<bool>("verifyAdId", 
             AndroidContext.ActivityContext, adId, isLimitAdTracking);
 
         public static Info AdVertisingIdInfo => sJavaClass.CallStaticAsWrapper<Info>("getAdvertisingIdInfo",
@@ -23,8 +23,6 @@
             public static Info NewInstance(AndroidJavaObject javaObject) => new Info(javaObject);
 
             public Info(AndroidJavaObject javaObject) : base(javaObject) { }
-
-            public Info() : base("com.huawei.hms.ads.identifier.AdvertisingIdClient$Info") { }
 
             public string Id() => CallAsString("getId");
 
