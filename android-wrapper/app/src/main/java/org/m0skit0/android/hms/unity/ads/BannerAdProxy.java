@@ -26,7 +26,7 @@ public class BannerAdProxy extends AdListener {
 
     private BannerView mBannerView;
 
-    private AdListener mAdListener;
+    private org.m0skit0.android.hms.unity.ads.AdListener mAdListener;
 
     private Handler mMainThreadHandler = new Handler(Looper.getMainLooper());
 
@@ -44,7 +44,7 @@ public class BannerAdProxy extends AdListener {
 
     private int mCustomWidth = DEFAULT_WIDTH;
 
-    public BannerAdProxy(Activity activity, AdListener listener) {
+    public BannerAdProxy(Activity activity, org.m0skit0.android.hms.unity.ads.AdListener listener) {
         mActivity = activity;
         mAdListener = listener;
     }
