@@ -18,4 +18,11 @@ namespace HuaweiMobileServices.Base
             return this;
         }
     }
+
+    [UnityEngine.Scripting.Preserve]
+    internal class TaskPrimitiveInt : TaskPrimitive<int>
+    {
+        [UnityEngine.Scripting.Preserve]
+        public TaskPrimitiveInt(AndroidJavaObject javaObject) : base(javaObject) { }
+    }
 }
