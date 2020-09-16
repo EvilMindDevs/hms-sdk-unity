@@ -9,6 +9,7 @@ Currently these are the kits being integrated:
 - Account (https://developer.huawei.com/consumer/en/hms/huawei-accountkit)
 - Ads (https://developer.huawei.com/consumer/en/hms/huawei-adskit)
 - Push (https://developer.huawei.com/consumer/en/hms/huawei-pushkit)
+- Analytics(https://developer.huawei.com/consumer/en/hms/huawei-analyticskit)
 
 ## Setup
 
