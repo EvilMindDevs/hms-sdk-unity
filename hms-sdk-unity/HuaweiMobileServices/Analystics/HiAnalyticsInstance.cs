@@ -56,9 +56,9 @@ namespace HuaweiMobileServices.Analystics
         {
             Call("clearCachedData");
         }
-        public Task getAAID()
+        public TaskHuaweiJavaObject getAAID()
         {
-            return Call<Task>("getAAID"); 
+            return Call<TaskHuaweiJavaObject>("getAAID"); 
         }
  
         public void regHmsSvcEvent()

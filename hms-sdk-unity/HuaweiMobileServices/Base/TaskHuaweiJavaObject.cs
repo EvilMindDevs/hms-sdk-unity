@@ -6,13 +6,13 @@ using UnityEngine;
 
 namespace HuaweiMobileServices.Base
 {
-    public class Task :JavaObjectWrapper
+    public class TaskHuaweiJavaObject :JavaObjectWrapper
     {
         private const string CLASS_NAME = "com.huawei.hmf.tasks.Task";
 
-        public Task(AndroidJavaObject javaObject) : base(javaObject) { }
+        public TaskHuaweiJavaObject(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public Task() : base(CLASS_NAME) { }
+        public TaskHuaweiJavaObject() : base(CLASS_NAME) { }
 
         public void putByte(string arg0, byte arg1)
         {
