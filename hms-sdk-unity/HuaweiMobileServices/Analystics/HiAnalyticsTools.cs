@@ -7,14 +7,14 @@ namespace HuaweiMobileServices.Analystics
     {
         private static AndroidJavaClass sIapClass = new AndroidJavaClass("com.huawei.hms.analytics.HiAnalyticsTools");
 
-        public static void enableLog()
+        public static void EnableLog()
         {
             sIapClass.CallStatic("enableLog");
         }
         /**
          * Log.DEBUG(3) Log.INFO(4) Log.WARN(5)  Log.ERROR(6)
          **/
-        public static void enableLog(int level)
+        public static void EnableLog(int level)
         {
             sIapClass.CallStatic("enableLog", level);
         }
