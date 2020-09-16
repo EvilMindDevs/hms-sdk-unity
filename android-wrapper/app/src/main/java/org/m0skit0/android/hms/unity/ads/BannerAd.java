@@ -44,17 +44,17 @@ public class BannerAd extends AdListener {
 
     private int customWidth = DEFAULT_WIDTH;
 
-    public BannerAdProxy(Activity activity, org.m0skit0.android.hms.unity.ads.AdListener listener) {
-        activity = activity;
+    public BannerAd(Activity activity, org.m0skit0.android.hms.unity.ads.AdListener listener) {
+        this.activity = activity;
         adListener = listener;
     }
 
     public void setAdId(String adId) {
-        adId = adId;
+        this.adId = adId;
     }
 
     public void setAdSizeType(String adSizeType) {
-        adSizeType = adSizeType;
+        this.adSizeType = adSizeType;
     }
 
     private BannerAdSize getTargetBannerAdSize(String adSize) {
@@ -111,7 +111,7 @@ public class BannerAd extends AdListener {
                     bannerView = new BannerView(activity);
                     bannerView.setBackgroundColor(Color.TRANSPARENT);
                     bannerView.setVisibility(View.GONE);
-                    bannerView.setAdListener(BannerAdProxy.this);
+                    bannerView.setAdListener(BannerAd.this);
                     activity.addContentView(bannerView, getBannerViewLayoutParams());
                 }
                 bannerView.setAdId(adId);
@@ -211,7 +211,7 @@ public class BannerAd extends AdListener {
     }
 
      public void setBannerAdPosition(final int positionCode) {
-        positionCode = positionCode;
+        this.positionCode = positionCode;
         horizontalOffset = 0;
         verticalOffset = 0;
         updatePosition();
