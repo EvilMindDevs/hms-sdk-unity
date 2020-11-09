@@ -10,13 +10,14 @@ namespace HuaweiMobileServices.Game
 
     internal class AchievementClientWrapper : JavaObjectWrapper, IAchievementsClient
     {
+        
 
         [UnityEngine.Scripting.Preserve]
         public AchievementClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure) => 
             this.CallGenericBridge("getShowAchievementListIntent", onSuccess, onFailure);
-        
+
         public System.Threading.Tasks.Task ShowAchievementListAsync()
         {
             var task = new TaskCompletionSource<int>();

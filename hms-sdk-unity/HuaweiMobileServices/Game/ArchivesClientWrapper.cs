@@ -28,7 +28,7 @@ namespace HuaweiMobileServices.Game
 
         public ITask<AndroidIntent> ShowArchiveListIntent(String title, Boolean allowAddBtn, Boolean allowDeleteBtn, int maxArchive) =>
             CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getShowArchiveListIntent", title, allowAddBtn, allowDeleteBtn, maxArchive);
-     
+
         public ITask<AndroidBitmap> GetThumbnail(string paramString) =>
             CallAsWrapper<TaskJavaObjectWrapper<AndroidBitmap>>("getThumbnail", paramString);
 

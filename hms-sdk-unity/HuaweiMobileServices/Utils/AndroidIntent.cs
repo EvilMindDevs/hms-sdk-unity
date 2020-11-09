@@ -16,6 +16,5 @@
         public int GetIntExtra<T>(string name) => Call<int>("getIntExtra", name, 1);
         public bool GetHasExtra<T>(string name) => Call<bool>("hasExtra", name);
 
-
     }
 }

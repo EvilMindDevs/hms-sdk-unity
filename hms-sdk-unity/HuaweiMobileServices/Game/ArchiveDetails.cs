@@ -33,4 +33,4 @@ namespace HuaweiMobileServices.Game
             public ArchiveDetails Build() => CallAsWrapper<ArchiveDetails>("build");
         }
     }
- }
+}
