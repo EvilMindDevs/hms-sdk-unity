@@ -14,67 +14,70 @@ namespace HuaweiMobileServices.Analystics
         [UnityEngine.Scripting.Preserve]
         public HiAnalyticsInstance(AndroidJavaObject hiAnalyticsInstance) : base(hiAnalyticsInstance) {}
 
-        public void SetAnalyticsEnabled(bool enabled)
+        public void setAnalyticsEnabled(bool enabled)
         {
             Call("setAnalyticsEnabled", enabled);
         }
-        public void SetAutoCollectionEnabled(bool isEnabled)
+        public void setAutoCollectionEnabled(bool isEnabled)
         {
             Call("setAutoCollectionEnabled", isEnabled);
         }
 
-        public void SetUserId(String id)
+        public void setUserId(String id)
         {
             Call("setUserId", id);
         }
-        public void SetUserProfile(String name, String value)
+        public void setUserProfile(String name, String value)
         {
             Call("setUserProfile", name, value);
         }
-        public void SetPushToken(String token)
+        public void setPushToken(String token)
         {
             Call("setPushToken", token);
         }
-        public void SetMinActivitySessions(long milliseconds)
+        public void setMinActivitySessions(long milliseconds)
         {
             Call("setMinActivitySessions", milliseconds);
         }
-        public void SetSessionDuration(long milliseconds)
+        public void setSessionDuration(long milliseconds)
         {
             Call("setSessionDuration", milliseconds);
         }
-        public void SetCurrentActivity(String activityName, String activityClassOverride)
+        public void setCurrentActivity(String activityName, String activityClassOverride)
         {
             //AndroidContext activity, 
             Call("setCurrentActivity", activityName, activityClassOverride);
         }
-        public void OnEvent(String eventId, Bundle androidBundle)
+        public void onEvent(String eventId, Bundle androidBundle)
         {
             Call("onEvent", eventId, androidBundle);
         }
-        public void ClearCachedData()
+        public void clearCachedData()
         {
             Call("clearCachedData");
         }
-        public TaskHuaweiJavaObject GetAAID  => Call<TaskHuaweiJavaObject>("getAAID"); 
-         
-        public void RegHmsSvcEvent()
+        public Task getAAID()
+        {
+            return Call<Task>("getAAID"); 
+        }
+ 
+        public void regHmsSvcEvent()
         {
             Call("regHmsSvcEvent");
         }
-        public void UnRegHmsSvcEvent()
+        public void unRegHmsSvcEvent()
         {
             Call("unRegHmsSvcEvent");
         }
-        public Map<String, String> GetUserProfiles(bool var1)
+        public Map<String, String> getUserProfiles(bool var1)
         {
             return Call<Map<String, String>>("getUserProfiles", var1); 
         }
-        public void PageStart(String pageName, String pageClassOverride)
+        public void pageStart(String pageName, String pageClassOverride)
         {
             Call("pageStart", pageName, pageClassOverride);
         }
-        public void PageEnd(String pageName)
+        public void pageEnd(String pageName)
         {
             Call("pageEnd", pageName);
         }

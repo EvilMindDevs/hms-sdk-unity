@@ -26,8 +26,8 @@ namespace HuaweiMobileServices.Game
             return new TaskWrapper<IList<ArchiveSummary>>(task, AndroidJavaObjectExtensions.AsListFromWrappable<ArchiveSummary>);
         }
 
-        public void ShowArchiveListIntent(Action onSuccess, Action<HMSException> onFailure) =>
-            this.CallGenericBridge("getShowArchiveListIntent", onSuccess, onFailure);
+        public ITask<AndroidIntent> ShowArchiveListIntent(String title, Boolean allowAddBtn, Boolean allowDeleteBtn, int maxArchive) =>
+            CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getShowArchiveListIntent", title, allowAddBtn, allowDeleteBtn, maxArchive);
      
         public ITask<AndroidBitmap> GetThumbnail(string paramString) =>
             CallAsWrapper<TaskJavaObjectWrapper<AndroidBitmap>>("getThumbnail", paramString);

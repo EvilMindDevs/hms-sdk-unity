@@ -1,17 +1,18 @@
-﻿using System;
+﻿using HuaweiMobileServices.Utils;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace HuaweiMobileServices.Utils
+namespace HuaweiMobileServices.Base
 {
-    public class Bundle : JavaObjectWrapper
+    public class Task :JavaObjectWrapper
     {
-        private const string CLASS_NAME = "android.os.Bundle";
-            
-        public Bundle(AndroidJavaObject javaObject) : base(javaObject) { }
+        private const string CLASS_NAME = "com.huawei.hmf.tasks.Task";
 
-        public Bundle() : base(CLASS_NAME) { }
+        public Task(AndroidJavaObject javaObject) : base(javaObject) { }
+
+        public Task() : base(CLASS_NAME) { }
 
         public void putByte(string arg0, byte arg1)
         {

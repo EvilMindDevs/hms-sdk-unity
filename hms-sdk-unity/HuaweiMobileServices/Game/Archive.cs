@@ -8,10 +8,10 @@
     {
         [UnityEngine.Scripting.Preserve]
         public Archive(AndroidJavaObject javaObject) : base(javaObject) { }
+         
+        public virtual ArchiveSummary Summary => CallAsWrapper<ArchiveSummary>("getSummary");
 
-        ArchiveSummary Summary => CallAsWrapper<ArchiveSummary>("getSummary");
-
-        ArchiveDetails Details => CallAsWrapper<ArchiveDetails>("getDetails");
+        public virtual ArchiveDetails Details => CallAsWrapper<ArchiveDetails>("getDetails");
     }
 
 }

@@ -32,7 +32,7 @@ namespace HuaweiMobileServices.Game
                 }).AddOnFailureListener((exception) => onFailure.Invoke(exception));
         }
 
-        public Task ShowTotalRankingsAsync()
+        public System.Threading.Tasks.Task ShowTotalRankingsAsync()
         {
             var task = new TaskCompletionSource<int>();
             ShowTotalRankings(() => task.SetResult(0), task.SetException);
