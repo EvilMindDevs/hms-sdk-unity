@@ -11,9 +11,9 @@ namespace HuaweiMobileServices.Ads
 
         [UnityEngine.Scripting.Preserve]
         public BannerAd(AndroidJavaObject javaObject) : base(javaObject) { }
-       
+
         public BannerAd(AdStatusListener AdStatusListener) : base("org.m0skit0.android.hms.unity.ads.BannerAd", AndroidContext.ActivityContext, AdStatusListener) { }
-         
+
         public string AdId
         {
             set;
@@ -38,11 +38,12 @@ namespace HuaweiMobileServices.Ads
         public void ShowBanner(AdParam adRequest) {
             HandleRequestAd(adRequest);  
         }
+
         public void HideBanner()
         {
              HandleHideAd();
         }
-        public void DestroyBanner( )
+        
         {
             HandleDestroyAd();
         }
@@ -57,8 +58,7 @@ namespace HuaweiMobileServices.Ads
             
             Call("setAdSizeType", SizeType);
 
-            Call("loadAd", adRequest);    
-        }
+            Call("setAdSizeType", SizeType);
 
         private void OnAdLoadFail(object sender, AdLoadErrorCodeEventArgs args)
         {
@@ -66,7 +66,6 @@ namespace HuaweiMobileServices.Ads
         }
         private void OnAdLoadSuccess(object sender, EventArgs args)
         {
-            Debug.Log("[HMS] Bannerads onAdLoadSuccess");
             Call("show");
         }
 
@@ -74,7 +73,7 @@ namespace HuaweiMobileServices.Ads
         {
             if (this != null)
             {
-                 Call("hide");
+                Call("hide");
             }
         }
 
@@ -82,7 +81,7 @@ namespace HuaweiMobileServices.Ads
         {
             if (this != null)
             {
-                 Call("destroy");
+                Call("destroy");
             }
         }
 
