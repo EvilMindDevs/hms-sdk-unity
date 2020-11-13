@@ -12,15 +12,82 @@ namespace HuaweiMobileServices.Game
         [UnityEngine.Scripting.Preserve]
         public ArchiveSummaryUpdate(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public string DescInfo => throw new NotImplementedException();
+        public string DescInfo
+        {
+            get => Call<string>("getDescInfo");
+        }
 
-        public long? ActiveTime => throw new NotImplementedException();
+        public long? ActiveTime
+        {
+            get => Call<long>("getActiveTime");
+        }
 
-        public long? CurrentProgress => throw new NotImplementedException();
+        public long? CurrentProgress
+        {
+            get => Call<long>("getCurrentProgress");
+        }
 
-        public AndroidBitmap Thumbnail => throw new NotImplementedException();
+        public AndroidBitmap Thumbnail
+        {
+            get => Call<AndroidBitmap>("getThumbnail");
+        }
 
-        public string ThumbnailMimeType => throw new NotImplementedException();
+        public string ThumbnailMimeType
+        {
+            get => Call<string>("getThumbnailMimeType");
+        }
+
+        // Wrapper for  com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate.Builder
+        public class Builder : JavaObjectWrapper
+        {
+            [UnityEngine.Scripting.Preserve]
+            public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
+
+            public Builder() : base("com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate$Builder") { }
+
+            public ArchiveSummaryUpdate Build() => CallAsWrapper<ArchiveSummaryUpdate>("build");
+
+            public Builder FromSummary(ArchiveSummary summary)
+            {
+                JavaObject = Call<AndroidJavaObject>("fromSummary", summary);
+                return this;
+            }
+            public Builder SetActiveTime(long setActiveTime)
+            {
+                JavaObject = Call<AndroidJavaObject>("setActiveTime", setActiveTime);
+                return this;
+            }
+            public Builder SetCurrentProgress(long progressValue)
+            {
+                JavaObject = Call<AndroidJavaObject>("setCurrentProgress", progressValue);
+                return this;
+            }
+            public Builder SetDescInfo(String description)
+            {
+                JavaObject = Call<AndroidJavaObject>("setDescInfo", description);
+                return this;
+            }
+            public Builder SetThumbnail(AndroidBitmap bitmap)
+            {
+                JavaObject = Call<AndroidJavaObject>("setThumbnail", bitmap);
+                return this;
+            }
+            public Builder SetThumbnailMimeType(String imageMimeType)
+            {
+                JavaObject = Call<AndroidJavaObject>("setThumbnailMimeType", imageMimeType);
+                return this;
+            }
+
+
+
+
+
+
+
+
+
+
+        }
     }
 
 }

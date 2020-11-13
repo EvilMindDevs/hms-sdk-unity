@@ -19,42 +19,42 @@ import org.m0skit0.android.hms.unity.ads.Constants.UnityBannerAdPositionCode;
 import org.m0skit0.android.hms.unity.ads.Constants.UnityBannerAdSize;
 
 
-public class BannerAdProxy extends AdListener {
+public class BannerAd extends AdListener {
     private static final int DEFAULT_WIDTH = 320;
 
-    private Activity mActivity;
+    private Activity activity;
 
-    private BannerView mBannerView;
+    private BannerView bannerView;
 
-    private org.m0skit0.android.hms.unity.ads.AdListener mAdListener;
+    private org.m0skit0.android.hms.unity.ads.AdListener adListener;
 
-    private Handler mMainThreadHandler = new Handler(Looper.getMainLooper());
+    private Handler mainThreadHandler = new Handler(Looper.getMainLooper());
 
-    private String mAdId;
+    private String adId;
 
-    private String mAdSizeType = UnityBannerAdSize.USER_DEFINED;
+    private String adSizeType = UnityBannerAdSize.USER_DEFINED;
 
-    private int mPositionCode = UnityBannerAdPositionCode.POSITION_TOP;
+    private int positionCode = UnityBannerAdPositionCode.POSITION_TOP;
 
-    private int mHorizontalOffset = 0;
+    private int horizontalOffset = 0;
 
-    private int mVerticalOffset = 0;
+    private int verticalOffset = 0;
 
-    private boolean mIsHide = false;
+    private boolean isHide = false;
 
-    private int mCustomWidth = DEFAULT_WIDTH;
+    private int customWidth = DEFAULT_WIDTH;
 
-    public BannerAdProxy(Activity activity, org.m0skit0.android.hms.unity.ads.AdListener listener) {
-        mActivity = activity;
-        mAdListener = listener;
+    public BannerAd(Activity activity, org.m0skit0.android.hms.unity.ads.AdListener listener) {
+        this.activity = activity;
+        adListener = listener;
     }
 
     public void setAdId(String adId) {
-        mAdId = adId;
+        this.adId = adId;
     }
 
     public void setAdSizeType(String adSizeType) {
-        mAdSizeType = adSizeType;
+        this.adSizeType = adSizeType;
     }
 
     private BannerAdSize getTargetBannerAdSize(String adSize) {
@@ -100,50 +100,50 @@ public class BannerAdProxy extends AdListener {
     }
 
     private BannerAdSize getUserDefinedBannerSize() {
-        return BannerAdSize.getCurrentDirectionBannerSize(mActivity, mCustomWidth);
+        return BannerAdSize.getCurrentDirectionBannerSize(activity, customWidth);
     }
 
     public void loadAd(final AdParam adRequest) {
-        mMainThreadHandler.post(new Runnable() {
+        mainThreadHandler.post(new Runnable() {
             @Override
             public void run() {
-                if (mBannerView == null) {
-                    mBannerView = new BannerView(mActivity);
-                    mBannerView.setBackgroundColor(Color.TRANSPARENT);
-                    mBannerView.setVisibility(View.GONE);
-                    mBannerView.setAdListener(BannerAdProxy.this);
-                    mActivity.addContentView(mBannerView, getBannerViewLayoutParams());
+                if (bannerView == null) {
+                    bannerView = new BannerView(activity);
+                    bannerView.setBackgroundColor(Color.TRANSPARENT);
+                    bannerView.setVisibility(View.GONE);
+                    bannerView.setAdListener(BannerAd.this);
+                    activity.addContentView(bannerView, getBannerViewLayoutParams());
                 }
-                mBannerView.setAdId(mAdId);
-                mBannerView.setBannerAdSize(getTargetBannerAdSize(mAdSizeType));
-                if (BannerAdSize.BANNER_SIZE_INVALID.equals(mBannerView.getBannerAdSize())) {
+                bannerView.setAdId(adId);
+                bannerView.setBannerAdSize(getTargetBannerAdSize(adSizeType));
+                if (BannerAdSize.BANNER_SIZE_INVALID.equals(bannerView.getBannerAdSize())) {
                     return;
                 }
 
-                if (TextUtils.isEmpty(mBannerView.getAdId())) {
+                if (TextUtils.isEmpty(bannerView.getAdId())) {
                     return;
                 }
-                mBannerView.loadAd(adRequest);
+                bannerView.loadAd(adRequest);
             }
         });
     }
 
     public void setCustomSize(int size) {
-        mCustomWidth = size;
+        customWidth = size;
     }
 
     private FrameLayout.LayoutParams getBannerViewLayoutParams() {
         final FrameLayout.LayoutParams adParams =
                 new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-        adParams.gravity = UnityBannerAdPositionCode.getLayoutGravityForPositionCode(mPositionCode);
+        adParams.gravity = UnityBannerAdPositionCode.getLayoutGravityForPositionCode(positionCode);
         int safeInsetLeft = 0;
         int safeInsetTop = 0;
-        if (mPositionCode == UnityBannerAdPositionCode.POSITION_CUSTOM) {
-            int leftOffset = (int) convertDpToPx(mHorizontalOffset);
+        if (positionCode == UnityBannerAdPositionCode.POSITION_CUSTOM) {
+            int leftOffset = (int) convertDpToPx(horizontalOffset);
             if (leftOffset < safeInsetLeft) {
                 leftOffset = safeInsetLeft;
             }
-            int topOffset = (int) convertDpToPx(mVerticalOffset);
+            int topOffset = (int) convertDpToPx(verticalOffset);
             if (topOffset < safeInsetTop) {
                 topOffset = safeInsetTop;
             }
@@ -151,9 +151,9 @@ public class BannerAdProxy extends AdListener {
             adParams.topMargin = topOffset;
         } else {
             adParams.leftMargin = safeInsetLeft;
-            if (mPositionCode == UnityBannerAdPositionCode.POSITION_TOP
-                    || mPositionCode == UnityBannerAdPositionCode.POSITION_TOP_LEFT
-                    || mPositionCode == UnityBannerAdPositionCode.POSITION_TOP_RIGHT) {
+            if (positionCode == UnityBannerAdPositionCode.POSITION_TOP
+                    || positionCode == UnityBannerAdPositionCode.POSITION_TOP_LEFT
+                    || positionCode == UnityBannerAdPositionCode.POSITION_TOP_RIGHT) {
                 adParams.topMargin = safeInsetTop;
             }
         }
@@ -161,71 +161,71 @@ public class BannerAdProxy extends AdListener {
     }
 
     public void show() {
-        mMainThreadHandler.post(new Runnable() {
+        mainThreadHandler.post(new Runnable() {
             @Override
             public void run() {
-                mIsHide = false;
-                if (mBannerView != null) {
-                    mBannerView.resume();
-                    mBannerView.setVisibility(View.VISIBLE);
+                isHide = false;
+                if (bannerView != null) {
+                    bannerView.resume();
+                    bannerView.setVisibility(View.VISIBLE);
                 }
             }
         });
     }
 
     public void hide() {
-        mMainThreadHandler.post(new Runnable() {
+        mainThreadHandler.post(new Runnable() {
             @Override
             public void run() {
-                mIsHide = true;
-                if (mBannerView != null) {
-                    mBannerView.pause();
-                    mBannerView.setVisibility(View.GONE);
+                isHide = true;
+                if (bannerView != null) {
+                    bannerView.pause();
+                    bannerView.setVisibility(View.GONE);
                 }
             }
         });
     }
 
     public void destroy() {
-        mMainThreadHandler.post(new Runnable() {
+        mainThreadHandler.post(new Runnable() {
             @Override
             public void run() {
-                if (mBannerView != null) {
-                    mBannerView.destroy();
-                    mBannerView.setVisibility(View.GONE);
-                    ViewParent parentView = mBannerView.getParent();
+                if (bannerView != null) {
+                    bannerView.destroy();
+                    bannerView.setVisibility(View.GONE);
+                    ViewParent parentView = bannerView.getParent();
                     if (parentView instanceof ViewGroup) {
-                        ((ViewGroup) parentView).removeView(mBannerView);
+                        ((ViewGroup) parentView).removeView(bannerView);
                     }
                 }
-                mBannerView = null;
+                bannerView = null;
             }
         });
     }
 
      public void setBannerAdPosition(final int positionX, final int positionY) {
-        mPositionCode = UnityBannerAdPositionCode.POSITION_CUSTOM;
-        mHorizontalOffset = positionX;
-        mVerticalOffset = positionY;
+        positionCode = UnityBannerAdPositionCode.POSITION_CUSTOM;
+        horizontalOffset = positionX;
+        verticalOffset = positionY;
         updatePosition();
     }
 
      public void setBannerAdPosition(final int positionCode) {
-        mPositionCode = positionCode;
-        mHorizontalOffset = 0;
-        mVerticalOffset = 0;
+        this.positionCode = positionCode;
+        horizontalOffset = 0;
+        verticalOffset = 0;
         updatePosition();
     }
 
     private void updatePosition() {
-        mMainThreadHandler.post(new Runnable() {
+        mainThreadHandler.post(new Runnable() {
             @Override
             public void run() {
-                if (mBannerView == null) {
+                if (bannerView == null) {
                     return;
                 }
                 FrameLayout.LayoutParams layoutParams = getBannerViewLayoutParams();
-                mBannerView.setLayoutParams(layoutParams);
+                bannerView.setLayoutParams(layoutParams);
             }
         });
     }
@@ -233,11 +233,11 @@ public class BannerAdProxy extends AdListener {
     @Override
     public void onAdClosed() {
         super.onAdClosed();
-        mMainThreadHandler.post(new Runnable() {
+        mainThreadHandler.post(new Runnable() {
             @Override
             public void run() {
-                if (mAdListener != null) {
-                    mAdListener.onAdClosed();
+                if (adListener != null) {
+                    adListener.onAdClosed();
                 }
             }
         });
@@ -246,11 +246,11 @@ public class BannerAdProxy extends AdListener {
     @Override
     public void onAdFailed(final int i) {
         super.onAdFailed(i);
-        mMainThreadHandler.post(new Runnable() {
+        mainThreadHandler.post(new Runnable() {
             @Override
             public void run() {
-                if (mAdListener != null) {
-                    mAdListener.onAdFailed(i);
+                if (adListener != null) {
+                    adListener.onAdFailed(i);
                 }
             }
         });
@@ -259,11 +259,11 @@ public class BannerAdProxy extends AdListener {
     @Override
     public void onAdLeave() {
         super.onAdLeave();
-        mMainThreadHandler.post(new Runnable() {
+        mainThreadHandler.post(new Runnable() {
             @Override
             public void run() {
-                if (mAdListener != null) {
-                    mAdListener.onAdLeave();
+                if (adListener != null) {
+                    adListener.onAdLeave();
                 }
             }
         });
@@ -272,11 +272,11 @@ public class BannerAdProxy extends AdListener {
     @Override
     public void onAdOpened() {
         super.onAdOpened();
-        mMainThreadHandler.post(new Runnable() {
+        mainThreadHandler.post(new Runnable() {
             @Override
             public void run() {
-                if (mAdListener != null) {
-                    mAdListener.onAdOpened();
+                if (adListener != null) {
+                    adListener.onAdOpened();
                 }
             }
         });
@@ -285,14 +285,14 @@ public class BannerAdProxy extends AdListener {
     @Override
     public void onAdLoaded() {
         super.onAdLoaded();
-        mMainThreadHandler.post(new Runnable() {
+        mainThreadHandler.post(new Runnable() {
             @Override
             public void run() {
-                if (!mIsHide && mBannerView != null) {
+                if (!isHide && bannerView != null) {
                     show();
                 }
-                if (mAdListener != null) {
-                    mAdListener.onAdLoaded();
+                if (adListener != null) {
+                    adListener.onAdLoaded();
                 }
             }
         });
@@ -301,11 +301,11 @@ public class BannerAdProxy extends AdListener {
     @Override
     public void onAdClicked() {
         super.onAdClicked();
-        mMainThreadHandler.post(new Runnable() {
+        mainThreadHandler.post(new Runnable() {
             @Override
             public void run() {
-                if (mAdListener != null) {
-                    mAdListener.onAdClicked();
+                if (adListener != null) {
+                    adListener.onAdClicked();
                 }
             }
         });
@@ -314,18 +314,18 @@ public class BannerAdProxy extends AdListener {
     @Override
     public void onAdImpression() {
         super.onAdImpression();
-        mMainThreadHandler.post(new Runnable() {
+        mainThreadHandler.post(new Runnable() {
             @Override
             public void run() {
-                if (mAdListener != null) {
-                    mAdListener.onAdImpression();
+                if (adListener != null) {
+                    adListener.onAdImpression();
                 }
             }
         });
     }
 
     private float convertDpToPx(float dp) {
-        DisplayMetrics metrics = mActivity.getResources().getDisplayMetrics();
+        DisplayMetrics metrics = activity.getResources().getDisplayMetrics();
         return dp * metrics.density;
     }
 }

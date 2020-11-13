@@ -12,7 +12,7 @@ namespace HuaweiMobileServices.Ads
         [UnityEngine.Scripting.Preserve]
         public BannerAd(AndroidJavaObject javaObject) : base(javaObject) { }
        
-        public BannerAd(AdStatusListener mAdStatusListener) : base("org.m0skit0.android.hms.unity.ads.BannerAdProxy", AndroidContext.ActivityContext, mAdStatusListener) { }
+        public BannerAd(AdStatusListener AdStatusListener) : base("org.m0skit0.android.hms.unity.ads.BannerAd", AndroidContext.ActivityContext, AdStatusListener) { }
          
         public string AdId
         {
@@ -20,57 +20,57 @@ namespace HuaweiMobileServices.Ads
             get;
         }
 
-        public int positionType
+        public int PositionType
         {
             set;
             get;
         }
-        public String sizeType
+        public String SizeType
         {
             set;
             get;
         }
-        public AdStatusListener mAdStatusListener
+        public AdStatusListener AdStatusListener
         {
             set;
             get;
         }
-        public void showBanner(AdParam adRequest) {
-            handleRequestAd(adRequest);  
+        public void ShowBanner(AdParam adRequest) {
+            HandleRequestAd(adRequest);  
         }
-        public void hideBanner()
+        public void HideBanner()
         {
-             handleHideAd();
+             HandleHideAd();
         }
-        public void destroyBanner( )
+        public void DestroyBanner( )
         {
-            handleDestroyAd();
+            HandleDestroyAd();
         }
-        private void handleRequestAd(AdParam adRequest)
+        private void HandleRequestAd(AdParam adRequest)
         {
-            mAdStatusListener.mOnAdLoaded += onAdLoadSuccess;
-            mAdStatusListener.mOnAdFailed += onAdLoadFail; 
+            AdStatusListener.mOnAdLoaded += OnAdLoadSuccess;
+            AdStatusListener.mOnAdFailed += OnAdLoadFail; 
              
             Call("setAdId", AdId);
 
-            Call("setBannerAdPosition", positionType);
+            Call("setBannerAdPosition", PositionType);
             
-            Call("setAdSizeType", sizeType);
+            Call("setAdSizeType", SizeType);
 
             Call("loadAd", adRequest);    
         }
 
-        private void onAdLoadFail(object sender, AdLoadErrorCodeEventArgs args)
+        private void OnAdLoadFail(object sender, AdLoadErrorCodeEventArgs args)
         {
             Debug.Log("[HMS] Bannerads onAdLoadFail" + args);
         }
-        private void onAdLoadSuccess(object sender, EventArgs args)
+        private void OnAdLoadSuccess(object sender, EventArgs args)
         {
             Debug.Log("[HMS] Bannerads onAdLoadSuccess");
             Call("show");
         }
 
-        private void handleHideAd()
+        private void HandleHideAd()
         {
             if (this != null)
             {
@@ -78,7 +78,7 @@ namespace HuaweiMobileServices.Ads
             }
         }
 
-        private void handleDestroyAd()
+        private void HandleDestroyAd()
         {
             if (this != null)
             {

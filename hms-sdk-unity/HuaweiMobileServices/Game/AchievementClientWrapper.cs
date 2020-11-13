@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 namespace HuaweiMobileServices.Game
 {
     using HuaweiMobileServices.Base;
@@ -17,8 +17,8 @@ namespace HuaweiMobileServices.Game
 
         public void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure) => 
             this.CallGenericBridge("getShowAchievementListIntent", onSuccess, onFailure);
-        
-        public Task ShowAchievementListAsync()
+
+        public System.Threading.Tasks.Task ShowAchievementListAsync()
         {
             var task = new TaskCompletionSource<int>();
             ShowAchievementList(() => task.SetResult(0), task.SetException);

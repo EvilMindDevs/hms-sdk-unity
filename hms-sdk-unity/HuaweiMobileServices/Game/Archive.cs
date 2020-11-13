@@ -9,9 +9,9 @@
         [UnityEngine.Scripting.Preserve]
         public Archive(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        ArchiveSummary Summary => CallAsWrapper<ArchiveSummary>("getSummary");
+        public virtual ArchiveSummary Summary => CallAsWrapper<ArchiveSummary>("getSummary");
 
-        ArchiveDetails Details => CallAsWrapper<ArchiveDetails>("getDetails");
+        public virtual ArchiveDetails Details => CallAsWrapper<ArchiveDetails>("getDetails");
     }
 
 }
