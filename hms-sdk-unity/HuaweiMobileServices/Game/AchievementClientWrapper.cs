@@ -18,6 +18,7 @@ namespace HuaweiMobileServices.Game
         public void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure) => 
             this.CallGenericBridge("getShowAchievementListIntent", onSuccess, onFailure);
 
+        
         public System.Threading.Tasks.Task ShowAchievementListAsync()
         {
             var task = new TaskCompletionSource<int>();
