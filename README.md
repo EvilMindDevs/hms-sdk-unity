@@ -10,6 +10,7 @@ Currently these are the kits being integrated:
 - Ads (https://developer.huawei.com/consumer/en/hms/huawei-adskit)
 - Push (https://developer.huawei.com/consumer/en/hms/huawei-pushkit)
 - Analytics(https://developer.huawei.com/consumer/en/hms/huawei-analyticskit)
+- Crash Service (https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-introduction)
 
 ## Setup
 
