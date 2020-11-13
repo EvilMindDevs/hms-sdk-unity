@@ -11,78 +11,71 @@ namespace HuaweiMobileServices.Ads
 
         [UnityEngine.Scripting.Preserve]
         public BannerAd(AndroidJavaObject javaObject) : base(javaObject) { }
-       
-        public BannerAd(AdStatusListener mAdStatusListener) : base("org.m0skit0.android.hms.unity.ads.BannerAdProxy", AndroidContext.ActivityContext, mAdStatusListener) { }
-         
+
+        public BannerAd(AdStatusListener AdStatusListener) : base("org.m0skit0.android.hms.unity.ads.BannerAd", AndroidContext.ActivityContext, AdStatusListener) { }
+
         public string AdId
         {
             set;
             get;
         }
 
-        public int positionType
+        public int PositionType
         {
             set;
             get;
         }
-        public String sizeType
+        public String SizeType
         {
             set;
             get;
         }
-        public AdStatusListener mAdStatusListener
+        public AdStatusListener AdStatusListener
         {
             set;
             get;
         }
-        public void showBanner(AdParam adRequest) {
-            handleRequestAd(adRequest);  
-        }
-        public void hideBanner()
+        public void LoadBanner(AdParam adRequest)
         {
-             handleHideAd();
+            HandleRequestAd(adRequest);
         }
-        public void destroyBanner( )
+        public void HideBanner()
         {
-            handleDestroyAd();
+            HandleHideAd();
         }
-        private void handleRequestAd(AdParam adRequest)
+        public void DestroyBanner()
         {
-            mAdStatusListener.mOnAdLoaded += onAdLoadSuccess;
-            mAdStatusListener.mOnAdFailed += onAdLoadFail; 
-             
+            HandleDestroyAd();
+        }
+        private void HandleRequestAd(AdParam adRequest)
+        {
             Call("setAdId", AdId);
 
-            Call("setBannerAdPosition", positionType);
-            
-            Call("setAdSizeType", sizeType);
+            Call("setBannerAdPosition", PositionType);
 
-            Call("loadAd", adRequest);    
+            Call("setAdSizeType", SizeType);
+
+            Call("loadAd", adRequest);
         }
 
-        private void onAdLoadFail(object sender, AdLoadErrorCodeEventArgs args)
+        public void ShowBanner()
         {
-            Debug.Log("[HMS] Bannerads onAdLoadFail" + args);
-        }
-        private void onAdLoadSuccess(object sender, EventArgs args)
-        {
-            Debug.Log("[HMS] Bannerads onAdLoadSuccess");
             Call("show");
         }
 
-        private void handleHideAd()
+        private void HandleHideAd()
         {
             if (this != null)
             {
-                 Call("hide");
+                Call("hide");
             }
         }
 
-        private void handleDestroyAd()
+        private void HandleDestroyAd()
         {
             if (this != null)
             {
-                 Call("destroy");
+                Call("destroy");
             }
         }
 
