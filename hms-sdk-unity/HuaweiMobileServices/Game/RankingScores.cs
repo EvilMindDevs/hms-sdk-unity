@@ -17,7 +17,7 @@ namespace HuaweiMobileServices.Game
 
         public Ranking Ranking => CallAsWrapper<Ranking>("getRanking");
 
-        public IList<RankingScore> RankingScore => CallAsWrapperList<RankingScore>("getRankingScore");
+        public IList<RankingScore> RankingScore => CallAsWrapperList<RankingScore>("getRankingScores");
 
     }
 }
