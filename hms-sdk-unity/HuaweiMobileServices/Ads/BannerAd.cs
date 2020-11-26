@@ -39,17 +39,14 @@ namespace HuaweiMobileServices.Ads
         {
             HandleRequestAd(adRequest);
         }
-
         public void HideBanner()
         {
             HandleHideAd();
         }
-
         public void DestroyBanner()
         {
             HandleDestroyAd();
         }
-        
         private void HandleRequestAd(AdParam adRequest)
         {
             Call("setAdId", AdId);
