@@ -35,36 +35,33 @@ namespace HuaweiMobileServices.Ads
             set;
             get;
         }
-        public void ShowBanner(AdParam adRequest) {
-            HandleRequestAd(adRequest);  
+        public void LoadBanner(AdParam adRequest)
+        {
+            HandleRequestAd(adRequest);
         }
 
         public void HideBanner()
         {
-             HandleHideAd();
+            HandleHideAd();
         }
-        
+
+        public void DestroyBanner()
         {
             HandleDestroyAd();
         }
+        
         private void HandleRequestAd(AdParam adRequest)
         {
-            AdStatusListener.mOnAdLoaded += OnAdLoadSuccess;
-            AdStatusListener.mOnAdFailed += OnAdLoadFail; 
-             
             Call("setAdId", AdId);
 
             Call("setBannerAdPosition", PositionType);
-            
-            Call("setAdSizeType", SizeType);
 
             Call("setAdSizeType", SizeType);
 
-        private void OnAdLoadFail(object sender, AdLoadErrorCodeEventArgs args)
-        {
-            Debug.Log("[HMS] Bannerads onAdLoadFail" + args);
+            Call("loadAd", adRequest);
         }
-        private void OnAdLoadSuccess(object sender, EventArgs args)
+
+        public void ShowBanner()
         {
             Call("show");
         }
