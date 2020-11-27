@@ -11,9 +11,9 @@ namespace HuaweiMobileServices.Ads
 
         [UnityEngine.Scripting.Preserve]
         public BannerAd(AndroidJavaObject javaObject) : base(javaObject) { }
-       
+
         public BannerAd(AdStatusListener AdStatusListener) : base("org.m0skit0.android.hms.unity.ads.BannerAd", AndroidContext.ActivityContext, AdStatusListener) { }
-         
+
         public string AdId
         {
             set;
@@ -35,38 +35,31 @@ namespace HuaweiMobileServices.Ads
             set;
             get;
         }
-        public void ShowBanner(AdParam adRequest) {
-            HandleRequestAd(adRequest);  
+        public void LoadBanner(AdParam adRequest)
+        {
+            HandleRequestAd(adRequest);
         }
         public void HideBanner()
         {
-             HandleHideAd();
+            HandleHideAd();
         }
-        public void DestroyBanner( )
+        public void DestroyBanner()
         {
             HandleDestroyAd();
         }
         private void HandleRequestAd(AdParam adRequest)
         {
-            AdStatusListener.mOnAdLoaded += OnAdLoadSuccess;
-            AdStatusListener.mOnAdFailed += OnAdLoadFail; 
-             
             Call("setAdId", AdId);
 
             Call("setBannerAdPosition", PositionType);
-            
+
             Call("setAdSizeType", SizeType);
 
-            Call("loadAd", adRequest);    
+            Call("loadAd", adRequest);
         }
 
-        private void OnAdLoadFail(object sender, AdLoadErrorCodeEventArgs args)
+        public void ShowBanner()
         {
-            Debug.Log("[HMS] Bannerads onAdLoadFail" + args);
-        }
-        private void OnAdLoadSuccess(object sender, EventArgs args)
-        {
-            Debug.Log("[HMS] Bannerads onAdLoadSuccess");
             Call("show");
         }
 
@@ -74,7 +67,7 @@ namespace HuaweiMobileServices.Ads
         {
             if (this != null)
             {
-                 Call("hide");
+                Call("hide");
             }
         }
 
@@ -82,7 +75,7 @@ namespace HuaweiMobileServices.Ads
         {
             if (this != null)
             {
-                 Call("destroy");
+                Call("destroy");
             }
         }
 
