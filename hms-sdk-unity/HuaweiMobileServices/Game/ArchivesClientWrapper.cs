@@ -12,7 +12,18 @@ namespace HuaweiMobileServices.Game
 
         [UnityEngine.Scripting.Preserve]
         public ArchivesClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
+        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
 
+        public void ShowSavedGames(AndroidIntent androidIntent, Action onSuccess, Action<HMSException> onFailure)
+        {
+            var callback = new GenericBridgeCallbackWrapper()
+                       .AddOnFailureListener(onFailure)
+                       .AddOnSuccessListener((nothing) =>
+                       {
+                           onSuccess.Invoke();
+                       });
+                    sJavaClass.CallStatic("receiveShow", androidIntent.Intent, callback);
+        }
         public ITask<int> LimitThumbnailSize => CallAsWrapper<TaskPrimitive<int>>("getLimitThumbnailSize");
 
         public ITask<int> LimitDetailsSize => CallAsWrapper<TaskPrimitive<int>>("getLimitDetailsSize");

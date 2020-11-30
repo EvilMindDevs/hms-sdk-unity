@@ -19,14 +19,14 @@ namespace HuaweiMobileServices.Game
             get => Call<string>("getDescInfo");
         }
 
-        public AndroidJavaLongClass ActiveTime
+        public long ActiveTime
         {
-            get => (AndroidJavaLongClass)sJavaClass.Call<AndroidJavaObject>("getActiveTime");
+            get => AndroidJavaObjectExtensions.ToLong(sJavaClass.Call<AndroidJavaObject>("getActiveTime"));
         }
 
-        public AndroidJavaLongClass CurrentProgress
+        public long CurrentProgress
         {
-            get => (AndroidJavaLongClass)sJavaClass.Call<AndroidJavaObject>("getCurrentProgress");
+            get => AndroidJavaObjectExtensions.ToLong(sJavaClass.Call<AndroidJavaObject>("getCurrentProgress"));
         }
 
         public AndroidBitmap Thumbnail

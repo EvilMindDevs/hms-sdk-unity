@@ -36,6 +36,7 @@ namespace HuaweiMobileServices.Game
         ITask<IList<ArchiveSummary>> GetArchiveSummaryList(bool paramBoolean);
 
         ITask<AndroidBitmap> GetThumbnail(string paramString);
+        void ShowSavedGames(AndroidIntent androidIntent, Action onSuccess, Action<HMSException> onFailure);
     }
 
 }

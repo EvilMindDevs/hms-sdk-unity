@@ -4,7 +4,7 @@ namespace HuaweiMobileServices.Utils
 {
     using UnityEngine;
 
-    public class GenericBridgeCallbackWrapper : AndroidJavaProxy
+    internal class GenericBridgeCallbackWrapper : AndroidJavaProxy
     {
 
         private Action<AndroidIntent> mOnSuccessListener;
