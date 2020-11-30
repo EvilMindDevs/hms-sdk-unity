@@ -5,10 +5,11 @@ namespace HuaweiMobileServices.Utils
     using HuaweiMobileServices.Base;
     using UnityEngine;
 
-    internal static class GenericBridgeWrapper
+    public static class GenericBridgeWrapper
     {
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
 
+        public static void ReceiveShow(AndroidJavaObject intent, GenericBridgeCallbackWrapper callback) => sJavaClass.CallStatic("receiveShow", intent, callback);
         public static void CallGenericBridge(this JavaObjectWrapper javaObjectWrapper, String methodName, Action onSuccess, Action<HMSException> onFailure)
         {
 
