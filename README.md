@@ -11,7 +11,7 @@ Currently these are the kits being integrated:
 - Push (https://developer.huawei.com/consumer/en/hms/huawei-pushkit)
 - Analytics(https://developer.huawei.com/consumer/en/hms/huawei-analyticskit)
 - Crash Service (https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-introduction)
-
+- Remote Config (https://developer.huawei.com/consumer/en/agconnect/remote-configuration/)
 ## Setup
 
 You need to:
