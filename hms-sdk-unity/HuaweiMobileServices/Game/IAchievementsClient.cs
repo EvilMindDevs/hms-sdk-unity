@@ -12,7 +12,7 @@ namespace HuaweiMobileServices.Game
     {
         void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure);
 
-        Task ShowAchievementListAsync();
+        System.Threading.Tasks.Task ShowAchievementListAsync();
 
         void Grow(string paramString, int paramInt);
 

@@ -14,7 +14,7 @@ namespace HuaweiMobileServices.Analystics
 
         public HiAnalytics( ) : base("com.huawei.hms.analytics.HiAnalytics") { }
 
-        public static HiAnalyticsInstance getInstance(AndroidJavaObject context)
+        public static HiAnalyticsInstance GetInstance(AndroidJavaObject context)
         {
             if (hiAnalyticsInstance == null)
             {

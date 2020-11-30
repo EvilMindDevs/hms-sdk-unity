@@ -54,7 +54,7 @@
 
         public virtual long NumOfDiscount => Call<long>("getNumOfDiscount");
 
-        public virtual long ExpirationDate => Call<long>("getNumOfDiscount");
+        public virtual long ExpirationDate => Call<long>("getExpirationDate");
 
         public virtual int ExpirationIntent => Call<int>("getExpirationIntent");
 
@@ -78,7 +78,7 @@
 
         public virtual long RenewPrice => Call<long>("getRenewPrice");
 
-        public virtual bool SubValid => Call<bool>("getSubValid");
+        public virtual bool SubValid => Call<bool>("isSubValid");
 
         public virtual int CancelledSubKeepDays => Call<int>("getCancelledSubKeepDays");
 

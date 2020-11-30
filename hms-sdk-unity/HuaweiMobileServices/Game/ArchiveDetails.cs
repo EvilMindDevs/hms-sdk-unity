@@ -11,11 +11,26 @@ namespace HuaweiMobileServices.Game
         [UnityEngine.Scripting.Preserve]
         public ArchiveDetails(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public sbyte[] Get() => throw new NotImplementedException();
+        public byte[] Get
+        {
+            get => Call<byte[]>("get");
+        }
 
-        public void Set(sbyte[] paramArrayOfByte) => throw new NotImplementedException();
+        public void Set(byte[] paramArrayOfByte) => Call("set", paramArrayOfByte);
 
-        public bool Update(int paramInt1, sbyte[] paramArrayOfByte, int paramInt2, int paramInt3) => throw new NotImplementedException();
+        public bool Update(int paramInt1, byte[] paramArrayOfByte, int paramInt2, int paramInt3)
+                                                 => Call<bool>("update", paramArrayOfByte, paramInt2, paramInt3);
+
+        // Wrapper for  com.huawei.hms.jos.games.archive.ArchiveDetails.Builder
+        public class Builder : JavaObjectWrapper
+        {
+
+            [UnityEngine.Scripting.Preserve]
+            public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
+
+            public Builder() : base("com.huawei.hms.jos.games.archive.ArchiveDetails$Builder") { }
+
+            public ArchiveDetails Build() => CallAsWrapper<ArchiveDetails>("build");
+        }
     }
-
 }

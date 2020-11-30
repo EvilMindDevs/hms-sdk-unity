@@ -31,7 +31,7 @@ namespace HuaweiMobileServices.Game
 
         ITask<int> LimitDetailsSize { get; }
 
-        void ShowArchiveListIntent(Action onSuccess, Action<HMSException> onFailure);
+        ITask<AndroidIntent> ShowArchiveListIntent(String title, Boolean allowAddBtn, Boolean allowDeleteBtn, int maxArchiv);
 
         ITask<IList<ArchiveSummary>> GetArchiveSummaryList(bool paramBoolean);
 

@@ -13,7 +13,7 @@ namespace HuaweiMobileServices.Game
 
         void ShowTotalRankings(Action onSuccess, Action<HMSException> onFailure);
 
-        Task ShowTotalRankingsAsync();
+        System.Threading.Tasks.Task ShowTotalRankingsAsync();
 
         ITask<AndroidIntent> GetRankingIntent(string paramString, int paramInt);
 
