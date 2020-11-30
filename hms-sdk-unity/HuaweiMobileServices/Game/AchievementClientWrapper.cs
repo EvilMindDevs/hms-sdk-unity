@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.Game
     using System.Threading.Tasks;
     using UnityEngine;
 
-    internal class AchievementClientWrapper : JavaObjectWrapper, IAchievementsClient
+    internal class AchievementClientWrapper : JavaObjectWrapper, IAchiesvementsClient
     {
         
 
@@ -18,7 +18,7 @@ namespace HuaweiMobileServices.Game
         public void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure) => 
             this.CallGenericBridge("getShowAchievementListIntent", onSuccess, onFailure);
         
-        public Task ShowAchievementListAsync()
+        public System.Threading.Tasks.Task ShowAchievementListAsync()
         {
             var task = new TaskCompletionSource<int>();
             ShowAchievementList(() => task.SetResult(0), task.SetException);
@@ -50,5 +50,10 @@ namespace HuaweiMobileServices.Game
 
         public ITask<Void> VisualizeWithResult(string paramString) =>
             CallAsWrapper<TaskVoidWrapper>("visualizeWithResult", paramString.AsJavaString());
+
+        Base.Task IAchiesvementsClient.ShowAchievementListAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

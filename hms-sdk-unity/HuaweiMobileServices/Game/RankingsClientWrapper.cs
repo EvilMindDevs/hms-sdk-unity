@@ -32,7 +32,7 @@ namespace HuaweiMobileServices.Game
                 }).AddOnFailureListener((exception) => onFailure.Invoke(exception));
         }
 
-        public Task ShowTotalRankingsAsync()
+        public System.Threading.Tasks.Task ShowTotalRankingsAsync()
         {
             var task = new TaskCompletionSource<int>();
             ShowTotalRankings(() => task.SetResult(0), task.SetException);
@@ -86,5 +86,10 @@ namespace HuaweiMobileServices.Game
 
         public ITask<ScoreSubmissionInfo> SubmitScoreWithResult(string paramString, long paramLong) =>
             CallAsWrapper<TaskJavaObjectWrapper<ScoreSubmissionInfo>>("submitScoreWithResult", paramString, paramLong);
+
+        Base.Task IRankingsClient.ShowTotalRankingsAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

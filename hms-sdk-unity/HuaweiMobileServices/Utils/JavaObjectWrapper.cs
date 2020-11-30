@@ -16,7 +16,7 @@ namespace HuaweiMobileServices.Utils
             JavaObject = new AndroidJavaObject(javaObjectCanonicalName, args.AsAutoParams());
         }
 
-        internal protected virtual AndroidJavaObject JavaObject { get; set; }
+        /*internal protected virtual*/ public AndroidJavaObject JavaObject { get; set; }
 
         internal protected T Call<T>(string methodName, params object[] args) => JavaObject.Call<T>(methodName, args.AsAutoParams());
 

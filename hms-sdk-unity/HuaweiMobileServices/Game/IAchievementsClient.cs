@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.Game
     using HuaweiMobileServices.Utils;
 
     // Wrapper for com.huawei.hms.jos.games.AchievementsClient
-    public interface IAchievementsClient
+    public interface IAchiesvementsClient
     {
         void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure);
 

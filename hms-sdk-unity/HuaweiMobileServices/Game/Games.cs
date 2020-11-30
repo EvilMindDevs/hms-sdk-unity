@@ -16,7 +16,7 @@
         public static IPlayersClient GetPlayersClient(AuthHuaweiId authHuaweiId) =>
             sJavaClass.CallStaticAsWrapper<PlayersClientWrapper>("getPlayersClient", AndroidContext.ActivityContext, authHuaweiId.JavaObject);
 
-        public static IAchievementsClient GetAchievementsClient(AuthHuaweiId authHuaweiId) =>
+        public static IAchiesvementsClient GetAchievementsClient(AuthHuaweiId authHuaweiId) =>
             sJavaClass.CallStaticAsWrapper<AchievementClientWrapper>("getAchievementsClient", AndroidContext.ActivityContext, authHuaweiId.JavaObject);
 
         public static IGamesClient GetGamesClient(AuthHuaweiId authHuaweiId) =>
