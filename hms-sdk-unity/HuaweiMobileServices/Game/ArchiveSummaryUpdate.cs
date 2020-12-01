@@ -11,7 +11,7 @@ namespace HuaweiMobileServices.Game
 
         [UnityEngine.Scripting.Preserve]
         public ArchiveSummaryUpdate(AndroidJavaObject javaObject) : base(javaObject) { }
-        private static string CLASS_NAME = "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate";
+        private static readonly string CLASS_NAME = "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate";
         AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
 
         public string DescInfo
@@ -19,14 +19,14 @@ namespace HuaweiMobileServices.Game
             get => Call<string>("getDescInfo");
         }
 
-        public long ActiveTime
+        public long? ActiveTime
         {
-            get => AndroidJavaObjectExtensions.ToLong(sJavaClass.Call<AndroidJavaObject>("getActiveTime"));
+            get => sJavaClass.Call<AndroidJavaObject>("getActiveTime").AsLong();
         }
 
-        public long CurrentProgress
+        public long? CurrentProgress
         {
-            get => AndroidJavaObjectExtensions.ToLong(sJavaClass.Call<AndroidJavaObject>("getCurrentProgress"));
+            get => sJavaClass.Call<AndroidJavaObject>("getCurrentProgress").AsLong();
         }
 
         public AndroidBitmap Thumbnail
