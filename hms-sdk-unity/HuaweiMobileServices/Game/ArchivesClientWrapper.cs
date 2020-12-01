@@ -14,16 +14,6 @@ namespace HuaweiMobileServices.Game
         public ArchivesClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
 
-        public void ShowSavedGames(AndroidIntent androidIntent, Action onSuccess, Action<HMSException> onFailure)
-        {
-            var callback = new GenericBridgeCallbackWrapper()
-                       .AddOnFailureListener(onFailure)
-                       .AddOnSuccessListener((nothing) =>
-                       {
-                           onSuccess.Invoke();
-                       });
-                    sJavaClass.CallStatic("receiveShow", androidIntent.Intent, callback);
-        }
         public ITask<int> LimitThumbnailSize => CallAsWrapper<TaskPrimitive<int>>("getLimitThumbnailSize");
 
         public ITask<int> LimitDetailsSize => CallAsWrapper<TaskPrimitive<int>>("getLimitDetailsSize");
@@ -37,8 +27,15 @@ namespace HuaweiMobileServices.Game
             return new TaskWrapper<IList<ArchiveSummary>>(task, AndroidJavaObjectExtensions.AsListFromWrappable<ArchiveSummary>);
         }
 
-        public ITask<AndroidIntent> ShowArchiveListIntent(String title, Boolean allowAddBtn, Boolean allowDeleteBtn, int maxArchive) =>
-            CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getShowArchiveListIntent", title, allowAddBtn, allowDeleteBtn, maxArchive);
+        public void ShowArchiveListIntent(String title, Boolean allowAddBtn, Boolean allowDeleteBtn, int maxArchive) {
+            ITask<AndroidIntent> task = CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getShowArchiveListIntent", title, allowAddBtn, allowDeleteBtn, maxArchive);
+            task.AddOnSuccessListener((result) =>
+            {
+                var callback = new GenericBridgeCallbackWrapper();
+                sJavaClass.CallStatic("receiveShow", result.Intent, callback);
+            });               
+        }
+           
 
         public ITask<AndroidBitmap> GetThumbnail(string paramString) =>
             CallAsWrapper<TaskJavaObjectWrapper<AndroidBitmap>>("getThumbnail", paramString);

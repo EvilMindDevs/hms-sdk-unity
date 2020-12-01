@@ -31,12 +31,10 @@ namespace HuaweiMobileServices.Game
 
         ITask<int> LimitDetailsSize { get; }
 
-        ITask<AndroidIntent> ShowArchiveListIntent(String title, Boolean allowAddBtn, Boolean allowDeleteBtn, int maxArchiv);
+        void ShowArchiveListIntent(String title, Boolean allowAddBtn, Boolean allowDeleteBtn, int maxArchiv);
 
         ITask<IList<ArchiveSummary>> GetArchiveSummaryList(bool paramBoolean);
 
         ITask<AndroidBitmap> GetThumbnail(string paramString);
-        void ShowSavedGames(AndroidIntent androidIntent, Action onSuccess, Action<HMSException> onFailure);
     }
-
 }
