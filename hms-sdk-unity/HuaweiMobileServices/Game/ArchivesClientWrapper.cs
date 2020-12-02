@@ -33,6 +33,9 @@ namespace HuaweiMobileServices.Game
             {
                 var callback = new GenericBridgeCallbackWrapper();
                 sJavaClass.CallStatic("receiveShow", result.Intent, callback);
+            }).AddOnFailureListener((onFailure) =>
+            {
+                Debug.Log("[HMS] Show Archive List Intent Fail: " + onFailure.WrappedExceptionMessage);
             });               
         }
            
