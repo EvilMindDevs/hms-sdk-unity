@@ -8,7 +8,8 @@ namespace HuaweiMobileServices.Drive
 {
     public class MediaHttpUploader : JavaObjectWrapper
     {
-        public MediaHttpUploader(AndroidJavaObject abstractInputStreamContentvar, AndroidJavaObject httpTransportvar, AndroidJavaObject httpRequestInitializervar) : base("com.huawei.cloud.base.media.MediaHttpUploader", abstractInputStreamContentvar, httpTransportvar, httpRequestInitializervar) { }
+        //public MediaHttpUploader(AndroidJavaObject abstractInputStreamContentvar, AndroidJavaObject httpTransportvar, AndroidJavaObject httpRequestInitializervar) : base("com.huawei.cloud.base.media.MediaHttpUploader", abstractInputStreamContentvar, httpTransportvar, httpRequestInitializervar) { }
+        public MediaHttpUploader(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public MediaHttpUploader SetDirectUploadEnabled(bool directUploadEnabled) =>
         CallAsWrapper<MediaHttpUploader>("setDirectUploadEnabled", directUploadEnabled);

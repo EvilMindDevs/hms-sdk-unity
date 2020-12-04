@@ -86,10 +86,5 @@ namespace HuaweiMobileServices.Game
 
         public ITask<ScoreSubmissionInfo> SubmitScoreWithResult(string paramString, long paramLong) =>
             CallAsWrapper<TaskJavaObjectWrapper<ScoreSubmissionInfo>>("submitScoreWithResult", paramString, paramLong);
-
-        Base.Task IRankingsClient.ShowTotalRankingsAsync()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

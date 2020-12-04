@@ -86,7 +86,7 @@ namespace HuaweiMobileServices.Drive
 
         public File SetId(String var1)
         {
-            return CallAsWrapper<File>("setId");
+            return CallAsWrapper<File>("setId", var1);
         }
 
         public String GetFileName()

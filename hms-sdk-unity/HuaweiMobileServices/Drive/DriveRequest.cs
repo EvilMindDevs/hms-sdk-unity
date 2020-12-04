@@ -6,8 +6,8 @@ using UnityEngine;
 
 namespace HuaweiMobileServices.Drive
 {
-    public class DriveRequest<T> : /*JavaObjectWrapper*/AbstractClientRequest<T>{
-
+    public class DriveRequest<T> : /*JavaObjectWrapper*/AbstractJsonClientRequest<T>
+    {
 
         //TODO: add parameters
         [UnityEngine.Scripting.Preserve]
@@ -79,6 +79,17 @@ namespace HuaweiMobileServices.Drive
         return CallAsWrapper<DriveRequest<T>>("set", var1, var2);
             //return (DriveRequest)super.set(var1, var2);
     }
-}
+
+
+    //public class MediaDownloader : JavaObjectWrapper
+    //    {
+    //        [UnityEngine.Scripting.Preserve]
+    //        public MediaDownloader(/*AndroidJavaObject javaObject*/) : base("com.huawei.cloud.base.services.AbstractClientRequest"/*, javaObject*/) { }
+    //        public MediaHttpDownloader GetMediaHttpDownloader()
+    //        {
+    //            return CallAsWrapper<MediaHttpDownloader>("getMediaHttpDownloader");
+    //        }   
+    //    }
+    }
 
 }

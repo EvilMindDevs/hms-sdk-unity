@@ -15,39 +15,42 @@ namespace HuaweiMobileServices.Drive
         [UnityEngine.Scripting.Preserve]
         public Drive(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public Drive.About about()
-        {
-            return new Drive.About();
-        }
-        public Drive.Changes changes()
-        {
-            return new Drive.Changes();
-        }
+        //public Drive.About about()
+        //{
+        //    return new Drive.About();
+        //}
+        //public Drive.Changes changes()
+        //{
+        //    return new Drive.Changes();
+        //}
 
-        public Drive.Channels channels()
-        {
-            return new Drive.Channels();
-        }
+        //public Drive.Channels channels()
+        //{
+        //    return new Drive.Channels();
+        //}
 
         public Drive.Files files()
         {
             return CallAsWrapper<Drive.Files>("files");
         }
 
-        public Drive.Replies replies()
-        {
-            return new Drive.Replies();
-        }
+        //public Drive.Replies replies()
+        //{
+        //    return CallAsWrapper<Drive.Files>("files");
 
-        public Drive.Comments comments()
-        {
-            return new Drive.Comments();
-        }
+        //}
 
-        public Drive.HistoryVersions historyVersions()
-        {
-            return new Drive.HistoryVersions();
-        }
+        //public Drive.Comments comments()
+        //{
+        //    return CallAsWrapper<Drive.Files>("files");
+
+        //}
+
+        //public Drive.HistoryVersions historyVersions()
+        //{
+        //    return CallAsWrapper<Drive.Files>("files");
+
+        //}
 
         //TODO: batch method
         /*  public sealed BatchRequest batch()
@@ -55,7 +58,7 @@ namespace HuaweiMobileServices.Drive
 
           }*/
 
-      
+
         public class Builder : JavaObjectWrapper
         {
             [UnityEngine.Scripting.Preserve]
@@ -70,293 +73,263 @@ namespace HuaweiMobileServices.Drive
 
 
 
-        public class About
-        {
-            public About()
-            {
-            }
+        //public class About
+        //{
+        //    public About()
+        //    {
+        //    }
 
-            public class Get : JavaObjectWrapper
-            {
-                private Get() : base("com.huawei.cloud.services.drive.model.About.class") { }
+        //    public class Get : JavaObjectWrapper
+        //    {
+        //        private Get() : base("com.huawei.cloud.services.drive.model.About.class") { }
 
-                public Drive.About.Get setFields(String fields)
-                {
-                    return CallAsWrapper<Drive.About.Get>("setFields", fields);
-                }
+        //        public Drive.About.Get setFields(String fields)
+        //        {
+        //            return CallAsWrapper<Drive.About.Get>("setFields", fields);
+        //        }
 
-                public Drive.About.Get setForm(String var1)
-                {
-                    return CallAsWrapper<Drive.About.Get>("setForm", var1);
-                }
+        //        public Drive.About.Get setForm(String var1)
+        //        {
+        //            return CallAsWrapper<Drive.About.Get>("setForm", var1);
+        //        }
 
-                public Drive.About.Get setPrettyPrint(Boolean var1)
-                {
-                    return CallAsWrapper<Drive.About.Get>("setPrettyPrint", var1);
-                }
+        //        public Drive.About.Get setPrettyPrint(Boolean var1)
+        //        {
+        //            return CallAsWrapper<Drive.About.Get>("setPrettyPrint", var1);
+        //        }
 
-                public Drive.About.Get setQuotaId(String var1)
-                {
-                    return CallAsWrapper<Drive.About.Get>("setQuotaId", var1);
-                }
+        //        public Drive.About.Get setQuotaId(String var1)
+        //        {
+        //            return CallAsWrapper<Drive.About.Get>("setQuotaId", var1);
+        //        }
 
-                public Drive.About.Get set(String var1, AndroidJavaObject var2)
-                {
-                    return CallAsWrapper<Drive.About.Get>("set", var1, var2);
-                }
-            }
+        //        public Drive.About.Get set(String var1, AndroidJavaObject var2)
+        //        {
+        //            return CallAsWrapper<Drive.About.Get>("set", var1, var2);
+        //        }
+        //    }
 
 
 
-        }
+        //}
 
-        public class Changes
-        {
-            public class GetStartCursor : JavaObjectWrapper
-            {
+        //public class Changes
+        //{
+        //    public class GetStartCursor : JavaObjectWrapper
+        //    {
 
 
-                private GetStartCursor() : base("com.huawei.cloud.services.drive.model.changes/getStartCursor") { }
+        //        private GetStartCursor() : base("com.huawei.cloud.services.drive.model.changes/getStartCursor") { }
 
 
-                public Drive.Changes.GetStartCursor setForm(String var1)
-                {
-                    return CallAsWrapper<Drive.Changes.GetStartCursor>("setForm", var1);
-                }
+        //        public Drive.Changes.GetStartCursor setForm(String var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.GetStartCursor>("setForm", var1);
+        //        }
 
-                public Drive.Changes.GetStartCursor setFields(String var1)
-                {
-                    return CallAsWrapper<Drive.Changes.GetStartCursor>("setFields", var1);
+        //        public Drive.Changes.GetStartCursor setFields(String var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.GetStartCursor>("setFields", var1);
 
-                }
+        //        }
 
-                public Drive.Changes.GetStartCursor setPrettyPrint(Boolean var1)
-                {
-                    return CallAsWrapper<Drive.Changes.GetStartCursor>("setPrettyPrint", var1);
+        //        public Drive.Changes.GetStartCursor setPrettyPrint(Boolean var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.GetStartCursor>("setPrettyPrint", var1);
 
-                }
+        //        }
 
-                public Drive.Changes.GetStartCursor setQuotaId(String var1)
-                {
-                    return CallAsWrapper<Drive.Changes.GetStartCursor>("setQuotaId", var1);
+        //        public Drive.Changes.GetStartCursor setQuotaId(String var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.GetStartCursor>("setQuotaId", var1);
 
-                }
+        //        }
 
-                public Drive.Changes.GetStartCursor set(String var1, AndroidJavaObject var2)
-                {
-                    return CallAsWrapper<Drive.Changes.GetStartCursor>("set", var1, var2);
+        //        public Drive.Changes.GetStartCursor set(String var1, AndroidJavaObject var2)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.GetStartCursor>("set", var1, var2);
 
-                }
-            }
+        //        }
+        //    }
 
-            public class List : JavaObjectWrapper
-            {
-                /*     [Key]
-                     private String cursor;
-                     @Key
-                     private Integer pageSize;
-                     @Key
-                     private String containers;
-                     @Key
-                     private Boolean includeDeleted;*/
+        //    public class List : DriveRequest<FileList>
+        //    {
+               
+        //        public List(AndroidJavaObject javaObject) : base(javaObject) { }
 
-                private List(AndroidJavaObject javaObject) : base(javaObject) { }
+               
+        //        public Drive.Changes.List SetForm(String var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.List>("setForm", var1);
+        //        }
 
-                /* protected List(String var2)
-                 {
-                 }*/
+        //        public Drive.Changes.List SetFields(String var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.List>("setFields", var1);
+        //        }
 
-                public Drive.Changes.List setForm(String var1)
-                {
-                    return CallAsWrapper<Drive.Changes.List>("setForm", var1);
-                }
+        //        public Drive.Changes.List SetPrettyPrint(Boolean var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.List>("setPrettyPrint", var1);
+        //        }
 
-                public Drive.Changes.List setFields(String var1)
-                {
-                    return CallAsWrapper<Drive.Changes.List>("setFields", var1);
-                }
-
-                public Drive.Changes.List setPrettyPrint(Boolean var1)
-                {
-                    return CallAsWrapper<Drive.Changes.List>("setPrettyPrint", var1);
-                }
-
-                public Drive.Changes.List setQuotaId(String var1)
-                {
-                    return CallAsWrapper<Drive.Changes.List>("setQuotaId", var1);
-                }
-
-                public String getCursor()
-                {
-                    return Call<String>("getCursor");
-
-                    // return this.cursor;
-                }
-
-                public Drive.Changes.List setCursor(String var1)
-                {
-                    return CallAsWrapper<Drive.Changes.List>("setPrettyPrint", var1);
-                    // this.cursor = var1;
-                }
-
-                public int getPageSize()
-                {
-                    return Call<int>("getPageSize");
-
-                    //  return this.pageSize;
-                }
-
-                public Drive.Changes.List setPageSize(int var1)
-                {
-                    return CallAsWrapper<Drive.Changes.List>("setPageSize", var1);
-
-                    //   this.pageSize = var1;
-
-                }
-
-                public String getContainers()
-                {
-                    return Call<String>("getContainers");
-
-                    //   return this.containers;
-                }
-
-                public Drive.Changes.List setContainers(String var1)
-                {
-                    return CallAsWrapper<Drive.Changes.List>("setContainers", var1);
-                    //this.containers = var1;
-                }
-
-                public bool getIncludeDeleted()
-                {
-                    return Call<bool>("getIncludeDeleted");
-
-                    // return this.includeDeleted;
-                }
-
-                public bool isIncludeDeleted()
-                {
-                    return Call<bool>("isIncludeDeleted");
-
-                    // return this.includeDeleted != null && this.includeDeleted != Data.NULL_BOOLEAN ? this.includeDeleted : true;
-                }
-
-                public Drive.Changes.List setIncludeDeleted(Boolean var1)
-                {
-                    return CallAsWrapper<Drive.Changes.List>("setIncludeDeleted", var1);
-                    // this.includeDeleted = var1;
-                }
-
-                public Drive.Changes.List set(String var1, AndroidJavaObject var2)
-                {
-                    return CallAsWrapper<Drive.Changes.List>("set", var1, var2);
-                }
-
-
-
-            }
-            public class Subscribe : JavaObjectWrapper
-            {
-                /* private static final String REST_PATH = "changes/subscribe";
-                 @Key
-                 private String cursor;
-                 @Key
-                 private Integer pageSize;
-                 @Key
-                 private String containers;
-                 @Key
-                 private Boolean includeDeleted;*/
-
-                /*protected Subscribe(String var2, Channel var3)
-                {
-                    super(Drive.this, "POST", "changes/subscribe", var3, Channel.class);
-                    this.cursor = (String) Preconditions.checkNotNull(var2, "Required parameter cursor must be specified.");
-            }*/
-                private Subscribe() : base("com.huawei.cloud.services.drive.model.changes/getStartCursor") { }
-
-                public Drive.Changes.Subscribe setFields(String var1)
-                {
-                    return CallAsWrapper<Drive.Changes.Subscribe>("setFields", var1);
-                }
-
-                public Drive.Changes.Subscribe setForm(String var1)
-                {
-                    return CallAsWrapper<Drive.Changes.Subscribe>("setForm", var1);
-                }
-
-                public Drive.Changes.Subscribe setPrettyPrint(Boolean var1)
-                {
-                    return CallAsWrapper<Drive.Changes.Subscribe>("setPrettyPrint", var1);
-                }
-
-                public Drive.Changes.Subscribe setQuotaId(String var1)
-                {
-                    return CallAsWrapper<Drive.Changes.Subscribe>("setQuotaId", var1);
-                }
-
-                public String getCursor()
-                {
-                    return Call<String>("getCursor");
-
-                    //return this.cursor;
-                }
-
-                public Drive.Changes.Subscribe setCursor(String var1)
-                {
-                    return CallAsWrapper<Drive.Changes.Subscribe>("setCursor", var1);
-                    //this.cursor = var1;
-                }
-
-                public int getPageSize()
-                {
-                    return Call<int>("getPageSize");
-                    //return this.pageSize;
-                }
-
-                public Drive.Changes.Subscribe setPageSize(int var1)
-                {
-                    return CallAsWrapper<Drive.Changes.Subscribe>("setPageSize", var1);
-                    //this.pageSize = var1;
-                }
-
-                public String getContainers()
-                {
-                    return Call<String>("getContainers");
-                    // return this.containers;
-                }
-
-                public Drive.Changes.Subscribe setContainers(String var1)
-                {
-                    return CallAsWrapper<Drive.Changes.Subscribe>("setContainers", var1);
-                    //this.containers = var1;
-                }
-
-                public Boolean getIncludeDeleted()
-                {
-                    return Call<Boolean>("getIncludeDeleted");
-                    //return this.includeDeleted;
-                }
-
-                public Boolean isIncludeDeleted()
-                {
-                    return Call<Boolean>("isIncludeDeleted");
-                    //return this.includeDeleted != null && this.includeDeleted != Data.NULL_BOOLEAN ? this.includeDeleted : true;
-                }
-
-                public Drive.Changes.Subscribe setIncludeDeleted(Boolean var1)
-                {
-                    return CallAsWrapper<Drive.Changes.Subscribe>("setIncludeDeleted", var1);
-                    //this.includeDeleted = var1;
-                }
-
-                public Drive.Changes.Subscribe set(String var1, AndroidJavaObject var2)
-                {
-                    return CallAsWrapper<Drive.Changes.Subscribe>("set", var1, var2);
-                    //return (Drive.Changes.Subscribe)super.set(var1, var2);
-                }
-            }
-
-        }
+        //        public Drive.Changes.List SetQuotaId(String var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.List>("setQuotaId", var1);
+        //        }
+
+        //        public String GetCursor()
+        //        {
+        //            return Call<String>("getCursor");
+
+        //        }
+
+        //        public Drive.Changes.List SetCursor(String var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.List>("setPrettyPrint", var1);
+        //        }
+
+        //        public int GetPageSize()
+        //        {
+        //            return Call<int>("getPageSize");
+        //        }
+
+        //        public Drive.Changes.List SetPageSize(int var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.List>("setPageSize", var1);
+
+        //        }
+
+        //        public String GetContainers()
+        //        {
+        //            return Call<String>("getContainers");
+
+        //        }
+
+        //        public Drive.Changes.List SetContainers(String var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.List>("setContainers", var1);
+        //        }
+
+        //        public bool GetIncludeDeleted()
+        //        {
+        //            return Call<bool>("getIncludeDeleted");
+
+        //        }
+
+        //        public bool IsIncludeDeleted()
+        //        {
+        //            return Call<bool>("isIncludeDeleted");
+
+        //        }
+
+        //        public Drive.Changes.List SetIncludeDeleted(Boolean var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.List>("setIncludeDeleted", var1);
+        //        }
+
+        //        public Drive.Changes.List Set(String var1, AndroidJavaObject var2)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.List>("set", var1, var2);
+        //        }
+
+
+
+        //    }
+        //    public class Subscribe : JavaObjectWrapper
+        //    {
+                
+
+        //        /*protected Subscribe(String var2, Channel var3)
+        //        {
+        //            super(Drive.this, "POST", "changes/subscribe", var3, Channel.class);
+        //            this.cursor = (String) Preconditions.checkNotNull(var2, "Required parameter cursor must be specified.");
+        //    }*/
+        //        private Subscribe() : base("com.huawei.cloud.services.drive.model.changes/getStartCursor") { }
+
+        //        public Drive.Changes.Subscribe setFields(String var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.Subscribe>("setFields", var1);
+        //        }
+
+        //        public Drive.Changes.Subscribe setForm(String var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.Subscribe>("setForm", var1);
+        //        }
+
+        //        public Drive.Changes.Subscribe setPrettyPrint(Boolean var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.Subscribe>("setPrettyPrint", var1);
+        //        }
+
+        //        public Drive.Changes.Subscribe setQuotaId(String var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.Subscribe>("setQuotaId", var1);
+        //        }
+
+        //        public String getCursor()
+        //        {
+        //            return Call<String>("getCursor");
+
+        //            //return this.cursor;
+        //        }
+
+        //        public Drive.Changes.Subscribe setCursor(String var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.Subscribe>("setCursor", var1);
+        //            //this.cursor = var1;
+        //        }
+
+        //        public int getPageSize()
+        //        {
+        //            return Call<int>("getPageSize");
+        //            //return this.pageSize;
+        //        }
+
+        //        public Drive.Changes.Subscribe setPageSize(int var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.Subscribe>("setPageSize", var1);
+        //            //this.pageSize = var1;
+        //        }
+
+        //        public String getContainers()
+        //        {
+        //            return Call<String>("getContainers");
+        //            // return this.containers;
+        //        }
+
+        //        public Drive.Changes.Subscribe setContainers(String var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.Subscribe>("setContainers", var1);
+        //            //this.containers = var1;
+        //        }
+
+        //        public Boolean getIncludeDeleted()
+        //        {
+        //            return Call<Boolean>("getIncludeDeleted");
+        //            //return this.includeDeleted;
+        //        }
+
+        //        public Boolean isIncludeDeleted()
+        //        {
+        //            return Call<Boolean>("isIncludeDeleted");
+        //            //return this.includeDeleted != null && this.includeDeleted != Data.NULL_BOOLEAN ? this.includeDeleted : true;
+        //        }
+
+        //        public Drive.Changes.Subscribe setIncludeDeleted(Boolean var1)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.Subscribe>("setIncludeDeleted", var1);
+        //            //this.includeDeleted = var1;
+        //        }
+
+        //        public Drive.Changes.Subscribe set(String var1, AndroidJavaObject var2)
+        //        {
+        //            return CallAsWrapper<Drive.Changes.Subscribe>("set", var1, var2);
+        //            //return (Drive.Changes.Subscribe)super.set(var1, var2);
+        //        }
+        //    }
+
+        //}
 
         public class Files : JavaObjectWrapper
         {
@@ -542,9 +515,11 @@ namespace HuaweiMobileServices.Drive
 
                 [UnityEngine.Scripting.Preserve]
                 public List(AndroidJavaObject javaObject) : base(javaObject) { }
-                // protected List(Drive var1, String var2, String var3, File var4, Type var5) : base(var1, var2, var3, var4, var5) { }
 
-
+                public FileList Execute()
+                {
+                    return CallAsWrapper<FileList>("execute");
+                }
                 public Drive.Files.List SetFields(String var1)
                 {
                     return CallAsWrapper<Drive.Files.List>("setFields", var1);
@@ -565,60 +540,55 @@ namespace HuaweiMobileServices.Drive
                     return CallAsWrapper<Drive.Files.List>("setQuotaId", var1);
                 }
 
-                /*public String GetOrderBy()
+                public String GetOrderBy()
                 {
-                    return this.orderBy;
+                    return Call<String>("getOrderBy");
                 }
 
                 public Drive.Files.List SetOrderBy(String var1)
                 {
-                    this.orderBy = var1;
-                    return this;
+                    return CallAsWrapper<Drive.Files.List>("setOrderBy", var1);
                 }
 
                 public int GetPageSize()
                 {
-                    return this.pageSize;
+                    return Call<int>("getPageSize");
                 }
 
                 public Drive.Files.List SetPageSize(int var1)
                 {
-                    this.pageSize = var1;
-                    return this;
+                    return CallAsWrapper<Drive.Files.List>("setPageSize", var1);
                 }
 
                 public String GetCursor()
                 {
-                    return this.cursor;
+                    return Call<String>("getCursor");
                 }
 
                 public Drive.Files.List SetCursor(String var1)
                 {
-                    this.cursor = var1;
-                    return this;
+                    return CallAsWrapper<Drive.Files.List>("setCursor", var1);
                 }
 
                 public String GetQueryParam()
                 {
-                    return this.queryParam;
+                    return Call<String>("getQueryParam");
                 }
 
                 public Drive.Files.List SetQueryParam(String var1)
                 {
-                    this.queryParam = var1;
-                    return this;
+                    return CallAsWrapper<Drive.Files.List>("setQueryParam", var1);
                 }
 
                 public String GetContainers()
                 {
-                    return this.containers;
+                    return Call<String>("getContainers");
                 }
 
                 public Drive.Files.List SetContainers(String var1)
                 {
-                    this.containers = var1;
-                    return this;
-                }*/
+                    return CallAsWrapper<Drive.Files.List>("setContainers", var1);
+                }
 
                 public Drive.Files.List Set(String var1, AndroidJavaObject var2)
                 {
@@ -626,14 +596,11 @@ namespace HuaweiMobileServices.Drive
                 }
             }
 
-            public class Get :  DriveRequest<File>
+            public class Get : /*JavaObjectWrapper*/DriveRequest<File>
             {
-
                 [UnityEngine.Scripting.Preserve]
                 public Get(AndroidJavaObject javaObject) : base(javaObject) { }
-
-                
-
+                              
                 public File Execute()
                 {
                     return CallAsWrapper<File>("execute");
@@ -809,7 +776,7 @@ namespace HuaweiMobileServices.Drive
                 }
             }
 
-            public class Create : JavaObjectWrapper
+            public class Create : DriveRequest<File>
             {
                 [UnityEngine.Scripting.Preserve]
                 public Create(AndroidJavaObject javaObject) : base(javaObject) { }

@@ -8,8 +8,9 @@ namespace HuaweiMobileServices.Drive
 {
     public class MediaHttpDownloader : JavaObjectWrapper
     {
+        public MediaHttpDownloader(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public MediaHttpDownloader(AndroidJavaObject httpTransportvar, AndroidJavaObject httpRequestInitializervar) : base("com.huawei.cloud.base.media.MediaHttpDownloader", httpTransportvar, httpRequestInitializervar) { }
+      //  public MediaHttpDownloader(AndroidJavaObject httpTransportvar, AndroidJavaObject httpRequestInitializervar) : base("com.huawei.cloud.base.media.MediaHttpDownloader", httpTransportvar, httpRequestInitializervar) { }
 
         public virtual MediaHttpDownloader SetDirectDownloadEnabled(bool paramBoolean) =>
         CallAsWrapper<MediaHttpDownloader>("setDirectDownloadEnabled", paramBoolean);
