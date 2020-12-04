@@ -12,7 +12,7 @@ namespace HuaweiMobileServices.Game
         [UnityEngine.Scripting.Preserve]
         public ArchiveSummaryUpdate(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly string CLASS_NAME = "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate";
-        AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
+        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
 
         public string DescInfo
         {
