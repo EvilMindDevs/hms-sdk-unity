@@ -6,6 +6,6 @@ namespace HuaweiMobileServices.Drive
 {
     public interface IMediaHttpUploaderProgressListener
     {
-        void progressChanged(MediaHttpUploader uploader); //TODO: throws IOException
+        void progressChanged(MediaHttpUploader uploader);
     }
 }

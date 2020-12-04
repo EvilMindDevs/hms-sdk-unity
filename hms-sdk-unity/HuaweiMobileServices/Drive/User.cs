@@ -8,90 +8,73 @@ namespace HuaweiMobileServices.Drive
 {
     public class User : JavaObjectWrapper
     {
-        //@Key
-    private String category;
-        //@Key
-    private String displayName;
-        //@Key
-    private Boolean me;
-        //@Key
-    private String userAccount;
-        //@Key
-    private String permissionId;
-       // @Key
-    private String profilePhotoLink;
-
+     
         public User(): base("com.huawei.cloud.services.drive.model")
         {
         }
 
         public String GetCategory()
         {
-            return this.category;
+            return Call<String>("getCategory");
         }
 
         public User SetCategory(String var1)
         {
-            this.category = var1;
-            return this;
+            return CallAsWrapper<User>("setCategory", var1);
         }
 
         public String GetDisplayName()
         {
-            return this.displayName;
+            return Call<String>("getDisplayName");
         }
 
         public User SetDisplayName(String var1)
         {
-            this.displayName = var1;
-            return this;
+            return CallAsWrapper<User>("setDisplayName", var1);
+
         }
 
         public Boolean GetMe()
         {
-            return this.me;
+            return Call<Boolean>("getMe");
         }
 
         public User SetMe(Boolean var1)
         {
-            this.me = var1;
-            return this;
+            return CallAsWrapper<User>("setMe", var1);
         }
 
         public String GetUserAccount()
         {
-            return this.userAccount;
+            return Call<String>("getUserAccount");
         }
 
         public User SetUserAccount(String var1)
         {
-            this.userAccount = var1;
-            return this;
+            return CallAsWrapper<User>("setUserAccount", var1);
         }
 
         public String GetPermissionId()
         {
-            return this.permissionId;
+            return Call<String>("getPermissionId");
         }
 
         public User SetPermissionId(String var1)
         {
-            this.permissionId = var1;
-            return this;
+            return CallAsWrapper<User>("setPermissionId", var1);
         }
 
         public String GetProfilePhotoLink()
         {
-            return this.profilePhotoLink;
+            return Call<String>("ProfilePhotoLink");
         }
 
         public User SetProfilePhotoLink(String var1)
         {
-            this.profilePhotoLink = var1;
-            return this;
+            return CallAsWrapper<User>("setProfilePhotoLink", var1);
         }
 
-        public User Set(String var1, AndroidJavaObject var2) => CallAsWrapper<User>("set");
+        public User Set(String var1, AndroidJavaObject var2) => CallAsWrapper<User>("set", var1, var2);
 
         public User Clone() => CallAsWrapper<User>("clone");
     }

@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Drive
     public class FileList : JavaObjectWrapper
     {
         [UnityEngine.Scripting.Preserve]
-        public FileList(AndroidJavaObject javaObject): base(javaObject) { }
+        public FileList(AndroidJavaObject javaObject) : base(javaObject) { }
 
 
         public IList<File> GetFiles() => Call<AndroidJavaObject>("getFiles").AsListFromWrappable<File>();

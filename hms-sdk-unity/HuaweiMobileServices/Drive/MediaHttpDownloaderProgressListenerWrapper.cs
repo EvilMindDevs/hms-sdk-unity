@@ -16,7 +16,7 @@ namespace HuaweiMobileServices.Drive
             mListener = listener;
         }
 
-        public void progressChanged(MediaHttpDownloader downloader)
+        public void ProgressChanged(MediaHttpDownloader downloader)
         {
             mListener.progressChanged(downloader);
         }

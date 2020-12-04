@@ -2,61 +2,23 @@
 
 namespace HuaweiMobileServices.Drive
 {
-   // using Google.Apis.Drive.v3.Data;
     using HuaweiMobileServices.Utils;
     using System;
     using System.Collections.Generic;
     using System.Text;
     using UnityEngine;
 
-   
+
     public class Drive : JavaObjectWrapper
     {
         [UnityEngine.Scripting.Preserve]
         public Drive(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        //public Drive.About about()
-        //{
-        //    return new Drive.About();
-        //}
-        //public Drive.Changes changes()
-        //{
-        //    return new Drive.Changes();
-        //}
-
-        //public Drive.Channels channels()
-        //{
-        //    return new Drive.Channels();
-        //}
 
         public Drive.Files files()
         {
             return CallAsWrapper<Drive.Files>("files");
         }
-
-        //public Drive.Replies replies()
-        //{
-        //    return CallAsWrapper<Drive.Files>("files");
-
-        //}
-
-        //public Drive.Comments comments()
-        //{
-        //    return CallAsWrapper<Drive.Files>("files");
-
-        //}
-
-        //public Drive.HistoryVersions historyVersions()
-        //{
-        //    return CallAsWrapper<Drive.Files>("files");
-
-        //}
-
-        //TODO: batch method
-        /*  public sealed BatchRequest batch()
-          {
-
-          }*/
 
 
         public class Builder : JavaObjectWrapper
@@ -73,334 +35,76 @@ namespace HuaweiMobileServices.Drive
 
 
 
-        //public class About
-        //{
-        //    public About()
-        //    {
-        //    }
-
-        //    public class Get : JavaObjectWrapper
-        //    {
-        //        private Get() : base("com.huawei.cloud.services.drive.model.About.class") { }
-
-        //        public Drive.About.Get setFields(String fields)
-        //        {
-        //            return CallAsWrapper<Drive.About.Get>("setFields", fields);
-        //        }
-
-        //        public Drive.About.Get setForm(String var1)
-        //        {
-        //            return CallAsWrapper<Drive.About.Get>("setForm", var1);
-        //        }
-
-        //        public Drive.About.Get setPrettyPrint(Boolean var1)
-        //        {
-        //            return CallAsWrapper<Drive.About.Get>("setPrettyPrint", var1);
-        //        }
-
-        //        public Drive.About.Get setQuotaId(String var1)
-        //        {
-        //            return CallAsWrapper<Drive.About.Get>("setQuotaId", var1);
-        //        }
-
-        //        public Drive.About.Get set(String var1, AndroidJavaObject var2)
-        //        {
-        //            return CallAsWrapper<Drive.About.Get>("set", var1, var2);
-        //        }
-        //    }
-
-
-
-        //}
-
-        //public class Changes
-        //{
-        //    public class GetStartCursor : JavaObjectWrapper
-        //    {
-
-
-        //        private GetStartCursor() : base("com.huawei.cloud.services.drive.model.changes/getStartCursor") { }
-
-
-        //        public Drive.Changes.GetStartCursor setForm(String var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.GetStartCursor>("setForm", var1);
-        //        }
-
-        //        public Drive.Changes.GetStartCursor setFields(String var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.GetStartCursor>("setFields", var1);
-
-        //        }
-
-        //        public Drive.Changes.GetStartCursor setPrettyPrint(Boolean var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.GetStartCursor>("setPrettyPrint", var1);
-
-        //        }
-
-        //        public Drive.Changes.GetStartCursor setQuotaId(String var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.GetStartCursor>("setQuotaId", var1);
-
-        //        }
-
-        //        public Drive.Changes.GetStartCursor set(String var1, AndroidJavaObject var2)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.GetStartCursor>("set", var1, var2);
-
-        //        }
-        //    }
-
-        //    public class List : DriveRequest<FileList>
-        //    {
-               
-        //        public List(AndroidJavaObject javaObject) : base(javaObject) { }
-
-               
-        //        public Drive.Changes.List SetForm(String var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.List>("setForm", var1);
-        //        }
-
-        //        public Drive.Changes.List SetFields(String var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.List>("setFields", var1);
-        //        }
-
-        //        public Drive.Changes.List SetPrettyPrint(Boolean var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.List>("setPrettyPrint", var1);
-        //        }
-
-        //        public Drive.Changes.List SetQuotaId(String var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.List>("setQuotaId", var1);
-        //        }
-
-        //        public String GetCursor()
-        //        {
-        //            return Call<String>("getCursor");
-
-        //        }
-
-        //        public Drive.Changes.List SetCursor(String var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.List>("setPrettyPrint", var1);
-        //        }
-
-        //        public int GetPageSize()
-        //        {
-        //            return Call<int>("getPageSize");
-        //        }
-
-        //        public Drive.Changes.List SetPageSize(int var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.List>("setPageSize", var1);
-
-        //        }
-
-        //        public String GetContainers()
-        //        {
-        //            return Call<String>("getContainers");
-
-        //        }
-
-        //        public Drive.Changes.List SetContainers(String var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.List>("setContainers", var1);
-        //        }
-
-        //        public bool GetIncludeDeleted()
-        //        {
-        //            return Call<bool>("getIncludeDeleted");
-
-        //        }
-
-        //        public bool IsIncludeDeleted()
-        //        {
-        //            return Call<bool>("isIncludeDeleted");
-
-        //        }
-
-        //        public Drive.Changes.List SetIncludeDeleted(Boolean var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.List>("setIncludeDeleted", var1);
-        //        }
-
-        //        public Drive.Changes.List Set(String var1, AndroidJavaObject var2)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.List>("set", var1, var2);
-        //        }
-
-
-
-        //    }
-        //    public class Subscribe : JavaObjectWrapper
-        //    {
-                
-
-        //        /*protected Subscribe(String var2, Channel var3)
-        //        {
-        //            super(Drive.this, "POST", "changes/subscribe", var3, Channel.class);
-        //            this.cursor = (String) Preconditions.checkNotNull(var2, "Required parameter cursor must be specified.");
-        //    }*/
-        //        private Subscribe() : base("com.huawei.cloud.services.drive.model.changes/getStartCursor") { }
-
-        //        public Drive.Changes.Subscribe setFields(String var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.Subscribe>("setFields", var1);
-        //        }
-
-        //        public Drive.Changes.Subscribe setForm(String var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.Subscribe>("setForm", var1);
-        //        }
-
-        //        public Drive.Changes.Subscribe setPrettyPrint(Boolean var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.Subscribe>("setPrettyPrint", var1);
-        //        }
-
-        //        public Drive.Changes.Subscribe setQuotaId(String var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.Subscribe>("setQuotaId", var1);
-        //        }
-
-        //        public String getCursor()
-        //        {
-        //            return Call<String>("getCursor");
-
-        //            //return this.cursor;
-        //        }
-
-        //        public Drive.Changes.Subscribe setCursor(String var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.Subscribe>("setCursor", var1);
-        //            //this.cursor = var1;
-        //        }
-
-        //        public int getPageSize()
-        //        {
-        //            return Call<int>("getPageSize");
-        //            //return this.pageSize;
-        //        }
-
-        //        public Drive.Changes.Subscribe setPageSize(int var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.Subscribe>("setPageSize", var1);
-        //            //this.pageSize = var1;
-        //        }
-
-        //        public String getContainers()
-        //        {
-        //            return Call<String>("getContainers");
-        //            // return this.containers;
-        //        }
-
-        //        public Drive.Changes.Subscribe setContainers(String var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.Subscribe>("setContainers", var1);
-        //            //this.containers = var1;
-        //        }
-
-        //        public Boolean getIncludeDeleted()
-        //        {
-        //            return Call<Boolean>("getIncludeDeleted");
-        //            //return this.includeDeleted;
-        //        }
-
-        //        public Boolean isIncludeDeleted()
-        //        {
-        //            return Call<Boolean>("isIncludeDeleted");
-        //            //return this.includeDeleted != null && this.includeDeleted != Data.NULL_BOOLEAN ? this.includeDeleted : true;
-        //        }
-
-        //        public Drive.Changes.Subscribe setIncludeDeleted(Boolean var1)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.Subscribe>("setIncludeDeleted", var1);
-        //            //this.includeDeleted = var1;
-        //        }
-
-        //        public Drive.Changes.Subscribe set(String var1, AndroidJavaObject var2)
-        //        {
-        //            return CallAsWrapper<Drive.Changes.Subscribe>("set", var1, var2);
-        //            //return (Drive.Changes.Subscribe)super.set(var1, var2);
-        //        }
-        //    }
-
-        //}
 
         public class Files : JavaObjectWrapper
         {
             [UnityEngine.Scripting.Preserve]
             public Files(AndroidJavaObject javaObject) : base(javaObject) { }
-           
-            public Drive.Files.Copy copy(String var1, File var2) /*throws IOException*/
+
+            public Drive.Files.Copy copy(String var1, File var2)
             {
                 return CallAsWrapper<Drive.Files.Copy>("copy", var1, var2);
             }
 
-            public Create create(File var1) /*throws IOException*/
+            public Create create(File var1)
             {
                 return CallAsWrapper<Drive.Files.Create>("create", var1);
 
             }
 
-            public Drive.Files.Create create(File var1, FileContent var2) /*throws IOException*/
+            public Drive.Files.Create create(File var1, FileContent var2)
             {
                 return CallAsWrapper<Drive.Files.Create>("create", var1, var2);
 
             }
 
-            public Drive.Files.Create create(File var1, InputStreamContent var2) /*throws IOException*/
+            public Drive.Files.Create create(File var1, InputStreamContent var2)
             {
                 return CallAsWrapper<Drive.Files.Create>("create", var1, var2);
 
             }
 
-            public Drive.Files.Delete delete(String var1) /*throws IOException*/
+            public Drive.Files.Delete delete(String var1)
             {
                 return CallAsWrapper<Drive.Files.Delete>("delete", var1);
             }
 
-            public Drive.Files.EmptyRecycle emptyRecycle()/*throws IOException*/
-             {
+            public Drive.Files.EmptyRecycle emptyRecycle()
+            {
                 return CallAsWrapper<Drive.Files.EmptyRecycle>("emptyRecycle");
 
             }
 
-            public Drive.Files.Get get(String var1)/*throws IOException*/
-             {
+            public Drive.Files.Get get(String var1)
+            {
                 return CallAsWrapper<Drive.Files.Get>("get", var1);
             }
 
-            public Drive.Files.List list() /*throws IOException*/
+            public Drive.Files.List list()
             {
                 return CallAsWrapper<Drive.Files.List>("list");
 
             }
 
-            public Drive.Files.Update update(String var1, File var2) /*throws IOException*/
-             {
+            public Drive.Files.Update update(String var1, File var2)
+            {
                 return CallAsWrapper<Drive.Files.Update>("update", var1, var2);
 
             }
 
-            public Drive.Files.Update update(String var1, File var2, AndroidJavaObject var3) /*throws IOException*/
+            public Drive.Files.Update update(String var1, File var2, AndroidJavaObject var3)
             {
                 return CallAsWrapper<Drive.Files.Update>("update", var1, var2, var3);
 
             }
 
-            public Drive.Files.Subscribe subscribe(String var1, Channel var2) /*throws IOException*/
-             {
+            public Drive.Files.Subscribe subscribe(String var1, Channel var2)
+            {
                 return CallAsWrapper<Drive.Files.Subscribe>("update", var1, var2);
             }
             public class Subscribe : DriveRequest<Channel>
             {
-               // protected Subscribe(Drive var1, String var2, String var3, File var4, Type var5) : base(var1, var2, var3, var4, var5) { }
-                
+
                 [UnityEngine.Scripting.Preserve]
                 public Subscribe(AndroidJavaObject javaObject) : base(javaObject) { }
 
@@ -442,8 +146,7 @@ namespace HuaweiMobileServices.Drive
 
             public class Update : DriveRequest<Comment>
             {
-               
-                //protected Update(Drive var1, String var2, String var3, File var4, Type var5) : base(var1, var2, var3, var4, var5) { }
+
                 [UnityEngine.Scripting.Preserve]
                 public Update(AndroidJavaObject javaObject) : base(javaObject) { }
 
@@ -467,7 +170,7 @@ namespace HuaweiMobileServices.Drive
                 {
                     return CallAsWrapper<Drive.Files.Update>("setQuotaId", var1);
                 }
-                public String getFileId()
+                public String GetFileId()
                 {
 
                     return Call<String>("getFileId");
@@ -475,8 +178,8 @@ namespace HuaweiMobileServices.Drive
 
                 public Drive.Files.Update SetFileId(String var1)
                 {
-                    
-                    return CallAsWrapper<Drive.Files.Update>("setFileId",var1);
+
+                    return CallAsWrapper<Drive.Files.Update>("setFileId", var1);
                 }
 
                 public String GetAddParentFolder()
@@ -497,21 +200,20 @@ namespace HuaweiMobileServices.Drive
 
                 public Drive.Files.Update SetRemoveParentFolder(String var1)
                 {
-                    
+
                     return CallAsWrapper<Drive.Files.Update>("SetRemoveParentFolder", var1);
 
                 }
 
                 public Drive.Files.Update Set(String var1, AndroidJavaObject var2)
                 {
-                    // return (Drive.Files.Update)super.set(var1, var2);
                     return CallAsWrapper<Drive.Files.Update>("set", var1, var2);
                 }
             }
 
             public class List : DriveRequest<FileList>
             {
-                
+
 
                 [UnityEngine.Scripting.Preserve]
                 public List(AndroidJavaObject javaObject) : base(javaObject) { }
@@ -596,16 +298,16 @@ namespace HuaweiMobileServices.Drive
                 }
             }
 
-            public class Get : /*JavaObjectWrapper*/DriveRequest<File>
+            public class Get : DriveRequest<File>
             {
                 [UnityEngine.Scripting.Preserve]
                 public Get(AndroidJavaObject javaObject) : base(javaObject) { }
-                              
+
                 public File Execute()
                 {
                     return CallAsWrapper<File>("execute");
                 }
-                public void ExecuteContentAndDownloadTo(AndroidJavaObject var1) 
+                public void ExecuteContentAndDownloadTo(AndroidJavaObject var1)
                 {
                     Call("executeContentAndDownloadTo", var1);
                 }
@@ -657,7 +359,6 @@ namespace HuaweiMobileServices.Drive
                     return Call<bool>("getAcknowledgeDownloadRisk");
                 }
 
-                //TODO: Data?
                 public bool IsAcknowledgeDownloadRisk()
                 {
                     return Call<bool>("IsAcknowledgeDownloadRisk");
@@ -680,19 +381,7 @@ namespace HuaweiMobileServices.Drive
 
                 [UnityEngine.Scripting.Preserve]
                 public EmptyRecycle(AndroidJavaObject javaObject) : base(javaObject) { }
-                // protected EmptyRecycle(Drive var1, String var2, String var3, File var4, Type var5) : base(var1, var2, var3, var4, var5) { }
 
-
-                /*public String GetContainers()
-                {
-                    return this.containers;
-                }
-
-                public Drive.Files.EmptyRecycle SetContainers(String var1)
-                {
-                    this.containers = var1;
-                    return this;
-                }*/
 
                 public Drive.Files.EmptyRecycle SetForm(String var1)
                 {
@@ -726,13 +415,6 @@ namespace HuaweiMobileServices.Drive
 
                 [UnityEngine.Scripting.Preserve]
                 public Delete(AndroidJavaObject javaObject) : base(javaObject) { }
-                //protected Delete(Drive var1, String var2, String var3, File var4, Type var5) : base(var1, var2, var3, var4, var5) { }
-
-
-                /*protected Delete(String var2) {
-                    super(Drive.this, "DELETE", "files/{fileId}", (Object)null, Void.class);
-                    this.fileId = (String)Preconditions.checkNotNull(var2, "Required parameter fileId must be specified.");
-                }*/
 
                 public Drive.Files.Delete SetForm(String var1)
                 {
@@ -757,17 +439,6 @@ namespace HuaweiMobileServices.Drive
                     return CallAsWrapper<Drive.Files.Delete>("setQuotaId", var1);
 
                 }
-
-                /*public String GetFileId()
-                {
-                    return this.fileId;
-                }
-
-                public Drive.Files.Delete setFileId(String var1)
-                {
-                    this.fileId = var1;
-                    return this;
-                }*/
 
                 public Drive.Files.Delete Set(String var1, AndroidJavaObject var2)
                 {
@@ -825,17 +496,7 @@ namespace HuaweiMobileServices.Drive
             {
                 [UnityEngine.Scripting.Preserve]
                 public Copy(AndroidJavaObject javaObject) : base(javaObject) { }
-                ///protected Copy(Drive var1, String var2, String var3, File var4, Type var5) : base(var1, var2, var3, var4, var5) { }
 
-
-                //  protected Copy(string var2, FileInfo var3) : base(this, "POST", "files/{fileId}/copy", var3, File.) { }
-
-                /*  protected Copy(string var2, FileInfo var3) 
-                  {
-                      base(this, "POST", "files/{fileId}/copy", var3, FileInfo.class);
-                      this.fileId = (String)Preconditions.checkNotNull(var2, "Required parameter fileId must be specified.");
-                  }
-                */
                 public Drive.Files.Copy SetForm(String var1)
                 {
                     return CallAsWrapper<Drive.Files.Copy>("setForm", var1);
@@ -856,18 +517,6 @@ namespace HuaweiMobileServices.Drive
                     return CallAsWrapper<Drive.Files.Copy>("setQuotaId", var1);
                 }
 
-               /* public String getFileId()
-                {
-                    return this.fileId;
-                }
-
-                //TODO: fileId?
-                public Drive.Files.Copy setFileId(String var1)
-                {
-                    //   this.fileId = var1;
-                    return this;
-                }*/
-
                 public Drive.Files.Copy Set(String var1, AndroidJavaObject var2)
                 {
                     return CallAsWrapper<Drive.Files.Copy>("set", var1, var2);
@@ -878,26 +527,7 @@ namespace HuaweiMobileServices.Drive
         }
 
 
-        public class Channels
-        {
 
-        }
-
-
-        public class Comments
-        {
-
-        }
-
-        public class Replies
-        {
-
-        }
-
-        public class HistoryVersions
-        {
-
-        }
 
         public class DriveScopes
         {
@@ -922,7 +552,6 @@ namespace HuaweiMobileServices.Drive
                 var0.Add("https://www.huawei.com/auth/drive.readonly");
                 var0.Add("https://www.huawei.com/auth/drive.appdata");
                 return var0;
-                //Collections.unmodifiableSet(var0);
             }
         }
     }
