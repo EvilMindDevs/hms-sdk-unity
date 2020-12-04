@@ -12,6 +12,7 @@ namespace HuaweiMobileServices.Game
 
         [UnityEngine.Scripting.Preserve]
         public ArchivesClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
+        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
 
         public ITask<int> LimitThumbnailSize => CallAsWrapper<TaskPrimitive<int>>("getLimitThumbnailSize");
 
@@ -26,8 +27,18 @@ namespace HuaweiMobileServices.Game
             return new TaskWrapper<IList<ArchiveSummary>>(task, AndroidJavaObjectExtensions.AsListFromWrappable<ArchiveSummary>);
         }
 
-        public ITask<AndroidIntent> ShowArchiveListIntent(String title, Boolean allowAddBtn, Boolean allowDeleteBtn, int maxArchive) =>
-            CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getShowArchiveListIntent", title, allowAddBtn, allowDeleteBtn, maxArchive);
+        public void ShowArchiveListIntent(String title, Boolean allowAddBtn, Boolean allowDeleteBtn, int maxArchive) {
+            ITask<AndroidIntent> task = CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getShowArchiveListIntent", title, allowAddBtn, allowDeleteBtn, maxArchive);
+            task.AddOnSuccessListener((result) =>
+            {
+                var callback = new GenericBridgeCallbackWrapper();
+                sJavaClass.CallStatic("receiveShow", result.Intent, callback);
+            }).AddOnFailureListener((onFailure) =>
+            {
+                Debug.Log("[HMS] Show Archive List Intent Fail: " + onFailure.WrappedExceptionMessage);
+            });               
+        }
+           
 
         public ITask<AndroidBitmap> GetThumbnail(string paramString) =>
             CallAsWrapper<TaskJavaObjectWrapper<AndroidBitmap>>("getThumbnail", paramString);
