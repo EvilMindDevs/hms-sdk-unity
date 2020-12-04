@@ -11,34 +11,42 @@ namespace HuaweiMobileServices.RemoteConfig
         [UnityEngine.Scripting.Preserve]
         public AGConnectConfigWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public string getValueAsString(string paramString) => Call<string>("getValueAsString", paramString);
+        public string GetValueAsString(string paramString) => Call<string>("getValueAsString", paramString);
 
-        public bool getValueAsBoolean(string paramString) => Call<bool>("getValueAsBoolean", paramString);
+        public bool GetValueAsBoolean(string paramString) => Call<bool>("getValueAsBoolean", paramString);
 
-        public double getValueAsDouble(string paramString) => Call<double>("getValueAsDouble", paramString);
+        public double GetValueAsDouble(string paramString) => Call<double>("getValueAsDouble", paramString);
 
-        public long getValueAsLong(string paramString) => Call<long>("getValueAsLong", paramString);
+        public long GetValueAsLong(string paramString) => Call<long>("getValueAsLong", paramString);
 
-        public byte[] getValueAsByteArray(string paramString) => Call<byte[]>("getValueAsByteArray", paramString);
+        public byte[] GetValueAsByteArray(string paramString) => Call<byte[]>("getValueAsByteArray", paramString);
 
-        public void applyDefault(Dictionary<String, System.Object> map) => Call("applyDefault", DictionaryOperations.DictionaryToAndroidJavaObject(map));
+        public void ApplyDefault(Dictionary<string, object> map) => Call("applyDefault", map.AsJavaHashMap()); 
 
-        public void applyDefault(string xmlPath) => Call("applyDefault", DictionaryOperations.DictionaryToAndroidJavaObject(DictionaryOperations.XMLtoDictionary(xmlPath)));
+        public void ApplyDefault(string xmlPath) => Call("applyDefault", DictionaryOperations.XMLtoDictionary(xmlPath).AsJavaHashMap());
 
-        public void apply(ConfigValues values) => Call("apply", values);
+        public void Apply(ConfigValues values) => Call("apply", values);
 
-        public void clearAll() => Call("clearAll");
+        public void ClearAll() => Call("clearAll");
 
-        public void setDeveloperMode(bool isDeveloperMode) => Call("setDeveloperMode", isDeveloperMode);
+        public Boolean DeveloperMode
+        {
+            set => Call("setDeveloperMode", value);
+        }
 
-        public Dictionary<String, System.Object> getMergedAll() => DictionaryOperations.AndroidJavaObjectToDictionary(Call<AndroidJavaObject>("getMergedAll"));
+        public Dictionary<string, object> GetMergedAll() => Call<AndroidJavaObject>("getMergedAll").AsDictionary();
 
-        public ConfigValues loadLastFetched() => Call<ConfigValues>("loadLastFetched");
+        public ConfigValues LoadLastFetched() => CallAsWrapper<ConfigValues>("loadLastFetched");
 
-        public Constants.SOURCE getSource(string key) => Call<Constants.SOURCE>("getSource", key);
+        public string GetSource(string key) 
+        {
+            AndroidJavaObject getSource = Call<AndroidJavaObject>("getSource", key); 
+            return getSource.Call<string>("toString");
+        }
 
-        public ITask<ConfigValues> fetch() => CallAsWrapper<TaskJavaObjectWrapper<ConfigValues>>("fetch");
+        public ITask<ConfigValues> Fetch() => CallAsWrapper<TaskJavaObjectWrapper<ConfigValues>>("fetch");
 
-        public ITask<ConfigValues> fetch(long intervalSeconds) => CallAsWrapper<TaskJavaObjectWrapper<ConfigValues>>("fetch", intervalSeconds);
+        public ITask<ConfigValues> Fetch(long intervalSeconds) => CallAsWrapper<TaskJavaObjectWrapper<ConfigValues>>("fetch", intervalSeconds);
+
     }
 }

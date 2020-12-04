@@ -7,11 +7,9 @@ using UnityEngine;
 
 namespace HuaweiMobileServices.Utils
 {
-    public static class DictionaryOperations
+    internal static class DictionaryOperations
     {
-        private static readonly AndroidJavaClass sJavaArrays = new AndroidJavaClass("java.util.Arrays");
-
-        public static AndroidJavaObject DictionaryToAndroidJavaObject(IDictionary<String, System.Object> dictionary)
+        internal static AndroidJavaObject AsJavaHashMap(this IDictionary<string, object> dictionary)
         {
             AndroidJavaObject javaMap = new AndroidJavaObject("java.util.HashMap");
             IntPtr putMethod = AndroidJNIHelper.GetMethodID(
@@ -37,25 +35,25 @@ namespace HuaweiMobileServices.Utils
             return javaMap;
         }
 
-        public static Dictionary<String, System.Object> XMLtoDictionary(String xmlPath)
+        internal static Dictionary<string, object> XMLtoDictionary(String xmlPath)
         {
             var textFile = Resources.Load<TextAsset>(xmlPath);
             XElement rootElement = XElement.Parse(textFile.text);
-            Dictionary<String, System.Object> dictionary = new Dictionary<String, System.Object>();
+            Dictionary<string, object> dictionary = new Dictionary<string, object>();
 
             foreach (var el in rootElement.Elements())
             {
                 dictionary.Add(el.Attribute("key").Value, el.Value);
             }
-
             return dictionary;
         }
 
-        public static Dictionary<String, System.Object> AndroidJavaObjectToDictionary(AndroidJavaObject javaList)
+        internal static Dictionary<string, object> AsDictionary(this AndroidJavaObject javaList)
         {
-            if (javaList == null || javaList.Call<int>("size") == 0) return null;
+            Dictionary<string, object> dictionary = new Dictionary<string, object>();
 
-            Dictionary<String, System.Object> dictionary = new Dictionary<String, System.Object>();
+            if (javaList == null || javaList.Call<int>("size") == 0) return dictionary;
+
             var keyList = javaList.Call<AndroidJavaObject>("keySet").AsStringSet();
             foreach(var key in keyList)
             {
