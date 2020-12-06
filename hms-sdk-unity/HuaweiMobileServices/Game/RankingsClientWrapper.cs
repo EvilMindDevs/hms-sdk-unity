@@ -11,7 +11,7 @@ namespace HuaweiMobileServices.Game
     internal class RankingsClientWrapper : JavaObjectWrapper, IRankingsClient
     {
 
-        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.jos.games.RankingsClient");
+        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
 
         [UnityEngine.Scripting.Preserve]
         public RankingsClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
