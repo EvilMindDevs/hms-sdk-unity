@@ -11,7 +11,6 @@ namespace HuaweiMobileServices.Drive
         [UnityEngine.Scripting.Preserve]
         public FileList(AndroidJavaObject javaObject) : base(javaObject) { }
 
-
         public IList<File> GetFiles() => Call<AndroidJavaObject>("getFiles").AsListFromWrappable<File>();
 
         public String GetNextCursor() => Call<String>("getNextCursor");

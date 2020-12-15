@@ -11,18 +11,9 @@ namespace HuaweiMobileServices.Drive
 
         [UnityEngine.Scripting.Preserve]
         public AbstractClientRequest(AndroidJavaObject javaObject) : base(javaObject) { }
-        public T Execute()
-        {
-            return Call<T>("execute");
-        }
-        public MediaHttpDownloader GetMediaHttpDownloader()
-        {
-            return CallAsWrapper<MediaHttpDownloader>("getMediaHttpDownloader");
-        }
-        public MediaHttpUploader GetMediaHttpUploader()
-        {
-            return CallAsWrapper<MediaHttpUploader>("getMediaHttpUploader");
-        }
-        
+        public T Execute() => Call<T>("execute");
+        public MediaHttpDownloader GetMediaHttpDownloader() => CallAsWrapper<MediaHttpDownloader>("getMediaHttpDownloader");
+        public MediaHttpUploader GetMediaHttpUploader() => CallAsWrapper<MediaHttpUploader>("getMediaHttpUploader");
+
     }
 }

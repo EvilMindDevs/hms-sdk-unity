@@ -10,23 +10,13 @@ namespace HuaweiMobileServices.Drive
     {
         public MediaHttpUploader(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public MediaHttpUploader SetDirectUploadEnabled(bool directUploadEnabled) =>
-        CallAsWrapper<MediaHttpUploader>("setDirectUploadEnabled", directUploadEnabled);
+        public MediaHttpUploader SetDirectUploadEnabled(bool directUploadEnabled) => CallAsWrapper<MediaHttpUploader>("setDirectUploadEnabled", directUploadEnabled);
 
         public virtual MediaHttpUploader SetProgressListener(MediaHttpUploaderProgressListenerWrapper progressListener) => CallAsWrapper<MediaHttpUploader>("setProgressListener", progressListener);
-        public double Progress
-        {
-            get => Call<double>("getProgress");
-        }
-        public long TotalTimeRequired
-        {
-            get => Call<long>("getTotalTimeRequired");
-        }
-        
-        public UploadState GetUploadState
-        {
-            get => Call<UploadState>("getUploadState");
-        }
+        public double Progress => Call<double>("getProgress");
+        public long TotalTimeRequired => Call<long>("getTotalTimeRequired");
+
+        public UploadState GetUploadState => Call<UploadState>("getUploadState");
 
         public enum UploadState
         {

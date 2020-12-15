@@ -11,37 +11,19 @@ namespace HuaweiMobileServices.Drive
     {
 
         [UnityEngine.Scripting.Preserve]
-        public FileContent(String javaObject) : base(javaObject) { }
+        public FileContent(String javaObject) : base(javaObject) {}
+
         [UnityEngine.Scripting.Preserve]
-        public FileContent(String var1, FileInfo var2) : base("com.huawei.cloud.base.http.FileContent", var1, var2)
-        {
+        public FileContent(String var1, FileInfo var2) : base("com.huawei.cloud.base.http.FileContent", var1, var2){}
 
-        }
+        public long GetLength() => Call<long>("getLength");
 
-        public long GetLength()
-        {
-            return Call<long>("getLength");
-        }
+        public bool RetrySupported() => Call<bool>("retrySupported");
 
-        public bool RetrySupported()
-        {
-            return Call<bool>("retrySupported");
-        }
+        public FileStream GetFile() => Call<FileStream>("getFile");
 
+        public FileContent SetType(String var1) => Call<FileContent>("setType", var1);
 
-        public FileStream GetFile()
-        {
-            return Call<FileStream>("getFile");
-        }
-
-        public FileContent SetType(String var1)
-        {
-            return Call<FileContent>("setType", var1);
-        }
-
-        public FileContent SetCloseInputStream(bool var1)
-        {
-            return Call<FileContent>("setCloseInputStream", var1);
-        }
+        public FileContent SetCloseInputStream(bool var1) => Call<FileContent>("setCloseInputStream", var1);
     }
 }

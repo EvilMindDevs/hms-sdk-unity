@@ -9,66 +9,29 @@ namespace HuaweiMobileServices.Drive
         [UnityEngine.Scripting.Preserve]
         public DriveRequest(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public String GetFields()
-        {
-            return Call<String>("getFields");
-        }
+        public String GetFields() => Call<String>("getFields");
 
-        public DriveRequest<T> SetFields(String var1)
-        {
-            return CallAsWrapper<DriveRequest<T>>("setFields", var1);
-        }
+        public DriveRequest<T> SetFields(String var1) => CallAsWrapper<DriveRequest<T>>("setFields", var1);
 
-        public String GetForm()
-        {
-            return Call<String>("getForm");
-        }
+        public String GetForm() => Call<String>("getForm");
 
-        public DriveRequest<T> SetForm(String var1)
-        {
-            return CallAsWrapper<DriveRequest<T>>("setForm", var1);
-        }
+        public DriveRequest<T> SetForm(String var1) => CallAsWrapper<DriveRequest<T>>("setForm", var1);
 
-        public Boolean GetPrettyPrint()
-        {
-            return Call<Boolean>("getPrettyPrint");
-        }
+        public Boolean GetPrettyPrint() => Call<Boolean>("getPrettyPrint");
 
-        public DriveRequest<T> SetPrettyPrint(Boolean var1)
-        {
-            return CallAsWrapper<DriveRequest<T>>("setPrettyPrint", var1);
+        public DriveRequest<T> SetPrettyPrint(Boolean var1) => CallAsWrapper<DriveRequest<T>>("setPrettyPrint", var1);
 
-        }
+        public String GetQuotaId() => Call<String>("getQuotaId");
 
-        public String GetQuotaId()
-        {
-            return Call<String>("getQuotaId");
-        }
+        public DriveRequest<T> SetQuotaId(String var1) => CallAsWrapper<DriveRequest<T>>("setQuotaId", var1);
 
-        public DriveRequest<T> SetQuotaId(String var1)
-        {
-            return CallAsWrapper<DriveRequest<T>>("setQuotaId", var1);
-        }
+        public Drive GetAbstractClient() => CallAsWrapper<Drive>("getAbstractClient");
 
-        public Drive GetAbstractClient()
-        {
-            return CallAsWrapper<Drive>("getAbstractClient");
-        }
+        public DriveRequest<T> SetHeaders(AndroidJavaObject var1) => CallAsWrapper<DriveRequest<T>>("setHeaders", var1);
 
-        public DriveRequest<T> SetHeaders(AndroidJavaObject var1)
-        {
-            return CallAsWrapper<DriveRequest<T>>("setHeaders", var1);
-        }
+        public DriveRequest<T> SetDisableGZip(bool var1) => CallAsWrapper<DriveRequest<T>>("setDisableGZip", var1);
 
-        public DriveRequest<T> SetDisableGZip(bool var1)
-        {
-            return CallAsWrapper<DriveRequest<T>>("setDisableGZip", var1);
-        }
-
-        public DriveRequest<T> Set(String var1, AndroidJavaObject var2)
-        {
-            return CallAsWrapper<DriveRequest<T>>("set", var1, var2);
-        }
+        public DriveRequest<T> Set(String var1, AndroidJavaObject var2) => CallAsWrapper<DriveRequest<T>>("set", var1, var2);
 
     }
 
