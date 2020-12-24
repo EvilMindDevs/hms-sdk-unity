@@ -34,14 +34,18 @@ namespace HuaweiMobileServices.Game
 
         public void Grow(string paramString, int paramInt) => Call("grow", paramString.AsJavaString(), paramInt);
 
-        public ITask<bool> GrowWithResult(string paramString, int paramInt) =>
-            CallAsWrapper<TaskPrimitive<bool>>("growWithResult", paramString.AsJavaString(), paramInt);
-
+        public ITask<bool> GrowWithResult(string paramString, int paramInt)
+        {
+            TaskPrimitive<bool> task = CallAsWrapper<TaskPrimitive<bool>>("growWithResult", paramString.AsJavaString(), paramInt);
+            return task;
+        }
         public void MakeSteps(string paramString, int paramInt) => Call("makeSteps", paramString.AsJavaString(), paramInt);
 
-        public ITask<bool> MakeStepsWithResult(string paramString, int paramInt) =>
-            CallAsWrapper<TaskPrimitive<bool>>("makeStepsWithResult", paramString.AsJavaString(), paramInt);
-
+        public ITask<bool> MakeStepsWithResult(string paramString, int paramInt)
+        {
+            TaskPrimitive<bool> task = CallAsWrapper<TaskPrimitive<Boolean>>("makeStepsWithResult", paramString.AsJavaString(), paramInt);
+            return task;
+        }
         public void Reach(string paramString) => Call("reach", paramString.AsJavaString());
 
         public ITask<Void> ReachWithResult(string paramString) =>
