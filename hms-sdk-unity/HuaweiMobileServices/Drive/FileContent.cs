@@ -20,10 +20,8 @@ namespace HuaweiMobileServices.Drive
 
         public bool RetrySupported() => Call<bool>("retrySupported");
 
-        public FileStream GetFile() => Call<FileStream>("getFile");
+        public FileContent SetType(String var1) => CallAsWrapper<FileContent>("setType", var1);
 
-        public FileContent SetType(String var1) => Call<FileContent>("setType", var1);
-
-        public FileContent SetCloseInputStream(bool var1) => Call<FileContent>("setCloseInputStream", var1);
+        public FileContent SetCloseInputStream(bool var1) => CallAsWrapper<FileContent>("setCloseInputStream", var1);
     }
 }

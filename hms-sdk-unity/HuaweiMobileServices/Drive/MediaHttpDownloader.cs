@@ -22,8 +22,6 @@ namespace HuaweiMobileServices.Drive
 
         public virtual long TotalTimeRequired => Call<long>("getTotalTimeRequired");
 
-        public virtual DownloadState getDownloadState => Call<DownloadState>("getDownloadState");
-
         public MediaHttpDownloader SetContentRange(long var1, long var3) => CallAsWrapper<MediaHttpDownloader>("setContentRange", var1, var3);
         public enum DownloadState
         {

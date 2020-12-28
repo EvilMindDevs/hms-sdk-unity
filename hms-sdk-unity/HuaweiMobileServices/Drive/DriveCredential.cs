@@ -10,8 +10,6 @@
 
         public void Intercept(AndroidJavaObject request) => Call("intercept", request);
 
-        public bool HandleResponse(AndroidJavaObject request, AndroidJavaObject response, bool supportsRetry) => Call<bool>("handleResponse", request, response, supportsRetry);
-
         public void Initialize(AndroidJavaObject request) => Call("initialize", request);
 
         public String GetUnionID() => Call<String>("getUnionID");
@@ -20,13 +18,13 @@
 
         public DriveCredential SetAccessToken(String accessToken) => CallAsWrapper<DriveCredential>("setAccessToken", accessToken);
 
-        public DriveCredential SetExpiresInSeconds(long expiresIn) => Call<DriveCredential>("setExpiresInSeconds", expiresIn);
+        public DriveCredential SetExpiresInSeconds(long expiresIn) => CallAsWrapper<DriveCredential>("setExpiresInSeconds", expiresIn);
 
         public long GetExpirationTimeMilliseconds() => Call<long>("getExpirationTimeMilliseconds");
 
         public bool RefreshToken() => Call<bool>("refreshToken");
 
-        public DriveCredential Clone() => Call<DriveCredential>("clone");
+        public DriveCredential Clone() => CallAsWrapper<DriveCredential>("clone");
 
         public interface AccessMethod
         {

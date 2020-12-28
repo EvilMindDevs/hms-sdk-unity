@@ -242,28 +242,30 @@ namespace HuaweiMobileServices.Drive
 
         }
 
-        public class DriveScopes
+        public class DriveScopes : JavaObjectWrapper
         {
-            public static readonly String SCOPE_DRIVE = "https://www.huawei.com/auth/drive";
-            public static readonly String SCOPE_DRIVE_FILE = "https://www.huawei.com/auth/drive.file";
-            public static readonly String SCOPE_DRIVE_READONLY = "https://www.huawei.com/auth/drive.readonly";
-            public static readonly String SCOPE_DRIVE_METADATA = "https://www.huawei.com/auth/drive.metadata";
-            public static readonly String SCOPE_DRIVE_METADATA_READONLY = "https://www.huawei.com/auth/drive.metadata.readonly";
-            public static readonly String SCOPE_DRIVE_APPDATA = "https://www.huawei.com/auth/drive.appdata";
+            private const string CLASS_NAME = "com.huawei.cloud.services.drive.DriveScopes";
 
-            private DriveScopes()
-            {
-            }
+            private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
+            public static String SCOPE_DRIVE = sJavaClass.GetStatic<String>("SCOPE_DRIVE");
+            public static String SCOPE_DRIVE_FILE = sJavaClass.GetStatic<String>("SCOPE_DRIVE_FILE");
+            public static String SCOPE_DRIVE_READONLY = sJavaClass.GetStatic<String>("SCOPE_DRIVE_READONLY");
+            public static String SCOPE_DRIVE_METADATA = sJavaClass.GetStatic<String>("SCOPE_DRIVE_METADATA");
+            public static String SCOPE_DRIVE_METADATA_READONLY = sJavaClass.GetStatic<String>("SCOPE_DRIVE_METADATA_READONLY");
+            public static String SCOPE_DRIVE_APPDATA = sJavaClass.GetStatic<String>("SCOPE_DRIVE_APPDATA");
+
+            [UnityEngine.Scripting.Preserve]
+            public DriveScopes(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public static HashSet<String> all()
             {
                 HashSet<String> var0 = new HashSet<String>();
-                var0.Add("https://www.huawei.com/auth/drive");
-                var0.Add("https://www.huawei.com/auth/drive.file");
-                var0.Add("https://www.huawei.com/auth/drive.metadata");
-                var0.Add("https://www.huawei.com/auth/drive.metadata.readonly");
-                var0.Add("https://www.huawei.com/auth/drive.readonly");
-                var0.Add("https://www.huawei.com/auth/drive.appdata");
+                var0.Add(DriveScopes.SCOPE_DRIVE);
+                var0.Add(DriveScopes.SCOPE_DRIVE_FILE);
+                var0.Add(DriveScopes.SCOPE_DRIVE_READONLY);
+                var0.Add(DriveScopes.SCOPE_DRIVE_METADATA);
+                var0.Add(DriveScopes.SCOPE_DRIVE_METADATA_READONLY);
+                var0.Add(DriveScopes.SCOPE_DRIVE_APPDATA);
                 return var0;
             }
         }
