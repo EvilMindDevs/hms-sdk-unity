@@ -12,7 +12,7 @@ namespace HuaweiMobileServices.Game
 
         [UnityEngine.Scripting.Preserve]
         public ArchivesClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
-        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
+        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.game.ArchiveBridge");
 
         public ITask<int> LimitThumbnailSize => CallAsWrapper<TaskPrimitive<int>>("getLimitThumbnailSize");
 
@@ -27,19 +27,36 @@ namespace HuaweiMobileServices.Game
             return new TaskWrapper<IList<ArchiveSummary>>(task, AndroidJavaObjectExtensions.AsListFromWrappable<ArchiveSummary>);
         }
 
-        public void ShowArchiveListIntent(String title, Boolean allowAddBtn, Boolean allowDeleteBtn, int maxArchive) {
+        public void ShowArchiveListIntent(String title, Boolean allowAddBtn, Boolean allowDeleteBtn, int maxArchive, Action<ArchiveSummary> selectedAction, Action<bool> addAction) {
+ 
             ITask<AndroidIntent> task = CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getShowArchiveListIntent", title, allowAddBtn, allowDeleteBtn, maxArchive);
             task.AddOnSuccessListener((result) =>
             {
-                var callback = new GenericBridgeCallbackWrapper();
+               var callback = new ArchiveSelectedListenerWrapper().AddOnSuccessListener((succes) =>
+               {
+                   if (succes.GetHasExtra<bool>(ArchiveConstants.ARCHIVE_SELECT))
+                   {
+                       AndroidBundle bundle = succes.GetParcelableExtra<AndroidBundle>(ArchiveConstants.ARCHIVE_SELECT);
+                       ITask<ArchiveSummary> taskSummary = this.ParseSummary(bundle);
+                       taskSummary.AddOnSuccessListener(selectedAction);
+                   }
+                   else if (succes.GetHasExtra<bool>(ArchiveConstants.ARCHIVE_ADD))
+                   {
+                       addAction(true);
+                   }
+               })
+                .AddOnFailureListener((onFailure) =>
+                {
+                    Debug.Log("[HMS] Show Archive Listener List Fail: " + onFailure.WrappedExceptionMessage);
+                 });           
                 sJavaClass.CallStatic("receiveShow", result.Intent, callback);
             }).AddOnFailureListener((onFailure) =>
             {
                 Debug.Log("[HMS] Show Archive List Intent Fail: " + onFailure.WrappedExceptionMessage);
-            });               
+            });
+            
         }
            
-
         public ITask<AndroidBitmap> GetThumbnail(string paramString) =>
             CallAsWrapper<TaskJavaObjectWrapper<AndroidBitmap>>("getThumbnail", paramString);
 
