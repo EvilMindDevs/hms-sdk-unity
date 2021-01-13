@@ -12,10 +12,7 @@ namespace HuaweiMobileServices.Utils
         public Bundle(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public Bundle() : base(CLASS_NAME) { }
-        public int Size()
-        {
-           return  Call<int>("size");
-        }
+
         public void PutByte(string arg0, byte arg1)
         {
             Call("putByte", arg0, arg1);
