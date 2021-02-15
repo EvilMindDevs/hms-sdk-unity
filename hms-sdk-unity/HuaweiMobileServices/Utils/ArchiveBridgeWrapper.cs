@@ -8,13 +8,13 @@ namespace HuaweiMobileServices.Utils
     {
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.game.ArchiveBridge");
 
-        public static void CallArchiveBridge(this JavaObjectWrapper javaObjectWrapper, String methodName, Action onSuccess, Action<HMSException> onFailure)
+        public static void CallArchiveBridge(this JavaObjectWrapper javaObjectWrapper, Action onSuccess, Action<HMSException> onFailure)
         {
-
+            String methodName = "getShowArchiveListIntent";
             javaObjectWrapper.CallAsWrapper<TaskAndroidJavaObject>(methodName)
                 .AddOnSuccessListener((intent) =>
                 {
-                    var callback = new ArchiveSelectedListenerWrapper()
+                    var callback = new GenericBridgeCallbackWrapper()
                    .AddOnFailureListener(onFailure)
                    .AddOnSuccessListener((nothing) =>
                    {

@@ -32,15 +32,15 @@ namespace HuaweiMobileServices.Game
             ITask<AndroidIntent> task = CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getShowArchiveListIntent", title, allowAddBtn, allowDeleteBtn, maxArchive);
             task.AddOnSuccessListener((result) =>
             {
-               var callback = new ArchiveSelectedListenerWrapper().AddOnSuccessListener((succes) =>
+               var callback = new GenericBridgeCallbackWrapper().AddOnSuccessListener((success) =>
                {
-                   if (succes.GetHasExtra<bool>(ArchiveConstants.ARCHIVE_SELECT))
+                   if (success.GetHasExtra<bool>(ArchiveConstants.ARCHIVE_SELECT))
                    {
-                       AndroidBundle bundle = succes.GetParcelableExtra<AndroidBundle>(ArchiveConstants.ARCHIVE_SELECT);
+                       AndroidBundle bundle = success.GetParcelableExtra<AndroidBundle>(ArchiveConstants.ARCHIVE_SELECT);
                        ITask<ArchiveSummary> taskSummary = this.ParseSummary(bundle);
                        taskSummary.AddOnSuccessListener(selectedAction);
                    }
-                   else if (succes.GetHasExtra<bool>(ArchiveConstants.ARCHIVE_ADD))
+                   else if (success.GetHasExtra<bool>(ArchiveConstants.ARCHIVE_ADD))
                    {
                        addAction(true);
                    }
