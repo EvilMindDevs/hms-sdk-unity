@@ -12,6 +12,9 @@ Currently these are the kits being integrated:
 - Analytics(https://developer.huawei.com/consumer/en/hms/huawei-analyticskit)
 - Crash Service (https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-introduction)
 - Remote Config (https://developer.huawei.com/consumer/en/agconnect/remote-configuration/)
+- Drive Kit (https://developer.huawei.com/consumer/en/hms/huawei-drivekit/)
+- Aut Service (https://developer.huawei.com/consumer/en/agconnect/auth-service/)
+- Cloud DB (https://developer.huawei.com/consumer/en/agconnect/cloud-base/)
 ## Setup
 
 You need to:
