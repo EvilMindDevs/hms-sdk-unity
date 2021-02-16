@@ -13,10 +13,7 @@ namespace HuaweiMobileServices.AuthService
         public EmailUser(string paramString1, string paramString2, string paramString3) :
             base("com.huawei.agconnect.auth.EmailUser", paramString1, paramString2, paramString3) { }
 
-        public string Email
-        {
-            get { return Call<string>("getEmail"); }
-        }
+        public string Email => Call<string>("getEmail"); 
 
         public int VerifyEmailUser(bool paramBoolean) => Call<int>("verifyEmailUser", paramBoolean);
 

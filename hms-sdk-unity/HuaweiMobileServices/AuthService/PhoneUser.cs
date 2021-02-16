@@ -13,10 +13,7 @@ namespace HuaweiMobileServices.AuthService
         public PhoneUser(string paramString1, string paramString2, string paramString3, string paramString4) :
             base("com.huawei.agconnect.auth.PhoneUser", paramString1, paramString2, paramString3, paramString4) { }
 
-        public string Phone
-        {
-            get { return Call<string>("getPhone"); }
-        }
+        public string Phone => Call<string>("getPhone"); 
 
         public int VerifyPhoneUser(bool paramBoolean) => Call<int>("verifyPhoneUser", paramBoolean);
 

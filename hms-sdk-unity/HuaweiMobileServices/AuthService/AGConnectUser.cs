@@ -15,35 +15,17 @@ namespace HuaweiMobileServices.AuthService
 
         public bool IsAnonymous() => Call<bool>("isAnonymous");
 
-        public string Uid
-        {
-            get { return Call<string>("getUid"); }
-        }
+        public string Uid => Call<string>("getUid"); 
 
-        public string Email
-        {
-            get { return Call<string>("getEmail"); }
-        }
+        public string Email => Call<string>("getEmail"); 
 
-        public string Phone
-        {
-            get { return Call<string>("getPhone"); }
-        }
+        public string Phone => Call<string>("getPhone"); 
 
-        public string DisplayName
-        {
-            get { return Call<string>("getDisplayName"); }
-        }
+        public string DisplayName => Call<string>("getDisplayName"); 
 
-        public string PhotoUrl
-        {
-            get { return Call<string>("getPhotoUrl"); }
-        }
+        public string PhotoUrl => Call<string>("getPhotoUrl"); 
 
-        public string ProviderId
-        {
-            get { return Call<string>("getProviderId"); }
-        }
+        public string ProviderId => Call<string>("getProviderId"); 
 
         public ITask<TokenResult> GetToken(bool paramBoolean) => CallAsWrapper<TaskJavaObjectWrapper<TokenResult>>("getToken", paramBoolean);
 
@@ -70,15 +52,9 @@ namespace HuaweiMobileServices.AuthService
         public ITask<Void> UpdatePassword(string paramString1, string paramString2, int paramInt)
            => CallAsWrapper<TaskVoidWrapper>("updatePassword", paramString1, paramString2, paramInt);
 
-        public string EmailVerified
-        {
-            get { return Call<string>("getEmailVerified"); }
-        }
+        public string EmailVerified => Call<string>("getEmailVerified"); 
 
-        public string PasswordSetted
-        {
-            get { return Call<string>("getPasswordSetted"); }
-        }
+        public string PasswordSetted => Call<string>("getPasswordSetted"); 
 
         public ITask<AGConnectUserExtra> GetUserExtra() => CallAsWrapper<TaskJavaObjectWrapper<AGConnectUserExtra>>("getUserExtra");
     }

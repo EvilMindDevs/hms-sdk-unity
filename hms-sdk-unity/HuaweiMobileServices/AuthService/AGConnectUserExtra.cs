@@ -12,14 +12,8 @@ namespace HuaweiMobileServices.AuthService
         public AGConnectUserExtra(AndroidJavaObject javaObject) : base(javaObject) { }
         public AGConnectUserExtra() : base("com.huawei.agconnect.auth.AGConnectUserExtra") { }
 
-        public string CreateTime
-        {
-            get { return Call<string>("getCreateTime"); }
-        }
+        public string CreateTime => Call<string>("getCreateTime"); 
 
-        public string LastSignInTime
-        {
-            get { return Call<string>("getLastSignInTime"); }
-        }     
+        public string LastSignInTime => Call<string>("getLastSignInTime");    
     }
 }

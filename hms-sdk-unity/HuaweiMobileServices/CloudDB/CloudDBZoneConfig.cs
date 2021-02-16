@@ -10,20 +10,11 @@ namespace HuaweiMobileServices.CloudDB
         public CloudDBZoneConfig(string cloudDBZoneNameSource, CloudDBZoneSyncProperty cloudDBZoneSyncProperty, CloudDBZoneAccessProperty cloudDBZoneAccessProperty) :
             base("com.huawei.agconnect.cloud.database.CloudDBZoneConfig", cloudDBZoneNameSource, cloudDBZoneSyncProperty, cloudDBZoneAccessProperty) { }
 
-        public string CloudDBZoneName
-        {
-            get { return Call<string>("getCloudDBZoneName"); }
-        }
+        public string CloudDBZoneName => Call<string>("getCloudDBZoneName"); 
 
-        public CloudDBZoneSyncProperty SyncProperty
-        {
-            get { return CallAsWrapper<CloudDBZoneSyncProperty>("getSyncProperty"); }
-        }
+        public CloudDBZoneSyncProperty SyncProperty => CallAsWrapper<CloudDBZoneSyncProperty>("getSyncProperty"); 
 
-        public CloudDBZoneAccessProperty AccessProperty
-        {
-            get { return CallAsWrapper<CloudDBZoneAccessProperty>("getAccessProperty"); }
-        }
+        public CloudDBZoneAccessProperty AccessProperty => CallAsWrapper<CloudDBZoneAccessProperty>("getAccessProperty"); 
 
         public bool IsEncrypted() => Call<bool>("isEncrypted");
 
@@ -31,14 +22,14 @@ namespace HuaweiMobileServices.CloudDB
 
         public bool PersistenceEnabled
         {
-            get { return Call<bool>("getPersistenceEnabled"); }
-            set { Call("setPersistenceEnabled", value); }
+            get => Call<bool>("getPersistenceEnabled"); 
+            set => Call("setPersistenceEnabled", value); 
         }
 
         public long Capacity
         {
-            get { return Call<long>("getCapacity"); }
-            set { Call("setCapacity", value); }
+            get => Call<long>("getCapacity"); 
+            set => Call("setCapacity", value); 
         }
 
         public class CloudDBZoneAccessProperty : JavaObjectWrapper

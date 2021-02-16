@@ -12,14 +12,14 @@ namespace HuaweiMobileServices.CloudDB
 
         public long ObjectTypeVersion
         {
-            get { return Call<long>("getObjectTypeVersion"); }
-            set { Call("setObjectTypeVersion", value); }
+            get => Call<long>("getObjectTypeVersion"); 
+            set => Call("setObjectTypeVersion", value);
         }
 
         public int FormatVersion
         {
-            get { return Call<int>("getFormatVersion"); }
-            set { Call("setFormatVersion", value); }
+            get => Call<int>("getFormatVersion"); 
+            set => Call("setFormatVersion", value);
         }
     }
 

@@ -15,30 +15,15 @@ namespace HuaweiMobileServices.AuthService
 
         public static AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.agconnect.auth.VerifyCodeSettings");
 
-        public static int ACTION_REGISTER_LOGIN
-        {
-            get => sJavaClass.GetStatic<int>("ACTION_REGISTER_LOGIN");
-        }
+        public static int ACTION_REGISTER_LOGIN => sJavaClass.GetStatic<int>("ACTION_REGISTER_LOGIN");
 
-        public static int ACTION_RESET_PASSWORD
-        {
-            get => sJavaClass.GetStatic<int>("ACTION_RESET_PASSWORD");
-        }
+        public static int ACTION_RESET_PASSWORD => sJavaClass.GetStatic<int>("ACTION_RESET_PASSWORD");
 
-        public int Action
-        {
-            get { return Call<int>("getAction"); }
-        }
+        public int Action => Call<int>("getAction"); 
 
-        public string Lang
-        {
-            get { return Call<string>("getLang"); }
-        }
+        public string Lang => Call<string>("getLang"); 
 
-        public int SendInterval
-        {
-            get { return Call<int>("getSendInterval"); }
-        }
+        public int SendInterval => Call<int>("getSendInterval"); 
 
         public class Builder : JavaObjectWrapper
         {

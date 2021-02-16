@@ -14,10 +14,7 @@ namespace HuaweiMobileServices.CloudDB
         [UnityEngine.Scripting.Preserve]
         public CloudDBZoneObjectList(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public int Size
-        {
-            get { return Call<int>("size"); }
-        }
+        public int Size => Call<int>("size"); 
 
         public CloudDBZoneObject Get(int index) => CallAsWrapper<CloudDBZoneObject>("get", index); 
         public CloudDBZoneObject Next() => CallAsWrapper<CloudDBZoneObject>("next");
@@ -29,10 +26,7 @@ namespace HuaweiMobileServices.CloudDB
         [UnityEngine.Scripting.Preserve]
         public CloudDBZoneObjectList(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public int Size
-        {
-            get { return Call<int>("size"); }
-        }
+        public int Size => Call<int>("size"); 
 
         public T Get(int arg0) 
         {
@@ -48,9 +42,6 @@ namespace HuaweiMobileServices.CloudDB
             return t;
         }
 
-        public bool HasNext()
-        {
-            return Call<bool>("hasNext");
-        }
+        public bool HasNext() => Call<bool>("hasNext"); 
     }
 }

@@ -14,15 +14,9 @@ namespace HuaweiMobileServices.CloudDB
         [UnityEngine.Scripting.Preserve]
         public CloudDBZoneObject() : base("com.huawei.agconnect.cloud.database.CloudDBZoneObject") { }
 
-        public string ObjectTypeName
-        {
-            get { return Call<string>("getObjectTypeName"); }
-        }
+        public string ObjectTypeName => Call<string>("getObjectTypeName"); 
 
-        public string PackageName
-        {
-            get { return Call<string>("getPackageName"); }
-        }
+        public string PackageName => Call<string>("getPackageName"); 
 
         public AndroidJavaObject GetObj()
         {

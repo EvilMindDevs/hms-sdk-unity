@@ -12,15 +12,9 @@ namespace HuaweiMobileServices.AuthService
         public ProfileRequest(AndroidJavaObject javaObject) : base(javaObject) { }
         public ProfileRequest() : base("com.huawei.agconnect.auth.ProfileRequest") { }
 
-        public string DisplayName
-        {
-            get { return Call<string>("getDisplayName"); }
-        }
+        public string DisplayName => Call<string>("getDisplayName"); 
 
-        public string PhotoUrl
-        {
-            get { return Call<string>("getPhotoUrl"); }
-        }
+        public string PhotoUrl => Call<string>("getPhotoUrl"); 
 
         public class Builder : JavaObjectWrapper
         {

@@ -11,14 +11,8 @@ namespace HuaweiMobileServices.AuthService
         [UnityEngine.Scripting.Preserve]
         public TokenResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public string Token
-        {
-            get { return Call<string>("getToken"); }
-        }
+        public string Token => Call<string>("getToken"); 
 
-        public long ExpirePeriod
-        {
-            get { return Call<long>("getExpirePeriod"); }
-        }
+        public long ExpirePeriod => Call<long>("getExpirePeriod"); 
     }
 }

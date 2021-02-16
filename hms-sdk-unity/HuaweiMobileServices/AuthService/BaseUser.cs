@@ -12,14 +12,8 @@ namespace HuaweiMobileServices.AuthService
         public BaseUser(AndroidJavaObject javaObject) : base(javaObject) { }
         public BaseUser() : base("com.huawei.agconnect.auth.BaseUser") { }
 
-        public string Password
-        {
-            get { return Call<string>("getPassword"); }
-        }
+        public string Password => Call<string>("getPassword"); 
 
-        public string VerifyCode
-        {
-            get { return Call<string>("getVerifyCode"); }
-        }
+        public string VerifyCode => Call<string>("getVerifyCode"); 
     }
 }
