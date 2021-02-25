@@ -12,7 +12,7 @@
 
         public virtual long ApplicationId => Call<long>("getApplicationId");
 
-        public virtual bool AutoRenewing => Call<bool>("getAutoRenewing");
+        public virtual bool AutoRenewing => Call<bool>("isAutoRenewing");
 
         public virtual string OrderID => CallAsString("getOrderID");
 
