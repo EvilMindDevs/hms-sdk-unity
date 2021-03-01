@@ -21,6 +21,7 @@ dependencies {
     compileOnly 'com.google.android.gms:play-services-base:17.2.1'
 
     // HMS
+	compileOnly 'com.huawei.hms:nearby:5.2.0.301'
     compileOnly 'com.huawei.hms:iap:4.0.2.300'
     compileOnly 'com.huawei.hms:push:4.0.2.300'
     compileOnly 'com.huawei.hms:game:4.0.1.300'

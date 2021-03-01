@@ -43,11 +43,11 @@ namespace HuaweiMobileServices.Utils
             }
             return list;
         }
-        public static long?  AsLong(this AndroidJavaObject javaLongObject)
-        {         
+        public static long? AsLong(this AndroidJavaObject javaLongObject)
+        {
             if (javaLongObject == null)
                 return null;
-            return javaLongObject.Call<long>("longValue");          
+            return javaLongObject.Call<long>("longValue");
         }
         public static IList<T> AsListFromWrappable<T>(this AndroidJavaObject javaList) where T : JavaObjectWrapper =>
             javaList?.AsList<AndroidJavaObject>().Map(AsWrapper<T>);
