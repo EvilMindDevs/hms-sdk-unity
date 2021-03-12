@@ -3,6 +3,7 @@ using System.Collections;
 using HuaweiMobileServices.Utils;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using HuaweiMobileServices.Base;
 
 namespace HuaweiMobileServices.Nearby.Message
 {
@@ -14,17 +15,14 @@ namespace HuaweiMobileServices.Nearby.Message
 
         public void HandleIntent(AndroidJavaObject intent, MessageHandler handler) => androidJavaClass.Call("handleIntent", intent, handler);
 
-        public Task<Void> Put(Message message) => androidJavaClass.Call<Task<Void>>("put", message);
-        public Task<Void> Put(Message message, PutOption option) => androidJavaClass.Call<Task<Void>>("put", message, option);
-        public Task<Void> RegisterStatusCallback(StatusCallback statusCallback) => androidJavaClass.Call<Task<Void>>("registerStatusCallback", statusCallback);
-        public Task<Void> Get(MessageHandler handler) => androidJavaClass.Call<Task<Void>>("get", handler);
-        public Task<Void> Get(MessageHandler handler, GetOption option) => androidJavaClass.Call<Task<Void>>("get", handler, option);
-        //public Task<Void> Get(PendingIntent pendingIntent, GetOption option) => androidJavaClass.Call<Task<Void>>("put", handler);
-        // public Task<Void> Get(PendingIntent pendingIntent, GetOption option, GetOption option) => androidJavaClass.Call<Task<Void>>("put", handler, option);
-        public Task<Void> UnPut(Message message) => androidJavaClass.Call<Task<Void>>("unput", message);
-        public Task<Void> UnRegisterStatusCallback(StatusCallback statusCallback) => androidJavaClass.Call<Task<Void>>("unregisterStatusCallback", statusCallback);
-        public Task<Void> UnGet(MessageHandler handler) => androidJavaClass.Call<Task<Void>>("unget", handler);
-        //public Task<Void> Get(PendingIntent pendingIntent, GetOption option) => androidJavaClass.Call<Task<Void>>("put", handler, option);
-
+        public ITask<Void> Put(Message message) => CallAsWrapper<TaskVoidWrapper>("put", message);
+        public ITask<Void> Put(Message message, PutOption option) => CallAsWrapper<TaskVoidWrapper>("put", message, option);
+        public ITask<Void> RegisterStatusCallback(StatusCallback statusCallback) => CallAsWrapper<TaskVoidWrapper>("registerStatusCallback", statusCallback);
+        public ITask<Void> Get(MessageHandler handler) => CallAsWrapper<TaskVoidWrapper>("get", handler);
+        public ITask<Void> Get(MessageHandler handler, GetOption option) => CallAsWrapper<TaskVoidWrapper>("get", handler, option); 
+        public ITask<Void> UnPut(Message message) => CallAsWrapper<TaskVoidWrapper>("unput", message);
+        public ITask<Void> UnRegisterStatusCallback(StatusCallback statusCallback) => CallAsWrapper<TaskVoidWrapper>("unregisterStatusCallback", statusCallback);
+        public ITask<Void> UnGet(MessageHandler handler) => CallAsWrapper<TaskVoidWrapper>("unget", handler);
+ 
     }
 }

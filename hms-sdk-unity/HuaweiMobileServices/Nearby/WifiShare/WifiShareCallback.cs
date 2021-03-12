@@ -4,18 +4,40 @@ using System;
 using UnityEngine;
 
 namespace HuaweiMobileServices.Nearby.WifiShare
-{ 
+{
     public class WifiShareCallback : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
-        public WifiShareCallback(AndroidJavaObject javaObject) : base(javaObject) { }
+        private class WifiShareCallbackInterface : AndroidJavaProxy
+        {
 
-        public static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.wifishare.WifiShareCallback");
-        public void OnFound(String endpointId, ScanEndpointInfo info) => androidJavaClass.Call("onFound", endpointId, info);
-        public void OnLost(String endpointId) => androidJavaClass.Call("onLost", endpointId);
-        public void OnFetchAuthCode(String endpointId, String authCode) => androidJavaClass.Call("onFetchAuthCode", endpointId, authCode);
-        public void OnWifiShareResult(String endpointId, int statusCode) => androidJavaClass.Call("onWifiShareResult", endpointId, statusCode);
+            private readonly IWifiShareCallback mListener;
 
+            public WifiShareCallbackInterface(IWifiShareCallback listener) : base("org.m0skit0.android.hms.unity.nearby.WifiShareListener")
+            {
+                mListener = listener;
+            }
+
+            public void OnFound(String endpointId, ScanEndpointInfo info)
+            {
+                mListener.onFound(endpointId, info);
+            }
+
+            public void OnLost(String endpointId)
+            {
+                mListener.onLost(endpointId);
+            }
+            public void OnFetchAuthCode(String endpointId, String authCode)
+            {
+                mListener.onFetchAuthCode(endpointId, authCode);
+            }
+            public void OnWifiShareResult(String endpointId, int statusCode)
+            {
+                mListener.onWifiShareResult(endpointId, statusCode);
+            }
+
+        }
+        public WifiShareCallback(IWifiShareCallback listener)
+                : base("org.m0skit0.android.hms.unity.nearby.WifiShareListenerWrapper", new WifiShareCallbackInterface(listener)) { }
 
     }
 }

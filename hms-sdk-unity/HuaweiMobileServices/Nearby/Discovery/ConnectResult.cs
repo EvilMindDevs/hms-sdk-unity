@@ -12,9 +12,6 @@
 
         public static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.discovery.ConnectResult");
         public Status GetStatus() => androidJavaClass.Call<Status>("getStatus");
-        public void WriteToParce(Parcel dest, int flags) => androidJavaClass.Call("writeToParcel", dest, flags);
-        public int DescribeContents() => androidJavaClass.Call<int>("describeContents");
-
 
     }
 }

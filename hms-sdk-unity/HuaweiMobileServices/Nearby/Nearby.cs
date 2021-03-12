@@ -10,12 +10,10 @@ using HuaweiMobileServices.Nearby.WifiShare;
 namespace HuaweiMobileServices.Nearby
 {
     // Wrapper for com.huawei.hms.nearby.Nearby
-    public class Nearby : JavaObjectWrapper
+    public class Nearby  
     {
         [UnityEngine.Scripting.Preserve]
-        public Nearby(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.Nearby");
-
         public static DiscoveryEngine GetDiscoveryEngine(AndroidJavaObject activity)
         {
             AndroidJavaObject androidJavaObject = androidJavaClass.CallStatic<AndroidJavaObject>("getDiscoveryEngine", activity);
@@ -28,7 +26,5 @@ namespace HuaweiMobileServices.Nearby
         public static String Version => androidJavaClass.CallStatic<String>("getVersion");
         public static WifiShareEngine GetWifiShareEngine(AndroidJavaObject context) =>
                     androidJavaClass.CallStatic<WifiShareEngine>("getWifiShareEngine", context);
-
-
     }
 }

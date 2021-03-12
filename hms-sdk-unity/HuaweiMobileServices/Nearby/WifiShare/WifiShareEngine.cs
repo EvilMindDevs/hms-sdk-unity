@@ -1,4 +1,5 @@
-﻿using HuaweiMobileServices.Utils;
+﻿using HuaweiMobileServices.Base;
+using HuaweiMobileServices.Utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Void = HuaweiMobileServices.Utils.Void;
 
+// com.huawei.hms.nearby.wifishare.WifiShareEngine wrapper
 namespace HuaweiMobileServices.Nearby.WifiShare
 {
    public class WifiShareEngine : JavaObjectWrapper
@@ -13,13 +15,11 @@ namespace HuaweiMobileServices.Nearby.WifiShare
         [UnityEngine.Scripting.Preserve]
         public WifiShareEngine(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.wifishare.WifiShareEngine");
-
-        public Task<Void> StartWifiSharee(WifiShareCallback callback, WifiSharePolicy policy)
-                            => androidJavaClass.Call<Task<Void>>("startWifiShare", callback, policy);
-        public Task<Void> StopWifiSharee()
-                    => androidJavaClass.Call<Task<Void>>("stopWifiShare");
-        public Task<Void> ShareWifiConfig(String endPointID)
-                => androidJavaClass.Call<Task<Void>>("shareWifiConfig", endPointID);
+        public ITask<Void> StartWifiSharee(WifiShareCallback callback, WifiSharePolicy policy)
+                            => CallAsWrapper<TaskVoidWrapper>("startWifiShare", callback, policy);
+        public ITask<Void> StopWifiSharee()
+                    => CallAsWrapper<TaskVoidWrapper>("stopWifiShare");
+        public ITask<Void> ShareWifiConfig(String endPointID)
+                => CallAsWrapper<TaskVoidWrapper>("shareWifiConfig", endPointID);
     }
 }

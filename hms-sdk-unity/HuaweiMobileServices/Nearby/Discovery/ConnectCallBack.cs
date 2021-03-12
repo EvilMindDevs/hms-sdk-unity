@@ -7,10 +7,8 @@ namespace HuaweiMobileServices.Nearby.Discovery
 
     public class ConnectCallback : JavaObjectWrapper
     {
-
         private class ConnectCallbackInterface : AndroidJavaProxy
         {
-
             private readonly IConnectCallBack mListener;
              public ConnectCallbackInterface(IConnectCallBack listener) : base("org.m0skit0.android.hms.unity.nearby.NearbyListener")
             {

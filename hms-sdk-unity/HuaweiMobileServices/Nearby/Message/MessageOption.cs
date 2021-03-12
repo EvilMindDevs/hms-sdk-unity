@@ -22,7 +22,7 @@ namespace HuaweiMobileServices.Nearby.Message
 
             public Builder() : base("com.huawei.hms.nearby.message.MessageOption$Builder") { }
             public GetOption Build() => CallAsWrapper<GetOption>("build"); 
-            public Builder SetPermissions(int permissions) => Call<Builder>("setPermissions", permissions);
+            public Builder SetPermissions(int permissions) => CallAsWrapper<Builder>("setPermissions", permissions);
         }
     }
 }

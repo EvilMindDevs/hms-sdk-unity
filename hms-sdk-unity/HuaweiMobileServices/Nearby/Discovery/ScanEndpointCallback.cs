@@ -7,7 +7,6 @@ namespace HuaweiMobileServices.Nearby.Discovery
 
     public class ScanEndpointCallback : JavaObjectWrapper
     {
-
         private class ScanEndpointCallbackInterface : AndroidJavaProxy
         {
 

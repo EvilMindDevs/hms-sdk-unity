@@ -12,12 +12,7 @@ namespace HuaweiMobileServices.Nearby.Message
         public MessagePicker(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.MessagePicker");
-        public static MessagePicker DEFAULT => androidJavaClass.GetStatic<MessagePicker>("INCLUDE_ALL_TYPES");
-        public bool Equals(AndroidJavaObject androidJavaObject) => androidJavaClass.Call<bool>("equals", androidJavaObject);
- 
-        public int HashCode => androidJavaClass.Call<int>("hashCode");
-        public void WriteToParce(Parcel dest, int flags) => androidJavaClass.Call("writeToParcel", dest, flags);
-        public int DescribeContents => androidJavaClass.Call<int>("describeContents");
+        public static MessagePicker INCLUDE_ALL_TYPES => androidJavaClass.GetStatic<MessagePicker>("INCLUDE_ALL_TYPES");
         public String ToStringObject => androidJavaClass.Call<String>("toString");
         public class Builder : JavaObjectWrapper
         {

@@ -12,8 +12,6 @@ namespace HuaweiMobileServices.Nearby.Discovery
         public static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.discovery.ScanEndpointInfo");
         public String Name => androidJavaClass.Call<String>("getName");
         public String ServiceID => androidJavaClass.Call<String>("getServiceID");
-        public void WriteToParce(Parcel dest, int flags) => androidJavaClass.Call("writeToParcel", dest, flags);
-        public int DescribeContents() => androidJavaClass.Call<int>("describeContents");
 
     }
 }

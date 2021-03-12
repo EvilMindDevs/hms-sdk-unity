@@ -4,7 +4,6 @@ using HuaweiMobileServices.Utils;
 using System;
 using HuaweiMobileServices.Nearby.Transfer;
 
-// Wrapper for com.huawei.hms.nearby.transfer
 
 public class DataCallback : JavaObjectWrapper
 {
