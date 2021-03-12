@@ -18,7 +18,7 @@ namespace HuaweiMobileServices.Nearby.Transfer
 
         public class Status
         {
-            public static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.transfer.TransferStateUpdate$Status");
+            private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.transfer.TransferStateUpdate$Status");
 
             public static int TRANSFER_STATE_CANCELED  => androidJavaClass.GetStatic<int>("TRANSFER_STATE_CANCELED");
             public static int TRANSFER_STATE_FAILURE => androidJavaClass.GetStatic<int>("TRANSFER_STATE_FAILURE");

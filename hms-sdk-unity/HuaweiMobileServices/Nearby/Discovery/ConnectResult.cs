@@ -4,14 +4,11 @@
     using HuaweiMobileServices.Utils;
     using System;
     using UnityEngine;
-
+    //com.huawei.hms.nearby.discovery.ConnectResult
     public class ConnectResult : JavaObjectWrapper
     {
         [UnityEngine.Scripting.Preserve]
         public ConnectResult(AndroidJavaObject javaObject) : base(javaObject) { }
-
-        public static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.discovery.ConnectResult");
-        public Status GetStatus() => androidJavaClass.Call<Status>("getStatus");
-
+        public Status GetStatus() => CallAsWrapper<Status>("getStatus");
     }
 }

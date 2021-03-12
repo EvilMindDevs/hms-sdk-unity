@@ -10,7 +10,7 @@ namespace HuaweiMobileServices.Nearby.Message
         [UnityEngine.Scripting.Preserve]
         public GetCallback(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.GetCallback");
+        private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.GetCallback");
         public void OnTimeout() => androidJavaClass.Call("onTimeout");
     }
 }

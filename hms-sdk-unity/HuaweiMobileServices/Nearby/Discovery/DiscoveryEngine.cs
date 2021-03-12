@@ -13,7 +13,7 @@ namespace HuaweiMobileServices.Nearby.Discovery
         [UnityEngine.Scripting.Preserve]
         public DiscoveryEngine(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.discovery.DiscoveryEngine");
+        private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.discovery.DiscoveryEngine");
         public ITask<Void> AcceptConnect(String endpointId, IDataCallback dataCallback) 
             => CallAsWrapper<TaskVoidWrapper>("acceptConnect", endpointId, new DataCallback(dataCallback));
         public void Disconnect(String endpointId) => androidJavaClass.Call("disconnect", endpointId);

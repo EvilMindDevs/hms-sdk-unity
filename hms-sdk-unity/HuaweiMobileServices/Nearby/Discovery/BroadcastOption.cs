@@ -9,9 +9,7 @@
     {
         [UnityEngine.Scripting.Preserve]
         public BroadcastOption(AndroidJavaObject javaObject) : base(javaObject) { }
-
-        public static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.discovery.BroadcastOption");
-        public Policy Policy => androidJavaClass.Call<Policy>("getPolicy");
+        public Policy Policy => CallAsWrapper<Policy>("getPolicy");
         public class Builder : JavaObjectWrapper
         {
             [UnityEngine.Scripting.Preserve]

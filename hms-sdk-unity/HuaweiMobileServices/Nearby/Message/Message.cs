@@ -8,8 +8,8 @@ namespace HuaweiMobileServices.Nearby.Message
     {
         [UnityEngine.Scripting.Preserve]
         public Message(AndroidJavaObject javaObject) : base(javaObject) { }
-        
-        public static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.Message");
+
+        private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.Message");
         public static int MAX_CONTENT_SIZE => androidJavaClass.GetStatic<int>("MAX_CONTENT_SIZE");
         public static int MAX_TYPE_LENGTH => androidJavaClass.GetStatic<int>("MAX_TYPE_LENGTH");
         public static String MESSAGE_NAMESPACE_RESERVED => androidJavaClass.GetStatic<String>("MESSAGE_NAMESPACE_RESERVED");

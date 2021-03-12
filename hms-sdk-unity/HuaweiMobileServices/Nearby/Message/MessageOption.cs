@@ -11,7 +11,7 @@ namespace HuaweiMobileServices.Nearby.Message
         [UnityEngine.Scripting.Preserve]
         public MessageOption(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.MessageOption");
+        private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.MessageOption");
  
         public static int Permissions => androidJavaClass.Call<int>("getPermissions");
  

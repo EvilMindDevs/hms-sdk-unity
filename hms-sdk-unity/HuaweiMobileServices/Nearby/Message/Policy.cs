@@ -11,7 +11,7 @@ namespace HuaweiMobileServices.Nearby.Message
         public Policy() : base("com.huawei.hms.nearby.message.Policy") { }
         public Policy(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.Policy");
+        private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.Policy");
         public static Policy BLE_ONLY => androidJavaClass.GetStaticAsWrapper<Policy>("BLE_ONLY");
         public static Policy DEFAULT => androidJavaClass.GetStaticAsWrapper<Policy>("DEFAULT");       
         public static int POLICY_FINDING_MODE_BROADCAST => androidJavaClass.GetStatic<int>("POLICY_FINDING_MODE_BROADCAST");

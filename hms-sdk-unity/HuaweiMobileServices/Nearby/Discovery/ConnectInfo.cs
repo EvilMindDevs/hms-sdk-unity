@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Nearby.Discovery
         [UnityEngine.Scripting.Preserve]
         public ConnectInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.discovery.ConnectInfo");
+        private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.discovery.ConnectInfo");
         public String AuthCode => androidJavaClass.Call<String>("getAuthCode");
         public String EndpointName => androidJavaClass.Call<String>("getEndpointName");
         public bool IsRemoteConnect => androidJavaClass.Call<bool>("isRemoteConnect");

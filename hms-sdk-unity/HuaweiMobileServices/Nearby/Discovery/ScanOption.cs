@@ -8,9 +8,7 @@ namespace HuaweiMobileServices.Nearby.Discovery
         [UnityEngine.Scripting.Preserve]
         public ScanOption(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.discovery.ScanOption");
-
-        public Policy Policy => androidJavaClass.Call<Policy>("getPolicy");
+        public Policy Policy => CallAsWrapper<Policy>("getPolicy");
 
         public class Builder : JavaObjectWrapper
         {

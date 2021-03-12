@@ -14,7 +14,6 @@ namespace HuaweiMobileServices.Nearby.Discovery
             {
                 mListener = listener;
             }
-
             public void onEstablish(string p0, AndroidJavaObject p1)
             {
                 mListener.onEstablish(p0, p1);

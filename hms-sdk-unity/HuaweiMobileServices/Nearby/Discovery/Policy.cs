@@ -11,7 +11,7 @@ namespace HuaweiMobileServices.Nearby.Discovery
         public Policy() : base ("com.huawei.hms.nearby.discovery.Policy") { }
         public Policy(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.discovery.Policy");
+        private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.discovery.Policy");
         public static Policy POLICY_MESH => androidJavaClass.GetStaticAsWrapper<Policy>("POLICY_MESH"); 
         public static Policy POLICY_P2P => androidJavaClass.GetStaticAsWrapper<Policy>("POLICY_P2P"); 
         public static Policy POLICY_STAR => androidJavaClass.GetStaticAsWrapper<Policy>("POLICY_STAR"); 

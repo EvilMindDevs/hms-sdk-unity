@@ -12,10 +12,17 @@ namespace HuaweiMobileServices.Nearby
         [UnityEngine.Scripting.Preserve]
         public NearbyApiContext(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.NearbyApiContext");
-
-        public NearbyApiContext GetInstance() => androidJavaClass.CallStatic<NearbyApiContext>("getIntance");
-
-        public void SetApiKey(String apiKey) => androidJavaClass.CallStatic("setApiKey", apiKey);
+        private static NearbyApiContext nearbyApiContextInstance = null;
+        public static NearbyApiContext GetInstance()
+        {
+            if (nearbyApiContextInstance == null)
+            {
+                AndroidJavaObject analyticsClassObject = androidJavaClass.CallStatic<AndroidJavaObject>("getInstance");
+                nearbyApiContextInstance = new NearbyApiContext(analyticsClassObject);
+            }
+            return nearbyApiContextInstance;
+        }
+        public void SetApiKey(String apiKey) => androidJavaClass.Call("setApiKey", apiKey);
         public String GetApiKey => androidJavaClass.Call<String>("getApiKey");
 
     }
