@@ -31,7 +31,7 @@ namespace HuaweiMobileServices.Nearby
         }
         public static MessageEngine GetMessageEngine(AndroidJavaObject context, MessageOption messageOption)
         {
-            AndroidJavaObject androidJavaObject = androidJavaClass.CallStatic<AndroidJavaObject>("getMessageEngine", context, messageOption;
+            AndroidJavaObject androidJavaObject = androidJavaClass.CallStatic<AndroidJavaObject>("getMessageEngine", context, messageOption);
             return new MessageEngine(androidJavaObject);
         }
         public static String Version => androidJavaClass.CallStatic<String>("getVersion");
