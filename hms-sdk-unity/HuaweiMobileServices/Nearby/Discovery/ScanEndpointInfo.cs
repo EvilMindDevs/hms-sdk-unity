@@ -8,10 +8,7 @@ namespace HuaweiMobileServices.Nearby.Discovery
     {
         [UnityEngine.Scripting.Preserve]
         public ScanEndpointInfo(AndroidJavaObject javaObject) : base(javaObject) { }
-
-        private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.discovery.ScanEndpointInfo");
-        public String Name => androidJavaClass.Call<String>("getName");
-        public String ServiceID => androidJavaClass.Call<String>("getServiceID");
-
+        public String Name => Call<String>("getName");
+        public String ServiceID => Call<String>("getServiceID");
     }
 }

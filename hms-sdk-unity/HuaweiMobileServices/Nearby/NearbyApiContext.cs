@@ -17,13 +17,12 @@ namespace HuaweiMobileServices.Nearby
         {
             if (nearbyApiContextInstance == null)
             {
-                AndroidJavaObject analyticsClassObject = androidJavaClass.CallStatic<AndroidJavaObject>("getInstance");
-                nearbyApiContextInstance = new NearbyApiContext(analyticsClassObject);
+                nearbyApiContextInstance = androidJavaClass.CallStaticAsWrapper<NearbyApiContext>("getInstance");
             }
             return nearbyApiContextInstance;
         }
-        public void SetApiKey(String apiKey) => androidJavaClass.Call("setApiKey", apiKey);
-        public String GetApiKey => androidJavaClass.Call<String>("getApiKey");
+        public void SetApiKey(String apiKey) => Call("setApiKey", apiKey);
+        public String GetApiKey => Call<String>("getApiKey");
 
     }
 }

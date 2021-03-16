@@ -14,31 +14,12 @@ namespace HuaweiMobileServices.Nearby
     {
         [UnityEngine.Scripting.Preserve]
         private static readonly AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.Nearby");
-        public static DiscoveryEngine GetDiscoveryEngine(AndroidJavaObject activity)
-        {
-            AndroidJavaObject androidJavaObject = androidJavaClass.CallStatic<AndroidJavaObject>("getDiscoveryEngine", activity);
-            return new DiscoveryEngine(androidJavaObject);   
-        }
-        public static TransferEngine GetTransferEngine(AndroidJavaObject activity)
-        {
-            AndroidJavaObject androidJavaObject = androidJavaClass.CallStatic<AndroidJavaObject>("getTransferEngine", activity);
-            return new TransferEngine(androidJavaObject);
-        }
-        public static MessageEngine GetMessageEngine(AndroidJavaObject context)
-        {
-            AndroidJavaObject androidJavaObject = androidJavaClass.CallStatic<AndroidJavaObject>("getMessageEngine", context);
-            return new MessageEngine(androidJavaObject);
-        }
-        public static MessageEngine GetMessageEngine(AndroidJavaObject context, MessageOption messageOption)
-        {
-            AndroidJavaObject androidJavaObject = androidJavaClass.CallStatic<AndroidJavaObject>("getMessageEngine", context, messageOption);
-            return new MessageEngine(androidJavaObject);
-        }
+        public static DiscoveryEngine GetDiscoveryEngine(AndroidJavaObject activity) => androidJavaClass.CallStaticAsWrapper<DiscoveryEngine>("getDiscoveryEngine", activity);
+        public static TransferEngine GetTransferEngine(AndroidJavaObject activity) => androidJavaClass.CallStaticAsWrapper<TransferEngine>("getTransferEngine", activity);
+        public static MessageEngine GetMessageEngine(AndroidJavaObject context) => androidJavaClass.CallStaticAsWrapper<MessageEngine>("getMessageEngine", context);
+        public static MessageEngine GetMessageEngine(AndroidJavaObject context, MessageOption messageOption) => androidJavaClass.CallStaticAsWrapper<MessageEngine>("getMessageEngine", context,messageOption);
         public static String Version => androidJavaClass.CallStatic<String>("getVersion");
-        public static WifiShareEngine GetWifiShareEngine(AndroidJavaObject context)
-        {
-            AndroidJavaObject androidJavaObject = androidJavaClass.CallStatic<AndroidJavaObject>("getWifiShareEngine", context);
-            return new WifiShareEngine(androidJavaObject);
-        }
+        public static WifiShareEngine GetWifiShareEngine(AndroidJavaObject context) => androidJavaClass.CallStaticAsWrapper<WifiShareEngine>("getWifiShareEngine", context);
+ 
     }
 }

@@ -16,10 +16,10 @@ namespace HuaweiMobileServices.Nearby.Message
         public static String MESSAGE_TYPE_EDDYSTONE_UID => androidJavaClass.GetStatic<String>("MESSAGE_TYPE_EDDYSTONE_UID");
         public static String MESSAGE_TYPE_I_BEACON_ID => androidJavaClass.GetStatic<String>("MESSAGE_TYPE_I_BEACON_ID");
 
-        public String Type => androidJavaClass.Call<String>("getType");
-        public String MessageString => androidJavaClass.Call<String>("toString");
-        public byte[] Hex => androidJavaClass.Call<byte[]>("getContent");
-        public String NameSpace => androidJavaClass.Call<String>("getNamespace");
+        public String Type => Call<String>("getType");
+        public String MessageString => Call<String>("toString");
+        public byte[] Hex => Call<byte[]>("getContent");
+        public String NameSpace => Call<String>("getNamespace");
 
     }
 }

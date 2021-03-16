@@ -11,8 +11,7 @@ namespace HuaweiMobileServices.Nearby.Message
     {
         [UnityEngine.Scripting.Preserve]
         public MessageEngine(AndroidJavaObject javaObject) : base(javaObject) { }
-        private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.MessageEngine");
-        public void HandleIntent(AndroidJavaObject intent, MessageHandler handler) => androidJavaClass.Call("handleIntent", intent, handler);
+        public void HandleIntent(AndroidIntent intent, MessageHandler handler) => Call("handleIntent", intent, handler);
         public ITask<Void> Put(Message message) => CallAsWrapper<TaskVoidWrapper>("put", message);
         public ITask<Void> Put(Message message, PutOption option) => CallAsWrapper<TaskVoidWrapper>("put", message, option);
         public ITask<Void> RegisterStatusCallback(StatusCallback statusCallback) => CallAsWrapper<TaskVoidWrapper>("registerStatusCallback", statusCallback);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace HuaweiMobileServices.Nearby.Message
 {
-    class BeaconId : JavaObjectWrapper
+    public class BeaconId : JavaObjectWrapper
     {
         [UnityEngine.Scripting.Preserve]
         public BeaconId(AndroidJavaObject javaObject) : base(javaObject) { }
@@ -15,18 +15,22 @@ namespace HuaweiMobileServices.Nearby.Message
         public static int EDDYSTONE_UID_LENGTH => androidJavaClass.GetStatic<int>("EDDYSTONE_UID_LENGTH");
         public static int EDDYSTONE_NAMESPACE_LENGTH => androidJavaClass.GetStatic<int>("EDDYSTONE_NAMESPACE_LENGTH");
         public static int EDDYSTONE_INSTANCE_LENGTH => androidJavaClass.GetStatic<int>("EDDYSTONE_INSTANCE_LENGTH");
-        public int Length => androidJavaClass.Call<int>("getLength");
-        public int Type => androidJavaClass.Call<int>("getType");
+        public int Length => Call<int>("getLength");
+        public int Type => Call<int>("getType");
         public BeaconId Parse(Message messsage) => androidJavaClass.CallStaticAsWrapper<BeaconId>("parse", messsage);
-        public String ToStringBeacon => androidJavaClass.Call<String>("toString");
-        public String Hex => androidJavaClass.Call<String>("getHex");
-        public String Instance => androidJavaClass.Call<String>("getInstance");
-        public String NameSpace => androidJavaClass.Call<String>("getNamespace");
-        public short Major => androidJavaClass.Call<short>("getMajor");
-        public short Minor => androidJavaClass.Call<short>("getMinor");
-        public AndroidJavaObject BeaconUuid => androidJavaClass.Call<AndroidJavaObject>("getBeaconUuid");
-
-
+        public String ToStringBeacon => Call<String>("toString");
+        public String Hex => Call<String>("getHex");
+        public String Instance => Call<String>("getInstance");
+        public String NameSpace => Call<String>("getNamespace");
+        public short Major => Call<short>("getMajor");
+        public short Minor => Call<short>("getMinor");
+        public String BeaconUuid()
+        {
+            AndroidJavaObject androidJavaObject = androidJavaClass.Call<AndroidJavaObject>("getBeaconUuid");
+            return androidJavaObject.Call<String>("toString"); 
+        }
+        
+ 
         public class Builder : JavaObjectWrapper
         {
             [UnityEngine.Scripting.Preserve]

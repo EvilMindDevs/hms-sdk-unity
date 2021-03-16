@@ -8,7 +8,6 @@ namespace HuaweiMobileServices.Nearby.Message
 {
     public class Policy : JavaObjectWrapper
     {
-        public Policy() : base("com.huawei.hms.nearby.message.Policy") { }
         public Policy(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.Policy");

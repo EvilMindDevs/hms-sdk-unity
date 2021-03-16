@@ -14,12 +14,12 @@ namespace HuaweiMobileServices.Nearby.Discovery
             {
                 mListener = listener;
             }
-            public void onEstablish(string p0, AndroidJavaObject p1)
+            public void onEstablish(string p0, ConnectInfo p1)
             {
                 mListener.onEstablish(p0, p1);
             }
 
-            public void onResult(string p0, AndroidJavaObject p1)
+            public void onResult(string p0, ConnectResult p1)
             {
                 mListener.onResult(p0, p1);
             }

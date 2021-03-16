@@ -1,6 +1,5 @@
 ﻿using HuaweiMobileServices.Utils;
 using System;
-using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
@@ -8,7 +7,6 @@ namespace HuaweiMobileServices.Nearby.Discovery
 {
     public class Policy : JavaObjectWrapper
     {
-        public Policy() : base ("com.huawei.hms.nearby.discovery.Policy") { }
         public Policy(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.discovery.Policy");

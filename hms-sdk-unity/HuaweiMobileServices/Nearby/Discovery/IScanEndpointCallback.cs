@@ -5,7 +5,7 @@ namespace HuaweiMobileServices.Nearby.Discovery
 {
     public interface IScanEndpointCallback
     {
-        void onFound(String endpointId, AndroidJavaObject info);
+        void onFound(String endpointId, ScanEndpointInfo info);
         void onLost(String endpointId);
   
     }
