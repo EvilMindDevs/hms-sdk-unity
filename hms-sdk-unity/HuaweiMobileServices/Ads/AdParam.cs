@@ -94,6 +94,12 @@ namespace HuaweiMobileServices.Ads
                 JavaObject = Call<AndroidJavaObject>("setAdContentClassification", param1String);
                 return this;
             }
+
+            public Builder SetConsent(string param1String)
+            {
+                JavaObject = Call<AndroidJavaObject>("setConsent", param1String);
+                return this;
+            }
         }
 
         public static class ErrorCode
@@ -113,6 +119,8 @@ namespace HuaweiMobileServices.Ads
             public static int BANNER_AD_EXPIRE = 6;
 
             public static int BANNER_AD_CANCEL = 7;
+
+            public static int HMS_NOT_SUPPORT_SET_APP = 8;
         }
     }
 

@@ -23,6 +23,8 @@
 
         public virtual string AdContentClassification => CallAsString("getAdContentClassification");
 
+        public virtual string Consent => CallAsString("getConsent");
+
         public virtual Builder ToBuilder() => CallAsWrapper<Builder>("toBuilder");
 
         public class Builder : JavaObjectWrapper
@@ -44,6 +46,8 @@
             public virtual Builder SetAppLang(string Param1String) => CallAsWrapper<Builder>("setAppLang", Param1String);
 
             public virtual Builder SetAppCountry(string Param1String) => CallAsWrapper<Builder>("setAppCountry", Param1String);
+
+            public virtual Builder SetConsent(string Param1String) => CallAsWrapper<Builder>("setConsent", Param1String);
 
         }
     }
