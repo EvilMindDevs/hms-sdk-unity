@@ -12,5 +12,10 @@ namespace HuaweiMobileServices.IAP
         {
             get => Call<int>("getReturnCode");
         }
+
+        public virtual int AccountFlag
+        {
+            get => Call<int>("getAccountFlag");
+        }
     }
 }

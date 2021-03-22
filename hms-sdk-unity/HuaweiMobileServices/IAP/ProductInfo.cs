@@ -45,6 +45,8 @@
 
         public virtual int SubProductLevel => Call<int>("getSubProductLevel");
 
+        public virtual int Status => Call<int>("getStatus");
+
     }
 
 }

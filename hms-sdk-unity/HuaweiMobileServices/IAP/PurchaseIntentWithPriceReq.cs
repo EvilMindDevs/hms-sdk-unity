@@ -66,6 +66,12 @@
             get => CallAsString("getDeveloperPayload");
             set => Call("setDeveloperPayload", value.AsJavaString());
         }
+
+        public virtual string ReservedInfor
+        {
+            get => CallAsString("getReservedInfor");
+            set => Call("setReservedInfor", value.AsJavaString());
+        }
     }
 
 }

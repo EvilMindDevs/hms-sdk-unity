@@ -15,6 +15,8 @@
         ITask<PlayerExtraInfo> GetPlayerExtraInfo(string paramString);
 
         ITask<string> SubmitPlayerEvent(string paramString1, string paramString2, string paramString3);
+
+        void SetGameTrialProcess(GameTrialProcess gameTrialProcess);
     }
 
 }

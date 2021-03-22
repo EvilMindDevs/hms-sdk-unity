@@ -26,5 +26,11 @@
             set => Call("setProductId", value.AsJavaString());
         }
 
+        public virtual string ReservedInfor
+        {
+            get => CallAsString("getReservedInfor");
+            set => Call("setReservedInfor", value.AsJavaString());
+        }
+
     }
 }

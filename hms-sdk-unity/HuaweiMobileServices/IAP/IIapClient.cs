@@ -8,6 +8,8 @@
     {
         ITask<EnvReadyResult> EnvReady { get; }
 
+        ITask<IsSandboxActivatedResult> SandboxActivated { get; }
+
         ITask<ProductInfoResult> ObtainProductInfo(ProductInfoReq productInfoReq);
 
         ITask<ConsumeOwnedPurchaseResult> ConsumeOwnedPurchase(ConsumeOwnedPurchaseReq consumeOwnedPurchaseReq);

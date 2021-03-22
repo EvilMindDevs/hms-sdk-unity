@@ -23,6 +23,8 @@ namespace HuaweiMobileServices.Game
             return new TaskVoidWrapper(javaTask);
         }
 
+        public void SetGameTrialProcess(GameTrialProcess gameTrialProcess) => Call<AndroidJavaObject>("setGameTrialProcess", gameTrialProcess.JavaObject);
+
         public ITask<string> SubmitPlayerEvent(string paramString1, string paramString2, string paramString3) =>
             CallAsWrapper<TaskStringWrapper>("submitPlayerEvent", paramString1.AsJavaString(), paramString2.AsJavaString(), paramString3.AsJavaString());
 

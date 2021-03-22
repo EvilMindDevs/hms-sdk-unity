@@ -20,6 +20,8 @@ namespace HuaweiMobileServices.Game
 
         public virtual bool IsRealName => Call<bool>("getIsRealName");
 
+        public virtual string OpenId => CallAsString("getOpenId");
+
     }
 
 }

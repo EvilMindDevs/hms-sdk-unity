@@ -19,6 +19,15 @@
             }
         }
 
+        public ITask<IsSandboxActivatedResult> SandboxActivated
+        {
+            get
+            {
+                var javaTask = Call<AndroidJavaObject>("isSandboxActivated");
+                return new TaskJavaObjectWrapper<IsSandboxActivatedResult>(javaTask);
+            }
+        }
+
         public ITask<ProductInfoResult> ObtainProductInfo(ProductInfoReq productInfoReq)
         {
             var javaTask = Call<AndroidJavaObject>("obtainProductInfo", productInfoReq.JavaObject);

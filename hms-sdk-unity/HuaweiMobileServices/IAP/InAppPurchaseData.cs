@@ -1,12 +1,14 @@
 ﻿namespace HuaweiMobileServices.IAP
 {
     using HuaweiMobileServices.Utils;
+    using System;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.iap.entity.InAppPurchaseData
     public class InAppPurchaseData : JavaObjectWrapper
     {
 
-        public const int NOT_PRESENT = -2147483648;
+        public const int NOT_PRESENT = int.MinValue;
 
         public InAppPurchaseData(string paramString) : base("com.huawei.hms.iap.entity.InAppPurchaseData", paramString) { }
 
@@ -24,7 +26,11 @@
 
         public virtual long PurchaseTime => Call<long>("getPurchaseTime");
 
-        public virtual int PurchaseState => Call<int>("getPurchaseState");
+        public virtual PurchaseState PurchaseState()
+        {
+            var state = Call<int>("getPurchaseState");
+            return (PurchaseState)state;
+        }
 
         public virtual string DeveloperPayload => CallAsString("getDeveloperPayload");
 
@@ -88,7 +94,7 @@
 
         public virtual int ConsumptionState => Call<int>("getConsumptionState");
 
-        public virtual int Acknowledged => Call<int>("getAcknowledged");
+        //public virtual int Acknowledged => Call<int>("getAcknowledged");
 
         public virtual string PayOrderId => CallAsString("getPayOrderId");
 
@@ -102,6 +108,30 @@
 
         public virtual long CancellationTime => Call<long>("getCancellationTime");
 
-    }
+        public virtual long ResumeTime => Call<long>("getResumeTime");
 
+        public virtual long GraceExpirationTime => Call<long>("getGraceExpirationTime");
+
+        public virtual int AccountFlag => Call<int>("getAccountFlag");
+
+        public static class PurchaseStates
+        {
+            private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.iap.entity.InAppPurchaseData.PurchaseState");
+
+            public static int INITIALIZED = sJavaClass.CallStatic<int>("INITIALIZED");
+
+            public static int PURCHASED = sJavaClass.CallStatic<int>("PURCHASED");
+
+            public static int CANCELLED = sJavaClass.CallStatic<int>("CANCELLED");
+
+            public static int REFUNDED = sJavaClass.CallStatic<int>("REFUNDED");
+        }
+    }
+    public enum PurchaseState
+    {
+        INITIALIZED = int.MinValue,
+        PURCHASED = 0,
+        CANCELLED = 1,
+        REFUNDED = 2
+    }
 }

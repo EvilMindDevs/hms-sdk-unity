@@ -34,6 +34,11 @@ namespace HuaweiMobileServices.Game
         {
             get => CallAsString("getPlayerId");
         }
+
+        public virtual string OpenId
+        {
+            get => CallAsString("getOpenId");
+        }
     }
 
 }
