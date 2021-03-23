@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace HuaweiMobileServices.AppMessaging
 {
-    internal class AGConnectAppMessagingCallbackWrapper : AndroidJavaProxy
+    public class AGConnectAppMessagingCallbackWrapper : AndroidJavaProxy
     {
         private Action<AppMessage> mOnMessageClick;
         private Action<AppMessage> mOnMessageDisplay;

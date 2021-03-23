@@ -9,11 +9,9 @@ namespace HuaweiMobileServices.AppMessaging
         public AGConnectAppMessaging(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static readonly AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.agconnect.appmessaging.AGConnectAppMessaging");
-        public static AGConnectAppMessaging GetInstance()
-        {
-            AGConnectAppMessaging agConnectAppMessaging = androidJavaClass.CallStaticAsWrapper<AGConnectAppMessaging>("getInstance");
-            return agConnectAppMessaging;
-        }
+        public static AGConnectAppMessaging Instance
+            => androidJavaClass.CallStaticAsWrapper<AGConnectAppMessaging>("getInstance");
+        
         public bool FetchMessageEnable => Call<bool>("isFetchMessageEnable");
         public void SetFetchMessageEnable(bool enable) => Call("setFetchMessageEnable", enable);
         public bool DisplayEnable => Call<bool>("isDisplayEnable");
@@ -22,13 +20,13 @@ namespace HuaweiMobileServices.AppMessaging
         {
             Call("addOnClickListener", new AGConnectAppMessagingOnClickListenerWrapper(onMessageClick));
         }
-        public void AddOnDismissListener(Action<AppMessage> onMessageClick)
+        public void AddOnDismissListener(Action<AppMessage, AGConnectAppMessagingCallbackWrapper.DismissType> onMessageClick)
         {
             Call("addOnDismissListener", new AGConnectAppMessagingOnDismissListenerWrapper(onMessageClick));
         }
-        public void AGConnectAppMessagingOnDisplayListener(Action<AppMessage> onMessageClick)
+        public void AddOnDisplayListener(Action<AppMessage> onMessageClick)
         {
-            Call("addOnDisplayListener", new AGConnectAppMessagingDisplayWrapper(onMessageClick));
+            Call("addOnDisplayListener", new AGConnectAppMessagingOnDisplayListenerWrapper(onMessageClick));
         }
         public void SetForceFetch() => Call("setForceFetch");
         public void RemoveCustomView() => Call("removeCustomView");

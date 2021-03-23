@@ -15,7 +15,6 @@ namespace HuaweiMobileServices.AppMessaging
         }
         public void onMessageError(AndroidJavaObject appMessage)
         {
-            Debug.Log("AppMessaging onMessageClick");
             mListener.Invoke(appMessage.AsWrapper<AppMessage>());
         }
     }
