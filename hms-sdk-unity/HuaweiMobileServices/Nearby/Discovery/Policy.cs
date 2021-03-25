@@ -7,6 +7,7 @@ namespace HuaweiMobileServices.Nearby.Discovery
 {
     public class Policy : JavaObjectWrapper
     {
+		[UnityEngine.Scripting.Preserve]
         public Policy(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.discovery.Policy");
