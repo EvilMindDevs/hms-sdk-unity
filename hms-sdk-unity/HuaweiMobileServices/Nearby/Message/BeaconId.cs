@@ -24,13 +24,8 @@ namespace HuaweiMobileServices.Nearby.Message
         public String NameSpace => Call<String>("getNamespace");
         public short Major => Call<short>("getMajor");
         public short Minor => Call<short>("getMinor");
-        public String BeaconUuid()
-        {
-            AndroidJavaObject androidJavaObject = androidJavaClass.Call<AndroidJavaObject>("getBeaconUuid");
-            return androidJavaObject.Call<String>("toString"); 
-        }
-        
- 
+        public String BeaconUuid => Call<AndroidJavaObject>("getBeaconUuid").Call<String>("toString"); 
+      
         public class Builder : JavaObjectWrapper
         {
             [UnityEngine.Scripting.Preserve]

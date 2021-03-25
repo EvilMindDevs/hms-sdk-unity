@@ -13,7 +13,7 @@ namespace HuaweiMobileServices.Nearby.Message
         private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.GetOption");
         public static GetOption DEFAULT => androidJavaClass.GetStaticAsWrapper<GetOption>("DEFAULT");
 
-        public GetCallback GetCallback => CallAsWrapper<GetCallback>("getCallback");
+        public GetCallback Callback => CallAsWrapper<GetCallback>("getCallback");
         public MessagePicker MessagePicker => CallAsWrapper<MessagePicker>("getPicker");
         public Policy Policy => CallAsWrapper<Policy>("getPolicy");
         public class Builder : JavaObjectWrapper

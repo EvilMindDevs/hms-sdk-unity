@@ -8,6 +8,7 @@ namespace HuaweiMobileServices.Nearby.Message
 {
     public class Policy : JavaObjectWrapper
     {
+        [UnityEngine.Scripting.Preserve]
         public Policy(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.Policy");

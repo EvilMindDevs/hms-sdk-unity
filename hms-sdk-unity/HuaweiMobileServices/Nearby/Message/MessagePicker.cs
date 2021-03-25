@@ -7,7 +7,7 @@ using UnityEngine;
 namespace HuaweiMobileServices.Nearby.Message
 {
    public  class MessagePicker : JavaObjectWrapper
-    {
+   {
         [UnityEngine.Scripting.Preserve]
         public MessagePicker(AndroidJavaObject javaObject) : base(javaObject) { }
 

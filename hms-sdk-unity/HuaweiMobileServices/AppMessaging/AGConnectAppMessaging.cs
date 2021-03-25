@@ -20,7 +20,7 @@ namespace HuaweiMobileServices.AppMessaging
         {
             Call("addOnClickListener", new AGConnectAppMessagingOnClickListenerWrapper(onMessageClick));
         }
-        public void AddOnDismissListener(Action<AppMessage, AGConnectAppMessagingCallbackWrapper.DismissType> onMessageClick)
+        public void AddOnDismissListener(Action<AppMessage, DismissType> onMessageClick)
         {
             Call("addOnDismissListener", new AGConnectAppMessagingOnDismissListenerWrapper(onMessageClick));
         }

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using HuaweiMobileServices.Utils;
 using System;
 using HuaweiMobileServices.Nearby.Transfer;

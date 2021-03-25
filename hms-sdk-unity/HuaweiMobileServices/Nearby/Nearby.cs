@@ -14,12 +14,12 @@ namespace HuaweiMobileServices.Nearby
     {
         [UnityEngine.Scripting.Preserve]
         private static readonly AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.Nearby");
-        public static DiscoveryEngine GetDiscoveryEngine(AndroidJavaObject activity) => androidJavaClass.CallStaticAsWrapper<DiscoveryEngine>("getDiscoveryEngine", activity);
-        public static TransferEngine GetTransferEngine(AndroidJavaObject activity) => androidJavaClass.CallStaticAsWrapper<TransferEngine>("getTransferEngine", activity);
-        public static MessageEngine GetMessageEngine(AndroidJavaObject context) => androidJavaClass.CallStaticAsWrapper<MessageEngine>("getMessageEngine", context);
-        public static MessageEngine GetMessageEngine(AndroidJavaObject context, MessageOption messageOption) => androidJavaClass.CallStaticAsWrapper<MessageEngine>("getMessageEngine", context,messageOption);
+        public static DiscoveryEngine GetDiscoveryEngine() => androidJavaClass.CallStaticAsWrapper<DiscoveryEngine>("getDiscoveryEngine", AndroidContext.ApplicationContext);
+        public static TransferEngine GetTransferEngine() => androidJavaClass.CallStaticAsWrapper<TransferEngine>("getTransferEngine", AndroidContext.ApplicationContext);
+        public static MessageEngine GetMessageEngine() => androidJavaClass.CallStaticAsWrapper<MessageEngine>("getMessageEngine", AndroidContext.ActivityContext);
+        public static MessageEngine GetMessageEngine(MessageOption messageOption) => androidJavaClass.CallStaticAsWrapper<MessageEngine>("getMessageEngine", AndroidContext.ApplicationContext, messageOption);
         public static String Version => androidJavaClass.CallStatic<String>("getVersion");
-        public static WifiShareEngine GetWifiShareEngine(AndroidJavaObject context) => androidJavaClass.CallStaticAsWrapper<WifiShareEngine>("getWifiShareEngine", context);
+        public static WifiShareEngine GetWifiShareEngine() => androidJavaClass.CallStaticAsWrapper<WifiShareEngine>("getWifiShareEngine", AndroidContext.ApplicationContext);
  
     }
 }

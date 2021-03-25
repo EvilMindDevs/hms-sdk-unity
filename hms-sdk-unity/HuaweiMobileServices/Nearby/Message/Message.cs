@@ -18,7 +18,7 @@ namespace HuaweiMobileServices.Nearby.Message
 
         public String Type => Call<String>("getType");
         public String MessageString => Call<String>("toString");
-        public byte[] Hex => Call<byte[]>("getContent");
+        public byte[] Content => Call<byte[]>("getContent");
         public String NameSpace => Call<String>("getNamespace");
 
     }
