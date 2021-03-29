@@ -17,9 +17,9 @@ namespace HuaweiMobileServices.Nearby.WifiShare
                 mListener = listener;
             }
 
-            public void OnFound(String endpointId, ScanEndpointInfo info)
+            public void OnFound(String endpointId, AndroidJavaObject info)
             {
-                mListener.onFound(endpointId, info);
+                mListener.onFound(endpointId, info.AsWrapper<ScanEndpointInfo>());
             }
 
             public void OnLost(String endpointId)

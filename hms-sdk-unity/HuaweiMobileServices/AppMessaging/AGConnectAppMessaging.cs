@@ -16,17 +16,17 @@ namespace HuaweiMobileServices.AppMessaging
         public void SetFetchMessageEnable(bool enable) => Call("setFetchMessageEnable", enable);
         public bool DisplayEnable => Call<bool>("isDisplayEnable");
         public void SetDisplayEnable(bool enable) => Call("setDisplayEnable", enable);
-        public void AddOnClickListener(Action<AppMessage> onMessageClick)
+        public void AddOnClickListener(Action<AppMessage> listener)
         {
-            Call("addOnClickListener", new AGConnectAppMessagingOnClickListenerWrapper(onMessageClick));
+            Call("addOnClickListener", new AGConnectAppMessagingOnClickListenerWrapper(listener));
         }
-        public void AddOnDismissListener(Action<AppMessage, DismissType> onMessageClick)
+        public void AddOnDismissListener(Action<AppMessage, DismissType> listener)
         {
-            Call("addOnDismissListener", new AGConnectAppMessagingOnDismissListenerWrapper(onMessageClick));
+            Call("addOnDismissListener", new AGConnectAppMessagingOnDismissListenerWrapper(listener));
         }
-        public void AddOnDisplayListener(Action<AppMessage> onMessageClick)
+        public void AddOnDisplayListener(Action<AppMessage> listener)
         {
-            Call("addOnDisplayListener", new AGConnectAppMessagingOnDisplayListenerWrapper(onMessageClick));
+            Call("addOnDisplayListener", new AGConnectAppMessagingOnDisplayListenerWrapper(listener));
         }
         public void SetForceFetch() => Call("setForceFetch");
         public void RemoveCustomView() => Call("removeCustomView");

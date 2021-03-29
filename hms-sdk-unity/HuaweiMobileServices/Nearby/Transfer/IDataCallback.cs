@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.Nearby.Transfer
 {
     public interface IDataCallback
     {
-        void onReceived(String endpointId, AndroidJavaObject data);
-        void onTransferUpdate(String endpointId, AndroidJavaObject update);
+        void onReceived(String endpointId, Data data);
+        void onTransferUpdate(String endpointId, TransferStateUpdate update);
     }
 }

@@ -17,7 +17,7 @@ namespace HuaweiMobileServices.Nearby.Message
         public static int EDDYSTONE_INSTANCE_LENGTH => androidJavaClass.GetStatic<int>("EDDYSTONE_INSTANCE_LENGTH");
         public int Length => Call<int>("getLength");
         public int Type => Call<int>("getType");
-        public BeaconId Parse(Message messsage) => androidJavaClass.CallStaticAsWrapper<BeaconId>("parse", messsage);
+        public static BeaconId Parse(Message messsage) => androidJavaClass.CallStaticAsWrapper<BeaconId>("parse", messsage);
         public String ToStringBeacon => Call<String>("toString");
         public String Hex => Call<String>("getHex");
         public String Instance => Call<String>("getInstance");

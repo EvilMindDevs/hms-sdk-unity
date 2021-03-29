@@ -17,9 +17,9 @@ namespace HuaweiMobileServices.Nearby.Discovery
                 mListener = listener;
             }
 
-            public void OnFound(string p0, ScanEndpointInfo p1)
+            public void OnFound(string p0, AndroidJavaObject p1)
             {
-                mListener.onFound(p0, p1);
+                mListener.onFound(p0, p1.AsWrapper<ScanEndpointInfo>());
             }
 
             public void OnLost(string p0)
