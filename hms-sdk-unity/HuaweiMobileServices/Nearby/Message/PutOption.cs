@@ -10,7 +10,7 @@ namespace HuaweiMobileServices.Nearby.Message
     {
         [UnityEngine.Scripting.Preserve]
         public PutOption(AndroidJavaObject javaObject) : base(javaObject) { }
-        public GetCallback Callback => CallAsWrapper<GetCallback>("getCallback");
+        public GetCallback Callback => Call<GetCallback>("getCallback");
         public Policy Policy => CallAsWrapper<Policy>("getPolicy");
 
         public class Builder : JavaObjectWrapper

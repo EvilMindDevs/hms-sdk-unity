@@ -9,6 +9,6 @@
     {
         [UnityEngine.Scripting.Preserve]
         public ConnectResult(AndroidJavaObject javaObject) : base(javaObject) { }
-        public Status GetStatus() => CallAsWrapper<Status>("getStatus");
+        public Status Status => CallAsWrapper<Status>("getStatus");
     }
 }

@@ -4,10 +4,16 @@ using UnityEngine;
 
 namespace HuaweiMobileServices.Nearby.Message
 {
-    public class GetCallback : JavaObjectWrapper
+    public class GetCallback : AndroidJavaProxy
     {
-        [UnityEngine.Scripting.Preserve]
-        public GetCallback(AndroidJavaObject javaObject) : base(javaObject) { }
-        public void OnTimeout() => Call("onTimeout");
+        private Action OnTimeout;
+        public GetCallback(Action onTimeout) : base("com.huawei.hms.nearby.message.GetCallback")
+        {
+            OnTimeout = onTimeout;
+        }
+        public void onTimeout()
+        {
+            OnTimeout.Invoke();
+        }
     }
 }

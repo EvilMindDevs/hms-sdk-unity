@@ -14,5 +14,9 @@ namespace HuaweiMobileServices.Nearby.Message
         {
             OnPermissionChanged = onPermissionChanged;
         }
+        public void onPermissionChanged(bool grantPermission)  
+        {
+            OnPermissionChanged.Invoke(grantPermission);
+        }
     }
 }
