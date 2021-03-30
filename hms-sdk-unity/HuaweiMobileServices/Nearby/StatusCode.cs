@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace HuaweiMobileServices.Nearby
 {
-    public class StatusCode  
+    public static class StatusCode  
     {
         private static readonly AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.StatusCode");
         public static int STATUS_SUCCESS => androidJavaClass.GetStatic<int>("STATUS_SUCCESS");

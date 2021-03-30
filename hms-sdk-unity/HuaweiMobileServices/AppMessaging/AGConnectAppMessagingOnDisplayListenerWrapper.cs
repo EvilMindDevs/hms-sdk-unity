@@ -8,7 +8,8 @@ namespace HuaweiMobileServices.AppMessaging
     {
         private Action<AppMessage> mListener;
 
-        public AGConnectAppMessagingOnDisplayListenerWrapper(Action<AppMessage> listener) : base("com.huawei.agconnect.appmessaging.AGConnectAppMessagingOnDisplayListener")
+        public AGConnectAppMessagingOnDisplayListenerWrapper(Action<AppMessage> listener)
+               : base("com.huawei.agconnect.appmessaging.AGConnectAppMessagingOnDisplayListener")
         {
             mListener = listener;
         }

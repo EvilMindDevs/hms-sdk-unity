@@ -10,7 +10,7 @@ namespace HuaweiMobileServices.Nearby.Message
     {
         [UnityEngine.Scripting.Preserve]
         public PutOption(AndroidJavaObject javaObject) : base(javaObject) { }
-        public GetCallback Callback => Call<GetCallback>("getCallback");
+        public PutCallback Callback => Call<PutCallback>("getCallback");
         public Policy Policy => CallAsWrapper<Policy>("getPolicy");
 
         public class Builder : JavaObjectWrapper
@@ -21,7 +21,7 @@ namespace HuaweiMobileServices.Nearby.Message
             public Builder() : base("com.huawei.hms.nearby.message.PutOption$Builder") { }
             public GetOption Build() => CallAsWrapper<GetOption>("build");
             public Builder SetPolicy(Policy policy) => CallAsWrapper<Builder>("setPolicy", policy);
-            public Builder SetCallback(AndroidJavaObject callback) => CallAsWrapper<Builder>("setCallback", callback);
+            public Builder SetCallback(PutCallback callback) => CallAsWrapper<Builder>("setCallback", callback);
 
         }
 

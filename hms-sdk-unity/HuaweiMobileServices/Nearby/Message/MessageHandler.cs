@@ -7,13 +7,29 @@ using UnityEngine;
 
 namespace HuaweiMobileServices.Nearby.Message
 {
-    public class MessageHandler : JavaObjectWrapper
+    public class MessageHandler : AndroidJavaProxy
     {
-        [UnityEngine.Scripting.Preserve]
-        public MessageHandler(AndroidJavaObject javaObject) : base(javaObject) { }
-        public void OnBleSignalChanged(Message message, BleSignal bleSignal) => Call("onBleSignalChanged", message, bleSignal);
-        public void OnDistanceChanged(Message message, Distance distance) => Call("onDistanceChanged", message, distance);
-        public void OnFound(Message message) => Call("onFound", message);
-        public void OnLost(Message message) => Call("onLost", message);
+        private IMessageHandler IMessageHandler;
+
+        public MessageHandler(IMessageHandler messageHandler) : base("com.huawei.hms.nearby.message.MessageHandler")
+        {
+            IMessageHandler = messageHandler;
+        }
+        public void onBleSignalChanged(AndroidJavaObject message, AndroidJavaObject bleSignal)
+        {
+            IMessageHandler.OnBleSignalChanged(message.AsWrapper<Message>(), bleSignal.AsWrapper<BleSignal>());
+        }
+        public void onDistanceChanged(AndroidJavaObject message, AndroidJavaObject bleSignal)
+        {
+            IMessageHandler.OnDistanceChanged(message.AsWrapper<Message>(), bleSignal.AsWrapper<BleSignal>());
+        }
+        public void onFound(AndroidJavaObject message)
+        {
+            IMessageHandler.OnFound(message.AsWrapper<Message>());
+        }
+        public void onLost(AndroidJavaObject message)
+        {
+            IMessageHandler.OnLost(message.AsWrapper<Message>());
+        }
     }
 }

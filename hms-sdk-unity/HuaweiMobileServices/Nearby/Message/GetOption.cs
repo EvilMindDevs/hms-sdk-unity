@@ -16,7 +16,6 @@ namespace HuaweiMobileServices.Nearby.Message
         public GetCallback Callback => Call<GetCallback>("getCallback");
         public MessagePicker MessagePicker => CallAsWrapper<MessagePicker>("getPicker");
         public Policy Policy => CallAsWrapper<Policy>("getPolicy");
-
         public class Builder : JavaObjectWrapper
         {
             [UnityEngine.Scripting.Preserve]
