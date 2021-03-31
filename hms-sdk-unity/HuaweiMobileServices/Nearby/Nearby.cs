@@ -12,7 +12,7 @@ namespace HuaweiMobileServices.Nearby
     // Wrapper for com.huawei.hms.nearby.Nearby
     public static class Nearby  
     {
-        [UnityEngine.Scripting.Preserve]
+
         private static readonly AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.Nearby");
         public static DiscoveryEngine DiscoveryEngine => androidJavaClass.CallStaticAsWrapper<DiscoveryEngine>("getDiscoveryEngine", AndroidContext.ApplicationContext);
         public static TransferEngine TransferEngine => androidJavaClass.CallStaticAsWrapper<TransferEngine>("getTransferEngine", AndroidContext.ApplicationContext);
