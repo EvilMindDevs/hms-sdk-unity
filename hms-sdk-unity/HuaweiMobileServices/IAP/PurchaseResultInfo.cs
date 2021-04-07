@@ -13,7 +13,7 @@
 
         public virtual string ErrMsg => CallAsString("getErrMsg");
 
-        public virtual string InAppPurchaseData => CallAsString("getInAppPurchaseData");
+        public virtual InAppPurchaseData InAppPurchaseData => new InAppPurchaseData(CallAsString("getInAppPurchaseData"));
 
         public virtual string InAppDataSignature => CallAsString("getInAppDataSignature");
 

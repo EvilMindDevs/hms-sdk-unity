@@ -21,7 +21,20 @@
 
         public virtual IList<string> InAppSignature => Call<AndroidJavaObject>("getInAppSignature").AsStringList();
 
-        public virtual IList<string> InAppPurchaseDataList => Call<AndroidJavaObject>("getInAppPurchaseDataList").AsStringList();
+        public virtual IList<InAppPurchaseData> InAppPurchaseDataList
+        {
+            get
+            {
+                List<InAppPurchaseData> inAppPurchaseDatas = new List<InAppPurchaseData>();
+                var inAppDataList = Call<AndroidJavaObject>("getInAppPurchaseDataList").AsStringList();
+                foreach (var item in inAppDataList)
+                {
+                    inAppPurchaseDatas.Add(new InAppPurchaseData(item));
+                }
+                return inAppPurchaseDatas;
+            }
+        }
+
 
         public virtual IList<string> PlacedInappPurchaseDataList =>
             Call<AndroidJavaObject>("getPlacedInappPurchaseDataList").AsStringList();
