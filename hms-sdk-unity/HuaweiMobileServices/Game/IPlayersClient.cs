@@ -2,6 +2,7 @@
 {
     using HuaweiMobileServices.Base;
     using HuaweiMobileServices.Utils;
+    using System;
 
     // Wrapper for com.huawei.hms.jos.games.PlayersClient
     public interface IPlayersClient
@@ -10,13 +11,13 @@
 
         ITask<string> CachePlayerId { get; }
 
-        ITask<Void> SavePlayerInfo(AppPlayerInfo paramAppPlayerInfo);
+        ITask<Utils.Void> SavePlayerInfo(AppPlayerInfo paramAppPlayerInfo);
 
         ITask<PlayerExtraInfo> GetPlayerExtraInfo(string paramString);
 
         ITask<string> SubmitPlayerEvent(string paramString1, string paramString2, string paramString3);
 
-        void SetGameTrialProcess(GameTrialProcess gameTrialProcess);
+        void SetGameTrialProcess(Action onTrialTimeOut, Action<bool> onCheckRealNameResult);
     }
 
 }

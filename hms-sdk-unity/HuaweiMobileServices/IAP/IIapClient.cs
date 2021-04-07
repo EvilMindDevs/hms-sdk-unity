@@ -22,6 +22,8 @@
 
         ITask<PurchaseIntentResult> CreatePurchaseIntent(PurchaseIntentReq purchaseIntentReq);
 
+        ITask<StartIapActivityResult> StartIapActivity(StartIapActivityReq startIapActivityReq);
+
         PurchaseResultInfo ParsePurchaseResultInfoFromIntent(AndroidIntent paramIntent);
     }
 

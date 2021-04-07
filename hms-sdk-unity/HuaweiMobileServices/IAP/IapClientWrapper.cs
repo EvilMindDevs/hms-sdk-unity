@@ -61,6 +61,9 @@
         public ITask<PurchaseIntentResult> CreatePurchaseIntent(PurchaseIntentReq purchaseIntentReq) =>
             CallAsWrapper<TaskJavaObjectWrapper<PurchaseIntentResult>>("createPurchaseIntent", purchaseIntentReq.JavaObject);
 
+        public ITask<StartIapActivityResult> StartIapActivity(StartIapActivityReq startIapActivityReq) =>
+    CallAsWrapper<TaskJavaObjectWrapper<StartIapActivityResult>>("startIapActivity", startIapActivityReq.JavaObject);
+
         public PurchaseResultInfo ParsePurchaseResultInfoFromIntent(AndroidIntent paramIntent) =>
             CallAsWrapper<PurchaseResultInfo>("parsePurchaseResultInfoFromIntent", paramIntent);
 

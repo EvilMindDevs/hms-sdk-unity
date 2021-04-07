@@ -10,5 +10,10 @@
 
         public StartIapActivityResult(AndroidIntent intent) : base("com.huawei.hms.iap.entity.StartIapActivityResult", intent) { }
 
+        public void StartActivity()
+        {
+            Call("startActivity", AndroidContext.ActivityContext);
+        }
+
     }
 }

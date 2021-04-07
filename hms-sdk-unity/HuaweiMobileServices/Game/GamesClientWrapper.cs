@@ -15,6 +15,6 @@
 
         public ITask<Void> SetPopupsPosition(int paramInt) => CallAsWrapper<TaskVoidWrapper>("setPopupsPosition", paramInt);
 
-        public ITask<bool> CancelGameService() => CallAsWrapper<TaskWrapper<bool>>("cancelGameService");
+        public ITask<bool> CancelGameService() => CallAsWrapper<TaskPrimitive<bool>>("cancelGameService");
     }
 }
