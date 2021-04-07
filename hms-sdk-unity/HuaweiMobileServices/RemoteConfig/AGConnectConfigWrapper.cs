@@ -15,9 +15,9 @@ namespace HuaweiMobileServices.RemoteConfig
 
         public bool GetValueAsBoolean(string paramString) => Call<bool>("getValueAsBoolean", paramString);
 
-        public double GetValueAsDouble(string paramString) => Call<double>("getValueAsDouble", paramString);
+        public double GetValueAsDouble(string paramString) => (double)Call<AndroidJavaObject>("getValueAsDouble", paramString).AsDouble();
 
-        public long GetValueAsLong(string paramString) => Call<long>("getValueAsLong", paramString);
+        public long GetValueAsLong(string paramString) => (long)Call<AndroidJavaObject>("getValueAsLong", paramString).AsLong();
 
         public byte[] GetValueAsByteArray(string paramString) => Call<byte[]>("getValueAsByteArray", paramString);
 
