@@ -12,8 +12,8 @@ namespace HuaweiMobileServices.Id
         [UnityEngine.Scripting.Preserve]
         public AuthAccount(AndroidJavaObject javaObject) : base(javaObject) { }
         public AuthAccount CreateDefault => CallAsWrapper<AuthAccount>("createDefault");
-        //public AuthAccount build(string openId, string uid, string displayName, string photoUri, string accessToken, string serviceCountryCode, int status, int gender, Set<Scope> scopes, string serverAuthCode, string unionId, string countryCode) =>
-        //     CallAsWrapper<AuthAccount>("createDefault", openId, uid, displayName, photoUri, accessToken, serviceCountryCode, status, gender, scopes, serverAuthCode, unionId, countryCode);
+        public AuthAccount build(string openId, string uid, string displayName, string photoUri, string accessToken, string serviceCountryCode, int status, int gender, Set<Scope> scopes, string serverAuthCode, string unionId, string countryCode) =>
+             CallAsWrapper<AuthAccount>("createDefault", openId, uid, displayName, photoUri, accessToken, serviceCountryCode, status, gender, scopes, serverAuthCode, unionId, countryCode);
         public virtual string Uid => CallAsString("getUid");
         public virtual int Status => Call<int>("getStatus");
         public virtual string CountryCode => CallAsString("getCountryCode");
@@ -32,7 +32,7 @@ namespace HuaweiMobileServices.Id
         public virtual ISet<Scope> AuthorizedScopes =>
             JavaObject.Call<AndroidJavaObject>("getAuthorizedScopes").AsSetFromWrappable<Scope>();
         public virtual string IdToken => CallAsString("getIdToken");
-        public virtual string AvatarUriString => CallAsString("getAvatarUriString"); 
+        public virtual string AvatarUriString => CallAsString("getAvatarUriString");
         public virtual string AuthorizationCode => CallAsString("getAuthorizationCode");
         public virtual string ServiceCountryCode => CallAsString("getServiceCountryCode");
         public virtual string UnionId => CallAsString("getUnionId");
