@@ -14,5 +14,4 @@
         public virtual string Id => CallAsString("getId");
 
     }
-
 }

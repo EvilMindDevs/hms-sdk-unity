@@ -1,4 +1,5 @@
 ﻿using HuaweiMobileServices.Base;
+using HuaweiMobileServices.Nearby.Discovery;
 using HuaweiMobileServices.Utils;
 using System;
 using System.Collections.Generic;
@@ -46,7 +47,7 @@ namespace HuaweiMobileServices.Analystics
         public void SetCurrentActivity(String activityName, String activityClassOverride)
         {
             //AndroidContext activity, 
-            Call("setCurrentActivity", activityName, activityClassOverride);
+            Call("setCurrentActivity", AndroidContext.ActivityContext,activityName, activityClassOverride);
         }
         public void OnEvent(String eventId, Bundle androidBundle)
         {
@@ -56,9 +57,9 @@ namespace HuaweiMobileServices.Analystics
         {
             Call("clearCachedData");
         }
-        public Task GetAAID()
+        public ITask<String> GetAAID()
         {
-            return Call<Task>("getAAID"); 
+            return CallAsWrapper<TaskPrimitive<String>>("getAAID"); 
         }
  
         public void RegHmsSvcEvent()
@@ -81,9 +82,16 @@ namespace HuaweiMobileServices.Analystics
         {
             Call("pageEnd", pageName);
         }
+        //void SetReportPolicies(Set<ReportPolicy> policies)
+        //{
 
-
-
+        //}
+        public void SetRestrictionEnabled(bool isEnabled)
+        {
+            Call("setRestrictionEnabled", isEnabled);
+        }
+        public bool IsRestrictionEnabled => Call<bool>("pageEnd");
+        
     }
 
 }

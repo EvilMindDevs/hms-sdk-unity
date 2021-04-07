@@ -51,7 +51,7 @@ namespace HuaweiMobileServices.Id
 
         public virtual bool Expired => Call<bool>("isExpired");
 
-        public virtual AuthHuaweiId RequestExtraScopes(IList<Scope> list) => CallAsWrapper<AuthHuaweiId>("getRequestExtraScopes");
+        public virtual AuthHuaweiId RequestExtraScopes(IList<Scope> list) => CallAsWrapper<AuthHuaweiId>("requestExtraScopes");
 
         public virtual ISet<Scope> RequestedScopes => Call<AndroidJavaObject>("getRequestedScopes").AsSetFromWrappable<Scope>();
 

@@ -29,6 +29,6 @@ namespace HuaweiMobileServices.Crash
         public void SetUserId(string userId) => Call("setUserId", userId);
 
         public void TestIt() => Call("testIt", AndroidContext.ApplicationContext);
-
+        public void RecordException(AndroidJavaObject throwable) => Call("recordException", throwable);
     }
 }
