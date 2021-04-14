@@ -6,7 +6,7 @@
     public class AndroidAccount : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public AndroidAccount(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual AndroidJavaObject Account => JavaObject;

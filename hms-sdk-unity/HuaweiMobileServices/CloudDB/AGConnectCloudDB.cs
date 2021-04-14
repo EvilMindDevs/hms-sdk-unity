@@ -11,7 +11,7 @@ namespace HuaweiMobileServices.CloudDB
     {
         private static AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.agconnect.cloud.database.AGConnectCloudDB");
 
-        [UnityEngine.Scripting.Preserve]
+        
         public AGConnectCloudDB(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public static void Initialize() => sJavaClass.CallStatic("initialize", AndroidContext.ActivityContext); 

@@ -6,7 +6,7 @@ namespace HuaweiMobileServices.Drive
     public class DriveRequest<T> : AbstractJsonClientRequest<T>
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public DriveRequest(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public String GetFields() => Call<String>("getFields");

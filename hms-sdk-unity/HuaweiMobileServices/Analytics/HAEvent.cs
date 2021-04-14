@@ -6,7 +6,7 @@ namespace HuaweiMobileServices.Analystics
 {
     public class HAEventType : JavaObjectWrapper
 	{
-		[UnityEngine.Scripting.Preserve]
+		
 		public HAEventType(AndroidJavaObject javaObject) : base(javaObject) { }
 
 		private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.analytics.type.HAEventType");

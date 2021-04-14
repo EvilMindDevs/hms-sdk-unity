@@ -6,7 +6,7 @@ namespace HuaweiMobileServices.Analystics
 
     public class HAParamType : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public HAParamType(AndroidJavaObject javaObject) : base(javaObject) { }
 
 		private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.analytics.type.HAParamType");

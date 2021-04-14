@@ -5,7 +5,7 @@
     using UnityEngine;
     public class DriveCredential : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public DriveCredential(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public void Intercept(AndroidJavaObject request) => Call("intercept", request);
@@ -33,10 +33,10 @@
 
         public class Builder : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public Builder() : base("com.huawei.cloud.base.auth.DriveCredential$Builder") { }
 
-            [UnityEngine.Scripting.Preserve]
+            
             public Builder(String unionID, Func<String> refreshToken) : base("com.huawei.cloud.base.auth.DriveCredential$Builder", unionID, new AccessMethodWrapper(refreshToken)){}
            
             public DriveCredential Build() => CallAsWrapper<DriveCredential>("build");

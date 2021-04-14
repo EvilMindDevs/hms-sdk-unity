@@ -7,7 +7,7 @@
     public class GameSummary : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public GameSummary(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int AchievementCount => Call<int>("getAchievementCount");

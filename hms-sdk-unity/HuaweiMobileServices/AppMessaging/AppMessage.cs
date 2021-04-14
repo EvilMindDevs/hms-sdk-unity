@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.AppMessaging
     public class AppMessage : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public AppMessage(AndroidJavaObject javaObject) : base(javaObject) { }
         public long Id => Call<long>("getId");
         public MessageType MessageType => Call<MessageType>("getMessageType");

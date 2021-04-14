@@ -6,7 +6,7 @@
     // Wrapper for com.huawei.hms.iap.entity.PurchaseResultInfo
     public class PurchaseResultInfo : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public PurchaseResultInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int ReturnCode => Call<int>("getReturnCode");

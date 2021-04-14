@@ -18,7 +18,7 @@
         public static readonly AccountAuthParams DEFAULT_AUTH_REQUEST_PARAM_GAME =
             (new AccountAuthParamsHelper()).SetScope(SCOPE_GAMES).CreateParams();
 
-        [UnityEngine.Scripting.Preserve]
+        
         public AccountAuthParams(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual IList<Scope> RequestScopeList => CallAsWrapperList<Scope>("getRequestScopeList");

@@ -6,7 +6,7 @@ namespace HuaweiMobileServices.Nearby.Message
 {
    public class Message :JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public Message(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.Message");

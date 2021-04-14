@@ -1,4 +1,4 @@
-﻿namespace HuaweiMobileServices
+﻿namespace HuaweiMobileServices.AppMessaging
 {
     using HuaweiMobileServices.Utils;
     using System;
@@ -7,7 +7,7 @@
 
     public class Location : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public Location(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.agconnect.appmessaging.Location");

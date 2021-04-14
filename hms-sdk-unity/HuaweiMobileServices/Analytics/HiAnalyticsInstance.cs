@@ -12,7 +12,7 @@ namespace HuaweiMobileServices.Analystics
     public sealed class HiAnalyticsInstance : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public HiAnalyticsInstance(AndroidJavaObject hiAnalyticsInstance) : base(hiAnalyticsInstance) { }
 
         public void SetAnalyticsEnabled(bool enabled)

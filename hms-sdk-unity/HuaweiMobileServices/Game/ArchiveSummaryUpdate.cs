@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Game
     public class ArchiveSummaryUpdate : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public ArchiveSummaryUpdate(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly string CLASS_NAME = "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate";
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
@@ -42,7 +42,7 @@ namespace HuaweiMobileServices.Game
         // Wrapper for  com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate.Builder
         public class Builder : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public Builder() : base("com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate$Builder") { }

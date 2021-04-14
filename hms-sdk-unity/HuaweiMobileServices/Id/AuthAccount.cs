@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Id
     public class AuthAccount : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public AuthAccount(AndroidJavaObject javaObject) : base(javaObject) { }
         public AuthAccount CreateDefault => CallAsWrapper<AuthAccount>("createDefault");
         public AuthAccount build(string openId, string uid, string displayName, string photoUri, string accessToken, string serviceCountryCode, int status, int gender, Set<Scope> scopes, string serverAuthCode, string unionId, string countryCode) =>

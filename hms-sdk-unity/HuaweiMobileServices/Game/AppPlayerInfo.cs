@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.Game
     public class AppPlayerInfo : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public AppPlayerInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string Rank

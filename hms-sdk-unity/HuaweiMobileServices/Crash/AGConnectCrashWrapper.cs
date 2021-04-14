@@ -5,7 +5,7 @@ namespace HuaweiMobileServices.Crash
 {
     class AGConnectCrashWrapper : JavaObjectWrapper, IAGConnectCrash
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public AGConnectCrashWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public void EnableCrashCollection(bool enable) => Call("enableCrashCollection", enable);

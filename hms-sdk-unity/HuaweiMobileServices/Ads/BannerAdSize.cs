@@ -33,7 +33,7 @@
             sJavaClass.CallStaticAsWrapper<BannerAdSize>("getPortraitBannerSize", AndroidContext.ActivityContext, paramInt);
 
 
-        [UnityEngine.Scripting.Preserve]
+        
         public BannerAdSize(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public int Height => Call<int>("getHeight");

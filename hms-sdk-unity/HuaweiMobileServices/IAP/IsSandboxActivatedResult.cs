@@ -5,7 +5,7 @@
 
     public class IsSandboxActivatedResult : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public IsSandboxActivatedResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int ReturnCode

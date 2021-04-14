@@ -10,7 +10,7 @@ namespace HuaweiMobileServices.Game
     public class RankingScores : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public RankingScores(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public Ranking Ranking => CallAsWrapper<Ranking>("getRanking");

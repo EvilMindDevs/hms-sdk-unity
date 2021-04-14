@@ -8,10 +8,10 @@ namespace HuaweiMobileServices.Drive
 {
     public class File : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public File(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        [UnityEngine.Scripting.Preserve]
+        
         public File() : base("com.huawei.cloud.services.drive.model.File") { }
 
         public Boolean GetDirectlyRecycled() => Call<Boolean>("getDirectlyRecycled");
@@ -118,30 +118,30 @@ namespace HuaweiMobileServices.Drive
 
         public class Capabilities : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public Capabilities(AndroidJavaObject javaObject) : base(javaObject){}
 
-            [UnityEngine.Scripting.Preserve]
+            
             public Capabilities() : base("com.huawei.cloud.services.drive.model.File$Capabilities") { }
 
         }
 
         public class ContentExtras : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public ContentExtras(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            [UnityEngine.Scripting.Preserve]
+            
             public ContentExtras() : base("com.huawei.cloud.services.drive.model.File$ContentExtras") { }
 
             public File.ContentExtras SetThumbnail(File.ContentExtras.Thumbnail var1) => CallAsWrapper<File.ContentExtras>("setThumbnail", var1);
 
             public class Thumbnail : JavaObjectWrapper
             {
-                [UnityEngine.Scripting.Preserve]
+                
                 public Thumbnail(AndroidJavaObject javaObject) : base(javaObject){}
 
-                [UnityEngine.Scripting.Preserve]
+                
                 public Thumbnail() : base("com.huawei.cloud.services.drive.model.File.ContentExtras$Thumbnail") { }
                
                 public File.ContentExtras.Thumbnail SetThumbnailPublic(Boolean var1) => CallAsWrapper<File.ContentExtras.Thumbnail>("setThumbnailPublic", var1);

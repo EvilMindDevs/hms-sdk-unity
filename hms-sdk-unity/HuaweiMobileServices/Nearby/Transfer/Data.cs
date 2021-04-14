@@ -5,7 +5,7 @@ namespace HuaweiMobileServices.Nearby.Transfer
 {
     public class Data : JavaObjectWrapper 
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public Data(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static readonly AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.transfer.Data");

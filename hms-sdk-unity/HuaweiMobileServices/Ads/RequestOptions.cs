@@ -8,7 +8,7 @@
     public class RequestOptions : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public RequestOptions(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int? TagForChildProtection => Call<int?>("getTagForChildProtection");
@@ -30,7 +30,7 @@
         public class Builder : JavaObjectWrapper
         {
 
-            [UnityEngine.Scripting.Preserve]
+            
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public virtual RequestOptions Build() => CallAsWrapper<RequestOptions>("build");

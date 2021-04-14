@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.Nearby.Transfer
 {
     public class TransferStateUpdate : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public TransferStateUpdate(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public long BytesTransferred  => Call<long>("getBytesTransferred");

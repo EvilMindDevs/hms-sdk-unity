@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Base
     internal abstract class AbstractTask<T> : JavaObjectWrapper, ITask<T>
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public AbstractTask(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public bool Complete => Call<bool>("isComplete");

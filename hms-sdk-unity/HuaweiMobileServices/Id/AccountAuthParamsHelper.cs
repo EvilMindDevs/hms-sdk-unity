@@ -10,7 +10,7 @@
 
         private static readonly string CLASS_NAME = "com.huawei.hms.support.account.request.AccountAuthParamsHelper";
 
-        [UnityEngine.Scripting.Preserve]
+        
         public AccountAuthParamsHelper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public AccountAuthParamsHelper() : base(CLASS_NAME) { }

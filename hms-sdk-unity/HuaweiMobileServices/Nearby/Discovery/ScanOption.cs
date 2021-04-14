@@ -5,14 +5,14 @@ namespace HuaweiMobileServices.Nearby.Discovery
 {
     public class ScanOption : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public ScanOption(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public Policy Policy => CallAsWrapper<Policy>("getPolicy");
 
         public class Builder : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public Builder() : base("com.huawei.hms.nearby.discovery.ScanOption$Builder") { }

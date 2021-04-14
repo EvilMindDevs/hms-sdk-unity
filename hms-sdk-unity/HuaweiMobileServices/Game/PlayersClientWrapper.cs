@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.Game
     internal class PlayersClientWrapper : JavaObjectWrapper, IPlayersClient
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public PlayersClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public ITask<Player> CurrentPlayer => CallAsWrapper<TaskJavaObjectWrapper<Player>>("getCurrentPlayer");

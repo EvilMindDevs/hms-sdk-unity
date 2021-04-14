@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.AuthService
 {
     class BaseUser : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public BaseUser(AndroidJavaObject javaObject) : base(javaObject) { }
         public BaseUser() : base("com.huawei.agconnect.auth.BaseUser") { }
 

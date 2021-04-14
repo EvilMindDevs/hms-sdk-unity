@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.Drive
 {
     public class User : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public User(): base("com.huawei.cloud.services.drive.model"){}
 
         public String GetCategory() => Call<String>("getCategory");

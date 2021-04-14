@@ -7,7 +7,7 @@
     public class RewardVerifyConfig : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public RewardVerifyConfig(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string Data => CallAsString("getData");

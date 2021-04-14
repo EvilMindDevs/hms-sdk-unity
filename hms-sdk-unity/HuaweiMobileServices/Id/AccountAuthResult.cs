@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Id
     //com.huawei.hms.support.hwid
     public class AccountAuthResult : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public AccountAuthResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public AuthAccount AuthResult => CallAsWrapper<AuthAccount>("getAuthResult");

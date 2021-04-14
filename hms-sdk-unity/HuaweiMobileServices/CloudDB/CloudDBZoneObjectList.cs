@@ -8,10 +8,10 @@ namespace HuaweiMobileServices.CloudDB
 {
     public class CloudDBZoneObjectList :JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public CloudDBZoneObjectList() : base("com.huawei.agconnect.cloud.database.CloudDBZoneObjectList") { }
 
-        [UnityEngine.Scripting.Preserve]
+        
         public CloudDBZoneObjectList(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public int Size => Call<int>("size"); 
@@ -23,7 +23,7 @@ namespace HuaweiMobileServices.CloudDB
     
     public class CloudDBZoneObjectList<T> : CloudDBZoneObjectList where T : ICloudDBZoneObject, new()
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public CloudDBZoneObjectList(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public int Size => Call<int>("size"); 

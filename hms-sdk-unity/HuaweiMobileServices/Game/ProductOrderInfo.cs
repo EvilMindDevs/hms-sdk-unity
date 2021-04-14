@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.Game
     public class ProductOrderInfo : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public ProductOrderInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string TradeId => CallAsString("getTradeId");

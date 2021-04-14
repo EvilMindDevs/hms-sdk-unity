@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.AuthService
 {
     public class EmailUser : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public EmailUser(AndroidJavaObject javaObject) : base(javaObject) { }
         public EmailUser(string paramString1, string paramString2, string paramString3) :
             base("com.huawei.agconnect.auth.EmailUser", paramString1, paramString2, paramString3) { }
@@ -19,7 +19,7 @@ namespace HuaweiMobileServices.AuthService
 
         public class Builder : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
             public Builder() : base("com.huawei.agconnect.auth.EmailUser$Builder") { }
 

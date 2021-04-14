@@ -10,7 +10,7 @@ namespace HuaweiMobileServices.Nearby.Transfer
     //com.huawei.hms.nearby.transfer.TransferEngine
     public class TransferEngine : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public TransferEngine(AndroidJavaObject javaObject) : base(javaObject) { }
         private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.transfer.TransferEngine");
         public static int MAX_SIZE_DATA => androidJavaClass.GetStatic<int>("MAX_SIZE_DATA");

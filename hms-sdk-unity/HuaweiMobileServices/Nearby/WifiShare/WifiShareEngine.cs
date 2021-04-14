@@ -12,7 +12,7 @@ namespace HuaweiMobileServices.Nearby.WifiShare
 {
     public class WifiShareEngine : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public WifiShareEngine(AndroidJavaObject javaObject) : base(javaObject) { }
         public ITask<Void> StartWifiSharee(WifiShareCallback callback, WifiSharePolicy policy) => CallAsWrapper<TaskVoidWrapper>("startWifiShare", callback, policy);
         public ITask<Void> StopWifiSharee() => CallAsWrapper<TaskVoidWrapper>("stopWifiShare");

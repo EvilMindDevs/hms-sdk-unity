@@ -7,7 +7,7 @@
     public class OperationResult : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public OperationResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual bool Different => Call<bool>("isDifference");

@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.Game
     public class PlayerExtraInfo : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public PlayerExtraInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public PlayerExtraInfo(string json) : base("com.huawei.hms.jos.games.player.PlayerExtraInfo", json.AsJavaString()) { }

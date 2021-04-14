@@ -6,7 +6,7 @@ namespace HuaweiMobileServices.AppMessaging
 {
     public class AGConnectAppMessaging : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public AGConnectAppMessaging(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static readonly AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.agconnect.appmessaging.AGConnectAppMessaging");

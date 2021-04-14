@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.AuthService
     {
         private static AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.auth.AGConnectAuth");
 
-        [UnityEngine.Scripting.Preserve]
+        
         public AGConnectAuth(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public static AGConnectAuth GetInstance() => javaClass.CallStaticAsWrapper<AGConnectAuth>("getInstance");

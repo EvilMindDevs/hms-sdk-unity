@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Ads
     public class BannerAd : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public BannerAd(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public BannerAd(AdStatusListener AdStatusListener) : base("org.m0skit0.android.hms.unity.ads.BannerAd", AndroidContext.ActivityContext, AdStatusListener) { }

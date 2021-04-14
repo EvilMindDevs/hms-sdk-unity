@@ -11,7 +11,7 @@ namespace HuaweiMobileServices.Id
 
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.support.sms.ReadSmsManager");
 
-        [UnityEngine.Scripting.Preserve]
+        
         public ReadSmsManager(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public static ITask<Void> StartActivity => sJavaClass.CallStaticAsWrapper<TaskVoidWrapper>("start", AndroidContext.ActivityContext);
