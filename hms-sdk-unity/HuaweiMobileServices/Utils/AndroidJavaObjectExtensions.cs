@@ -125,6 +125,15 @@ namespace HuaweiMobileServices.Utils
             return array;
         }
 
+        public static string[] AsStringArray(this AndroidJavaObject javaObject)
+        {
+            if (javaObject == null) return null;
+            var list = sJavaArrays.CallStatic<AndroidJavaObject>("asList", javaObject).AsStringList();
+            var array = new string[list.Count];
+            list.CopyTo(array, 0);
+            return array;
+        }
+
         public static AndroidJavaObject AsJavaInteger(this int value) => new AndroidJavaObject("java.lang.Integer", value);
     }
 }

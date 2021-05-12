@@ -1,24 +1,26 @@
 ﻿namespace HuaweiMobileServices.Push
 {
     using HuaweiMobileServices.Utils;
+    using System.Collections.Generic;
     using UnityEngine;
 
     public class RemoteMessage : JavaObjectWrapper
     {
-
         public class Notification : JavaObjectWrapper
         {
-
-            
             public Notification(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public virtual string Title => CallAsString("getTitle");
 
             public virtual string TitleLocalizationKey => CallAsString("getTitleLocalizationKey");
 
+            public virtual string[] TitleLocalizationArgs => CallAsStringArray("getTitleLocalizationArgs");
+
             public virtual string Body => CallAsString("getBody");
 
             public virtual string BodyLocalizationKey => CallAsString("getBodyLocalizationKey");
+
+            public virtual string[] BodyLocalizationArgs => CallAsStringArray("getBodyLocalizationArgs");
 
             public virtual string Icon => CallAsString("getIcon");
 
@@ -66,7 +68,7 @@
         public const int PRIORITY_HIGH = 1;
         public const int PRIORITY_NORMAL = 2;
 
-        
+
         public RemoteMessage(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public string CollapseKey => CallAsString("getCollapseKey");

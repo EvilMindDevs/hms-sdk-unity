@@ -31,6 +31,8 @@
         public virtual void DeleteToken(string paramString1, string paramString2) =>
             Call("deleteToken", paramString1, paramString2);
 
-    }
+        public virtual void DeleteToken(string subjectId) =>
+            Call("deleteToken", subjectId);
 
+    }
 }
