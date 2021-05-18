@@ -7,10 +7,10 @@
     {
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.ads.Gender");
 
-        public static string UNKNOWN = sJavaClass.CallStatic<string>("UNKNOWN");
+        public static string UNKNOWN = sJavaClass.GetStatic<string>("UNKNOWN");
 
-        public static string MALE = sJavaClass.CallStatic<string>("MALE");
+        public static string MALE = sJavaClass.GetStatic<string>("MALE");
 
-        public static string FEMALE = sJavaClass.CallStatic<string>("FEMALE");
+        public static string FEMALE = sJavaClass.GetStatic<string>("FEMALE");
     }
 }

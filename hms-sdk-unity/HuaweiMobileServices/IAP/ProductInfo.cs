@@ -11,7 +11,7 @@
 
         public virtual string ProductId => CallAsString("getProductId");
 
-        public virtual int PriceType => Call<int>("getPriceType");
+        public virtual PriceType PriceType => new PriceType(Call<int>("getPriceType"));
 
         public virtual string Price => CallAsString("getPrice");
 

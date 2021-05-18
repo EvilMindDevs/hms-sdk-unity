@@ -10,10 +10,10 @@
 
         public ProductInfoReq() : base("com.huawei.hms.iap.entity.ProductInfoReq") { }
 
-        public virtual int PriceType
+        public virtual PriceType PriceType
         {
-            get => Call<int>("getPriceType");
-            set => Call("setPriceType", value);
+            get => new PriceType(Call<int>("getPriceType"));
+            set => Call("setPriceType", value.Value);
         }
 
         public virtual IList<string> ProductIds

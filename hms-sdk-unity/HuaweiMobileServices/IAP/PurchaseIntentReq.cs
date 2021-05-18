@@ -14,10 +14,10 @@
             set => Call("setDeveloperPayload", value.AsJavaString());
         }
 
-        public virtual int PriceType
+        public virtual PriceType PriceType
         {
-            get => Call<int>("getPriceType");
-            set => Call("setPriceType", value);
+            get => new PriceType(Call<int>("getPriceType"));
+            set => Call("setPriceType", value.Value);
         }
 
         public virtual string ProductId
