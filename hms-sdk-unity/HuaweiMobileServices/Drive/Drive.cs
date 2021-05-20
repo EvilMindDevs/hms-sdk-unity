@@ -10,14 +10,14 @@ namespace HuaweiMobileServices.Drive
 
     public class Drive : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public Drive(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public Drive.Files files() => CallAsWrapper<Drive.Files>("files");
 
         public class Builder : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public Builder(DriveCredential credential) : base("com.huawei.cloud.services.drive.Drive$Builder", credential, AndroidContext.ActivityContext){}
@@ -27,7 +27,7 @@ namespace HuaweiMobileServices.Drive
 
         public class Files : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public Files(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public Drive.Files.Copy copy(String var1, File var2) => CallAsWrapper<Drive.Files.Copy>("copy", var1, var2);
@@ -54,7 +54,7 @@ namespace HuaweiMobileServices.Drive
             public class Subscribe : DriveRequest<Channel>
             {
 
-                [UnityEngine.Scripting.Preserve]
+                
                 public Subscribe(AndroidJavaObject javaObject) : base(javaObject) { }
 
                 public Drive.Files.Subscribe SetForm(String var1) => CallAsWrapper<Drive.Files.Subscribe>("setForm", var1);
@@ -75,7 +75,7 @@ namespace HuaweiMobileServices.Drive
             public class Update : DriveRequest<Comment>
             {
 
-                [UnityEngine.Scripting.Preserve]
+                
                 public Update(AndroidJavaObject javaObject) : base(javaObject) { }
 
                 public Drive.Files.Update SetFields(String var1) => CallAsWrapper<Drive.Files.Update>("setFields", var1);
@@ -104,7 +104,7 @@ namespace HuaweiMobileServices.Drive
             {
 
 
-                [UnityEngine.Scripting.Preserve]
+                
                 public List(AndroidJavaObject javaObject) : base(javaObject) { }
 
                 public FileList Execute() => CallAsWrapper<FileList>("execute");
@@ -140,7 +140,7 @@ namespace HuaweiMobileServices.Drive
 
             public class Get : DriveRequest<File>
             {
-                [UnityEngine.Scripting.Preserve]
+                
                 public Get(AndroidJavaObject javaObject) : base(javaObject) { }
 
                 public File Execute() => CallAsWrapper<File>("execute");
@@ -174,7 +174,7 @@ namespace HuaweiMobileServices.Drive
             public class EmptyRecycle : DriveRequest<Utils.Void>
             {
 
-                [UnityEngine.Scripting.Preserve]
+                
                 public EmptyRecycle(AndroidJavaObject javaObject) : base(javaObject) { }
 
                 public Drive.Files.EmptyRecycle SetForm(String var1) => CallAsWrapper<Drive.Files.EmptyRecycle>("setForm", var1);
@@ -190,7 +190,7 @@ namespace HuaweiMobileServices.Drive
             public class Delete : DriveRequest<Utils.Void>
             {
 
-                [UnityEngine.Scripting.Preserve]
+                
                 public Delete(AndroidJavaObject javaObject) : base(javaObject) { }
 
                 public Drive.Files.Delete SetForm(String var1) => CallAsWrapper<Drive.Files.Delete>("setForm", var1);
@@ -206,7 +206,7 @@ namespace HuaweiMobileServices.Drive
 
             public class Create : DriveRequest<File>
             {
-                [UnityEngine.Scripting.Preserve]
+                
                 public Create(AndroidJavaObject javaObject) : base(javaObject) { }
 
 
@@ -225,7 +225,7 @@ namespace HuaweiMobileServices.Drive
 
             public class Copy : DriveRequest<File>
             {
-                [UnityEngine.Scripting.Preserve]
+                
                 public Copy(AndroidJavaObject javaObject) : base(javaObject) { }
 
                 public Drive.Files.Copy SetForm(String var1) => CallAsWrapper<Drive.Files.Copy>("setForm", var1);
@@ -254,7 +254,7 @@ namespace HuaweiMobileServices.Drive
             public static String SCOPE_DRIVE_METADATA_READONLY = sJavaClass.GetStatic<String>("SCOPE_DRIVE_METADATA_READONLY");
             public static String SCOPE_DRIVE_APPDATA = sJavaClass.GetStatic<String>("SCOPE_DRIVE_APPDATA");
 
-            [UnityEngine.Scripting.Preserve]
+            
             public DriveScopes(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public static HashSet<String> all()

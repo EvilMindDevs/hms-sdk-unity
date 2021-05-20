@@ -5,7 +5,7 @@ namespace HuaweiMobileServices.Nearby.WifiShare
 {
    public class WifiSharePolicy : JavaObjectWrapper
    {
-        [UnityEngine.Scripting.Preserve]
+        
         public WifiSharePolicy(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.wifishare.WifiSharePolicy");

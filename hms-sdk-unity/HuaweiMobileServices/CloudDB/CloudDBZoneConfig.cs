@@ -5,7 +5,7 @@ namespace HuaweiMobileServices.CloudDB
 {
     public partial class CloudDBZoneConfig : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public CloudDBZoneConfig(AndroidJavaObject javaObject) : base(javaObject) { }
         public CloudDBZoneConfig(string cloudDBZoneNameSource, CloudDBZoneSyncProperty cloudDBZoneSyncProperty, CloudDBZoneAccessProperty cloudDBZoneAccessProperty) :
             base("com.huawei.agconnect.cloud.database.CloudDBZoneConfig", cloudDBZoneNameSource, cloudDBZoneSyncProperty, cloudDBZoneAccessProperty) { }
@@ -34,7 +34,7 @@ namespace HuaweiMobileServices.CloudDB
 
         public class CloudDBZoneAccessProperty : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public CloudDBZoneAccessProperty(AndroidJavaObject javaObject) : base(javaObject) { }
             public CloudDBZoneAccessProperty() : base("com.huawei.agconnect.cloud.database.CloudDBZoneConfig$CloudDBZoneAccessProperty") { }
 
@@ -45,7 +45,7 @@ namespace HuaweiMobileServices.CloudDB
 
         public class CloudDBZoneSyncProperty : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public CloudDBZoneSyncProperty(AndroidJavaObject javaObject) : base(javaObject) { }
             public CloudDBZoneSyncProperty() : base("com.huawei.agconnect.cloud.database.CloudDBZoneConfig$CloudDBZoneAccessProperty") { }
 

@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Nearby.Message
 {
     public class MessageEngine : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public MessageEngine(AndroidJavaObject javaObject) : base(javaObject) { }
         public void HandleIntent(AndroidIntent intent, MessageHandler handler) => Call("handleIntent", intent, handler);
         public ITask<Void> Put(Message message) => CallAsWrapper<TaskVoidWrapper>("put", message);

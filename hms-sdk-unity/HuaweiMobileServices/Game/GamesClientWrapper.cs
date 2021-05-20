@@ -8,11 +8,13 @@
     internal class GamesClientWrapper : JavaObjectWrapper, IGamesClient
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public GamesClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public ITask<string> AppId => CallAsWrapper<TaskStringWrapper>("getAppId");
 
         public ITask<Void> SetPopupsPosition(int paramInt) => CallAsWrapper<TaskVoidWrapper>("setPopupsPosition", paramInt);
+
+        public ITask<bool> CancelGameService() => CallAsWrapper<TaskPrimitive<bool>>("cancelGameService");
     }
 }

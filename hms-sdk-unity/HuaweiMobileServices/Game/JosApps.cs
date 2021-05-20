@@ -10,12 +10,11 @@
 
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.jos.JosApps");
 
-        public static IJosAppsClient GetJosAppsClient(AuthHuaweiId authHuaweiId)
+        public static IJosAppsClient GetJosAppsClient()
         {
             var josAppsClient = sJavaClass.CallStatic<AndroidJavaObject>(
                     "getJosAppsClient",
-                    AndroidContext.ActivityContext,
-                    authHuaweiId.JavaObject
+                    AndroidContext.ActivityContext
                 );
             return new JosAppsClientWrapper(josAppsClient);
         }

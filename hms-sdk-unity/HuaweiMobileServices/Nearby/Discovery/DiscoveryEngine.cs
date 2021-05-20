@@ -11,7 +11,7 @@ namespace HuaweiMobileServices.Nearby.Discovery
     //com.huawei.hms.nearby.discovery.DiscoveryEngine
     public class DiscoveryEngine : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public DiscoveryEngine(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public ITask<Void> AcceptConnect(String endpointId, IDataCallback dataCallback) 

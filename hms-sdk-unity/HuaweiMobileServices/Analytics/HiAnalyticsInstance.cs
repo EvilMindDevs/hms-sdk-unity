@@ -1,4 +1,5 @@
 ﻿using HuaweiMobileServices.Base;
+using HuaweiMobileServices.Nearby.Discovery;
 using HuaweiMobileServices.Utils;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,8 @@ namespace HuaweiMobileServices.Analystics
     public sealed class HiAnalyticsInstance : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
-        public HiAnalyticsInstance(AndroidJavaObject hiAnalyticsInstance) : base(hiAnalyticsInstance) {}
+        
+        public HiAnalyticsInstance(AndroidJavaObject hiAnalyticsInstance) : base(hiAnalyticsInstance) { }
 
         public void SetAnalyticsEnabled(bool enabled)
         {
@@ -46,7 +47,7 @@ namespace HuaweiMobileServices.Analystics
         public void SetCurrentActivity(String activityName, String activityClassOverride)
         {
             //AndroidContext activity, 
-            Call("setCurrentActivity", activityName, activityClassOverride);
+            Call("setCurrentActivity", AndroidContext.ActivityContext, activityName, activityClassOverride);
         }
         public void OnEvent(String eventId, Bundle androidBundle)
         {
@@ -56,11 +57,11 @@ namespace HuaweiMobileServices.Analystics
         {
             Call("clearCachedData");
         }
-        public Task GetAAID()
+        public ITask<String> GetAAID()
         {
-            return Call<Task>("getAAID"); 
+            return CallAsWrapper<TaskPrimitive<String>>("getAAID");
         }
- 
+
         public void RegHmsSvcEvent()
         {
             Call("regHmsSvcEvent");
@@ -71,7 +72,7 @@ namespace HuaweiMobileServices.Analystics
         }
         public Map<String, String> GetUserProfiles(bool var1)
         {
-            return Call<Map<String, String>>("getUserProfiles", var1); 
+            return Call<Map<String, String>>("getUserProfiles", var1);
         }
         public void PageStart(String pageName, String pageClassOverride)
         {
@@ -82,7 +83,16 @@ namespace HuaweiMobileServices.Analystics
             Call("pageEnd", pageName);
         }
 
+        public void SetReportPolicies(Set<ReportPolicy> policies)
+        {
+            Call("SetReportPolicies", policies);
+        }
 
+        public void SetRestrictionEnabled(bool isEnabled)
+        {
+            Call("setRestrictionEnabled", isEnabled);
+        }
+        public bool IsRestrictionEnabled => Call<bool>("pageEnd");
 
     }
 

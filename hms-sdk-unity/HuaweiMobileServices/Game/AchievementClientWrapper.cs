@@ -12,7 +12,7 @@ namespace HuaweiMobileServices.Game
     {
         
 
-        [UnityEngine.Scripting.Preserve]
+        
         public AchievementClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure) => 

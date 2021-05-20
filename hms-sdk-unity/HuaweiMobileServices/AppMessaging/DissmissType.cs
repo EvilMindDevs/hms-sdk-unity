@@ -6,7 +6,7 @@ namespace HuaweiMobileServices.AppMessaging
     public class DismissType : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public DismissType(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.agconnect.appmessaging.AGConnectAppMessagingCallback$DismissType");

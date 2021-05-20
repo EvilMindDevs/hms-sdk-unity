@@ -6,7 +6,7 @@ namespace HuaweiMobileServices.Nearby.Message
 {
     public class BeaconId : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public BeaconId(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.BeaconId");
         public static int BEACON_TYPE_IBEACON => androidJavaClass.GetStatic<int>("BEACON_TYPE_IBEACON");
@@ -28,7 +28,7 @@ namespace HuaweiMobileServices.Nearby.Message
       
         public class Builder : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public Builder() : base("com.huawei.hms.nearby.message.BeaconId$Builder") { }

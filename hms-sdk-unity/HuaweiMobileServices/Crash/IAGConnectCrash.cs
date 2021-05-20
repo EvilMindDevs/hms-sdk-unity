@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace HuaweiMobileServices.Crash
 {
@@ -15,5 +16,6 @@ namespace HuaweiMobileServices.Crash
         void SetCustomKey(String key, long value);
         void Log(String message);
         void Log(int level, String message);
+        void RecordException(AndroidJavaObject throwable);
     }
 }

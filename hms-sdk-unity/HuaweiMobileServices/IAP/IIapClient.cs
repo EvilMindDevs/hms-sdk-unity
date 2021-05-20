@@ -8,6 +8,8 @@
     {
         ITask<EnvReadyResult> EnvReady { get; }
 
+        ITask<IsSandboxActivatedResult> SandboxActivated { get; }
+
         ITask<ProductInfoResult> ObtainProductInfo(ProductInfoReq productInfoReq);
 
         ITask<ConsumeOwnedPurchaseResult> ConsumeOwnedPurchase(ConsumeOwnedPurchaseReq consumeOwnedPurchaseReq);
@@ -19,6 +21,8 @@
         ITask<PurchaseIntentResult> CreatePurchaseIntentWithPrice(PurchaseIntentWithPriceReq purchaseIntentWithPriceReq);
 
         ITask<PurchaseIntentResult> CreatePurchaseIntent(PurchaseIntentReq purchaseIntentReq);
+
+        ITask<StartIapActivityResult> StartIapActivity(StartIapActivityReq startIapActivityReq);
 
         PurchaseResultInfo ParsePurchaseResultInfoFromIntent(AndroidIntent paramIntent);
     }

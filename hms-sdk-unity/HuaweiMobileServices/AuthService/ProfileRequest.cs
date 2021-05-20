@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.AuthService
 {
     public class ProfileRequest : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public ProfileRequest(AndroidJavaObject javaObject) : base(javaObject) { }
         public ProfileRequest() : base("com.huawei.agconnect.auth.ProfileRequest") { }
 
@@ -18,7 +18,7 @@ namespace HuaweiMobileServices.AuthService
 
         public class Builder : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
             public Builder() : base("com.huawei.agconnect.auth.ProfileRequest$Builder") { }
 

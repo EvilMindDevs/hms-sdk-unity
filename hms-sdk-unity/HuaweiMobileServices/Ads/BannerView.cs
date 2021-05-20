@@ -6,7 +6,7 @@
     // Wrapper for com.huawei.hms.ads.banner.BannerView
     public class BannerView : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public BannerView(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual void Destroy() => Call("destroy");

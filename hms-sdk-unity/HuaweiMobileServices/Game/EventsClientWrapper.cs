@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.Game
 
     internal class EventsClientWrapper : JavaObjectWrapper, IEventsClient
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public EventsClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public ITask<IList<Event>> GetEventList(bool paramBoolean)

@@ -6,12 +6,12 @@
     // Wrapper for com.huawei.hms.iap.entity.ProductInfo
     public class ProductInfo : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public ProductInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string ProductId => CallAsString("getProductId");
 
-        public virtual int PriceType => Call<int>("getPriceType");
+        public virtual PriceType PriceType => new PriceType(Call<int>("getPriceType"));
 
         public virtual string Price => CallAsString("getPrice");
 
@@ -44,6 +44,8 @@
         public virtual string SubGroupTitle => CallAsString("getSubGroupTitle");
 
         public virtual int SubProductLevel => Call<int>("getSubProductLevel");
+
+        public virtual int Status => Call<int>("getStatus");
 
     }
 

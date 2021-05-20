@@ -1,12 +1,13 @@
 ﻿namespace HuaweiMobileServices.IAP
 {
     using HuaweiMobileServices.Utils;
+    using System;
+    using UnityEngine;
 
     // Wrapper for com.huawei.hms.iap.entity.InAppPurchaseData
     public class InAppPurchaseData : JavaObjectWrapper
     {
-
-        public const int NOT_PRESENT = -2147483648;
+        public const int NOT_PRESENT = int.MinValue;
 
         public InAppPurchaseData(string paramString) : base("com.huawei.hms.iap.entity.InAppPurchaseData", paramString) { }
 
@@ -88,8 +89,6 @@
 
         public virtual int ConsumptionState => Call<int>("getConsumptionState");
 
-        public virtual int Acknowledged => Call<int>("getAcknowledged");
-
         public virtual string PayOrderId => CallAsString("getPayOrderId");
 
         public virtual string PayType => CallAsString("getPayType");
@@ -102,6 +101,10 @@
 
         public virtual long CancellationTime => Call<long>("getCancellationTime");
 
-    }
+        public virtual long ResumeTime => Call<long>("getResumeTime");
 
+        public virtual long GraceExpirationTime => Call<long>("getGraceExpirationTime");
+
+        public virtual int AccountFlag => Call<int>("getAccountFlag");
+    }
 }

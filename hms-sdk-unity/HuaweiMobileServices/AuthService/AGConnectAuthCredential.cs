@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.AuthService
 {
     public class AGConnectAuthCredential : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public AGConnectAuthCredential(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.auth.AGConnectAuthCredential");

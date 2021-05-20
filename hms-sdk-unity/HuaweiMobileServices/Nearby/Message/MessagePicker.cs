@@ -8,14 +8,14 @@ namespace HuaweiMobileServices.Nearby.Message
 {
     public class MessagePicker : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public MessagePicker(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.MessagePicker");
         public static MessagePicker INCLUDE_ALL_TYPES => androidJavaClass.GetStaticAsWrapper<MessagePicker>("INCLUDE_ALL_TYPES");
         public class Builder : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public Builder() : base("com.huawei.hms.nearby.message.MessagePicker$Builder") { }

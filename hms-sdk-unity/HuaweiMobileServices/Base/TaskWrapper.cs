@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Base
 
         private readonly Func<AndroidJavaObject, T> mConverter;
 
-        [UnityEngine.Scripting.Preserve]
+        
         internal TaskWrapper(AndroidJavaObject javaObject, Func<AndroidJavaObject, T> func) : base(javaObject)
         {
             mConverter = func;

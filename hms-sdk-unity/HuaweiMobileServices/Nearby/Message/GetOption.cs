@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.Nearby.Message
 {
     public class GetOption : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public GetOption(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.message.GetOption");
@@ -18,7 +18,7 @@ namespace HuaweiMobileServices.Nearby.Message
         public Policy Policy => CallAsWrapper<Policy>("getPolicy");
         public class Builder : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public Builder() : base("com.huawei.hms.nearby.message.GetOption$Builder") { }

@@ -8,13 +8,13 @@ namespace HuaweiMobileServices.AuthService
 {
     public class HWGameAuthProvider : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public HWGameAuthProvider(AndroidJavaObject javaObject) : base(javaObject) { }
         public HWGameAuthProvider() : base("com.huawei.agconnect.auth.HWGameAuthProvider") { }
 
         public class Builder : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
             public Builder() : base("com.huawei.agconnect.auth.HWGameAuthProvider$Builder") { }
 

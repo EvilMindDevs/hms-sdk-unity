@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.Game
     internal class PlayersClientWrapper : JavaObjectWrapper, IPlayersClient
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public PlayersClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public ITask<Player> CurrentPlayer => CallAsWrapper<TaskJavaObjectWrapper<Player>>("getCurrentPlayer");
@@ -22,6 +22,8 @@ namespace HuaweiMobileServices.Game
             var javaTask = Call<AndroidJavaObject>("savePlayerInfo", paramAppPlayerInfo.JavaObject);
             return new TaskVoidWrapper(javaTask);
         }
+
+        public void SetGameTrialProcess(System.Action onTrialTimeOut, System.Action<bool> onCheckRealNameResult) => Call<AndroidJavaObject>("setGameTrialProcess", new GameTrialProcessWrapper(onTrialTimeOut, onCheckRealNameResult));
 
         public ITask<string> SubmitPlayerEvent(string paramString1, string paramString2, string paramString3) =>
             CallAsWrapper<TaskStringWrapper>("submitPlayerEvent", paramString1.AsJavaString(), paramString2.AsJavaString(), paramString3.AsJavaString());

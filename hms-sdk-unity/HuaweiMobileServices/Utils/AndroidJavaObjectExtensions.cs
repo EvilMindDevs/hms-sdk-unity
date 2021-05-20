@@ -49,6 +49,14 @@ namespace HuaweiMobileServices.Utils
                 return null;
             return javaLongObject.Call<long>("longValue");
         }
+
+        public static long? AsDouble(this AndroidJavaObject javaLongObject)
+        {
+            if (javaLongObject == null)
+                return null;
+            return javaLongObject.Call<long>("doubleValue");
+        }
+
         public static IList<T> AsListFromWrappable<T>(this AndroidJavaObject javaList) where T : JavaObjectWrapper =>
             javaList?.AsList<AndroidJavaObject>().Map(AsWrapper<T>);
 
@@ -113,6 +121,15 @@ namespace HuaweiMobileServices.Utils
             if (javaObject == null) return null;
             var list = sJavaArrays.CallStatic<AndroidJavaObject>("asList", javaObject).AsListFromWrappable<T>();
             var array = new T[list.Count];
+            list.CopyTo(array, 0);
+            return array;
+        }
+
+        public static string[] AsStringArray(this AndroidJavaObject javaObject)
+        {
+            if (javaObject == null) return null;
+            var list = sJavaArrays.CallStatic<AndroidJavaObject>("asList", javaObject).AsStringList();
+            var array = new string[list.Count];
             list.CopyTo(array, 0);
             return array;
         }

@@ -10,7 +10,7 @@ namespace HuaweiMobileServices.Game
     internal class ArchivesClientWrapper : JavaObjectWrapper, IArchivesClient
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public ArchivesClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.game.ArchiveBridge");
 

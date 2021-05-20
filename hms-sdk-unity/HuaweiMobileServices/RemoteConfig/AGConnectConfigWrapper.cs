@@ -8,16 +8,16 @@ namespace HuaweiMobileServices.RemoteConfig
 {
     class AGConnectConfigWrapper : JavaObjectWrapper, IAGConnectConfig
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public AGConnectConfigWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public string GetValueAsString(string paramString) => Call<string>("getValueAsString", paramString);
 
         public bool GetValueAsBoolean(string paramString) => Call<bool>("getValueAsBoolean", paramString);
 
-        public double GetValueAsDouble(string paramString) => Call<double>("getValueAsDouble", paramString);
+        public double GetValueAsDouble(string paramString) => (double)Call<AndroidJavaObject>("getValueAsDouble", paramString).AsDouble();
 
-        public long GetValueAsLong(string paramString) => Call<long>("getValueAsLong", paramString);
+        public long GetValueAsLong(string paramString) => (long)Call<AndroidJavaObject>("getValueAsLong", paramString).AsLong();
 
         public byte[] GetValueAsByteArray(string paramString) => Call<byte[]>("getValueAsByteArray", paramString);
 

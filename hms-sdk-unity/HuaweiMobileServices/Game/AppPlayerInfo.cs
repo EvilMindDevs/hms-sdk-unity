@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.Game
     public class AppPlayerInfo : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public AppPlayerInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string Rank
@@ -33,6 +33,11 @@ namespace HuaweiMobileServices.Game
         public virtual string PlayerId
         {
             get => CallAsString("getPlayerId");
+        }
+
+        public virtual string OpenId
+        {
+            get => CallAsString("getOpenId");
         }
     }
 

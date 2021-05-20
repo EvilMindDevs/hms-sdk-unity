@@ -16,7 +16,7 @@ namespace HuaweiMobileServices.Game
 
         public const int TYPE_GROW_ABLE = 1;
 
-        [UnityEngine.Scripting.Preserve]
+        
         public Achievement(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string Id

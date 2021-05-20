@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.CloudDB
 {
     public class CloudDBZoneQuery : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public CloudDBZoneQuery(AndroidJavaObject javaObject) : base(javaObject) { }
         public CloudDBZoneQuery() : base("com.huawei.agconnect.cloud.database.CloudDBZoneQuery") { }
 
@@ -96,7 +96,7 @@ namespace HuaweiMobileServices.CloudDB
 
         public class CloudDBZoneQueryPolicy : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public CloudDBZoneQueryPolicy(AndroidJavaObject javaObject) : base(javaObject) { }
             public CloudDBZoneQueryPolicy() : base("com.huawei.agconnect.cloud.database.CloudDBZoneQuery$CloudDBZoneQueryPolicy") { }
 

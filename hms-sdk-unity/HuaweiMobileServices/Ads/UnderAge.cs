@@ -1,4 +1,4 @@
-﻿namespace com.huawei.hms.ads
+﻿namespace HuaweiMobileServices.Ads
 {
 
     using UnityEngine;

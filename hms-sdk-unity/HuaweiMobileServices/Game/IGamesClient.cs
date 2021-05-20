@@ -9,6 +9,8 @@
         ITask<string> AppId { get; }
 
         ITask<Void> SetPopupsPosition(int paramInt);
+
+        ITask<bool> CancelGameService();
     }
 
 }

@@ -6,7 +6,7 @@
     {
         private const string CLASS_NAME = "android.content.Intent";
 
-        [UnityEngine.Scripting.Preserve]
+        
         public AndroidIntent(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public AndroidIntent(AndroidJavaClass activityClass) : base(CLASS_NAME, AndroidContext.ActivityContext, activityClass) { }
