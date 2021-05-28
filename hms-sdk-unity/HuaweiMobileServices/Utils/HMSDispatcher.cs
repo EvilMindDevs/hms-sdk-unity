@@ -10,13 +10,15 @@ namespace HuaweiMobileServices.Utils
     {
         private static HMSDispatcher _instance;
 
-        private bool _instanceExists;
+        private static bool _instanceExists;
 
-        private Thread _mainThread;
+        private static Thread _mainThread;
         private static object _lockObject = new object();
-        private readonly Queue<Action> _actions = new Queue<Action>();
+        private static readonly Queue<Action> _actions = new Queue<Action>();
 
-        public bool isMainThread => Thread.CurrentThread == _mainThread;
+        public static bool isMainThread => Thread.CurrentThread == _mainThread;
+
+        public static bool InstanceExists { get => _instanceExists; set => _instanceExists = value; }
 
         void Awake()
         {
@@ -53,7 +55,17 @@ namespace HuaweiMobileServices.Utils
             }
         }
 
-        public static HMSDispatcher Instance
+        public static void CreateDispatcher()
+        {
+            lock (_lockObject)
+            {
+                if (_instanceExists) return;
+                Debug.Log("[HMSDispatcher] An instance is needed in the scene and no existing instances were found, so a new instance will be created.");
+                _instance = new GameObject("[HMSDispatcher]").AddComponent<HMSDispatcher>();
+            }
+        }
+
+        /*public static HMSDispatcher Instance
         {
             get
             {
@@ -77,13 +89,13 @@ namespace HuaweiMobileServices.Utils
                     return _instance = new GameObject($"[HMSDispatcher]").AddComponent<HMSDispatcher>();
                 }
             }
-        }
+        }*/
 
         /// <summary>
         /// Queues an action to be invoked on the main game thread.
         /// </summary>
         /// <param name="action">The action to be queued.</param>
-        public void InvokeAsync(Action action)
+        public static void InvokeAsync(Action action)
         {
             if (!_instanceExists)
             {
@@ -109,7 +121,7 @@ namespace HuaweiMobileServices.Utils
         /// current thread until the action has been executed.
         /// </summary>
         /// <param name="action">The action to be queued.</param>
-        public void Invoke(Action action)
+        public static void Invoke(Action action)
         {
             if (!_instanceExists)
             {
@@ -130,7 +142,5 @@ namespace HuaweiMobileServices.Utils
                 Thread.Sleep(5);
             }
         }
-
-        public bool IsDispatcherCreated() => Instance.isMainThread;
     }
 }

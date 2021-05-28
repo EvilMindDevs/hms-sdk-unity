@@ -15,7 +15,7 @@
 
         public void onNotificationMessage(AndroidJavaObject notificationData)
         {
-            mOnNotificationMessage.Invoke(notificationData.AsWrapper<NotificationData>());
+            this.CallOnMainThread(() => { mOnNotificationMessage.Invoke(notificationData.AsWrapper<NotificationData>()); });
         }
     }
 }

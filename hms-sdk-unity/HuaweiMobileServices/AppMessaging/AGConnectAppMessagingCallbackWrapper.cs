@@ -19,15 +19,15 @@ namespace HuaweiMobileServices.AppMessaging
         }
         public void onMessageClick(AndroidJavaObject appMessage)
         {
-            mOnMessageClick.Invoke(appMessage.AsWrapper<AppMessage>());
+            this.CallOnMainThread(() => { mOnMessageClick.Invoke(appMessage.AsWrapper<AppMessage>()); });
         }
         public void onMessageDisplay(AndroidJavaObject appMessage)
         {
-            mOnMessageDisplay.Invoke(appMessage.AsWrapper<AppMessage>());
+            this.CallOnMainThread(() => { mOnMessageDisplay.Invoke(appMessage.AsWrapper<AppMessage>()); });
         }
         public void onMessageError(AndroidJavaObject appMessage)
         {
-            monMessageError.Invoke(appMessage.AsWrapper<AppMessage>());
+            this.CallOnMainThread(() => { monMessageError.Invoke(appMessage.AsWrapper<AppMessage>()); });
         }
     }
 }

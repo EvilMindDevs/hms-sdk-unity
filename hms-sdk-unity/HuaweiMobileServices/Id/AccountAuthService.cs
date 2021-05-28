@@ -12,7 +12,7 @@ namespace HuaweiMobileServices.Id
 
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
 
-        
+
         public AccountAuthService(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public void StartSignIn(Action<AuthAccount> onSuccess, Action<HMSException> onFailure)
@@ -22,12 +22,12 @@ namespace HuaweiMobileServices.Id
                 .AddOnFailureListener(onFailure)
                 .AddOnSuccessListener((resultIntent) =>
                 {
-                  AccountAuthManager.ParseAuthResultFromIntent(resultIntent)
-                        .AddOnFailureListener(onFailure)
-                        .AddOnSuccessListener((authHuaweiId) =>
-                        {
-                            onSuccess.Invoke(authHuaweiId);
-                        });
+                    AccountAuthManager.ParseAuthResultFromIntent(resultIntent)
+                          .AddOnFailureListener(onFailure)
+                          .AddOnSuccessListener((authHuaweiId) =>
+                          {
+                              CallOnMainThread(() => { onSuccess.Invoke(authHuaweiId); });
+                          });
                 });
             sJavaClass.CallStatic("receiveShow", intent, callback);
         }

@@ -14,19 +14,20 @@ namespace HuaweiMobileServices.Nearby.Discovery
             {
                 mListener = listener;
             }
+
             public void onEstablish(string p0, AndroidJavaObject p1)
             {
-                mListener.onEstablish(p0, p1.AsWrapper<ConnectInfo>());
+                this.CallOnMainThread(() => { mListener.onEstablish(p0, p1.AsWrapper<ConnectInfo>()); });
             }
 
             public void onResult(string p0, AndroidJavaObject p1)
             {
-                mListener.onResult(p0, p1.AsWrapper<ConnectResult>());
+                this.CallOnMainThread(() => { mListener.onResult(p0, p1.AsWrapper<ConnectResult>()); });
             }
 
             public void onDisconnected(string p0)
             {
-                mListener.onDisconnected(p0);
+                this.CallOnMainThread(() => { mListener.onDisconnected(p0); });
             }
 
         }

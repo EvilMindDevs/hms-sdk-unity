@@ -9,7 +9,6 @@ namespace HuaweiMobileServices.Nearby.WifiShare
     {
         private class WifiShareCallbackInterface : AndroidJavaProxy
         {
-
             private readonly IWifiShareCallback mListener;
 
             public WifiShareCallbackInterface(IWifiShareCallback listener) : base("org.m0skit0.android.hms.unity.nearby.WifiShareListener")
@@ -19,20 +18,22 @@ namespace HuaweiMobileServices.Nearby.WifiShare
 
             public void OnFound(String endpointId, AndroidJavaObject info)
             {
-                mListener.onFound(endpointId, info.AsWrapper<ScanEndpointInfo>());
+                this.CallOnMainThread(() => { mListener.onFound(endpointId, info.AsWrapper<ScanEndpointInfo>()); });
             }
 
             public void OnLost(String endpointId)
             {
-                mListener.onLost(endpointId);
+                this.CallOnMainThread(() => { mListener.onLost(endpointId); });
             }
+
             public void OnFetchAuthCode(String endpointId, String authCode)
             {
-                mListener.onFetchAuthCode(endpointId, authCode);
+                this.CallOnMainThread(() => { mListener.onFetchAuthCode(endpointId, authCode); });
             }
+
             public void OnWifiShareResult(String endpointId, int statusCode)
             {
-                mListener.onWifiShareResult(endpointId, statusCode);
+                this.CallOnMainThread(() => { mListener.onWifiShareResult(endpointId, statusCode); });
             }
 
         }

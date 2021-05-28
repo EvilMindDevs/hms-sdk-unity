@@ -7,9 +7,8 @@ namespace HuaweiMobileServices.AppMessaging
 {
     public class AppMessage : JavaObjectWrapper
     {
-
-        
         public AppMessage(AndroidJavaObject javaObject) : base(javaObject) { }
+
         public long Id => Call<long>("getId");
         public MessageType MessageType => Call<MessageType>("getMessageType");
         public long StartTime => Call<long>("getStartTime");
@@ -18,6 +17,5 @@ namespace HuaweiMobileServices.AppMessaging
         public int FrequencyValue => Call<int>("getFrequencyValue");
         public int TestFlag => Call<int>("getTestFlag");
         public List<string> TriggerEvents => Call<List<string>>("getTriggerEvents");
-
     }
 }

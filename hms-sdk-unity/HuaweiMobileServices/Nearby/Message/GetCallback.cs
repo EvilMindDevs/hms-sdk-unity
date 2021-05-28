@@ -13,7 +13,7 @@ namespace HuaweiMobileServices.Nearby.Message
         }
         public void onTimeout()
         {
-            OnTimeout.Invoke();
+            this.CallOnMainThread(() => { OnTimeout.Invoke(); });
         }
     }
 }

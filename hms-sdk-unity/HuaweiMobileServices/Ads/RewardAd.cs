@@ -23,12 +23,12 @@
 
             public void OnRewardAdFailedToLoad(int errorCode)
             {
-                mOnError.Invoke(errorCode);
+                HMSDispatcher.InvokeAsync(() => { mOnError.Invoke(errorCode); });
             }
 
             public void OnRewardedLoaded()
             {
-                mOnSuccess.Invoke();
+                HMSDispatcher.InvokeAsync(() => { mOnSuccess.Invoke(); });
             }
         }
 

@@ -13,7 +13,7 @@
         }
         public void onMessageDismiss(AndroidJavaObject appMessage, DismissType dismissType)
         {
-            mListener.Invoke(appMessage.AsWrapper<AppMessage>(), dismissType);
+            this.CallOnMainThread(() => { mListener.Invoke(appMessage.AsWrapper<AppMessage>(), dismissType); });
         }
     }
 }

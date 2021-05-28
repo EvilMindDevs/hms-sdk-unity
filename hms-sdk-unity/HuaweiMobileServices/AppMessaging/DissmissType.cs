@@ -5,8 +5,6 @@ namespace HuaweiMobileServices.AppMessaging
 {
     public class DismissType : JavaObjectWrapper
     {
-
-        
         public DismissType(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.agconnect.appmessaging.AGConnectAppMessagingCallback$DismissType");

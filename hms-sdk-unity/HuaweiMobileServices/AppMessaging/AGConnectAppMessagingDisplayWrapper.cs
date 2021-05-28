@@ -16,7 +16,7 @@ namespace HuaweiMobileServices.AppMessaging
         }
         public void displayMessage(AndroidJavaObject appMessage, AGConnectAppMessagingCallbackWrapper callback)
         {
-            mListener.Invoke(appMessage.AsWrapper<AppMessage>());
+            this.CallOnMainThread(() => { mListener.Invoke(appMessage.AsWrapper<AppMessage>()); });
         }
     }
 }

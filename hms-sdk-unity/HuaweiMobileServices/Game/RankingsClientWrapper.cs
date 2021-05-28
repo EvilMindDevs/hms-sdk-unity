@@ -25,11 +25,11 @@ namespace HuaweiMobileServices.Game
                        .AddOnFailureListener(onFailure)
                        .AddOnSuccessListener((nothing) =>
                        {
-                           onSuccess.Invoke();
+                           CallOnMainThread(() => { onSuccess.Invoke(); });
                        });
                     sJavaClass.CallStatic("receiveShow", intent, callback);
 
-                }).AddOnFailureListener((exception) => onFailure.Invoke(exception));
+                }).AddOnFailureListener((exception) => CallOnMainThread(() => { onFailure.Invoke(exception); }));
         }
 
         public System.Threading.Tasks.Task ShowTotalRankingsAsync()

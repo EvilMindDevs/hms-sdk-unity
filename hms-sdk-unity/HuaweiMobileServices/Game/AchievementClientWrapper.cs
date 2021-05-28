@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 namespace HuaweiMobileServices.Game
 {
     using HuaweiMobileServices.Base;
@@ -10,9 +9,6 @@ namespace HuaweiMobileServices.Game
 
     internal class AchievementClientWrapper : JavaObjectWrapper, IAchievementsClient
     {
-        
-
-        
         public AchievementClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public void ShowAchievementList(Action onSuccess, Action<HMSException> onFailure) => 

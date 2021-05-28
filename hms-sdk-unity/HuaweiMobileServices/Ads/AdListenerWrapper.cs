@@ -18,37 +18,37 @@
 
             public void onAdClosed()
             {
-                mListener.OnAdClosed();
+                this.CallOnMainThread(() => { mListener.OnAdClosed(); });
             }
 
             public void onAdFailed(int paramInt)
             {
-                mListener.OnAdFailed(paramInt);
+                this.CallOnMainThread(() => { mListener.OnAdFailed(paramInt); });
             }
 
             public void onAdLeave()
             {
-                mListener.OnAdLeave();
+                this.CallOnMainThread(() => { mListener.OnAdLeave(); });
             }
 
             public void onAdOpened()
             {
-                mListener.OnAdOpened();
+                this.CallOnMainThread(() => { mListener.OnAdOpened(); });
             }
 
             public void onAdLoaded()
             {
-                mListener.OnAdLoaded();
+                this.CallOnMainThread(() => { mListener.OnAdLoaded(); });
             }
 
             public void onAdClicked()
             {
-                mListener.OnAdClicked();
+                this.CallOnMainThread(() => { mListener.OnAdClicked(); });
             }
 
             public void onAdImpression()
             {
-                mListener.OnAdImpression();
+                this.CallOnMainThread(() => { mListener.OnAdImpression(); });
             }
         }
 

@@ -15,7 +15,7 @@ namespace HuaweiMobileServices.AppMessaging
         }
         public void onMessageDisplay(AndroidJavaObject appMessage)
         {
-            mListener.Invoke(appMessage.AsWrapper<AppMessage>());
+            this.CallOnMainThread(() => { mListener.Invoke(appMessage.AsWrapper<AppMessage>()); });
         }
     }
 }

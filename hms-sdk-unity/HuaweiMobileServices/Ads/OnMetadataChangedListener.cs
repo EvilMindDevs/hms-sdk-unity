@@ -18,7 +18,7 @@
 
             public void onMetadataChanged()
             {
-                mListener.OnMetadataChanged();
+                this.CallOnMainThread(() => { mListener.OnMetadataChanged(); });
             }
         }
 

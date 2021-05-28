@@ -17,7 +17,7 @@
 
         public void onFailure(AndroidJavaObject javaException)
         {
-            mListener.Invoke(javaException.AsException());
+            this.CallOnMainThread(() => { mListener.Invoke(javaException.AsException()); });
         }
     }
 }

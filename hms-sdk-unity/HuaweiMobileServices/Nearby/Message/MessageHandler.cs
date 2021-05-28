@@ -15,21 +15,25 @@ namespace HuaweiMobileServices.Nearby.Message
         {
             IMessageHandler = messageHandler;
         }
+
         public void onBleSignalChanged(AndroidJavaObject message, AndroidJavaObject bleSignal)
         {
-            IMessageHandler.OnBleSignalChanged(message.AsWrapper<Message>(), bleSignal.AsWrapper<BleSignal>());
+            this.CallOnMainThread(() => { IMessageHandler.OnBleSignalChanged(message.AsWrapper<Message>(), bleSignal.AsWrapper<BleSignal>()); });
         }
+
         public void onDistanceChanged(AndroidJavaObject message, AndroidJavaObject bleSignal)
         {
-            IMessageHandler.OnDistanceChanged(message.AsWrapper<Message>(), bleSignal.AsWrapper<BleSignal>());
+            this.CallOnMainThread(() => { IMessageHandler.OnDistanceChanged(message.AsWrapper<Message>(), bleSignal.AsWrapper<BleSignal>()); });
         }
+
         public void onFound(AndroidJavaObject message)
         {
-            IMessageHandler.OnFound(message.AsWrapper<Message>());
+            this.CallOnMainThread(() => { IMessageHandler.OnFound(message.AsWrapper<Message>()); });
         }
+
         public void onLost(AndroidJavaObject message)
         {
-            IMessageHandler.OnLost(message.AsWrapper<Message>());
+            this.CallOnMainThread(() => { IMessageHandler.OnLost(message.AsWrapper<Message>()); });
         }
     }
 }

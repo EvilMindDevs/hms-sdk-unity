@@ -14,42 +14,42 @@
 
         public void onNewToken(string token)
         {
-            mListener?.OnNewToken(token);
+            this.CallOnMainThread(() => { mListener?.OnNewToken(token); });
         }
 
         public void onNewToken(string token, Bundle bundle)
         {
-            mListener?.OnNewToken(token, bundle);
+            this.CallOnMainThread(() => { mListener?.OnNewToken(token, bundle); });
         }
 
         public void onTokenError(AndroidJavaObject e)
         {
-            mListener?.OnTokenError(e.AsException());
+            this.CallOnMainThread(() => { mListener?.OnTokenError(e.AsException()); });
         }
 
         public void onMessageReceived(AndroidJavaObject remoteMessage)
         {
-            mListener?.OnMessageReceived(remoteMessage.AsWrapper<RemoteMessage>());
+            this.CallOnMainThread(() => { mListener?.OnMessageReceived(remoteMessage.AsWrapper<RemoteMessage>()); });
         }
 
         public void onTokenError(AndroidJavaObject exception, Bundle bundle)
         {
-            mListener?.OnTokenError(exception.AsException(), bundle);
+            this.CallOnMainThread(() => { mListener?.OnTokenError(exception.AsException(), bundle); });
         }
 
         public void onMessageSent(string msgId)
         {
-            mListener?.OnMessageSent(msgId);
+            this.CallOnMainThread(() => { mListener?.OnMessageSent(msgId); });
         }
 
         public void onMessageDelivered(string msgId, AndroidJavaObject exception)
         {
-            mListener?.OnMessageDelivered(msgId, exception.AsException());
+            this.CallOnMainThread(() => { mListener?.OnMessageDelivered(msgId, exception.AsException()); });
         }
 
         public void onSendError(string msgId, AndroidJavaObject exception)
         {
-            mListener?.OnSendError(msgId, exception.AsException());
+            this.CallOnMainThread(() => { mListener?.OnSendError(msgId, exception.AsException()); });
         }
     }
 }
