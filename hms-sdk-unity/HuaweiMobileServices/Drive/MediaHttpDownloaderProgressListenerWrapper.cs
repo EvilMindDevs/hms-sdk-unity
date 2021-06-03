@@ -18,7 +18,7 @@ namespace HuaweiMobileServices.Drive
 
         public void ProgressChanged(MediaHttpDownloader downloader)
         {
-            mListener.progressChanged(downloader);
+            this.CallOnMainThread(() => { mListener.progressChanged(downloader); });
         }
     }
 }

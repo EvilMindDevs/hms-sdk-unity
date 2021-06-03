@@ -2,6 +2,7 @@
 {
     using System;
     using UnityEngine;
+    using HuaweiMobileServices.Utils;
 
     internal class GameTrialProcessWrapper : AndroidJavaProxy
     {
@@ -17,12 +18,12 @@
 
         public void onTrialTimeOut()
         {
-            mOnTrialTimeOut.Invoke();
+            this.CallOnMainThread(() => { mOnTrialTimeOut.Invoke(); });
         }
 
         public void onCheckRealNameResult(bool hasRealName)
         {
-            mOnCheckRealNameResult.Invoke(hasRealName);
+            this.CallOnMainThread(() => { mOnCheckRealNameResult.Invoke(hasRealName); });
         }
     }
 }

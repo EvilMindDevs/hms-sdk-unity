@@ -15,42 +15,42 @@
 
         public void onRewarded(AndroidJavaObject reward)
         {
-            mListener.OnRewarded(reward.AsWrapper<Reward>());
+            this.CallOnMainThread(() => { mListener.OnRewarded(reward.AsWrapper<Reward>()); });
         }
 
         public void onRewardAdClosed()
         {
-            mListener.OnRewardAdClosed();
+            this.CallOnMainThread(() => { mListener.OnRewardAdClosed(); });
         }
 
         public void onRewardAdFailedToLoad(int errorCode)
         {
-            mListener.OnRewardAdFailedToLoad(errorCode);
+            this.CallOnMainThread(() => { mListener.OnRewardAdFailedToLoad(errorCode); });
         }
 
         public void onRewardAdLeftApp()
         {
-            mListener.OnRewardAdLeftApp();
+            this.CallOnMainThread(() => { mListener.OnRewardAdLeftApp(); });
         }
 
         public void onRewardAdLoaded()
         {
-            mListener.OnRewardAdLoaded();
+            this.CallOnMainThread(() => { mListener.OnRewardAdLoaded(); });
         }
 
         public void onRewardAdOpened()
         {
-            mListener.OnRewardAdOpened();
+            this.CallOnMainThread(() => { mListener.OnRewardAdOpened(); });
         }
 
         public void onRewardAdCompleted()
         {
-            mListener.OnRewardAdCompleted();
+            this.CallOnMainThread(() => { mListener.OnRewardAdCompleted(); });
         }
 
         public void onRewardAdStarted()
         {
-            mListener.OnRewardAdStarted();
+            this.CallOnMainThread(() => { mListener.OnRewardAdStarted(); });
         }
     }
 }

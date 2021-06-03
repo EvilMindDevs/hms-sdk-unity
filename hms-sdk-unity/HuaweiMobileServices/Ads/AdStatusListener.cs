@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HuaweiMobileServices.Utils;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -32,7 +33,7 @@ namespace HuaweiMobileServices.Ads
         {
             if (mOnAdClosed != null)
             {
-                mOnAdClosed(this, EventArgs.Empty);
+                this.CallOnMainThread(() => { mOnAdClosed(this, EventArgs.Empty); });
             }
         }
 
@@ -44,7 +45,7 @@ namespace HuaweiMobileServices.Ads
                 {
                     ErrorCode = errorCode
                 };
-                mOnAdFailed(this, args);
+                this.CallOnMainThread(() => { mOnAdFailed(this, args); });
             }
         }
 
@@ -52,7 +53,7 @@ namespace HuaweiMobileServices.Ads
         {
             if (mOnAdLeftApp != null)
             {
-                mOnAdLeftApp(this, EventArgs.Empty);
+                this.CallOnMainThread(() => { mOnAdLeftApp(this, EventArgs.Empty); });
             }
         }
 
@@ -60,7 +61,7 @@ namespace HuaweiMobileServices.Ads
         {
             if (mOnAdOpened != null)
             {
-                mOnAdOpened(this, EventArgs.Empty);
+                this.CallOnMainThread(() => { mOnAdOpened(this, EventArgs.Empty); });
             }
         }
 
@@ -68,7 +69,7 @@ namespace HuaweiMobileServices.Ads
         {
             if (mOnAdLoaded != null)
             {
-                mOnAdLoaded(this, EventArgs.Empty);
+                this.CallOnMainThread(() => { mOnAdLoaded(this, EventArgs.Empty); });
             }
         }
 
@@ -76,7 +77,7 @@ namespace HuaweiMobileServices.Ads
         {
             if (mOnAdClicked != null)
             {
-                mOnAdClicked(this, EventArgs.Empty);
+                this.CallOnMainThread(() => { mOnAdClicked(this, EventArgs.Empty); });
             }
         }
 
@@ -84,7 +85,7 @@ namespace HuaweiMobileServices.Ads
         {
             if (mOnAdImpression != null)
             {
-                mOnAdImpression(this, EventArgs.Empty);
+                this.CallOnMainThread(() => { mOnAdImpression(this, EventArgs.Empty); });
             }
         }
     }

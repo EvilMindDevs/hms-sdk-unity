@@ -18,11 +18,11 @@ namespace HuaweiMobileServices.Utils
                    .AddOnFailureListener(onFailure)
                    .AddOnSuccessListener((nothing) =>
                    {
-                       onSuccess.Invoke();
+                       javaObjectWrapper.CallOnMainThread(() => { onSuccess.Invoke(); });
                    });
                     sJavaClass.CallStatic("receiveShow", intent, callback);
 
-                }).AddOnFailureListener((exception) => onFailure.Invoke(exception));
+                }).AddOnFailureListener((exception) => javaObjectWrapper.CallOnMainThread(() => { onFailure.Invoke(exception); }));
         }
     }
 }

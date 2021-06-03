@@ -14,8 +14,7 @@ namespace HuaweiMobileServices.Drive
         }
         public void progressChanged(AndroidJavaObject uploader)
         {
-            mListener.progressChanged(uploader.AsWrapper<MediaHttpUploader>());
+            this.CallOnMainThread(() => { mListener.progressChanged(uploader.AsWrapper<MediaHttpUploader>()); });
         }
-
     }
 }

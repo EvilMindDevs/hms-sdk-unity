@@ -2,6 +2,7 @@
 {
     using System;
     using UnityEngine;
+    using HuaweiMobileServices.Utils;
 
     // Wrapper for com.huawei.hmf.tasks.OnSuccessListener
     // For Java class instances, needs conversion function
@@ -20,7 +21,7 @@
         public void onSuccess(AndroidJavaObject result)
         {
             T convertedResult = mConverter(result);
-            mListener.Invoke(convertedResult);
+            this.CallOnMainThread(() => { mListener.Invoke(convertedResult); }); 
         }
     }
 
@@ -38,7 +39,7 @@
         // WARNING: DO NO MODIFY METHOD NAME onSuccess, THIS IS CALLED DIRECTLY FROM JAVA!
         public void onSuccess(T result)
         {
-            mListener.Invoke(result);
+            this.CallOnMainThread(() => { mListener.Invoke(result); });
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿namespace HuaweiMobileServices.Utils
 {
+    using System;
     using UnityEngine;
 
     internal static class AndroidJavaClassExtensions
@@ -18,5 +19,12 @@
 
         public static T[] GetAsArray<T>(this AndroidJavaClass javaClass, string fieldName) where T : JavaObjectWrapper =>
             javaClass.Get<AndroidJavaObject>(fieldName).AsArray<T>();
+
+        public static void CallOnMainThread(this AndroidJavaProxy proxy, Action action)
+        {
+            if (!HMSDispatcher.InstanceExists)
+                HMSDispatcher.CreateDispatcher();
+            HMSDispatcher.InvokeAsync(action);
+        }
     }
 }

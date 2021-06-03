@@ -5,7 +5,6 @@ namespace HuaweiMobileServices.AppMessaging
 {
     public class MessageType : JavaObjectWrapper
     {
-        
         public MessageType(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.agconnect.appmessaging.MessageType");

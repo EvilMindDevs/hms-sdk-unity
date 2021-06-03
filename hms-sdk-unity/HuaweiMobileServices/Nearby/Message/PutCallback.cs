@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HuaweiMobileServices.Utils;
+using System;
 using UnityEngine;
 
 namespace HuaweiMobileServices.Nearby.Message
@@ -11,9 +12,10 @@ namespace HuaweiMobileServices.Nearby.Message
         {
             OnTimeout = onTimeout;
         }
+
         public void onTimeout()
         {
-            OnTimeout.Invoke();
+            this.CallOnMainThread(() => { OnTimeout.Invoke(); });
         }
     }
 }
