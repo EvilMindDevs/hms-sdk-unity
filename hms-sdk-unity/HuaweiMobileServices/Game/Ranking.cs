@@ -8,17 +8,10 @@ namespace HuaweiMobileServices.Game
     // Wrapper for com.huawei.hms.jos.games.ranking.Ranking
     public class Ranking : JavaObjectWrapper
     {
-
-        private const string CLASS_NAME = "com.huawei.hms.jos.games.ranking.Ranking";
-
-        
-        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
+        public Ranking(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public const int SCORE_VALUE_HIGH_BETTER = 1;
-
         public const int SCORE_VALUE_SMALL_BETTER = 0;
-
-        public Ranking(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string RankingDisplayName => CallAsString("getRankingDisplayName");
 

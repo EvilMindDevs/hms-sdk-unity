@@ -5,37 +5,18 @@
 
     public class IsSandboxActivatedResult : JavaObjectWrapper
     {
-        
         public IsSandboxActivatedResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public virtual int ReturnCode
-        {
-            get => Call<int>("getReturnCode");
-        }
+        public int ReturnCode => Call<int>("getReturnCode");
 
-        public virtual string ErrMsg
-        {
-            get => Call<string>("getErrMsg");
-        }
+        public string ErrMsg => Call<string>("getErrMsg");
 
-        public virtual bool SandboxUser
-        {
-            get => Call<bool>("getIsSandboxUser");
-        }
+        public bool SandboxUser => CallAsBool("getIsSandboxUser");
 
-        public virtual bool SandboxApk
-        {
-            get => Call<bool>("getIsSandboxApk");
-        }
+        public bool SandboxApk => CallAsBool("getIsSandboxApk");
 
-        public virtual string VersionInApk
-        {
-            get => Call<string>("getVersionInApk");
-        }
+        public string VersionInApk => Call<string>("getVersionInApk");
 
-        public virtual string VersionFrMarket
-        {
-            get => Call<string>("getVersionFrMarket");
-        }
+        public string VersionFrMarket => Call<string>("getVersionFrMarket");
     }
 }

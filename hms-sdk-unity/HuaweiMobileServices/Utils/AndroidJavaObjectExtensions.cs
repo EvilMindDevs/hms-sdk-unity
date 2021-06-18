@@ -17,6 +17,8 @@ namespace HuaweiMobileServices.Utils
 
         public static string AsString(this AndroidJavaObject javaString) => javaString?.Call<string>("toString");
 
+        public static bool AsBool(this AndroidJavaObject javaBool) => javaBool.Call<bool>("booleanValue");
+
         public static AndroidJavaObject AsJavaList<T>(this IList<T> list)
         {
             if (list == null) return null;
