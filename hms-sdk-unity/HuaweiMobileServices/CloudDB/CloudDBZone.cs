@@ -1,5 +1,6 @@
 ﻿using HuaweiMobileServices.Base;
 using HuaweiMobileServices.Utils;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,7 +44,9 @@ namespace HuaweiMobileServices.CloudDB
         public ITask<CloudDBZoneSnapshot<T>> ExecuteQueryUnsynced<T>(CloudDBZoneQuery cloudDBZoneQuery) where T : ICloudDBZoneObject, new()
             => CallAsWrapper<TaskJavaObjectWrapper<CloudDBZoneSnapshot<T>>>("executeQueryUnsynced", cloudDBZoneQuery);
 
-        public ListenerHandler SubscribeSnapshot(CloudDBZoneQuery cloudDBZoneQuery, CloudDBZoneQuery.CloudDBZoneQueryPolicy cloudDBZoneQueryPolicy, OnSnapshotListener listener)
-            => CallAsWrapper<ListenerHandler>("subscribeSnapshot", cloudDBZoneQuery, cloudDBZoneQueryPolicy, listener);
+        public ListenerHandler SubscribeSnapshot<T>(CloudDBZoneQuery cloudDBZoneQuery, CloudDBZoneQuery.CloudDBZoneQueryPolicy cloudDBZoneQueryPolicy,
+            Action<CloudDBZoneSnapshot<T>> mCloudDBZoneSnapshot, Action<AGConnectCloudDBException> mAGConnectCloudDBException) where T : ICloudDBZoneObject, new()
+            => CallAsWrapper<ListenerHandler>("subscribeSnapshot", cloudDBZoneQuery, cloudDBZoneQueryPolicy,
+                new OnSnapshotListenerWrapper<T>(mCloudDBZoneSnapshot, mAGConnectCloudDBException));
     }
 }
