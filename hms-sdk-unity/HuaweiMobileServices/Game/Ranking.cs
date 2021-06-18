@@ -11,7 +11,7 @@ namespace HuaweiMobileServices.Game
 
         private const string CLASS_NAME = "com.huawei.hms.jos.games.ranking.Ranking";
 
-        [UnityEngine.Scripting.Preserve]
+        
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
 
         public const int SCORE_VALUE_HIGH_BETTER = 1;

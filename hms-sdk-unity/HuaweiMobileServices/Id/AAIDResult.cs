@@ -8,11 +8,10 @@
     public class AAIDResult : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public AAIDResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string Id => CallAsString("getId");
 
     }
-
 }

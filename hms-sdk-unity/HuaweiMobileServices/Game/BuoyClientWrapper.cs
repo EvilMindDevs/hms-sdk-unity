@@ -6,7 +6,7 @@
     internal class BuoyClientWrapper : JavaObjectWrapper, IBuoyClient
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public BuoyClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public void HideFloatWindow() => Call("hideFloatWindow");

@@ -8,10 +8,10 @@ namespace HuaweiMobileServices.CloudDB
 {
     public class CloudDBZoneObject : JavaObjectWrapper, ICloudDBZoneObject
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public CloudDBZoneObject(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        [UnityEngine.Scripting.Preserve]
+        
         public CloudDBZoneObject() : base("com.huawei.agconnect.cloud.database.CloudDBZoneObject") { }
 
         public string ObjectTypeName => Call<string>("getObjectTypeName"); 

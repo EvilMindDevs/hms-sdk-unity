@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Utils
         private const string CLASS_NAME = "android.graphics.BitmapFactory";
         private static AndroidJavaClass BitmapFactoryClass = new AndroidJavaClass(CLASS_NAME);
 
-        [UnityEngine.Scripting.Preserve]
+        
         public AndroidBitmapFactory(AndroidJavaObject javaObject) : base(javaObject) { }
  
         public static AndroidJavaObject DecodeFile (string fileName) => BitmapFactoryClass.CallStatic<AndroidJavaObject>("decodeFile", fileName);

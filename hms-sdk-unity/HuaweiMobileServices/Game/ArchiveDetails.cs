@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.Game
     // Wrapper for com.huawei.hms.jos.games.archive.ArchiveDetails
     public class ArchiveDetails : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public ArchiveDetails(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public byte[] Get
@@ -25,7 +25,7 @@ namespace HuaweiMobileServices.Game
         public class Builder : JavaObjectWrapper
         {
 
-            [UnityEngine.Scripting.Preserve]
+            
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public Builder() : base("com.huawei.hms.jos.games.archive.ArchiveDetails$Builder") { }

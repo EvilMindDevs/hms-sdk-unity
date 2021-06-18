@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.Game
     public class Player : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public Player(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public Player(string json, AuthHuaweiId authHuaweiId)
@@ -31,6 +31,14 @@ namespace HuaweiMobileServices.Game
         public virtual string PlayerSign => CallAsString("getPlayerSign");
 
         public virtual string SignTs => CallAsString("getSignTs");
+
+        public virtual string OpenId => CallAsString("getOpenId");
+
+        public virtual string UnionId => CallAsString("getUnionId");
+
+        public virtual string AccessToken => CallAsString("getAccessToken");
+
+        public virtual string OpenIdSign => CallAsString("getOpenIdSign");
     }
 
 }

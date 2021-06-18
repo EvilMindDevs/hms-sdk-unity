@@ -1,5 +1,6 @@
 namespace HuaweiMobileServices.Utils
 {
+    using System;
     using System.Collections.Generic;
     using UnityEngine;
 
@@ -9,11 +10,13 @@ namespace HuaweiMobileServices.Utils
         public JavaObjectWrapper(AndroidJavaObject javaObject)
         {
             JavaObject = javaObject;
+            HMSDispatcher.CreateDispatcher();
         }
 
         internal protected JavaObjectWrapper(string javaObjectCanonicalName, params object[] args)
         {
             JavaObject = new AndroidJavaObject(javaObjectCanonicalName, args.AsAutoParams());
+            HMSDispatcher.CreateDispatcher();
         }
 
         internal protected virtual AndroidJavaObject JavaObject { get; set; }
@@ -22,8 +25,13 @@ namespace HuaweiMobileServices.Utils
 
         internal protected void Call(string methodName, params object[] args) => JavaObject.Call(methodName, args.AsAutoParams());
 
+        internal protected void CallOnMainThread(Action action) => HMSDispatcher.InvokeAsync(action);
+
         internal protected string CallAsString(string methodName, params object[] args) =>
             Call<AndroidJavaObject>(methodName, args.AsAutoParams())?.AsString();
+
+        internal protected string[] CallAsStringArray(string methodName, params object[] args) =>
+            Call<AndroidJavaObject>(methodName, args.AsAutoParams())?.AsStringArray();
 
         internal protected T CallAsWrapper<T>(string methodName, params object[] args) where T : JavaObjectWrapper =>
             Call<AndroidJavaObject>(methodName, args.AsAutoParams())?.AsWrapper<T>();

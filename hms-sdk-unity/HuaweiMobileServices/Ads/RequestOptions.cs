@@ -8,7 +8,7 @@
     public class RequestOptions : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public RequestOptions(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual int? TagForChildProtection => Call<int?>("getTagForChildProtection");
@@ -23,12 +23,14 @@
 
         public virtual string AdContentClassification => CallAsString("getAdContentClassification");
 
+        public virtual string Consent => CallAsString("getConsent");
+
         public virtual Builder ToBuilder() => CallAsWrapper<Builder>("toBuilder");
 
         public class Builder : JavaObjectWrapper
         {
 
-            [UnityEngine.Scripting.Preserve]
+            
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public virtual RequestOptions Build() => CallAsWrapper<RequestOptions>("build");
@@ -44,6 +46,8 @@
             public virtual Builder SetAppLang(string Param1String) => CallAsWrapper<Builder>("setAppLang", Param1String);
 
             public virtual Builder SetAppCountry(string Param1String) => CallAsWrapper<Builder>("setAppCountry", Param1String);
+
+            public virtual Builder SetConsent(string Param1String) => CallAsWrapper<Builder>("setConsent", Param1String);
 
         }
     }

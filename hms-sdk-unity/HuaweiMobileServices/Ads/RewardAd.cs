@@ -23,12 +23,12 @@
 
             public void OnRewardAdFailedToLoad(int errorCode)
             {
-                mOnError.Invoke(errorCode);
+                HMSDispatcher.InvokeAsync(() => { mOnError.Invoke(errorCode); });
             }
 
             public void OnRewardedLoaded()
             {
-                mOnSuccess.Invoke();
+                HMSDispatcher.InvokeAsync(() => { mOnSuccess.Invoke(); });
             }
         }
 
@@ -39,7 +39,7 @@
         public static RewardAd CreateRewardAdInstance() =>
             sJavaClass.CallStaticAsWrapper<RewardAd>("createRewardAdInstance", AndroidContext.ActivityContext);
 
-        [UnityEngine.Scripting.Preserve]
+        
         public RewardAd(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public RewardAd(string paramString) : base("com.huawei.hms.ads.reward.RewardAd", AndroidContext.ActivityContext, paramString) { }

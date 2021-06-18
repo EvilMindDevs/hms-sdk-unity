@@ -17,22 +17,22 @@
 
             public void onRewardAdClosed()
             {
-                mListener.OnRewardAdClosed();
+                this.CallOnMainThread(() => { mListener.OnRewardAdClosed(); });
             }
 
             public void onRewardAdFailedToShow(int errorCode)
             {
-                mListener.OnRewardAdFailedToShow(errorCode);
+                this.CallOnMainThread(() => { mListener.OnRewardAdFailedToShow(errorCode); });
             }
 
             public void onRewardAdOpened()
             {
-                mListener.OnRewardAdOpened();
+                this.CallOnMainThread(() => { mListener.OnRewardAdOpened(); });
             }
 
             public void onRewarded(AndroidJavaObject reward)
             {
-                mListener.OnRewarded(new Reward(reward));
+                this.CallOnMainThread(() => { mListener.OnRewarded(new Reward(reward)); });
             }
         }
 

@@ -5,7 +5,7 @@ namespace HuaweiMobileServices.Crash
 {
     class AGConnectCrashWrapper : JavaObjectWrapper, IAGConnectCrash
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public AGConnectCrashWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public void EnableCrashCollection(bool enable) => Call("enableCrashCollection", enable);
@@ -29,6 +29,6 @@ namespace HuaweiMobileServices.Crash
         public void SetUserId(string userId) => Call("setUserId", userId);
 
         public void TestIt() => Call("testIt", AndroidContext.ApplicationContext);
-
+        public void RecordException(AndroidJavaObject throwable) => Call("recordException", throwable);
     }
 }

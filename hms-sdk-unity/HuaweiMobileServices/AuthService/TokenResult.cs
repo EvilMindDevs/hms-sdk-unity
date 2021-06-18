@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.AuthService
 {
     public class TokenResult : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public TokenResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public string Token => Call<string>("getToken"); 

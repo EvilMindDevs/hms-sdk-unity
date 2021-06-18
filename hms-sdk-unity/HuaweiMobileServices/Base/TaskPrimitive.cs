@@ -7,7 +7,7 @@ namespace HuaweiMobileServices.Base
     internal class TaskPrimitive<T> : AbstractTask<T>
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public TaskPrimitive(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public override T Result => Call<T>("getResult");
@@ -19,10 +19,10 @@ namespace HuaweiMobileServices.Base
         }
     }
 
-    [UnityEngine.Scripting.Preserve]
+    
     internal class TaskPrimitiveInt : TaskPrimitive<int>
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public TaskPrimitiveInt(AndroidJavaObject javaObject) : base(javaObject) { }
     }
 }

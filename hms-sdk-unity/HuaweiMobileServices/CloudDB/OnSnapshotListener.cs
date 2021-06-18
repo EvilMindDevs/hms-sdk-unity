@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.CloudDB
 {
     public class OnSnapshotListener : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public OnSnapshotListener() : base("com.huawei.agconnect.cloud.database.OnSnapshotListener") { }
         public OnSnapshotListener(AndroidJavaObject javaObject) : base(javaObject) { }
 

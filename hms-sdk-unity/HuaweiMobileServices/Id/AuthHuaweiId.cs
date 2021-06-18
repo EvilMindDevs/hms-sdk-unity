@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Id
     public class AuthHuaweiId : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public AuthHuaweiId(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string Uid => CallAsString("getUid");
@@ -51,7 +51,7 @@ namespace HuaweiMobileServices.Id
 
         public virtual bool Expired => Call<bool>("isExpired");
 
-        public virtual AuthHuaweiId RequestExtraScopes(IList<Scope> list) => CallAsWrapper<AuthHuaweiId>("getRequestExtraScopes");
+        public virtual AuthHuaweiId RequestExtraScopes(IList<Scope> list) => CallAsWrapper<AuthHuaweiId>("requestExtraScopes");
 
         public virtual ISet<Scope> RequestedScopes => Call<AndroidJavaObject>("getRequestedScopes").AsSetFromWrappable<Scope>();
 

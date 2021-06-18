@@ -7,7 +7,7 @@
     public abstract class Result : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public Result(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual Status Status => CallAsWrapper<Status>("getStatus");

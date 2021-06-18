@@ -10,10 +10,10 @@ namespace HuaweiMobileServices.Drive
     public class FileContent : JavaObjectWrapper
     {
 
-        [UnityEngine.Scripting.Preserve]
+        
         public FileContent(String javaObject) : base(javaObject) {}
 
-        [UnityEngine.Scripting.Preserve]
+        
         public FileContent(String var1, FileInfo var2) : base("com.huawei.cloud.base.http.FileContent", var1, var2){}
 
         public long GetLength() => Call<long>("getLength");

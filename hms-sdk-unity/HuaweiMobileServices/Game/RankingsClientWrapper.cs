@@ -13,7 +13,7 @@ namespace HuaweiMobileServices.Game
 
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
 
-        [UnityEngine.Scripting.Preserve]
+        
         public RankingsClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public void ShowTotalRankings(Action onSuccess, Action<HMSException> onFailure)
@@ -25,11 +25,11 @@ namespace HuaweiMobileServices.Game
                        .AddOnFailureListener(onFailure)
                        .AddOnSuccessListener((nothing) =>
                        {
-                           onSuccess.Invoke();
+                           CallOnMainThread(() => { onSuccess.Invoke(); });
                        });
                     sJavaClass.CallStatic("receiveShow", intent, callback);
 
-                }).AddOnFailureListener((exception) => onFailure.Invoke(exception));
+                }).AddOnFailureListener((exception) => CallOnMainThread(() => { onFailure.Invoke(exception); }));
         }
 
         public System.Threading.Tasks.Task ShowTotalRankingsAsync()

@@ -10,7 +10,7 @@ namespace HuaweiMobileServices.AuthService
 {
     public class AGConnectUser : JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public AGConnectUser(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public bool IsAnonymous() => Call<bool>("isAnonymous");

@@ -6,8 +6,6 @@
 
     internal class IapClientWrapper : JavaObjectWrapper, IIapClient
     {
-
-        [UnityEngine.Scripting.Preserve]
         public IapClientWrapper(AndroidJavaObject iapClientJava) : base(iapClientJava) { }
 
         public ITask<EnvReadyResult> EnvReady
@@ -16,6 +14,15 @@
             {
                 var javaTask = Call<AndroidJavaObject>("isEnvReady");
                 return new TaskJavaObjectWrapper<EnvReadyResult>(javaTask);
+            }
+        }
+
+        public ITask<IsSandboxActivatedResult> SandboxActivated
+        {
+            get
+            {
+                var javaTask = Call<AndroidJavaObject>("isSandboxActivated");
+                return new TaskJavaObjectWrapper<IsSandboxActivatedResult>(javaTask);
             }
         }
 
@@ -52,8 +59,29 @@
         public ITask<PurchaseIntentResult> CreatePurchaseIntent(PurchaseIntentReq purchaseIntentReq) =>
             CallAsWrapper<TaskJavaObjectWrapper<PurchaseIntentResult>>("createPurchaseIntent", purchaseIntentReq.JavaObject);
 
+        public ITask<StartIapActivityResult> StartIapActivity(StartIapActivityReq startIapActivityReq) =>
+    CallAsWrapper<TaskJavaObjectWrapper<StartIapActivityResult>>("startIapActivity", startIapActivityReq.JavaObject);
+
         public PurchaseResultInfo ParsePurchaseResultInfoFromIntent(AndroidIntent paramIntent) =>
             CallAsWrapper<PurchaseResultInfo>("parsePurchaseResultInfoFromIntent", paramIntent);
 
+    }
+
+    public sealed class PriceType
+    {
+        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.iap.IapClient$PriceType");
+
+        public static readonly PriceType IN_APP_CONSUMABLE = new PriceType(sJavaClass.GetStatic<int>("IN_APP_CONSUMABLE"));
+        public static readonly PriceType IN_APP_NONCONSUMABLE = new PriceType(sJavaClass.GetStatic<int>("IN_APP_NONCONSUMABLE"));
+        public static readonly PriceType IN_APP_SUBSCRIPTION = new PriceType(sJavaClass.GetStatic<int>("IN_APP_SUBSCRIPTION"));
+
+        private int value;
+
+        public int Value { get => value; set => this.value = value; }
+
+        public PriceType(int value)
+        {
+            Value = value;
+        }
     }
 }

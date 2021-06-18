@@ -4,7 +4,7 @@
 
     internal class TaskAndroidJavaObject : TaskWrapper<AndroidJavaObject>
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public TaskAndroidJavaObject(AndroidJavaObject javaObject) : base(javaObject, (jObject) => jObject) { }
     }
 }

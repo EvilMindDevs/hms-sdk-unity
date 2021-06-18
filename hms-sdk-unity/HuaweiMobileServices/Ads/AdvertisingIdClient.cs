@@ -16,7 +16,7 @@
         // Wrapper for com.huawei.hms.ads.identifier.AdvertisingIdClient.Info
         public class Info : JavaObjectWrapper
         {
-            [UnityEngine.Scripting.Preserve]
+            
             public Info(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public string Id => CallAsString("getId");

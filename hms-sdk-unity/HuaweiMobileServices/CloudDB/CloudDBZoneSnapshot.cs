@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.CloudDB
 {
     public class CloudDBZoneSnapshot: JavaObjectWrapper
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public CloudDBZoneSnapshot() : base("com.huawei.agconnect.cloud.database.CloudDBZoneSnapshot") { }
         public CloudDBZoneSnapshot(AndroidJavaObject javaObject) : base(javaObject) { }
 

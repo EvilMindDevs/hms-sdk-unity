@@ -8,7 +8,7 @@
     {
         public const int RANK_UNKNOWN = -1;
 
-        [UnityEngine.Scripting.Preserve]
+        
         public RankingScore(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string DisplayRank => CallAsString("getDisplayRank");

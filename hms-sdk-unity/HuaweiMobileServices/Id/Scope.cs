@@ -11,7 +11,7 @@
 
         public Scope(string uri) : base("com.huawei.hms.support.api.entity.auth.Scope", uri.AsJavaString()) { }
 
-        [UnityEngine.Scripting.Preserve]
+        
         public Scope(AndroidJavaObject javaObject) : base(javaObject) { }
 
     }

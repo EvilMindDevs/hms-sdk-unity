@@ -5,7 +5,7 @@
 
     internal class TaskStringWrapper : TaskWrapper<string>
     {
-        [UnityEngine.Scripting.Preserve]
+        
         public TaskStringWrapper(AndroidJavaObject javaObject) : base(javaObject, AndroidJavaObjectExtensions.AsString) { }
     }
 }
