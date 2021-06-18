@@ -13,7 +13,7 @@ namespace HuaweiMobileServices.Game
 
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
 
-        
+
         public RankingsClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public void ShowTotalRankings(Action onSuccess, Action<HMSException> onFailure)
@@ -60,7 +60,7 @@ namespace HuaweiMobileServices.Game
         public ITask<IList<Ranking>> GetRankingSummary(bool paramBoolean)
         {
             var task = Call<AndroidJavaObject>("getRankingSummary", paramBoolean);
-            return new TaskWrapper<IList<Ranking>>(task, AndroidJavaObjectExtensions.AsList<Ranking>);
+            return new TaskWrapper<IList<Ranking>>(task, AndroidJavaObjectExtensions.AsListFromWrappable<Ranking>);
         }
 
         public ITask<Ranking> GetRankingSummary(string paramString, bool paramBoolean) =>

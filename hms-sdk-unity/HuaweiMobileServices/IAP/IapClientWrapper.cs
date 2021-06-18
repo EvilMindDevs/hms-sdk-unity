@@ -21,7 +21,7 @@
         {
             get
             {
-                var javaTask = Call<AndroidJavaObject>("isSandboxActivated");
+                var javaTask = Call<AndroidJavaObject>("isSandboxActivated", new IsSandboxActivatedReq().JavaObject);
                 return new TaskJavaObjectWrapper<IsSandboxActivatedResult>(javaTask);
             }
         }
