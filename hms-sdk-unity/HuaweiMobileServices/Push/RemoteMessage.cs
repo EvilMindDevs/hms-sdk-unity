@@ -94,5 +94,7 @@
         public string From => CallAsString("getFrom");
 
         public string Token => CallAsString("getToken");
+
+        public string AnalyticInfo => CallAsString("getAnalyticInfo");
     }
 }
