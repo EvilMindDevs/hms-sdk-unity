@@ -6,8 +6,6 @@ namespace HuaweiMobileServices.Game
     // Wrapper for com.huawei.hms.jos.games.player.PlayerExtraInfo
     public class PlayerExtraInfo : JavaObjectWrapper
     {
-
-        
         public PlayerExtraInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public PlayerExtraInfo(string json) : base("com.huawei.hms.jos.games.player.PlayerExtraInfo", json.AsJavaString()) { }
@@ -21,7 +19,5 @@ namespace HuaweiMobileServices.Game
         public virtual bool IsRealName => Call<bool>("getIsRealName");
 
         public virtual string OpenId => CallAsString("getOpenId");
-
     }
-
 }

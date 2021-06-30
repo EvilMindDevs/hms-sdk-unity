@@ -1,14 +1,11 @@
 ﻿namespace HuaweiMobileServices.Game
 {
-
     using HuaweiMobileServices.Utils;
     using UnityEngine;
 
     // Wrapper com.huawei.hms.jos.games.archive.ArchiveSummary
     public class ArchiveSummary : JavaObjectWrapper
-    {
-
-        
+    {   
         public ArchiveSummary(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string Id => CallAsString("getId");
@@ -30,8 +27,5 @@
         public virtual GameSummary GameSummary => CallAsWrapper<GameSummary>("getGameSummary");
 
         public virtual long RecentUpdateTime => Call<long>("getRecentUpdateTime");
-
-        public virtual int DescribeContents() => Call<int>("getDescribeContents");
     }
-
 }
