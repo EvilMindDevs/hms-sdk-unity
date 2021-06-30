@@ -5,17 +5,16 @@ namespace HuaweiMobileServices.IAP
 
     public class EnvReadyResult : JavaObjectWrapper
     {
-        
+
         public EnvReadyResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public virtual int ReturnCode
-        {
-            get => Call<int>("getReturnCode");
-        }
+        public int ReturnCode => Call<int>("getReturnCode");
 
-        public virtual int AccountFlag
-        {
-            get => Call<int>("getAccountFlag");
-        }
+        public int AccountFlag => Call<int>("getAccountFlag");
+
+        public string CarrierId => CallAsString("getCarrierId");
+
+        public string Country => CallAsString("getCountry");
+
     }
 }
