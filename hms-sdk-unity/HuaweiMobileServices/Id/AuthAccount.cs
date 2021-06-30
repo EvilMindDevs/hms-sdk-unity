@@ -31,7 +31,7 @@ namespace HuaweiMobileServices.Id
 
         public virtual ISet<Scope> RequestedScopes => Call<AndroidJavaObject>("getRequestedScopes").AsSetFromWrappable<Scope>();
 
-        public virtual AndroidAccount HuaweiAccount => CallAsWrapper<AndroidAccount>("getAccount");
+        public virtual AndroidAccount HuaweiAccount => CallAsWrapper<AndroidAccount>("getAccount", AndroidContext.ActivityContext);
 
         public virtual string DisplayName => CallAsString("getDisplayName");
 

@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Id
     public class AuthHuaweiId : JavaObjectWrapper
     {
 
-        
+
         public AuthHuaweiId(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string Uid => CallAsString("getUid");
@@ -35,7 +35,7 @@ namespace HuaweiMobileServices.Id
 
         public virtual string Email => CallAsString("getEmail");
 
-        public virtual AndroidAccount HuaweiAccount => CallAsWrapper<AndroidAccount>("getHuaweiAccount");
+        public virtual AndroidAccount HuaweiAccount => CallAsWrapper<AndroidAccount>("getHuaweiAccount", AndroidContext.ActivityContext);
 
         public virtual ISet<Scope> ExtensionScopes => Call<AndroidJavaObject>("getExtensionScopes").AsSetFromWrappable<Scope>();
 
