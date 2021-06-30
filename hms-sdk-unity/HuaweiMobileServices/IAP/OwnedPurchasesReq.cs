@@ -18,5 +18,11 @@
             get => new PriceType(Call<int>("getPriceType"));
             set => Call("setPriceType", value.Value);
         }
+
+        public string SignatureAlgorithm
+        {
+            get => CallAsString("getSignatureAlgorithm");
+            set => Call("setSignatureAlgorithm", value.AsJavaString());
+        }
     }
 }

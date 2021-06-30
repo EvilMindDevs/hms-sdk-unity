@@ -1,11 +1,9 @@
 ﻿namespace HuaweiMobileServices.IAP
 {
-
     using HuaweiMobileServices.Utils;
 
     public class PurchaseIntentReq : JavaObjectWrapper
     {
-
         public PurchaseIntentReq() : base("com.huawei.hms.iap.entity.PurchaseIntentReq") { }
 
         public virtual string DeveloperPayload
@@ -32,5 +30,10 @@
             set => Call("setReservedInfor", value.AsJavaString());
         }
 
+        public string SignatureAlgorithm
+        {
+            get => CallAsString("getSignatureAlgorithm");
+            set => Call("setSignatureAlgorithm", value.AsJavaString());
+        }
     }
 }
