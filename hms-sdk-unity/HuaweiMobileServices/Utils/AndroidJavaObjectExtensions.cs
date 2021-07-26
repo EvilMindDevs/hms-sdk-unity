@@ -52,11 +52,11 @@ namespace HuaweiMobileServices.Utils
             return javaLongObject.Call<long>("longValue");
         }
 
-        public static long? AsDouble(this AndroidJavaObject javaLongObject)
+        public static double? AsDouble(this AndroidJavaObject javaLongObject)
         {
             if (javaLongObject == null)
                 return null;
-            return javaLongObject.Call<long>("doubleValue");
+            return javaLongObject.Call<double>("doubleValue");
         }
 
         public static IList<T> AsListFromWrappable<T>(this AndroidJavaObject javaList) where T : JavaObjectWrapper =>
