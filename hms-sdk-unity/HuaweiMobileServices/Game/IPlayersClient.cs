@@ -9,13 +9,19 @@
     {
         ITask<Player> CurrentPlayer { get; }
 
+        ITask<Player> GamePlayer { get; }
+
         ITask<string> CachePlayerId { get; }
 
         ITask<Utils.Void> SavePlayerInfo(AppPlayerInfo paramAppPlayerInfo);
 
+        ITask<Player> GetGamePlayer(bool isRequirePlayerId);
+
         ITask<PlayerExtraInfo> GetPlayerExtraInfo(string paramString);
 
-        ITask<string> SubmitPlayerEvent(string paramString1, string paramString2, string paramString3);
+        ITask<string> SubmitPlayerEvent(string playerId, string eventId, string eventType);
+
+        ITask<string> SubmitPlayerEvent(string eventId, string eventType);
 
         void SetGameTrialProcess(Action onTrialTimeOut, Action<bool> onCheckRealNameResult);
     }
