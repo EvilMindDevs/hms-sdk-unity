@@ -8,46 +8,21 @@ namespace HuaweiMobileServices.Ads
 {
     public class BannerAd : JavaObjectWrapper
     {
-
-        
         public BannerAd(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public BannerAd(AdStatusListener AdStatusListener) : base("org.m0skit0.android.hms.unity.ads.BannerAd", AndroidContext.ActivityContext, AdStatusListener) { }
 
-        public string AdId
-        {
-            set;
-            get;
-        }
+        public string AdId { get; set; }
 
-        public int PositionType
-        {
-            set;
-            get;
-        }
-        public String SizeType
-        {
-            set;
-            get;
-        }
-        public AdStatusListener AdStatusListener
-        {
-            set;
-            get;
-        }
+        public int PositionType { get; set; }
+
+        public String SizeType { get; set; }
+
+        public AdStatusListener AdStatusListener { get; set; }
+
+        public long BannerRefresh { get; set; }
+
         public void LoadBanner(AdParam adRequest)
-        {
-            HandleRequestAd(adRequest);
-        }
-        public void HideBanner()
-        {
-            HandleHideAd();
-        }
-        public void DestroyBanner()
-        {
-            HandleDestroyAd();
-        }
-        private void HandleRequestAd(AdParam adRequest)
         {
             Call("setAdId", AdId);
 
@@ -55,15 +30,13 @@ namespace HuaweiMobileServices.Ads
 
             Call("setAdSizeType", SizeType);
 
+            if (BannerRefresh != 0)
+                Call("setBannerRefresh", Math.Max(Math.Min(BannerRefresh, 120), 30));
+
             Call("loadAd", adRequest);
         }
 
-        public void ShowBanner()
-        {
-            Call("show");
-        }
-
-        private void HandleHideAd()
+        public void HideBanner()
         {
             if (this != null)
             {
@@ -71,7 +44,7 @@ namespace HuaweiMobileServices.Ads
             }
         }
 
-        private void HandleDestroyAd()
+        public void DestroyBanner()
         {
             if (this != null)
             {
@@ -79,5 +52,14 @@ namespace HuaweiMobileServices.Ads
             }
         }
 
+        public void ShowBanner()
+        {
+            Call("show");
+        }
+
+        public void SetBannerRefresh(long value)
+        {
+            Call("setBannerRefresh", Math.Max(Math.Min(value, 120), 30));
+        }
     }
 }

@@ -1,4 +1,5 @@
 package org.m0skit0.android.hms.unity.ads;
+
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Handler;
@@ -33,6 +34,8 @@ public class BannerAd extends AdListener {
     private String adId;
 
     private String adSizeType = UnityBannerAdSize.USER_DEFINED;
+
+    private long bannerRefresh = 60;
 
     private int positionCode = UnityBannerAdPositionCode.POSITION_TOP;
 
@@ -112,6 +115,7 @@ public class BannerAd extends AdListener {
                     bannerView.setBackgroundColor(Color.TRANSPARENT);
                     bannerView.setVisibility(View.GONE);
                     bannerView.setAdListener(BannerAd.this);
+                    bannerView.setBannerRefresh(bannerRefresh);
                     activity.addContentView(bannerView, getBannerViewLayoutParams());
                 }
                 bannerView.setAdId(adId);
@@ -203,14 +207,20 @@ public class BannerAd extends AdListener {
         });
     }
 
-     public void setBannerAdPosition(final int positionX, final int positionY) {
+    public void setBannerAdPosition(final int positionX, final int positionY) {
         positionCode = UnityBannerAdPositionCode.POSITION_CUSTOM;
         horizontalOffset = positionX;
         verticalOffset = positionY;
         updatePosition();
     }
 
-     public void setBannerAdPosition(final int positionCode) {
+    public void setBannerRefresh(long interval) {
+        bannerRefresh = interval;
+        if (bannerView != null)
+            bannerView.setBannerRefresh(interval);
+    }
+
+    public void setBannerAdPosition(final int positionCode) {
         this.positionCode = positionCode;
         horizontalOffset = 0;
         verticalOffset = 0;
