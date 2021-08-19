@@ -19,8 +19,10 @@ namespace HuaweiMobileServices.Nearby.Discovery
         public void Disconnect(String endpointId) => Call("disconnect", endpointId);
         public ITask<Void> RejectConnect(String endpointId) 
                 => CallAsWrapper<TaskVoidWrapper>("rejectConnect", endpointId);
-        public ITask<Void> RequestConnect(String endpointId, String name, IConnectCallBack connectCallback) 
+        public ITask<Void> RequestConnect(String name, String endpointId, IConnectCallBack connectCallback)
                 => CallAsWrapper<TaskVoidWrapper>("requestConnect", name, endpointId, new ConnectCallback(connectCallback));
+        public ITask<Void> RequestConnectEx(String name, String endpointId, IConnectCallBack connectCallback, ConnectOption option)
+                   => CallAsWrapper<TaskVoidWrapper>("requestConnectEx", name, endpointId, new ConnectCallback(connectCallback), option);
         public ITask<Void> StartBroadcasting(String name, String serviceId, IConnectCallBack connectCallback, BroadcastOption option) 
                 => CallAsWrapper<TaskVoidWrapper>("startBroadcasting", name, serviceId, new ConnectCallback(connectCallback), option);
         public ITask<Void> StartScan(String serviceId, IScanEndpointCallback scanEndpointCallback, ScanOption option)
