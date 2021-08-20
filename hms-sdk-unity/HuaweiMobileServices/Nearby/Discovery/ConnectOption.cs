@@ -6,10 +6,15 @@ namespace HuaweiMobileServices.Nearby.Discovery
     public class ConnectOption : JavaObjectWrapper
     {
         public ConnectOption(AndroidJavaObject javaObject) : base(javaObject) { }
+        public ChannelPolicy Policy => CallAsWrapper<ChannelPolicy>("getPolicy");
+        public class Builder : JavaObjectWrapper
+        {
 
-        private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.nearby.discovery.ChannelPolicy");
-        public static ConnectOption CHANNEL_AUTO => androidJavaClass.GetStaticAsWrapper<ConnectOption>("CHANNEL_AUTO");
-        public static ConnectOption CHANNEL_HIGH_THROUGHPUT => androidJavaClass.GetStaticAsWrapper<ConnectOption>("CHANNEL_HIGH_THROUGHPUT");
-        public static ConnectOption CHANNEL_INSTANCE => androidJavaClass.GetStaticAsWrapper<ConnectOption>("CHANNEL_INSTANCE");
+            public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
+
+            public Builder() : base("com.huawei.hms.nearby.discovery.ConnectOption$Builder") { }
+            public BroadcastOption Build() => CallAsWrapper<BroadcastOption>("build");
+            public Builder SetPolicy(ChannelPolicy policy) => CallAsWrapper<Builder>("setPolicy", policy);
+        }
     }
 }
