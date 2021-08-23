@@ -13,7 +13,7 @@ namespace HuaweiMobileServices.Nearby.Discovery
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public Builder() : base("com.huawei.hms.nearby.discovery.ConnectOption$Builder") { }
-            public BroadcastOption Build() => CallAsWrapper<BroadcastOption>("build");
+            public ConnectOption Build() => CallAsWrapper<ConnectOption>("build");
             public Builder SetPolicy(ChannelPolicy policy) => CallAsWrapper<Builder>("setPolicy", policy);
         }
     }
