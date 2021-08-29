@@ -15,6 +15,8 @@
 
         public virtual InAppPurchaseData InAppPurchaseData => new InAppPurchaseData(CallAsString("getInAppPurchaseData"));
 
+        public virtual string InAppPurchaseDataRawJSON => CallAsString("getInAppPurchaseData");
+
         public virtual string InAppDataSignature => CallAsString("getInAppDataSignature");
 
     }

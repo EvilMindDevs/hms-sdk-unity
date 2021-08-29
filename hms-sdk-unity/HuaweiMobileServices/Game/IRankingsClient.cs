@@ -15,9 +15,9 @@ namespace HuaweiMobileServices.Game
 
         System.Threading.Tasks.Task ShowTotalRankingsAsync();
 
-        ITask<AndroidIntent> GetRankingIntent(string paramString, int paramInt);
+        void GetRankingIntent(string rankingId, int timeDimention, Action onSuccess, Action<HMSException> onFailure);
 
-        ITask<AndroidIntent> GetRankingIntent(string paramString);
+        void GetRankingIntent(string rankingId, Action onSuccess, Action<HMSException> onFailure);
 
         ITask<RankingScores> GetRankingTopScores(string paramString, int paramInt1, int paramInt2, long paramLong, int paramInt3);
 
