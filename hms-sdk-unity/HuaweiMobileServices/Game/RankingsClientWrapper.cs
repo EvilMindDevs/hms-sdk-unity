@@ -49,11 +49,35 @@ namespace HuaweiMobileServices.Game
         public ITask<RankingScores> GetPlayerCenteredRankingScores(string paramString, int paramInt1, int paramInt2, long paramLong, int paramInt3) =>
             CallAsWrapper<TaskJavaObjectWrapper<RankingScores>>("getPlayerCenteredRankingScores", paramString, paramInt1, paramInt2, paramLong, paramInt3);
 
-        public ITask<AndroidIntent> GetRankingIntent(string rankingId, int timeDimension) =>
-            CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getRankingIntent", rankingId, timeDimension);
+        public void GetRankingIntent(string rankingId, Action onSuccess, Action<HMSException> onFailure)
+        {
+            CallAsWrapper<TaskAndroidJavaObject>("getRankingIntent", rankingId)
+                 .AddOnSuccessListener((intent) =>
+                 {
+                     var callback = new GenericBridgeCallbackWrapper()
+                     .AddOnFailureListener(onFailure)
+                     .AddOnSuccessListener((returnedIntent) =>
+                     {
+                         CallOnMainThread(() => { onSuccess.Invoke(); });
+                     });
+                     sJavaClass.CallStatic("receiveShow", intent, callback);
+                 }).AddOnFailureListener((exception) => CallOnMainThread(() => { onFailure.Invoke(exception); }));
+        }
 
-        public ITask<AndroidIntent> GetRankingIntent(string rankingId) =>
-            CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getRankingIntent", rankingId);
+        public void GetRankingIntent(string rankingId, int timeDimension, Action onSuccess, Action<HMSException> onFailure)
+        {
+            CallAsWrapper<TaskAndroidJavaObject>("getRankingIntent", rankingId, timeDimension)
+                 .AddOnSuccessListener((intent) =>
+                 {
+                     var callback = new GenericBridgeCallbackWrapper()
+                     .AddOnFailureListener(onFailure)
+                     .AddOnSuccessListener((returnedIntent) =>
+                     {
+                         CallOnMainThread(() => { onSuccess.Invoke(); });
+                     });
+                     sJavaClass.CallStatic("receiveShow", intent, callback);
+                 }).AddOnFailureListener((exception) => CallOnMainThread(() => { onFailure.Invoke(exception); }));
+        }
 
         public ITask<IList<Ranking>> GetRankingSummary(bool paramBoolean)
         {
