@@ -15,12 +15,12 @@
                 mListener = listener;
             }
 
-            public void OnReceived(string p0, AndroidJavaObject p1)
+            public void onReceived(string p0, AndroidJavaObject p1)
             {
                 this.CallOnMainThread(() => { mListener.onReceived(p0, p1.AsWrapper<Data>()); });
             }
 
-            public void OnTransferUpdate(string p0, AndroidJavaObject p1)
+            public void onTransferUpdate(string p0, AndroidJavaObject p1)
             {
                 this.CallOnMainThread(() => { mListener.onTransferUpdate(p0, p1.AsWrapper<TransferStateUpdate>()); });
             }
