@@ -10,9 +10,7 @@ namespace HuaweiMobileServices.Game
 
     internal class RankingsClientWrapper : JavaObjectWrapper, IRankingsClient
     {
-
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.GenericBridge");
-
 
         public RankingsClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
@@ -51,11 +49,35 @@ namespace HuaweiMobileServices.Game
         public ITask<RankingScores> GetPlayerCenteredRankingScores(string paramString, int paramInt1, int paramInt2, long paramLong, int paramInt3) =>
             CallAsWrapper<TaskJavaObjectWrapper<RankingScores>>("getPlayerCenteredRankingScores", paramString, paramInt1, paramInt2, paramLong, paramInt3);
 
-        public ITask<AndroidIntent> GetRankingIntent(string paramString, int paramInt) =>
-            CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getRankingIntent", paramString, paramInt);
+        public void GetRankingIntent(string rankingId, Action onSuccess, Action<HMSException> onFailure)
+        {
+            CallAsWrapper<TaskAndroidJavaObject>("getRankingIntent", rankingId)
+                 .AddOnSuccessListener((intent) =>
+                 {
+                     var callback = new GenericBridgeCallbackWrapper()
+                     .AddOnFailureListener(onFailure)
+                     .AddOnSuccessListener((returnedIntent) =>
+                     {
+                         CallOnMainThread(() => { onSuccess.Invoke(); });
+                     });
+                     sJavaClass.CallStatic("receiveShow", intent, callback);
+                 }).AddOnFailureListener((exception) => CallOnMainThread(() => { onFailure.Invoke(exception); }));
+        }
 
-        public ITask<AndroidIntent> GetRankingIntent(string paramString) =>
-            CallAsWrapper<TaskJavaObjectWrapper<AndroidIntent>>("getRankingIntent", paramString);
+        public void GetRankingIntent(string rankingId, int timeDimension, Action onSuccess, Action<HMSException> onFailure)
+        {
+            CallAsWrapper<TaskAndroidJavaObject>("getRankingIntent", rankingId, timeDimension)
+                 .AddOnSuccessListener((intent) =>
+                 {
+                     var callback = new GenericBridgeCallbackWrapper()
+                     .AddOnFailureListener(onFailure)
+                     .AddOnSuccessListener((returnedIntent) =>
+                     {
+                         CallOnMainThread(() => { onSuccess.Invoke(); });
+                     });
+                     sJavaClass.CallStatic("receiveShow", intent, callback);
+                 }).AddOnFailureListener((exception) => CallOnMainThread(() => { onFailure.Invoke(exception); }));
+        }
 
         public ITask<IList<Ranking>> GetRankingSummary(bool paramBoolean)
         {
@@ -76,10 +98,10 @@ namespace HuaweiMobileServices.Game
 
         public ITask<int> SetRankingSwitchStatus(int paramInt) => CallAsWrapper<TaskPrimitive<int>>("setRankingSwitchStatus", paramInt);
 
-        public void SubmitRankingScore(string paramString1, long paramLong, string paramString2) =>
-            Call("submitRankingScore", paramString1, paramLong, paramString2);
+        public void SubmitRankingScore(string rankingId, long score, string scoreTips) =>
+            Call("submitRankingScore", rankingId, score, scoreTips);
 
-        public void SubmitRankingScore(string paramString, long paramLong) => Call("submitRankingScore", paramString, paramLong);
+        public void SubmitRankingScore(string rankingId, long score) => Call("submitRankingScore", rankingId, score);
 
         public ITask<ScoreSubmissionInfo> SubmitScoreWithResult(string paramString1, long paramLong, string paramString2) =>
             CallAsWrapper<TaskJavaObjectWrapper<ScoreSubmissionInfo>>("submitScoreWithResult", paramString1, paramLong, paramString2);

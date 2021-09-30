@@ -16,7 +16,7 @@ namespace HuaweiMobileServices.Game
 
         public ITask<Player> GetGamePlayer(bool isRequirePlayerId) => CallAsWrapper<TaskJavaObjectWrapper<Player>>("getGamePlayer", isRequirePlayerId);
 
-        public ITask<string> CachePlayerId => CallAsWrapper<TaskStringWrapper>("getCurrentPlayer");
+        public ITask<string> CachePlayerId => CallAsWrapper<TaskStringWrapper>("getCachePlayerId");
 
         public ITask<PlayerExtraInfo> GetPlayerExtraInfo(string transactionId) =>
              CallAsWrapper<TaskJavaObjectWrapper<PlayerExtraInfo>>("getPlayerExtraInfo", transactionId.AsJavaString());
@@ -27,7 +27,7 @@ namespace HuaweiMobileServices.Game
             return new TaskVoidWrapper(javaTask);
         }
 
-        public void SetGameTrialProcess(System.Action onTrialTimeOut, System.Action<bool> onCheckRealNameResult) => Call<AndroidJavaObject>("setGameTrialProcess", new GameTrialProcessWrapper(onTrialTimeOut, onCheckRealNameResult));
+        public void SetGameTrialProcess(System.Action onTrialTimeOut, System.Action<bool> onCheckRealNameResult) => Call("setGameTrialProcess", new GameTrialProcessWrapper(onTrialTimeOut, onCheckRealNameResult));
 
         public ITask<string> SubmitPlayerEvent(string playerId, string eventId, string eventType) =>
             CallAsWrapper<TaskStringWrapper>("submitPlayerEvent", playerId.AsJavaString(), eventId.AsJavaString(), eventType.AsJavaString());
