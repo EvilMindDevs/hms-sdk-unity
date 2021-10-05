@@ -2,7 +2,8 @@ package org.m0skit0.android.hms.unity.helper;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -21,7 +22,18 @@ public class ServiceHelper {
         return HuaweiApiAvailability.getInstance().isHuaweiMobileServicesAvailable(UnityPlayer.currentActivity)
                 == com.huawei.hms.api.ConnectionResult.SUCCESS;
     }
+    public static String getHMSCoreVersionName() {
 
+        PackageInfo pinfo = null;
+        try {
+            pinfo =  UnityPlayer.currentActivity.getPackageManager().getPackageInfo("com.huawei.hwid", 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        //getVersionName is Deprecated, instead use versionName
+        String verName = pinfo.versionName;
+        return  verName;
+    }
     public static int getServicesVersionCode(){
         return HuaweiApiAvailability.getInstance().getServicesVersionCode();
     }
@@ -30,12 +42,12 @@ public class ServiceHelper {
         HuaweiApiAvailability.getInstance().setServicesVersionCode(var0);
     }
 
-    public static int isHuaweiMobileServicesAvailable(Context var1){
-        return HuaweiApiAvailability.getInstance().isHuaweiMobileServicesAvailable(var1);
+    public static int isHuaweiMobileServicesAvailable(){
+        return HuaweiApiAvailability.getInstance().isHuaweiMobileServicesAvailable(UnityPlayer.currentActivity);
     }
 
-    public static int isHuaweiMobileServicesAvailable(Context var1, int var2){
-        return HuaweiApiAvailability.getInstance().isHuaweiMobileServicesAvailable(var1,var2);
+    public static int isHuaweiMobileServicesAvailable(int var2){
+        return HuaweiApiAvailability.getInstance().isHuaweiMobileServicesAvailable(UnityPlayer.currentActivity,var2);
     }
 
     public static int isHuaweiMobileNoticeAvailable(Context var1){
