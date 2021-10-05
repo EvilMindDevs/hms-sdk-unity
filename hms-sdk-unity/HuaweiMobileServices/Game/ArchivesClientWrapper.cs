@@ -34,13 +34,13 @@ namespace HuaweiMobileServices.Game
             {
                var callback = new GenericBridgeCallbackWrapper().AddOnSuccessListener((success) =>
                {
-                   if (success.GetHasExtra<bool>(ArchiveConstants.ARCHIVE_SELECT))
+                   if (success.GetHasExtra(ArchiveConstants.ARCHIVE_SELECT))
                    {
                        AndroidBundle bundle = success.GetParcelableExtra<AndroidBundle>(ArchiveConstants.ARCHIVE_SELECT);
                        ITask<ArchiveSummary> taskSummary = this.ParseSummary(bundle);
                        taskSummary.AddOnSuccessListener(selectedAction);
                    }
-                   else if (success.GetHasExtra<bool>(ArchiveConstants.ARCHIVE_ADD))
+                   else if (success.GetHasExtra(ArchiveConstants.ARCHIVE_ADD))
                    {
                        addAction(true);
                    }

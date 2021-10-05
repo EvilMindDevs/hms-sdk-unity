@@ -17,6 +17,8 @@ namespace HuaweiMobileServices.Utils
 
         public static string AsString(this AndroidJavaObject javaString) => javaString?.Call<string>("toString");
 
+        public static bool AsBool(this AndroidJavaObject javaBool) => javaBool.Call<bool>("booleanValue");
+
         public static AndroidJavaObject AsJavaList<T>(this IList<T> list)
         {
             if (list == null) return null;
@@ -50,11 +52,11 @@ namespace HuaweiMobileServices.Utils
             return javaLongObject.Call<long>("longValue");
         }
 
-        public static long? AsDouble(this AndroidJavaObject javaLongObject)
+        public static double? AsDouble(this AndroidJavaObject javaLongObject)
         {
             if (javaLongObject == null)
                 return null;
-            return javaLongObject.Call<long>("doubleValue");
+            return javaLongObject.Call<double>("doubleValue");
         }
 
         public static IList<T> AsListFromWrappable<T>(this AndroidJavaObject javaList) where T : JavaObjectWrapper =>

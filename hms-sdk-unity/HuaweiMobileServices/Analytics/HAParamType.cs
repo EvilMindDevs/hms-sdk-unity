@@ -11,9 +11,33 @@ namespace HuaweiMobileServices.Analystics
 
 		private static AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.hms.analytics.type.HAParamType");
 
+		public static string ACHIEVEMENTID => androidJavaClass.GetStatic<string>("ACHIEVEMENTID");
+
 		public static string STORENAME => androidJavaClass.GetStatic<string>("STORENAME");
 
+		public static string ROLENAME => androidJavaClass.GetStatic<string>("ROLENAME");
+
+		public static string OPTION => androidJavaClass.GetStatic<string>("OPTION");
+
+		public static string STEP => androidJavaClass.GetStatic<string>("STEP");
+
+		public static string CONTENTTYPE => androidJavaClass.GetStatic<string>("CONTENTTYPE");
+
+		public static string VOUCHER => androidJavaClass.GetStatic<string>("VOUCHER");
+
+		public static string CURRNAME => androidJavaClass.GetStatic<string>("CURRNAME");
+
+		public static string DESTINATION => androidJavaClass.GetStatic<string>("DESTINATION");
+
+		public static string ENDDATE => androidJavaClass.GetStatic<string>("ENDDATE");
+
+		public static string FLIGHTNO => androidJavaClass.GetStatic<string>("FLIGHTNO");
+
 		public static string BRAND => androidJavaClass.GetStatic<string>("BRAND");
+
+		public static string USERGROUPID => androidJavaClass.GetStatic<string>("USERGROUPID");
+
+		public static string POSITIONID => androidJavaClass.GetStatic<string>("POSITIONID");
 
 		public static string CATEGORY => androidJavaClass.GetStatic<string>("CATEGORY");
 
@@ -29,13 +53,7 @@ namespace HuaweiMobileServices.Analystics
 
 		public static string REVENUE => androidJavaClass.GetStatic<string>("REVENUE");
 
-		public static string CURRNAME => androidJavaClass.GetStatic<string>("CURRNAME");
-
 		public static string PLACEID => androidJavaClass.GetStatic<string>("PLACEID");
-
-		public static string DESTINATION => androidJavaClass.GetStatic<string>("DESTINATION");
-
-		public static string ENDDATE => androidJavaClass.GetStatic<string>("ENDDATE");
 
 		public static string BOOKINGDAYS => androidJavaClass.GetStatic<string>("BOOKINGDAYS");
 
@@ -69,13 +87,7 @@ namespace HuaweiMobileServices.Analystics
 
 		public static string KEYWORDS => androidJavaClass.GetStatic<string>("KEYWORDS");
 
-		public static string OPTION => androidJavaClass.GetStatic<string>("OPTION");
-
-		public static string STEP => androidJavaClass.GetStatic<string>("STEP");
-
 		public static string VIRTUALCURRNAME => androidJavaClass.GetStatic<string>("VIRTUALCURRNAME");
-
-		public static string VOUCHER => androidJavaClass.GetStatic<string>("VOUCHER");
 
 		public static string PLACE => androidJavaClass.GetStatic<string>("PLACE");
 
@@ -83,13 +95,9 @@ namespace HuaweiMobileServices.Analystics
 
 		public static string TAXFEE => androidJavaClass.GetStatic<string>("TAXFEE");
 
-		public static string USERGROUPID => androidJavaClass.GetStatic<string>("USERGROUPID");
-
 		public static string LEVELNAME => androidJavaClass.GetStatic<string>("LEVELNAME");
 
 		public static string RESULT => androidJavaClass.GetStatic<string>("RESULT");
-
-		public static string ROLENAME => androidJavaClass.GetStatic<string>("ROLENAME");
 
 		public static string LEVELID => androidJavaClass.GetStatic<string>("LEVELID");
 
@@ -98,14 +106,6 @@ namespace HuaweiMobileServices.Analystics
 		public static string SCORE => androidJavaClass.GetStatic<string>("SCORE");
 
 		public static string SEARCHKEYWORDS => androidJavaClass.GetStatic<string>("SEARCHKEYWORDS");
-
-		public static string CONTENTTYPE => androidJavaClass.GetStatic<string>("CONTENTTYPE");
-
-		public static string ACHIEVEMENTID => androidJavaClass.GetStatic<string>("ACHIEVEMENTID");
-
-		public static string FLIGHTNO => androidJavaClass.GetStatic<string>("FLIGHTNO");
-
-		public static string POSITIONID => androidJavaClass.GetStatic<string>("POSITIONID");
 
 		public static string PRODUCTLIST => androidJavaClass.GetStatic<string>("PRODUCTLIST");
 

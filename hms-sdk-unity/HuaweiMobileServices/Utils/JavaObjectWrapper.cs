@@ -30,6 +30,9 @@ namespace HuaweiMobileServices.Utils
         internal protected string CallAsString(string methodName, params object[] args) =>
             Call<AndroidJavaObject>(methodName, args.AsAutoParams())?.AsString();
 
+        internal protected bool CallAsBool(string methodName, params object[] args) =>
+            Call<AndroidJavaObject>(methodName, args.AsAutoParams()).AsBool();
+
         internal protected string[] CallAsStringArray(string methodName, params object[] args) =>
             Call<AndroidJavaObject>(methodName, args.AsAutoParams())?.AsStringArray();
 

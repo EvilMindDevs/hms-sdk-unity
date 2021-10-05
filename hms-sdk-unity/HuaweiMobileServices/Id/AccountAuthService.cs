@@ -47,5 +47,22 @@ namespace HuaweiMobileServices.Id
 
         public ITask<AccountIcon> Channel() => CallAsWrapper<TaskJavaObjectWrapper<AccountIcon>>("getChannel");
 
+        public void StartIndependentSignIn(string accessToken, Action<AuthAccount> onSuccess, Action<HMSException> onFailure)
+        {
+            var intent = Call<AndroidJavaObject>("getIndependentSignInIntent", accessToken);
+            var callback = new GenericBridgeCallbackWrapper()
+                .AddOnFailureListener(onFailure)
+                .AddOnSuccessListener((resultIntent) =>
+                {
+                    AccountAuthManager.ParseAuthResultFromIntent(resultIntent)
+                         .AddOnFailureListener(onFailure)
+                         .AddOnSuccessListener((authHuaweiId) =>
+                         {
+                             CallOnMainThread(() => { onSuccess.Invoke(authHuaweiId); });
+                         });
+                });
+
+            sJavaClass.CallStatic("receiveShow", intent, callback);
+        }
     }
 }

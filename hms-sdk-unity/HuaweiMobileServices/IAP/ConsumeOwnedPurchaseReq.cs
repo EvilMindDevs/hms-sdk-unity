@@ -8,18 +8,23 @@
 
         public ConsumeOwnedPurchaseReq() : base("com.huawei.hms.iap.entity.ConsumeOwnedPurchaseReq") { }
 
-        public virtual string PurchaseToken
+        public string PurchaseToken
         {
-            set => Call("setPurchaseToken", value.AsJavaString());
             get => CallAsString("getPurchaseToken");
+            set => Call("setPurchaseToken", value.AsJavaString());
         }
 
-        public virtual string DeveloperChallenge
+        public string DeveloperChallenge
         {
-            set => Call("setDeveloperChallenge", value.AsJavaString());
             get => CallAsString("getDeveloperChallenge");
+            set => Call("setDeveloperChallenge", value.AsJavaString());
+        }
+
+        public string SignatureAlgorithm
+        {
+            get => CallAsString("getSignatureAlgorithm");
+            set => Call("setSignatureAlgorithm", value.AsJavaString());
         }
 
     }
-
 }

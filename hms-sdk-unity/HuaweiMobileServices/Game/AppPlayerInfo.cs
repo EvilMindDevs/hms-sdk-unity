@@ -6,39 +6,19 @@ namespace HuaweiMobileServices.Game
     // Wrapper for com.huawei.hms.jos.games.AppPlayerInfo
     public class AppPlayerInfo : JavaObjectWrapper
     {
-
-        
         public AppPlayerInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public virtual string Rank
-        {
-            get => CallAsString("getRank");
-        }
+        public virtual string Rank => CallAsString("getRank");
 
-        public virtual string Role
-        {
-            get => CallAsString("getRole");
-        }
+        public virtual string Role => CallAsString("getRole");
 
-        public virtual string Area
-        {
-            get => CallAsString("getArea");
-        }
+        public virtual string Area => CallAsString("getArea");
 
-        public virtual string Sociaty
-        {
-            get => CallAsString("getSociaty");
-        }
+        public virtual string Sociaty => CallAsString("getSociaty");
 
-        public virtual string PlayerId
-        {
-            get => CallAsString("getPlayerId");
-        }
+        public virtual string PlayerId => CallAsString("getPlayerId");
 
-        public virtual string OpenId
-        {
-            get => CallAsString("getOpenId");
-        }
+        public virtual string OpenId => CallAsString("getOpenId");
     }
 
 }
