@@ -29,8 +29,6 @@ namespace HuaweiMobileServices.Drive
         public string GetMimeType() => Call<string>("getMimeType");
         public HistoryVersion SetMimeType(string var1) => CallAsWrapper<HistoryVersion>("setMimeType", var1);
 
-        //getEditedTime
-
         public string GetOriginalFilename() => Call<string>("getOriginalFilename");
         public HistoryVersion SetOriginalFilename(string var1) => CallAsWrapper<HistoryVersion>("setOriginalFilename", var1);
 

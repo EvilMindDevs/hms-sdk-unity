@@ -16,7 +16,7 @@ namespace HuaweiMobileServices.Drive
         public About about() => CallAsWrapper<About>("about");
         public Changes changes() => CallAsWrapper<Changes>("changes");
         public Channels channels() => CallAsWrapper<Channels>("channels");
-        public Comment comments() => CallAsWrapper<Comment>("comments");
+        public Comments comments() => CallAsWrapper<Comments>("comments");
         public Files files() => CallAsWrapper<Files>("files");
         public HistoryVersions historyVersions() => CallAsWrapper<HistoryVersions>("historyVersions");
         public Replies replies() => CallAsWrapper<Replies>("replies");
@@ -148,7 +148,7 @@ namespace HuaweiMobileServices.Drive
                 public new Copy SetPrettyPrint(bool var1) => CallAsWrapper<Copy>("setPrettyPrint", var1);
                 public new Copy SetQuotaId(string var1) => CallAsWrapper<Copy>("setQuotaId", var1);
                 public new Copy Set(string var1, AndroidJavaObject var2) => CallAsWrapper<Copy>("set", var1, var2);
-                public new File Execute() => CallAsWrapper<File>("Execute");
+                public new File Execute() => CallAsWrapper<File>("execute");
             }
         }
 
@@ -266,11 +266,11 @@ namespace HuaweiMobileServices.Drive
             }
         }
 
-        public class Comment : JavaObjectWrapper
+        public class Comments : JavaObjectWrapper
         {
-            public Comment(AndroidJavaObject javaObject) : base(javaObject) { }
+            public Comments(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            public Create create(string var1, HuaweiMobileServices.Drive.Comment var2) => CallAsWrapper<Create>("create", var1, var2);
+            public Create create(string var1, Comment var2) => CallAsWrapper<Create>("create", var1, var2);
             public Delete delete(string var1, string var2) => CallAsWrapper<Delete>("delete", var1, var2);
             public Get get(string var1, string var2) => CallAsWrapper<Get>("get", var1, var2);
             public List list(string var1) => CallAsWrapper<List>("list", var1);
@@ -280,7 +280,7 @@ namespace HuaweiMobileServices.Drive
             {
                 public Create(AndroidJavaObject javaObject) : base(javaObject) { }
 
-                public new HuaweiMobileServices.Drive.Comment Execute() => CallAsWrapper<HuaweiMobileServices.Drive.Comment>("execute");
+                public new Comment Execute() => CallAsWrapper<Comment>("execute");
                 public new Create SetForm(string var1) => CallAsWrapper<Create>("setForm", var1);
                 public new Create SetFields(string var1) => CallAsWrapper<Create>("setFields", var1);
                 public new Create SetPrettyPrint(bool var1) => CallAsWrapper<Create>("setPrettyPrint", var1);
@@ -306,7 +306,7 @@ namespace HuaweiMobileServices.Drive
             public class Get : DriveRequest<Comment>
             {
                 public Get(AndroidJavaObject javaObject) : base(javaObject) { }
-                public new HuaweiMobileServices.Drive.Comment Execute() => CallAsWrapper<HuaweiMobileServices.Drive.Comment>("execute");
+                public new Comment Execute() => CallAsWrapper<Comment>("execute");
                 public new Get SetForm(string var1) => CallAsWrapper<Get>("setForm", var1);
                 public new Get SetPrettyPrint(bool var1) => CallAsWrapper<Get>("setPrettyPrint", var1);
                 public new Get SetQuotaId(string var1) => CallAsWrapper<Get>("setQuotaId", var1);
@@ -327,7 +327,7 @@ namespace HuaweiMobileServices.Drive
                 public new List SetForm(string var1) => CallAsWrapper<List>("setForm", var1);
                 public new List SetPrettyPrint(bool var1) => CallAsWrapper<List>("setPrettyPrint", var1);
                 public new List SetQuotaId(string var1) => CallAsWrapper<List>("setQuotaId", var1);
-                public string getFileId() => Call<string>("getFileId");
+                public string GetFileId() => Call<string>("getFileId");
                 public List SetFileId(string var1) => CallAsWrapper<List>("setFileId", var1);
                 public int GetPageSize() => Call<int>("getPageSize");
                 public List SetPageSize(int var1) => CallAsWrapper<List>("setPageSize", var1);
@@ -353,7 +353,7 @@ namespace HuaweiMobileServices.Drive
                 public string GetCommentId() => Call<string>("getCommentId");
                 public Update SetCommentId(string var1) => CallAsWrapper<Update>("setCommentId", var1);
                 public new Update Set(string var1, AndroidJavaObject var2) => CallAsWrapper<Update>("set", var1, var2);
-                public new HuaweiMobileServices.Drive.Comment Execute() => CallAsWrapper<HuaweiMobileServices.Drive.Comment>("execute");
+                public new Comment Execute() => CallAsWrapper<Comment>("execute");
             }
         }
 
@@ -364,7 +364,7 @@ namespace HuaweiMobileServices.Drive
             public Delete delete(string var1, string var2) => CallAsWrapper<Delete>("delete", var1, var2);
             public Get get(string var1, string var2) => CallAsWrapper<Get>("get", var1, var2);
             public List list(string var1) => CallAsWrapper<List>("list", var1);
-            public Update update(string var1, string var2, Reply var3) => CallAsWrapper<Update>("update", var1, var2, var3);
+            public Update update(string var1, string var2, HistoryVersion var3) => CallAsWrapper<Update>("update", var1, var2, var3);
 
             public class Delete : DriveRequest<Utils.Void>
             {

@@ -7,6 +7,5 @@ namespace HuaweiMobileServices.Drive
     public interface IMediaHttpDownloaderProgressListener
     {
         void progressChanged(MediaHttpDownloader downloader);
-
     }
 }
