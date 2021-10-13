@@ -13,6 +13,8 @@
 
         public static string HMSCoreVersionName => sJavaClass.CallStatic<string>("getHMSCoreVersionName");
 
+        public static void HMSCoreVersionToastMessage() => sJavaClass.CallStatic("toastMessageHMSCoreVersion");
+
         public static int ServicesVersionCode => sJavaClass.CallStatic<int>("getServicesVersionCode");
         public static void SetServicesVersionCode(int servicesVersionCode) => sJavaClass.CallStatic("setServicesVersionCode", servicesVersionCode);
         public static int IsHuaweiMobileServicesAvailable => sJavaClass.CallStatic<int>("isHuaweiMobileServicesAvailable");

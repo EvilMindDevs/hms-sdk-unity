@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.view.Gravity;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -21,6 +23,36 @@ public class ServiceHelper {
     public static boolean isHMSAvailable() {
         return HuaweiApiAvailability.getInstance().isHuaweiMobileServicesAvailable(UnityPlayer.currentActivity)
                 == com.huawei.hms.api.ConnectionResult.SUCCESS;
+    }
+    public static void toastMessageHMSCoreVersion() {
+        int HMSCoreVersionNumber = isHuaweiMobileServicesAvailable();
+        String temp = "";
+        switch (HMSCoreVersionNumber)
+        {
+            case 0:
+                temp += "HMS Core (APK) is available.";
+                break;
+            case 1:
+                temp += "No HMS Core (APK) is found on the device.";
+                break;
+            case 2:
+                temp += "HMS Core (APK) installed is out of date.";
+                break;
+            case 3:
+                temp += "HMS Core (APK) installed on the device is unavailable.";
+                break;
+            case 9:
+                temp += "HMS Core (APK) installed on the device is not the official version.";
+                break;
+            case 21:
+                temp += "The device is too old to support HMS Core (APK).";
+                break;
+            default:
+                 break;
+        }
+        Toast toast = Toast.makeText(UnityPlayer.currentActivity, "Status: " + temp, Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+        toast.show();
     }
     public static String getHMSCoreVersionName() {
 
@@ -96,4 +128,5 @@ public class ServiceHelper {
     public static int SERVICES_VERSION_CODE =  HuaweiApiAvailability.getInstance().SERVICES_VERSION_CODE;
     public static final int HMS_SDK_VERSION_CODE =  HuaweiApiAvailability.getInstance().HMS_SDK_VERSION_CODE;
     public static final String HMS_SDK_VERSION_NAME =  HuaweiApiAvailability.getInstance().HMS_SDK_VERSION_NAME;
+
 }
