@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.huawei.hms.iap.Iap;
 import com.huawei.hms.iap.entity.PurchaseResultInfo;
+import com.huawei.hms.iap.util.IapClientHelper;
 import com.huawei.hms.support.api.client.Status;
 import com.unity3d.player.UnityPlayer;
 
@@ -46,6 +47,8 @@ public class StatusBridge {
         final PurchaseResultInfo info = Iap.getIapClient(UnityPlayer.currentActivity).parsePurchaseResultInfoFromIntent(data);
         Log.d(TAG, "[HMS] PurchaseResultInfo returnCode " + info.getReturnCode());
         // TODO
+        int returnCode = IapClientHelper.parseRespCodeFromIntent(data);
+        data.putExtra("returnCode", returnCode);
 
         callback.onSuccess(data);
     }
