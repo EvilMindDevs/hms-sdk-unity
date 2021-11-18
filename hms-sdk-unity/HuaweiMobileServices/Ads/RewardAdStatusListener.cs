@@ -7,7 +7,6 @@
     {
         private class RewardAdStatusListenerInterfaceWrapper : AndroidJavaProxy
         {
-
             private readonly IRewardAdStatusListener mListener;
 
             public RewardAdStatusListenerInterfaceWrapper(IRewardAdStatusListener listener) : base("org.m0skit0.android.hms.unity.ads.RewardAdStatusListener")
@@ -17,22 +16,22 @@
 
             public void onRewardAdClosed()
             {
-                this.CallOnMainThread(() => { mListener.OnRewardAdClosed(); });
+                mListener.OnRewardAdClosed();
             }
 
             public void onRewardAdFailedToShow(int errorCode)
             {
-                this.CallOnMainThread(() => { mListener.OnRewardAdFailedToShow(errorCode); });
+                mListener.OnRewardAdFailedToShow(errorCode);
             }
 
             public void onRewardAdOpened()
             {
-                this.CallOnMainThread(() => { mListener.OnRewardAdOpened(); });
+                mListener.OnRewardAdOpened();
             }
 
             public void onRewarded(AndroidJavaObject reward)
             {
-                this.CallOnMainThread(() => { mListener.OnRewarded(new Reward(reward)); });
+                mListener.OnRewarded(new Reward(reward));
             }
         }
 
