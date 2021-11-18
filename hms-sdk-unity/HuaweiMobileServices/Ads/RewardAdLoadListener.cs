@@ -19,12 +19,12 @@
 
             public void onRewardedLoaded()
             {
-                this.CallOnMainThread(() => { mListener.OnRewardedLoaded(); });
+                mListener.OnRewardedLoaded();
             }
 
             public void onRewardAdFailedToLoad(int errorCode)
             {
-                this.CallOnMainThread(() => { mListener.OnRewardAdFailedToLoad(errorCode); });
+                mListener.OnRewardAdFailedToLoad(errorCode);
             }
         }
 

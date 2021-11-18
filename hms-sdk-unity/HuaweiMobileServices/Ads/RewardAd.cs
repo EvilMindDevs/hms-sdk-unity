@@ -23,12 +23,12 @@
 
             public void OnRewardAdFailedToLoad(int errorCode)
             {
-                HMSDispatcher.InvokeAsync(() => { mOnError.Invoke(errorCode); });
+                mOnError.Invoke(errorCode);
             }
 
             public void OnRewardedLoaded()
             {
-                HMSDispatcher.InvokeAsync(() => { mOnSuccess.Invoke(); });
+                mOnSuccess.Invoke();
             }
         }
 
@@ -39,10 +39,15 @@
         public static RewardAd CreateRewardAdInstance() =>
             sJavaClass.CallStaticAsWrapper<RewardAd>("createRewardAdInstance", AndroidContext.ActivityContext);
 
-        
+
         public RewardAd(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public RewardAd(string paramString) : base("com.huawei.hms.ads.reward.RewardAd", AndroidContext.ActivityContext, paramString) { }
+        public RewardAd(string paramString) : base("com.huawei.hms.ads.reward.RewardAd", AndroidContext.ActivityContext, paramString)
+        {
+            AdId = paramString;
+        }
+
+        public string AdId { get; private set; }
 
         public virtual Reward Reward => CallAsWrapper<Reward>("getReward");
 
@@ -52,6 +57,11 @@
         {
             var listener = new LoadAdListener(onSuccess, onError);
             Call("loadAd", paramAdParam, new RewardAdLoadListener(listener));
+        }
+
+        public virtual void LoadAd(AdParam paramAdParam)
+        {
+            LoadAd(AdId, paramAdParam);
         }
 
         public virtual Task LoadAdAsync(AdParam paramAdParam)
