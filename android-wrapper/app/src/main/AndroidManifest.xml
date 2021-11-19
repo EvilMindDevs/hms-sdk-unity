@@ -3,6 +3,13 @@
     package="org.m0skit0.android.hms.unity">
 
     <application>
+        <activity
+            android:name=".activity.SplashActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="fullSensor"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        </activity>
         <activity android:name=".activity.NativeBridgeActivity" />
     </application>
 </manifest>
