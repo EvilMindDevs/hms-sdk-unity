@@ -25,6 +25,10 @@ namespace HuaweiMobileServices.Utils
 
         internal protected void Call(string methodName, params object[] args) => JavaObject.Call(methodName, args.AsAutoParams());
 
+        internal protected T CallStatic<T>(string methodName, params object[] args) => JavaObject.CallStatic<T>(methodName, args.AsAutoParams());
+
+        internal protected void CallStatic(string methodName, params object[] args) => JavaObject.CallStatic(methodName, args.AsAutoParams());
+
         internal protected void CallOnMainThread(Action action) => HMSDispatcher.InvokeAsync(action);
 
         internal protected string CallAsString(string methodName, params object[] args) =>
