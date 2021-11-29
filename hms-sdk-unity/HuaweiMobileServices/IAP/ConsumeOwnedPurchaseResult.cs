@@ -6,33 +6,18 @@ namespace HuaweiMobileServices.IAP
     // Wrapper for com.huawei.hms.iap.entity.ConsumeOwnedPurchaseResult
     public class ConsumeOwnedPurchaseResult : JavaObjectWrapper
     {
-
-        
         public ConsumeOwnedPurchaseResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public virtual string ConsumePurchaseData
-        {
-            get => CallAsString("getConsumePurchaseData");
-        }
+        public InAppPurchaseData ConsumePurchaseData => new InAppPurchaseData(CallAsString("getConsumePurchaseData"));
 
+        public string ConsumePurchaseDataRaw => CallAsString("getConsumePurchaseData");
 
-        public virtual string DataSignature
-        {
-            get => CallAsString("getDataSignature");
-        }
+        public string DataSignature => CallAsString("getDataSignature");
 
+        public string SignatureAlgorithm => CallAsString("getSignatureAlgorithm");
 
-        public virtual int ReturnCode
-        {
-            get => Call<int>("getReturnCode");
-        }
+        public int ReturnCode => Call<int>("getReturnCode");
 
-
-        public virtual string ErrMsg
-        {
-            get => CallAsString("getErrMsg");
-        }
-
+        public string ErrMsg => CallAsString("getErrMsg");
     }
-
 }
