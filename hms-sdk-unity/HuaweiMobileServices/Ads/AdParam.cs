@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Ads
     public class AdParam : JavaObjectWrapper
     {
 
-        
+
         public AdParam(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public virtual string TargetingContentUrl => CallAsString("getTargetingContentUrl");
@@ -22,7 +22,7 @@ namespace HuaweiMobileServices.Ads
         public class Builder : JavaObjectWrapper
         {
 
-            
+
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public Builder() : base("com.huawei.hms.ads.AdParam$Builder") { }
@@ -59,15 +59,15 @@ namespace HuaweiMobileServices.Ads
                 return this;
             }
 
-            public Builder SetTagForChildProtection(int? param1Integer)
+            public Builder SetTagForChildProtection(int param1Integer)
             {
-                JavaObject = Call<AndroidJavaObject>("setTagForChildProtection", param1Integer);
+                JavaObject = Call<AndroidJavaObject>("setTagForChildProtection", param1Integer.AsJavaInteger());
                 return this;
             }
 
-            public Builder SetNonPersonalizedAd(int? param1Integer)
+            public Builder SetNonPersonalizedAd(int param1Integer)
             {
-                JavaObject = Call<AndroidJavaObject>("setNonPersonalizedAd", param1Integer);
+                JavaObject = Call<AndroidJavaObject>("setNonPersonalizedAd", param1Integer.AsJavaInteger());
                 return this;
             }
 
@@ -83,9 +83,9 @@ namespace HuaweiMobileServices.Ads
                 return this;
             }
 
-            public Builder SetTagForUnderAgeOfPromise(int? param1Integer)
+            public Builder SetTagForUnderAgeOfPromise(int param1Integer)
             {
-                JavaObject = Call<AndroidJavaObject>("setTagForUnderAgeOfPromise", param1Integer);
+                JavaObject = Call<AndroidJavaObject>("setTagForUnderAgeOfPromise", param1Integer.AsJavaInteger());
                 return this;
             }
 
