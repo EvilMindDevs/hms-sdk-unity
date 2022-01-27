@@ -115,6 +115,8 @@
 
         public virtual void Show() => Call("show");
 
+        public void SetMobileDataAlertSwitch(bool alertSwitch) => Call("setMobileDataAlertSwitch", alertSwitch);
+
     }
 
 }
