@@ -115,6 +115,8 @@
 
         public void Show() => Call("show", AndroidContext.ActivityContext);
 
+        public void SetMobileDataAlertSwitch(bool alertSwitch) => Call("setMobileDataAlertSwitch", alertSwitch);
+
     }
 
 }
