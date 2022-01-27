@@ -113,7 +113,7 @@
 
         public virtual bool Immersive => Call<bool>("isImmersive");
 
-        public virtual void Show() => Call("show");
+        public virtual void Show() => Call("show", AndroidContext.ActivityContext);
 
     }
 
