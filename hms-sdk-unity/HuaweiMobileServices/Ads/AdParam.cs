@@ -27,79 +27,33 @@ namespace HuaweiMobileServices.Ads
 
             public Builder() : base("com.huawei.hms.ads.AdParam$Builder") { }
 
-            public Builder AddKeyword(string param1String)
-            {
-                JavaObject = Call<AndroidJavaObject>("addKeyword", param1String);
-                return this;
-            }
+            public Builder AddKeyword(string param1String) => CallAsWrapper<Builder>("addKeyword", param1String);
 
             public AdParam Build() => CallAsWrapper<AdParam>("build");
 
-            public Builder SetTargetingContentUrl(string param1String)
-            {
-                JavaObject = Call<AndroidJavaObject>("setTargetingContentUrl", param1String);
-                return this;
-            }
+            public Builder SetTargetingContentUrl(string param1String) => CallAsWrapper<Builder>("setTargetingContentUrl", param1String);
 
-            public Builder SetGender(int param1Int)
-            {
-                JavaObject = Call<AndroidJavaObject>("setGender", param1Int);
-                return this;
-            }
+            public Builder SetGender(int param1Int) => CallAsWrapper<Builder>("setGender", param1Int);
 
-            public Builder SetRequestOrigin(string param1String)
-            {
-                JavaObject = Call<AndroidJavaObject>("setRequestOrigin", param1String);
-                return this;
-            }
+            public Builder SetRequestOrigin(string param1String) => CallAsWrapper<Builder>("setRequestOrigin", param1String);
 
-            public Builder SetBelongCountryCode(string param1String)
-            {
-                JavaObject = Call<AndroidJavaObject>("setBelongCountryCode", param1String);
-                return this;
-            }
+            public Builder SetBelongCountryCode(string param1String) => CallAsWrapper<Builder>("setBelongCountryCode", param1String);
 
-            public Builder SetTagForChildProtection(int param1Integer)
-            {
-                JavaObject = Call<AndroidJavaObject>("setTagForChildProtection", param1Integer.AsJavaInteger());
-                return this;
-            }
+            public Builder SetTagForChildProtection(int param1Integer) => CallAsWrapper<Builder>("setTagForChildProtection", param1Integer.AsJavaInteger());
 
-            public Builder SetNonPersonalizedAd(int param1Integer)
-            {
-                JavaObject = Call<AndroidJavaObject>("setNonPersonalizedAd", param1Integer.AsJavaInteger());
-                return this;
-            }
+            public Builder SetNonPersonalizedAd(int param1Integer) => CallAsWrapper<Builder>("setNonPersonalizedAd", param1Integer.AsJavaInteger());
 
-            public Builder SetAppLang(string param1String)
-            {
-                JavaObject = Call<AndroidJavaObject>("setAppLang", param1String);
-                return this;
-            }
+            public Builder SetAppLang(string param1String) => CallAsWrapper<Builder>("setAppLang", param1String);
 
-            public Builder SetAppCountry(string param1String)
-            {
-                JavaObject = Call<AndroidJavaObject>("setAppCountry", param1String);
-                return this;
-            }
+            public Builder SetAppCountry(string param1String) => CallAsWrapper<Builder>("setAppCountry", param1String);
 
-            public Builder SetTagForUnderAgeOfPromise(int param1Integer)
-            {
-                JavaObject = Call<AndroidJavaObject>("setTagForUnderAgeOfPromise", param1Integer.AsJavaInteger());
-                return this;
-            }
+            public Builder SetTagForUnderAgeOfPromise(int param1Integer) => CallAsWrapper<Builder>("setTagForUnderAgeOfPromise", param1Integer.AsJavaInteger());
 
-            public Builder SetAdContentClassification(string param1String)
-            {
-                JavaObject = Call<AndroidJavaObject>("setAdContentClassification", param1String);
-                return this;
-            }
+            public Builder SetAdContentClassification(string param1String) => CallAsWrapper<Builder>("setAdContentClassification", param1String);
 
-            public Builder SetConsent(string param1String)
-            {
-                JavaObject = Call<AndroidJavaObject>("setConsent", param1String);
-                return this;
-            }
+            public Builder SetConsent(string param1String) => CallAsWrapper<Builder>("setConsent", param1String);
+
+            public Builder SetContentBundle(string contentBundle) => CallAsWrapper<Builder>("setContentBundle", contentBundle);
         }
 
         public static class ErrorCode
