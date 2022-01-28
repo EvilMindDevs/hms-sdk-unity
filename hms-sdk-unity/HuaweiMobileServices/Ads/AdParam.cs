@@ -100,6 +100,8 @@ namespace HuaweiMobileServices.Ads
                 JavaObject = Call<AndroidJavaObject>("setConsent", param1String);
                 return this;
             }
+
+            //public Builder SetLocation(AndroidJavaObject location) => CallAsWrapper<Location>("setLocation", location);
         }
 
         public static class ErrorCode
