@@ -22,6 +22,15 @@ namespace HuaweiMobileServices.Analystics
             }
             return hiAnalyticsInstance;
         }
-    
+
+        public static HiAnalyticsInstance GetInstance(AndroidJavaObject context, string routePolicy)
+        {
+            if (hiAnalyticsInstance == null)
+            {
+                hiAnalyticsInstance = analyticsClass.CallStaticAsWrapper<HiAnalyticsInstance>("getInstance", context, routePolicy);
+            }
+            return hiAnalyticsInstance;
+        }
+
     }
 }
