@@ -51,6 +51,8 @@ namespace HuaweiMobileServices.Analystics
         public bool IsRestrictionEnabled => Call<bool>("pageEnd");
 
         public void AddDefaultEventParams(Bundle androidBundle) => Call("addDefaultEventParams", androidBundle);
+
+        public void SetCollectAdsIdEnabled(bool isEnabled) => Call("setCollectAdsIdEnabled", isEnabled);
     }
 }
 
