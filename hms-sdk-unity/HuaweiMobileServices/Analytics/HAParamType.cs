@@ -111,7 +111,7 @@ namespace HuaweiMobileServices.Analystics
 
 		public static string ACOUNTTYPE => androidJavaClass.GetStatic<string>("ACOUNTTYPE");
 
-		public static string OCCURREDTIME => androidJavaClass.GetStatic<string>("OCCURREDTIME");
+		public static string OCCURREDDATE => androidJavaClass.GetStatic<string>("OCCURREDDATE");
 
 		public static string EVTRESULT => androidJavaClass.GetStatic<string>("EVTRESULT");
 
