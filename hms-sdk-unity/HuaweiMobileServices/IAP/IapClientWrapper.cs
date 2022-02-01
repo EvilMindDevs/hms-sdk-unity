@@ -65,6 +65,7 @@
         public PurchaseResultInfo ParsePurchaseResultInfoFromIntent(AndroidIntent paramIntent) =>
             CallAsWrapper<PurchaseResultInfo>("parsePurchaseResultInfoFromIntent", paramIntent);
 
+        public void EnablePendingPurchase() => Call("enablePendingPurchase");
     }
 
     public sealed class PriceType
