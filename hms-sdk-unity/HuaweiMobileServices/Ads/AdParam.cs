@@ -101,7 +101,7 @@ namespace HuaweiMobileServices.Ads
                 return this;
             }
 
-            //public Builder SetLocation(AndroidJavaObject location) => CallAsWrapper<Location>("setLocation", location);
+            public Builder SetLocation(Location location) => CallAsWrapper<Builder>("setLocation", location);
         }
 
         public static class ErrorCode
