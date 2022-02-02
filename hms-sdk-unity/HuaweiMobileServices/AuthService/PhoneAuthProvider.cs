@@ -17,11 +17,13 @@ namespace HuaweiMobileServices.AuthService
         public static AGConnectAuthCredential CredentialWithVerifyCode(string paramString1, string paramString2, string paramString3, string paramString4)
             => javaClass.CallStaticAsWrapper<AGConnectAuthCredential>("credentialWithVerifyCode", paramString1, paramString2, paramString3, paramString4);
 
-        public static ITask<VerifyCodeResult> RequestVerifyCode(string paramString1, string paramString2, VerifyCodeSettings paramVerifyCodeSettings) 
-            => javaClass.CallStaticAsWrapper<TaskJavaObjectWrapper<VerifyCodeResult>>("requestVerifyCode", paramString1, paramString2, paramVerifyCodeSettings);
+        [Obsolete("Deprecated use AGConnectAuth.requestVerifyCode(String countryCode, String phoneNumber, VerifyCodeSettings settings) instead.")]
+        public static ITask<VerifyCodeResult> RequestVerifyCode(string countryCode, string phoneNumber, VerifyCodeSettings paramVerifyCodeSettings) 
+            => javaClass.CallStaticAsWrapper<TaskJavaObjectWrapper<VerifyCodeResult>>("requestVerifyCode", countryCode, phoneNumber, paramVerifyCodeSettings);
 
-        public static void VerifyPhoneCode(String paramString1, String paramString2, VerifyCodeSettings paramVerifyCodeSettings, 
-            OnVerifyCodeCallBack paramOnVerifyCodeCallBack) => javaClass.CallStatic("verifyPhoneCode", paramString1, paramString2,
+        [Obsolete("Deprecated use AGConnectAuth.requestVerifyCode(String countryCode, String phoneNumber, VerifyCodeSettings settings) instead.")]
+        public static void VerifyPhoneCode(String countryCode, String phoneNumber, VerifyCodeSettings paramVerifyCodeSettings, 
+            OnVerifyCodeCallBack paramOnVerifyCodeCallBack) => javaClass.CallStatic("verifyPhoneCode", countryCode, phoneNumber,
                 paramVerifyCodeSettings, paramOnVerifyCodeCallBack);
     }
 
