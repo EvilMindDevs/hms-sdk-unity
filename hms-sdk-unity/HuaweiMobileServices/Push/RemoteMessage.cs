@@ -96,5 +96,8 @@
         public string Token => CallAsString("getToken");
 
         public string AnalyticInfo => CallAsString("getAnalyticInfo");
+
+        public Map<string, string> AnalyticInfoMap => Call<Map<string, string>>("getAnalyticInfoMap");
+
     }
 }
