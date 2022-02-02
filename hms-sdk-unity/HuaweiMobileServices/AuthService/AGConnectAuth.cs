@@ -1,6 +1,7 @@
 ﻿using HuaweiMobileServices.Base;
 using HuaweiMobileServices.Common;
 using HuaweiMobileServices.Utils;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HuaweiMobileServices.AuthService
@@ -18,6 +19,11 @@ namespace HuaweiMobileServices.AuthService
 
         public ITask<SignInResult> SignIn(AGConnectAuthCredential paramAGConnectAuthCredential) 
             => CallAsWrapper<TaskJavaObjectWrapper<SignInResult>>("signIn", paramAGConnectAuthCredential);
+
+        public ITask<SignInResult> SignIn(int provider)
+            => CallAsWrapper<TaskJavaObjectWrapper<SignInResult>>("signIn", AndroidContext.ActivityContext, provider);
+
+        public List<int> getSupportedAuthList() => Call<List<int>>("getSupportedAuthList");
 
         public ITask<SignInResult> SignInAnonymously() => CallAsWrapper<TaskJavaObjectWrapper<SignInResult>>("signInAnonymously");
 

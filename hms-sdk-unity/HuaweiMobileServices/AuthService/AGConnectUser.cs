@@ -57,5 +57,8 @@ namespace HuaweiMobileServices.AuthService
         public string PasswordSetted => Call<string>("getPasswordSetted"); 
 
         public ITask<AGConnectUserExtra> GetUserExtra() => CallAsWrapper<TaskJavaObjectWrapper<AGConnectUserExtra>>("getUserExtra");
+
+        public ITask<SignInResult> Reauthenticate(AGConnectAuthCredential paramAGConnectAuthCredential)
+            => CallAsWrapper<TaskJavaObjectWrapper<SignInResult>>("reauthenticate", paramAGConnectAuthCredential);
     }
 }
