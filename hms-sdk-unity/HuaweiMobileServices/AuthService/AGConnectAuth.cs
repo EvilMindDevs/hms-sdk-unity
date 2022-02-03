@@ -23,7 +23,7 @@ namespace HuaweiMobileServices.AuthService
         public ITask<SignInResult> SignIn(int provider)
             => CallAsWrapper<TaskJavaObjectWrapper<SignInResult>>("signIn", AndroidContext.ActivityContext, provider);
 
-        public List<int> getSupportedAuthList() => Call<List<int>>("getSupportedAuthList");
+        public IList<int> GetSupportedAuthList() => CallAsIntList("getSupportedAuthList");
 
         public ITask<SignInResult> SignInAnonymously() => CallAsWrapper<TaskJavaObjectWrapper<SignInResult>>("signInAnonymously");
 

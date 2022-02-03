@@ -13,7 +13,7 @@ namespace HuaweiMobileServices.Common
         public static void Initialize(AGConnectOptionsBuilder optionsBuilder) => javaClass.CallStatic("initialize", AndroidContext.ActivityContext, optionsBuilder.JavaObject);
         public static AGConnectInstance BuildInstance(AGConnectOptionsBuilder optionsBuilder) => javaClass.CallStaticAsWrapper<AGConnectInstance>("buildInstance", optionsBuilder.JavaObject);
         public static AGConnectInstance GetInstance() => javaClass.CallStaticAsWrapper<AGConnectInstance>("getInstance");
-        public static AGConnectOptions GetOptions() => javaClass.CallStaticAsWrapper<AGConnectOptions>("getOptions");
+        public AGConnectOptions GetOptions() => CallAsWrapper<AGConnectOptions>("getOptions");
 
     }
 }
