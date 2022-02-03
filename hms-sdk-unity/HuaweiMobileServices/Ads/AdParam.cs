@@ -28,7 +28,7 @@ namespace HuaweiMobileServices.Ads
             public Builder AddKeyword(string param1String) => CallAsWrapper<Builder>("addKeyword", param1String);
 
             public AdParam Build() => CallAsWrapper<AdParam>("build");
-
+        
             public Builder SetTargetingContentUrl(string param1String) => CallAsWrapper<Builder>("setTargetingContentUrl", param1String);
 
             public Builder SetGender(int param1Int) => CallAsWrapper<Builder>("setGender", param1Int);
@@ -54,6 +54,8 @@ namespace HuaweiMobileServices.Ads
             public Builder SetConsent(string param1String) => CallAsWrapper<Builder>("setConsent", param1String);
             
             public Builder SetContentBundle(string contentBundle) => CallAsWrapper<Builder>("setContentBundle", contentBundle);
+            
+            public Builder SetLocation(Location location) => CallAsWrapper<Builder>("setLocation", location);
 
         public static class ErrorCode
         {
