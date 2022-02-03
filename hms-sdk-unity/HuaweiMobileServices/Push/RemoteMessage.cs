@@ -97,7 +97,7 @@
 
         public string AnalyticInfo => CallAsString("getAnalyticInfo");
 
-        public Map<string, string> AnalyticInfoMap => Call<Map<string, string>>("getAnalyticInfoMap");
+        public Map<string, string> AnalyticInfoMap => CallAsWrapper<Map<string, string>>("getAnalyticInfoMap");
 
     }
 }
