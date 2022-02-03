@@ -8,24 +8,23 @@
     public class RequestOptions : JavaObjectWrapper
     {
 
-        
         public RequestOptions(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public virtual int? TagForChildProtection => Call<int?>("getTagForChildProtection");
+        public int TagForChildProtection => Call<int>("getTagForChildProtection");
 
-        public virtual int? TagForUnderAgeOfPromise => Call<int?>("getTagForUnderAgeOfPromise");
+        public int TagForUnderAgeOfPromise => Call<int>("getTagForUnderAgeOfPromise");
 
-        public virtual int? NonPersonalizedAd => Call<int?>("getNonPersonalizedAd");
+        public int NonPersonalizedAd => Call<int>("getNonPersonalizedAd");
 
-        public virtual string AppLang => CallAsString("getAppLang");
+        public string AppLang => CallAsString("getAppLang");
 
-        public virtual string AppCountry => CallAsString("getAppCountry");
+        public string AppCountry => CallAsString("getAppCountry");
 
-        public virtual string AdContentClassification => CallAsString("getAdContentClassification");
+        public string AdContentClassification => CallAsString("getAdContentClassification");
 
-        public virtual string Consent => CallAsString("getConsent");
+        public string Consent => CallAsString("getConsent");
 
-        public virtual Builder ToBuilder() => CallAsWrapper<Builder>("toBuilder");
+        public Builder ToBuilder() => CallAsWrapper<Builder>("toBuilder");
 
         public class Builder : JavaObjectWrapper
         {
@@ -33,21 +32,23 @@
             
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            public virtual RequestOptions Build() => CallAsWrapper<RequestOptions>("build");
+            public RequestOptions Build() => CallAsWrapper<RequestOptions>("build");
 
-            public virtual Builder SetTagForChildProtection(int? Param1Integer) => CallAsWrapper<Builder>("setTagForChildProtection", Param1Integer?.AsJavaInteger());
+            public Builder SetTagForChildProtection(int Param1Integer) => CallAsWrapper<Builder>("setTagForChildProtection", Param1Integer.AsJavaInteger());
 
-            public virtual Builder SetTagForUnderAgeOfPromise(int? Param1Integer) => CallAsWrapper<Builder>("setTagForUnderAgeOfPromise", Param1Integer?.AsJavaInteger());
+            public Builder SetTagForUnderAgeOfPromise(int Param1Integer) => CallAsWrapper<Builder>("setTagForUnderAgeOfPromise", Param1Integer.AsJavaInteger());
 
-            public virtual Builder SetAdContentClassification(string Param1String) => CallAsWrapper<Builder>("setAdContentClassification", Param1String);
+            public Builder SetAdContentClassification(string Param1String) => CallAsWrapper<Builder>("setAdContentClassification", Param1String);
 
-            public virtual Builder SetNonPersonalizedAd(int? Param1Integer) => CallAsWrapper<Builder>("setNonPersonalizedAd", Param1Integer?.AsJavaInteger());
+            public Builder SetNonPersonalizedAd(int Param1Integer) => CallAsWrapper<Builder>("setNonPersonalizedAd", Param1Integer.AsJavaInteger());
 
-            public virtual Builder SetAppLang(string Param1String) => CallAsWrapper<Builder>("setAppLang", Param1String);
+            public Builder SetAppLang(string Param1String) => CallAsWrapper<Builder>("setAppLang", Param1String);
 
-            public virtual Builder SetAppCountry(string Param1String) => CallAsWrapper<Builder>("setAppCountry", Param1String);
+            public Builder SetAppCountry(string Param1String) => CallAsWrapper<Builder>("setAppCountry", Param1String);
 
-            public virtual Builder SetConsent(string Param1String) => CallAsWrapper<Builder>("setConsent", Param1String);
+            public Builder SetConsent(string Param1String) => CallAsWrapper<Builder>("setConsent", Param1String);
+
+            public Builder SetRequestLocation(bool requestLocation) => CallAsWrapper<Builder>("setRequestLocation", requestLocation);
 
         }
     }

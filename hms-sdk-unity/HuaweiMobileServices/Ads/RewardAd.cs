@@ -49,22 +49,22 @@
 
         public string AdId { get; private set; }
 
-        public virtual Reward Reward => CallAsWrapper<Reward>("getReward");
+        public Reward Reward => CallAsWrapper<Reward>("getReward");
 
-        public virtual bool Loaded => Call<bool>("isLoaded");
+        public bool Loaded => Call<bool>("isLoaded");
 
-        public virtual void LoadAd(AdParam paramAdParam, Action onSuccess, Action<int> onError)
+        public void LoadAd(AdParam paramAdParam, Action onSuccess, Action<int> onError)
         {
             var listener = new LoadAdListener(onSuccess, onError);
             Call("loadAd", paramAdParam, new RewardAdLoadListener(listener));
         }
 
-        public virtual void LoadAd(AdParam paramAdParam)
+        public void LoadAd(AdParam paramAdParam)
         {
             LoadAd(AdId, paramAdParam);
         }
 
-        public virtual Task LoadAdAsync(AdParam paramAdParam)
+        public Task LoadAdAsync(AdParam paramAdParam)
         {
             var task = new TaskCompletionSource<int>();
             LoadAd(paramAdParam, () => task.SetResult(0), (errorCode) =>
@@ -75,7 +75,7 @@
             return task.Task;
         }
 
-        public virtual IOnMetadataChangedListener OnMetadataChangedListener
+        public IOnMetadataChangedListener OnMetadataChangedListener
         {
             set
             {
@@ -83,17 +83,17 @@
             }
         }
 
-        public virtual void Show(IRewardAdStatusListener paramRewardAdStatusListener, bool paramBoolean) =>
+        public void Show(IRewardAdStatusListener paramRewardAdStatusListener, bool paramBoolean) =>
             Call("show", AndroidContext.ActivityContext, new RewardAdStatusListener(paramRewardAdStatusListener), paramBoolean);
 
-        public virtual void Show(IRewardAdStatusListener paramRewardAdStatusListener) =>
+        public void Show(IRewardAdStatusListener paramRewardAdStatusListener) =>
             Call("show", AndroidContext.ActivityContext, new RewardAdStatusListener(paramRewardAdStatusListener));
 
-        public virtual RewardVerifyConfig RewardVerifyConfig => CallAsWrapper<RewardVerifyConfig>("getRewardVerifyConfig");
+        public RewardVerifyConfig RewardVerifyConfig => CallAsWrapper<RewardVerifyConfig>("getRewardVerifyConfig");
 
-        public virtual void Destroy() => Call("destroy", AndroidContext.ActivityContext);
+        public void Destroy() => Call("destroy", AndroidContext.ActivityContext);
 
-        public virtual IRewardAdListener RewardAdListener
+        public IRewardAdListener RewardAdListener
         {
             set
             {
@@ -101,19 +101,19 @@
             }
         }
 
-        public virtual string Data => CallAsString("getData");
+        public string Data => CallAsString("getData");
 
-        public virtual string UserId => CallAsString("getUserId");
+        public string UserId => CallAsString("getUserId");
 
-        public virtual void LoadAd(string paramString, AdParam paramAdParam) => Call("loadAd", paramString, paramAdParam);
+        public void LoadAd(string paramString, AdParam paramAdParam) => Call("loadAd", paramString, paramAdParam);
 
-        public virtual void Pause() => Call("pause", AndroidContext.ActivityContext);
+        public void Pause() => Call("pause", AndroidContext.ActivityContext);
 
-        public virtual void Resume() => Call("resume", AndroidContext.ActivityContext);
+        public void Resume() => Call("resume", AndroidContext.ActivityContext);
 
-        public virtual bool Immersive => Call<bool>("isImmersive");
+        public bool Immersive => Call<bool>("isImmersive");
 
-        public virtual void Show() => Call("show");
+        public void Show() => Call("show", AndroidContext.ActivityContext);
 
     }
 
