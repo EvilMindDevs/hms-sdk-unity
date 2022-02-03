@@ -10,11 +10,11 @@
 
         public RequestOptions(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public int? TagForChildProtection => Call<int?>("getTagForChildProtection");
+        public int TagForChildProtection => Call<int>("getTagForChildProtection");
 
-        public int? TagForUnderAgeOfPromise => Call<int?>("getTagForUnderAgeOfPromise");
+        public int TagForUnderAgeOfPromise => Call<int>("getTagForUnderAgeOfPromise");
 
-        public int? NonPersonalizedAd => Call<int?>("getNonPersonalizedAd");
+        public int NonPersonalizedAd => Call<int>("getNonPersonalizedAd");
 
         public string AppLang => CallAsString("getAppLang");
 
@@ -34,13 +34,13 @@
 
             public RequestOptions Build() => CallAsWrapper<RequestOptions>("build");
 
-            public Builder SetTagForChildProtection(int? Param1Integer) => CallAsWrapper<Builder>("setTagForChildProtection", Param1Integer?.AsJavaInteger());
+            public Builder SetTagForChildProtection(int Param1Integer) => CallAsWrapper<Builder>("setTagForChildProtection", Param1Integer.AsJavaInteger());
 
-            public Builder SetTagForUnderAgeOfPromise(int? Param1Integer) => CallAsWrapper<Builder>("setTagForUnderAgeOfPromise", Param1Integer?.AsJavaInteger());
+            public Builder SetTagForUnderAgeOfPromise(int Param1Integer) => CallAsWrapper<Builder>("setTagForUnderAgeOfPromise", Param1Integer.AsJavaInteger());
 
             public Builder SetAdContentClassification(string Param1String) => CallAsWrapper<Builder>("setAdContentClassification", Param1String);
 
-            public Builder SetNonPersonalizedAd(int? Param1Integer) => CallAsWrapper<Builder>("setNonPersonalizedAd", Param1Integer?.AsJavaInteger());
+            public Builder SetNonPersonalizedAd(int Param1Integer) => CallAsWrapper<Builder>("setNonPersonalizedAd", Param1Integer.AsJavaInteger());
 
             public Builder SetAppLang(string Param1String) => CallAsWrapper<Builder>("setAppLang", Param1String);
 

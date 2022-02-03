@@ -12,7 +12,7 @@ namespace HuaweiMobileServices.Ads
 
         public AdParam(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public virtual string TargetingContentUrl => CallAsString("getTargetingContentUrl");
+        public string TargetingContentUrl => CallAsString("getTargetingContentUrl");
 
         public int Gender => Call<int>("getGender");
 
