@@ -29,7 +29,7 @@
         public int DescribeContents() => Call<int>("describeContents");
 
         public static void DistanceBetween(double startLatitude, double startLongitude, double endLatitude, double endLongitude, float[] results) 
-            => sJavaClass.CallStatic("distanceBetween", startLatitude, startLongitude, endLatitude, endLongitude);
+            => sJavaClass.CallStatic("distanceBetween", startLatitude, startLongitude, endLatitude, endLongitude, results.AsJavaArray());
 
         public float DistanceTo(Location dest) => Call<float>("distanceTo", dest.JavaObject);
 
@@ -111,7 +111,7 @@
 
         public void SetElapsedRealtimeUncertaintyNanos(double time) => Call("setElapsedRealtimeUncertaintyNanos", time);
 
-        public void SetExtras(AndroidBundle extras) => Call("setExtras", extras);
+        public void SetExtras(AndroidBundle extras) => Call("setExtras", extras.JavaObject);
 
         public void SetLatitude(double latitude) => Call("setLatitude", latitude);
 
