@@ -28,7 +28,7 @@ namespace HuaweiMobileServices.Ads
             public Builder AddKeyword(string param1String) => CallAsWrapper<Builder>("addKeyword", param1String);
 
             public AdParam Build() => CallAsWrapper<AdParam>("build");
-        
+
             public Builder SetTargetingContentUrl(string param1String) => CallAsWrapper<Builder>("setTargetingContentUrl", param1String);
 
             public Builder SetGender(int param1Int) => CallAsWrapper<Builder>("setGender", param1Int);
@@ -52,30 +52,31 @@ namespace HuaweiMobileServices.Ads
             public Builder SetAdContentClassification(string param1String) => CallAsWrapper<Builder>("setAdContentClassification", param1String);
 
             public Builder SetConsent(string param1String) => CallAsWrapper<Builder>("setConsent", param1String);
-            
+
             public Builder SetContentBundle(string contentBundle) => CallAsWrapper<Builder>("setContentBundle", contentBundle);
-            
+
             public Builder SetLocation(Location location) => CallAsWrapper<Builder>("setLocation", location);
 
-        public static class ErrorCode
-        {
-            public static int INNER = 0;
+            public static class ErrorCode
+            {
+                public static int INNER = 0;
 
-            public static int INVALID_REQUEST = 1;
+                public static int INVALID_REQUEST = 1;
 
-            public static int NETWORK_ERROR = 2;
+                public static int NETWORK_ERROR = 2;
 
-            public static int NO_AD = 3;
+                public static int NO_AD = 3;
 
-            public static int AD_LOADING = 4;
+                public static int AD_LOADING = 4;
 
-            public static int LOW_API = 5;
+                public static int LOW_API = 5;
 
-            public static int BANNER_AD_EXPIRE = 6;
+                public static int BANNER_AD_EXPIRE = 6;
 
-            public static int BANNER_AD_CANCEL = 7;
+                public static int BANNER_AD_CANCEL = 7;
 
-            public static int HMS_NOT_SUPPORT_SET_APP = 8;
+                public static int HMS_NOT_SUPPORT_SET_APP = 8;
+            }
         }
     }
 }
