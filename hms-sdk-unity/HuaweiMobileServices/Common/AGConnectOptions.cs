@@ -14,7 +14,5 @@ namespace HuaweiMobileServices.Common
         public string GetString(string path) => Call<string>("getString",path.AsJavaString());
         public string GetString(string path, string def) => Call<string>("getString", path.AsJavaString(), def.AsJavaString());
 
-        public string getType => Call<AndroidJavaObject>("getRoutePolicy").Call<AndroidJavaObject>("getClass").Call<AndroidJavaObject>("getName").Call<string>("toString");
-
     }
 }
