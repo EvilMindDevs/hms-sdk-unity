@@ -9,7 +9,6 @@ namespace HuaweiMobileServices.Ads
     public class AdParam : JavaObjectWrapper
     {
 
-
         public AdParam(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public string TargetingContentUrl => CallAsString("getTargetingContentUrl");
@@ -21,7 +20,6 @@ namespace HuaweiMobileServices.Ads
         // Wrapper for com.huawei.hms.ads.Adparam.Builder
         public class Builder : JavaObjectWrapper
         {
-
 
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
@@ -54,7 +52,8 @@ namespace HuaweiMobileServices.Ads
             public Builder SetAdContentClassification(string param1String) => CallAsWrapper<Builder>("setAdContentClassification", param1String);
 
             public Builder SetConsent(string param1String) => CallAsWrapper<Builder>("setConsent", param1String);
-        }
+            
+            public Builder SetContentBundle(string contentBundle) => CallAsWrapper<Builder>("setContentBundle", contentBundle);
 
         public static class ErrorCode
         {
@@ -77,5 +76,4 @@ namespace HuaweiMobileServices.Ads
             public static int HMS_NOT_SUPPORT_SET_APP = 8;
         }
     }
-
 }
