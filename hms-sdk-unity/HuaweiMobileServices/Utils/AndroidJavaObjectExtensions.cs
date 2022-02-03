@@ -17,6 +17,8 @@ namespace HuaweiMobileServices.Utils
 
         public static string AsString(this AndroidJavaObject javaString) => javaString?.Call<string>("toString");
 
+        public static int AsInt(this AndroidJavaObject javaInt) => javaInt.Call<int>("intValue");
+
         public static bool AsBool(this AndroidJavaObject javaBool) => javaBool.Call<bool>("booleanValue");
 
         public static AndroidJavaObject AsJavaList<T>(this IList<T> list)
@@ -64,6 +66,9 @@ namespace HuaweiMobileServices.Utils
 
         public static IList<string> AsStringList(this AndroidJavaObject javaList) =>
             javaList?.AsList<AndroidJavaObject>().Map(AsString);
+
+        public static IList<int> AsIntList(this AndroidJavaObject javaList) =>
+          javaList?.AsList<AndroidJavaObject>().Map(AsInt);
 
         public static AndroidJavaObject AsJavaStringList(this IList<string> list) => list?.Map(AsJavaString).AsJavaList();
 

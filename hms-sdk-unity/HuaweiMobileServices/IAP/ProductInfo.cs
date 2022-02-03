@@ -9,43 +9,45 @@
         
         public ProductInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public virtual string ProductId => CallAsString("getProductId");
+        public string ProductId => CallAsString("getProductId");
 
-        public virtual PriceType PriceType => new PriceType(Call<int>("getPriceType"));
+        public PriceType PriceType => new PriceType(Call<int>("getPriceType"));
 
-        public virtual string Price => CallAsString("getPrice");
+        public string Price => CallAsString("getPrice");
 
-        public virtual long MicrosPrice => Call<long>("getMicrosPrice");
+        public long MicrosPrice => Call<long>("getMicrosPrice");
 
-        public virtual string OriginalLocalPrice => CallAsString("getOriginalLocalPrice");
+        public string OriginalLocalPrice => CallAsString("getOriginalLocalPrice");
 
-        public virtual long OriginalMicroPrice => Call<long>("getOriginalMicroPrice");
+        public long OriginalMicroPrice => Call<long>("getOriginalMicroPrice");
 
-        public virtual string Currency => CallAsString("getCurrency");
+        public string Currency => CallAsString("getCurrency");
 
-        public virtual string ProductName => CallAsString("getProductName");
+        public string ProductName => CallAsString("getProductName");
 
-        public virtual string ProductDesc => CallAsString("getProductDesc");
+        public string ProductDesc => CallAsString("getProductDesc");
 
-        public virtual string SubPeriod => CallAsString("getSubPeriod");
+        public string SubPeriod => CallAsString("getSubPeriod");
 
-        public virtual string SubSpecialPrice => CallAsString("getSubSpecialPrice");
+        public string SubSpecialPrice => CallAsString("getSubSpecialPrice");
 
-        public virtual long SubSpecialPriceMicros => Call<long>("getSubSpecialPriceMicros");
+        public long SubSpecialPriceMicros => Call<long>("getSubSpecialPriceMicros");
 
-        public virtual string SubSpecialPeriod => CallAsString("getSubSpecialPeriod");
+        public string SubSpecialPeriod => CallAsString("getSubSpecialPeriod");
 
-        public virtual int SubSpecialPeriodCycles => Call<int>("getSubSpecialPeriodCycles");
+        public int SubSpecialPeriodCycles => Call<int>("getSubSpecialPeriodCycles");
 
-        public virtual string SubFreeTrialPeriod => CallAsString("getSubFreeTrialPeriod");
+        public string SubFreeTrialPeriod => CallAsString("getSubFreeTrialPeriod");
 
-        public virtual string SubGroupId => CallAsString("getSubGroupId");
+        public string SubGroupId => CallAsString("getSubGroupId");
 
-        public virtual string SubGroupTitle => CallAsString("getSubGroupTitle");
+        public string SubGroupTitle => CallAsString("getSubGroupTitle");
 
-        public virtual int SubProductLevel => Call<int>("getSubProductLevel");
+        public int SubProductLevel => Call<int>("getSubProductLevel");
 
-        public virtual int Status => Call<int>("getStatus");
+        public int Status => Call<int>("getStatus");
+
+        public int OfferUsedStatus { get => Call<int>("getOfferUsedStatus"); set => Call("setOfferUsedStatus", value); }
 
     }
 

@@ -38,7 +38,7 @@ namespace HuaweiMobileServices.Analystics
 
         public void UnRegHmsSvcEvent() => Call("unRegHmsSvcEvent");
 
-        public Map<String, String> GetUserProfiles(bool var1) => Call<Map<String, String>>("getUserProfiles", var1);
+        public Map<String, String> GetUserProfiles(bool var1) => CallAsWrapper<Map<String, String>>("getUserProfiles", var1);
 
         public void PageStart(String pageName, String pageClassOverride) => Call("pageStart", pageName, pageClassOverride);
 
@@ -51,6 +51,8 @@ namespace HuaweiMobileServices.Analystics
         public bool IsRestrictionEnabled => Call<bool>("pageEnd");
 
         public void AddDefaultEventParams(Bundle androidBundle) => Call("addDefaultEventParams", androidBundle);
+
+        public void SetCollectAdsIdEnabled(bool isEnabled) => Call("setCollectAdsIdEnabled", isEnabled);
     }
 }
 

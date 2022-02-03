@@ -29,9 +29,15 @@ namespace HuaweiMobileServices.AuthService
 
         public ITask<TokenResult> GetToken(bool paramBoolean) => CallAsWrapper<TaskJavaObjectWrapper<TokenResult>>("getToken", paramBoolean);
 
+        public List<Map<string, string>> GetProviderInfo()
+            => Call<List<Map<string, string>>>("getProviderInfo");
+
         public ITask<SignInResult> Link(AGConnectAuthCredential paramAGConnectAuthCredential) 
-            => CallAsWrapper<TaskJavaObjectWrapper<SignInResult>>("getToken", paramAGConnectAuthCredential);
-       
+            => CallAsWrapper<TaskJavaObjectWrapper<SignInResult>>("link", paramAGConnectAuthCredential);
+
+        public ITask<SignInResult> Link(int provider)
+            => CallAsWrapper<TaskJavaObjectWrapper<SignInResult>>("link", AndroidContext.ActivityContext, provider);
+
         public ITask<SignInResult> Unlink(int paramInt)
             => CallAsWrapper<TaskJavaObjectWrapper<SignInResult>>("unlink", paramInt);
         
@@ -57,5 +63,8 @@ namespace HuaweiMobileServices.AuthService
         public string PasswordSetted => Call<string>("getPasswordSetted"); 
 
         public ITask<AGConnectUserExtra> GetUserExtra() => CallAsWrapper<TaskJavaObjectWrapper<AGConnectUserExtra>>("getUserExtra");
+
+        public ITask<SignInResult> Reauthenticate(AGConnectAuthCredential paramAGConnectAuthCredential)
+            => CallAsWrapper<TaskJavaObjectWrapper<SignInResult>>("reauthenticate", paramAGConnectAuthCredential);
     }
 }

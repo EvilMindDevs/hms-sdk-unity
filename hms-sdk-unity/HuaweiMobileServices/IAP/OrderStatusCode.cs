@@ -4,6 +4,8 @@
     {
         public const int ORDER_STATE_SUCCESS = 0;
 
+        public const int ORDER_STATE_DEFAULT_CODE = 1;
+
         public const int ORDER_STATE_FAILED = -1;
 
         public const int ORDER_STATE_CANCEL = 60000;
@@ -37,6 +39,9 @@
         public const int ORDER_NOT_ACCEPT_AGREEMENT = 60055;
 
         public const int ORDER_HIGH_RISK_OPERATIONS = 60056;
+        
+        public const int ORDER_STATE_PENDING = 60057;
+
     }
 
 }

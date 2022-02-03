@@ -71,9 +71,15 @@
         {
             return CallAsWrapper<AccountAuthParamsHelper>("setMobileNumber");
         }
+
         public AccountAuthParamsHelper SetDialogAuth()
         {
             return CallAsWrapper<AccountAuthParamsHelper>("setDialogAuth");
+        }
+
+        public AccountAuthParamsHelper SetCarrierId()
+        {
+            return CallAsWrapper<AccountAuthParamsHelper>("setCarrierId");
         }
     }
 

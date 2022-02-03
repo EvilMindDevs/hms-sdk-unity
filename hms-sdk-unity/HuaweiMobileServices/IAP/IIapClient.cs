@@ -25,6 +25,8 @@
         ITask<StartIapActivityResult> StartIapActivity(StartIapActivityReq startIapActivityReq);
 
         PurchaseResultInfo ParsePurchaseResultInfoFromIntent(AndroidIntent paramIntent);
+
+        void EnablePendingPurchase();
     }
 
 }
