@@ -47,9 +47,7 @@
 
         public int Status => Call<int>("getStatus");
 
-        public int GetOfferUsedStatus => Call<int>("getOfferUsedStatus");
-
-        public void SetOfferUsedStatus(int offerUsedStatus) => Call("setOfferUsedStatus", offerUsedStatus);
+        public int OfferUsedStatus { get => Call<int>("getOfferUsedStatus"); set => Call("setOfferUsedStatus", value); }
 
     }
 
