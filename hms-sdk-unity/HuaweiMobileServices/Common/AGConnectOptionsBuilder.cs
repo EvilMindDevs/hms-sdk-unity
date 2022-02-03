@@ -10,17 +10,17 @@ namespace HuaweiMobileServices.Common
 
         public AGConnectOptionsBuilder(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public static AGConnectOptionsBuilder SetProductId(string productId) => javaClass.CallStaticAsWrapper<AGConnectOptionsBuilder>("setProductId", productId.AsJavaString());
-        public static AGConnectOptionsBuilder SetAppId(string appId) => javaClass.CallStaticAsWrapper<AGConnectOptionsBuilder>("setAppId", appId.AsJavaString());
-        public static AGConnectOptionsBuilder SetCPId(string cpId) => javaClass.CallStaticAsWrapper<AGConnectOptionsBuilder>("setCPId", cpId.AsJavaString());
-        public static AGConnectOptionsBuilder SetClientSecret(string clientSecret) => javaClass.CallStaticAsWrapper<AGConnectOptionsBuilder>("setClientSecret", clientSecret.AsJavaString());
-        public static AGConnectOptionsBuilder SetClientId(string clientId) => javaClass.CallStaticAsWrapper<AGConnectOptionsBuilder>("setClientId", clientId.AsJavaString());
-        public static AGConnectOptionsBuilder SetApiKey(string apiKey) => javaClass.CallStaticAsWrapper<AGConnectOptionsBuilder>("setApiKey", apiKey.AsJavaString());
-        public static AGConnectOptionsBuilder SetCustomValue(string key, string value) => javaClass.CallStaticAsWrapper<AGConnectOptionsBuilder>("setCustomValue", key.AsJavaString(), value.AsJavaString());
-        public static AGConnectOptionsBuilder SetRoutePolicy(AGCRoutePolicy routePolicy) => javaClass.CallStaticAsWrapper<AGConnectOptionsBuilder>("setRoutePolicy", routePolicy);
-        public static AGConnectOptionsBuilder SetPackageName(string packageName) => javaClass.CallStaticAsWrapper<AGConnectOptionsBuilder>("setPackageName", packageName.AsJavaString());
-        public static AGConnectOptionsBuilder SetInputStream(AndroidJavaObject inputStream) => javaClass.CallStaticAsWrapper<AGConnectOptionsBuilder>("setInputStream", inputStream);
-        public static AGConnectOptions Build() => javaClass.CallStaticAsWrapper<AGConnectOptions>("build", AndroidContext.ActivityContext);
+        public AGConnectOptionsBuilder SetProductId(string productId) => CallAsWrapper<AGConnectOptionsBuilder>("setProductId", productId.AsJavaString());
+        public AGConnectOptionsBuilder SetAppId(string appId) => CallAsWrapper<AGConnectOptionsBuilder>("setAppId", appId.AsJavaString());
+        public AGConnectOptionsBuilder SetCPId(string cpId) => CallAsWrapper<AGConnectOptionsBuilder>("setCPId", cpId.AsJavaString());
+        public AGConnectOptionsBuilder SetClientSecret(string clientSecret) => CallAsWrapper<AGConnectOptionsBuilder>("setClientSecret", clientSecret.AsJavaString());
+        public AGConnectOptionsBuilder SetClientId(string clientId) => CallAsWrapper<AGConnectOptionsBuilder>("setClientId", clientId.AsJavaString());
+        public AGConnectOptionsBuilder SetApiKey(string apiKey) => CallAsWrapper<AGConnectOptionsBuilder>("setApiKey", apiKey.AsJavaString());
+        public AGConnectOptionsBuilder SetCustomValue(string key, string value) => CallAsWrapper<AGConnectOptionsBuilder>("setCustomValue", key.AsJavaString(), value.AsJavaString());
+        public AGConnectOptionsBuilder SetRoutePolicy(AGCRoutePolicy routePolicy) => CallAsWrapper<AGConnectOptionsBuilder>("setRoutePolicy", routePolicy);
+        public AGConnectOptionsBuilder SetPackageName(string packageName) => CallAsWrapper<AGConnectOptionsBuilder>("setPackageName", packageName.AsJavaString());
+        public AGConnectOptionsBuilder SetInputStream(AndroidJavaObject inputStream) => CallAsWrapper<AGConnectOptionsBuilder>("setInputStream", inputStream);
+        public AGConnectOptions Build() => CallAsWrapper<AGConnectOptions>("build", AndroidContext.ActivityContext);
 
     }
 }

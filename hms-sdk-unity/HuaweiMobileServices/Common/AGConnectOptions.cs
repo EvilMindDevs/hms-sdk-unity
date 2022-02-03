@@ -9,10 +9,12 @@ namespace HuaweiMobileServices.Common
 
         public AGConnectOptions(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public static AGCRoutePolicy GetRoutePolicy() => javaClass.Call<AGCRoutePolicy>("getRoutePolicy");
-        public static string GetPackageName() => javaClass.Call<string>("getPackageName");
-        public static string GetString(string path) => javaClass.Call<string>("getString",path.AsJavaString());
-        public static string GetString(string path, string def) => javaClass.Call<string>("getString", path.AsJavaString(), def.AsJavaString());
+        public AGCRoutePolicy GetRoutePolicy() => CallAsWrapper<AGCRoutePolicy>("getRoutePolicy");
+        public string GetPackageName() => Call<string>("getPackageName");
+        public string GetString(string path) => Call<string>("getString",path.AsJavaString());
+        public string GetString(string path, string def) => Call<string>("getString", path.AsJavaString(), def.AsJavaString());
+
+        public string getType => Call<AndroidJavaObject>("getRoutePolicy").Call<AndroidJavaObject>("getClass").Call<AndroidJavaObject>("getName").Call<string>("toString");
 
     }
 }
