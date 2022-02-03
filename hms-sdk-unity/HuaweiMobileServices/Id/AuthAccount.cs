@@ -12,54 +12,56 @@ namespace HuaweiMobileServices.Id
 
         public AuthAccount CreateDefault => CallAsWrapper<AuthAccount>("createDefault");
 
-        public AuthAccount build(string openId, string uid, string displayName, string photoUri, string accessToken, string serviceCountryCode, int status, int gender, Set<Scope> scopes, string serverAuthCode, string unionId, string countryCode) =>
-             CallAsWrapper<AuthAccount>("createDefault", openId, uid, displayName, photoUri, accessToken, serviceCountryCode, status, gender, scopes, serverAuthCode, unionId, countryCode);
+        public AuthAccount build(string openId, string uid, string displayName, string photoUri, string accessToken, string serviceCountryCode, int status, int gender, Set<Scope> scopes, string serverAuthCode, string unionId, string countryCode, int carrierId) =>
+             CallAsWrapper<AuthAccount>("createDefault", openId, uid, displayName, photoUri, accessToken, serviceCountryCode, status, gender, scopes, serverAuthCode, unionId, countryCode, carrierId);
 
-        public virtual string Uid => CallAsString("getUid");
+        public string Uid => CallAsString("getUid");
 
-        public virtual int Status => Call<int>("getStatus");
+        public int Status => Call<int>("getStatus");
 
-        public virtual string CountryCode => CallAsString("getCountryCode");
+        public string CountryCode => CallAsString("getCountryCode");
 
-        public virtual ISet<Scope> ExtensionScopes => Call<AndroidJavaObject>("getExtensionScopes").AsSetFromWrappable<Scope>();
+        public ISet<Scope> ExtensionScopes => Call<AndroidJavaObject>("getExtensionScopes").AsSetFromWrappable<Scope>();
 
-        public virtual long ExpirationTimeSecs => Call<long>("getExpirationTimeSecs");
+        public long ExpirationTimeSecs => Call<long>("getExpirationTimeSecs");
 
-        public virtual bool Expired => Call<bool>("isExpired");
+        public bool Expired => Call<bool>("isExpired");
 
-        public virtual AuthAccount RequestExtraScopes(IList<Scope> list) => CallAsWrapper<AuthAccount>("requestExtraScopes");
+        public AuthAccount RequestExtraScopes(IList<Scope> list) => CallAsWrapper<AuthAccount>("requestExtraScopes");
 
-        public virtual ISet<Scope> RequestedScopes => Call<AndroidJavaObject>("getRequestedScopes").AsSetFromWrappable<Scope>();
+        public ISet<Scope> RequestedScopes => Call<AndroidJavaObject>("getRequestedScopes").AsSetFromWrappable<Scope>();
 
-        public virtual AndroidAccount HuaweiAccount => CallAsWrapper<AndroidAccount>("getAccount", AndroidContext.ActivityContext);
+        public AndroidAccount HuaweiAccount => CallAsWrapper<AndroidAccount>("getAccount", AndroidContext.ActivityContext);
 
-        public virtual string DisplayName => CallAsString("getDisplayName");
+        public string DisplayName => CallAsString("getDisplayName");
 
-        public virtual string AccessToken => CallAsString("getAccessToken");
+        public string AccessToken => CallAsString("getAccessToken");
 
-        public virtual string Email => CallAsString("getEmail");
+        public string Email => CallAsString("getEmail");
 
-        public virtual string GivenName => CallAsString("getGivenName");
+        public string GivenName => CallAsString("getGivenName");
 
-        public virtual string FamilyName => CallAsString("getFamilyName");
+        public string FamilyName => CallAsString("getFamilyName");
 
-        public virtual int Gender => Call<int>("getGender");
+        public int Gender => Call<int>("getGender");
 
-        public virtual ISet<Scope> AuthorizedScopes => JavaObject.Call<AndroidJavaObject>("getAuthorizedScopes").AsSetFromWrappable<Scope>();
+        public ISet<Scope> AuthorizedScopes => JavaObject.Call<AndroidJavaObject>("getAuthorizedScopes").AsSetFromWrappable<Scope>();
 
-        public virtual string IdToken => CallAsString("getIdToken");
+        public string IdToken => CallAsString("getIdToken");
 
-        public virtual string AvatarUriString => CallAsString("getAvatarUriString");
+        public string AvatarUriString => CallAsString("getAvatarUriString");
 
-        public virtual string AuthorizationCode => CallAsString("getAuthorizationCode");
+        public string AuthorizationCode => CallAsString("getAuthorizationCode");
 
-        public virtual string ServiceCountryCode => CallAsString("getServiceCountryCode");
+        public string ServiceCountryCode => CallAsString("getServiceCountryCode");
 
-        public virtual string UnionId => CallAsString("getUnionId");
+        public string UnionId => CallAsString("getUnionId");
 
-        public virtual string OpenId => CallAsString("getOpenId");
+        public string OpenId => CallAsString("getOpenId");
 
-        public virtual int AccountFlag => Call<int>("getAccountFlag");
+        public int AccountFlag => Call<int>("getAccountFlag");
+
+        public int CarrierId => Call<int>("getCarrierId");
 
     }
 }

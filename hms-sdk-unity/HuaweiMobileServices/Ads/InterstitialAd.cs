@@ -30,7 +30,7 @@
 
         public void Show()
         {
-            Call("show");
+            Call("show", AndroidContext.ActivityContext);
         }
 
         public IRewardAdListener RewardAdListener
