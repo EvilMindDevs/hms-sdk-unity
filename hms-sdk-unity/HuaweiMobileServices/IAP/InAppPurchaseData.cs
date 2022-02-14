@@ -11,7 +11,7 @@
 
         public InAppPurchaseData(string paramString) : base("com.huawei.hms.iap.entity.InAppPurchaseData", paramString) { }
 
-        public long ApplicationId => Call<long>("getApplicationId");
+        public string ApplicationId => Call<string>("getApplicationId");
 
         public bool AutoRenewing => Call<bool>("isAutoRenewing");
 
