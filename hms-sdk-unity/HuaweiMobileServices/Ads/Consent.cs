@@ -15,7 +15,7 @@ namespace HuaweiMobileServices.Ads
 
         public string GetTestDeviceId => Call<string>("getTestDeviceId");
 
-        public void RequestConsentUpdate(ConsentUpdateListener listener) => Call("requestConsentUpdate", listener);
+        public void RequestConsentUpdate(IConsentUpdateListener listener) => Call("requestConsentUpdate", listener);
 
         public void SetConsentStatus(ConsentStatus consentStatus) => Call("setConsentStatus", consentStatus);
 
