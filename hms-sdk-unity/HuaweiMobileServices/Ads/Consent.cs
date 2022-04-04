@@ -19,7 +19,7 @@ namespace HuaweiMobileServices.Ads
 
         public void SetConsentStatus(ConsentStatus consentStatus) => Call("setConsentStatus", consentStatus);
 
-        public void SetDebugNeedConsent(ConsentStatus consentStatus) => Call("setDebugNeedConsent", consentStatus);
+        public void SetDebugNeedConsent(DebugNeedConsent debugNeedConsent) => Call("setDebugNeedConsent", debugNeedConsent);
 
         public void SetUnderAgeOfPromise(bool underAgeOfPromise) => Call("setUnderAgeOfPromise", underAgeOfPromise);
 
