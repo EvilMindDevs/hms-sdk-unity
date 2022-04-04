@@ -19,11 +19,11 @@ namespace HuaweiMobileServices.Ads
 
         public void SetId(string id) => Call("setId", id);
 
-        public void SetName(string name) => Call("setId", name);
+        public void SetName(string name) => Call("setName", name);
 
-        public void SetPrivacyPolicyUrl(string privacyPolicyUrl) => Call("setId", privacyPolicyUrl);
+        public void SetPrivacyPolicyUrl(string privacyPolicyUrl) => Call("setPrivacyPolicyUrl", privacyPolicyUrl);
 
-        public void SetServiceArea(string serviceArea) => Call("setId", serviceArea);
+        public void SetServiceArea(string serviceArea) => Call("setServiceArea", serviceArea);
 
     }
 }
