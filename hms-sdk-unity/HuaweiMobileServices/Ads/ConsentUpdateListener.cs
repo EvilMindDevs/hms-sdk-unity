@@ -8,9 +8,9 @@
 
     public interface ConsentUpdateListener
     {
-        void onFail(String desc);
+        void OnFail(String desc);
 
-        void onSuccess(ConsentStatus consentStatus, bool isNeedConsent, List<AdProvider> adProviders);
+        void OnSuccess(ConsentStatus consentStatus, bool isNeedConsent, List<AdProvider> adProviders);
 
     }
 }
