@@ -9,21 +9,29 @@ namespace HuaweiMobileServices.Ads
 
         private static AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.ads.consent.bean.AdProvider");
 
-        public string GetId => Call<string>("getId");
+        public string Id
+        {
+            get => Call<string>("getId");
+            set => Call("setId", value);
+        }
 
-        public string GetName => Call<string>("getName");
+        public string Name
+        {
+            get => Call<string>("getName");
+            set => Call("setName", value);
+        }
 
-        public string GetPrivacyPolicyUrl => Call<string>("getPrivacyPolicyUrl");
+        public string PrivacyPolicyUrl
+        {
+            get => Call<string>("getPrivacyPolicyUrl");
+            set => Call("setPrivacyPolicyUrl", value);
+        }
 
-        public string GetServiceArea => Call<string>("getServiceArea(");
-
-        public void SetId(string id) => Call("setId", id);
-
-        public void SetName(string name) => Call("setName", name);
-
-        public void SetPrivacyPolicyUrl(string privacyPolicyUrl) => Call("setPrivacyPolicyUrl", privacyPolicyUrl);
-
-        public void SetServiceArea(string serviceArea) => Call("setServiceArea", serviceArea);
+        public string ServiceArea
+        {
+            get => Call<string>("getServiceArea");
+            set => Call("setServiceArea", value);
+        }
 
     }
 }
