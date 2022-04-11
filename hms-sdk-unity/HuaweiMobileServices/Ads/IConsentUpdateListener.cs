@@ -9,6 +9,6 @@
     {
         void OnFail(String desc);
 
-        void OnSuccess(ConsentStatus consentStatus, bool isNeedConsent, IList<AdProvider> androidJavaObject);
+        void OnSuccess(ConsentStatus consentStatus, bool isNeedConsent, IList<AdProvider> adProviders);
     }
 }
