@@ -1,20 +1,17 @@
 ﻿namespace HuaweiMobileServices.Ads
 {
     using HuaweiMobileServices.Utils;
+    using System;
     using System.Collections.Generic;
     using UnityEngine;
-    using static HuaweiMobileServices.Ads.Consent;
 
     // Wrapper for com.huawei.hms.ads.consent.inter.ConsentUpdateListener
-    internal class ConsentUpdateListener : JavaObjectWrapper
-    {
-
-        private class ConsentUpdateListenerInterfaceWrapper : AndroidJavaProxy
+     internal class ConsentUpdateListener : AndroidJavaProxy
         {
 
             private readonly IConsentUpdateListener mListener;
 
-            public ConsentUpdateListenerInterfaceWrapper(IConsentUpdateListener listener) : base("org.m0skit0.android.hms.unity.ads.ConsentUpdateListener")
+            public ConsentUpdateListener(IConsentUpdateListener listener) : base("com.huawei.hms.ads.consent.inter.ConsentUpdateListener")
             {
                 mListener = listener;
             }
@@ -24,15 +21,15 @@
                 mListener.OnFail(desc);
             }
 
-            public void onSuccess(ConsentStatus consentStatus, bool isNeedConsent, List<AdProvider> adProviders)
+            public void onSuccess(AndroidJavaObject consentStatus, bool isNeedConsent, AndroidJavaObject adProviderList)
             {
-                mListener.OnSuccess(consentStatus, isNeedConsent, adProviders);
+                mListener.OnSuccess((ConsentStatus)consentStatus.AsWrapper<ConsentStatusWrapper>().Value, isNeedConsent, adProviderList.AsList<AndroidJavaObject>().Map(Aa.AsWrapper<AdProvider>));
             }
-        }
-
-        public ConsentUpdateListener(IConsentUpdateListener listener)
-            : base("org.m0skit0.android.hms.unity.ads.ConsentUpdateListenerWrapper", new ConsentUpdateListenerInterfaceWrapper(listener)) { }
-
     }
 
+    static class Aa
+    {
+        public static T AsWrapper<T>(this AndroidJavaObject javaObject) where T : JavaObjectWrapper =>
+            Activator.CreateInstance(typeof(T), javaObject) as T;
+    }
 }
