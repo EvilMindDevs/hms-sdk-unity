@@ -23,11 +23,11 @@
 
             public void onSuccess(AndroidJavaObject consentStatus, bool isNeedConsent, AndroidJavaObject adProviderList)
             {
-                mListener.OnSuccess((ConsentStatus)consentStatus.AsWrapper<ConsentStatusWrapper>().Value, isNeedConsent, adProviderList.AsList<AndroidJavaObject>().Map(Aa.AsWrapper<AdProvider>));
+                mListener.OnSuccess((ConsentStatus)consentStatus.AsWrapper<ConsentStatusWrapper>().Value, isNeedConsent, adProviderList.AsList<AndroidJavaObject>().Map(HelperClass.AsWrapper<AdProvider>));
             }
     }
 
-    static class Aa
+    static class HelperClass
     {
         public static T AsWrapper<T>(this AndroidJavaObject javaObject) where T : JavaObjectWrapper =>
             Activator.CreateInstance(typeof(T), javaObject) as T;

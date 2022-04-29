@@ -37,16 +37,28 @@ namespace HuaweiMobileServices.AuthService
 
         public ITask<SignInResult> CreateUser(PhoneUser paramPhoneUser) => CallAsWrapper<TaskJavaObjectWrapper<SignInResult>>("createUser", paramPhoneUser);
 
-        public ITask<Void> ResetPassword(string paramString1, string paramString2, string paramString3) 
-            => CallAsWrapper<TaskVoidWrapper>("resetPassword", paramString1, paramString2, paramString3);
+        ///<summary>
+        ///<para>Resets a user's password using the email address.</para>
+        ///</summary>
+        public ITask<Void> ResetPassword(string email, string newPassword, string verifyCode) 
+            => CallAsWrapper<TaskVoidWrapper>("resetPassword", email, newPassword, verifyCode);
 
-        public ITask<Void> ResetPassword(string paramString1, string paramString2, string paramString3, string paramString4)
-            => CallAsWrapper<TaskVoidWrapper>("resetPassword", paramString1, paramString2, paramString3, paramString4);
+        ///<summary>
+        ///<para>Resets a user's password using the mobile number.</para>
+        ///</summary>
+        public ITask<Void> ResetPassword(string countryCode, string phoneNumber, string newPassword, string verifyCode)
+            => CallAsWrapper<TaskVoidWrapper>("resetPassword", countryCode, phoneNumber, newPassword, verifyCode);
 
+        ///<summary>
+        ///<para>Applies for a verification code using an email address.</para>
+        ///</summary>
         public ITask<VerifyCodeResult> RequestVerifyCode(string email, VerifyCodeSettings settings)
-            => (ITask<VerifyCodeResult>)CallAsWrapper<VerifyCodeResult> ("requestVerifyCode", email, settings);
+           => CallAsWrapper<TaskJavaObjectWrapper<VerifyCodeResult>>("requestVerifyCode", email, settings);
 
+        ///<summary>
+        ///<para>Applies for a verification code using a mobile number.</para>
+        ///</summary>
         public ITask<VerifyCodeResult> RequestVerifyCode(string countryCode, string phoneNumber, VerifyCodeSettings settings)
-            => (ITask<VerifyCodeResult>)CallAsWrapper<VerifyCodeResult>("requestVerifyCode", countryCode, phoneNumber, settings);
+            => CallAsWrapper<TaskJavaObjectWrapper<VerifyCodeResult>>("requestVerifyCode", countryCode, phoneNumber, settings);
     }
 }
