@@ -81,6 +81,11 @@
         {
             return CallAsWrapper<AccountAuthParamsHelper>("setCarrierId");
         }
+
+        public AccountAuthParamsHelper SetIdTokenSignAlg(int idTokenSignAlg)
+        {
+            return CallAsWrapper<AccountAuthParamsHelper>("setIdTokenSignAlg", idTokenSignAlg);
+        }
     }
 
 }
