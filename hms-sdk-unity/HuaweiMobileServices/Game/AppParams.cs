@@ -26,24 +26,4 @@ namespace HuaweiMobileServices.Game
             set => Call("setAntiAddictionCallback", AntiAddictionCallback);
         }
     }
-
-    public interface IAntiAddictionCallback
-    {
-        void OnExit();
-    }
-
-    public class AntiAddictionCallWrapper : AndroidJavaProxy
-    {
-        private readonly IAntiAddictionCallback mListener;
-
-        public AntiAddictionCallWrapper(IAntiAddictionCallback listener) : base("com.huawei.hms.jos.AntiAddictionCallback")
-        {
-            mListener = listener;
-        }
-
-        public void onExit()
-        {
-            mListener.OnExit();
-        }
-    }
 }
