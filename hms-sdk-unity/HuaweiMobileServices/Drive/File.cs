@@ -21,7 +21,7 @@ namespace HuaweiMobileServices.Drive
         public string GetFileName() => Call<string>("getFileName");
         public File SetFileName(string var1) => CallAsWrapper<File>("setFileName", var1);
 
-        public long GetSize() => Call<long>("getSize");
+        public long? GetSize() => Call<AndroidJavaObject>("getSize").AsLong();
         public File SetSize(long var1) => CallAsWrapper<File>("setSize", var1);
 
         public string GetMimeType() => Call<string>("getMimeType");
@@ -33,10 +33,10 @@ namespace HuaweiMobileServices.Drive
         public string GetDescription() => Call<string>("getDescription");
         public File SetDescription(string var1) => CallAsWrapper<File>("setDescription", var1);
 
-        public bool SetFavorite() => Call<bool>("getFavorite");
+        public bool getFavorite() => CallAsBool("getFavorite");
         public File SetFavorite(bool var1) => CallAsWrapper<File>("setFavorite", var1);
 
-        public bool GetRecycled() => Call<bool>("getRecycled");
+        public bool GetRecycled() => CallAsBool("getRecycled");
         public File SetRecycled(bool var1) => CallAsWrapper<File>("setRecycled", var1);
 
         public Dictionary<string, string> GetAppSettings() => Call<Dictionary<string, string>>("getAppSettings");
@@ -45,10 +45,10 @@ namespace HuaweiMobileServices.Drive
         public Dictionary<string, string> GetProperties() => Call<Dictionary<string, string>>("getProperties");
         public File SetProperties(Dictionary<string, string> var1) => CallAsWrapper<File>("setProperties", var1);
 
-        public bool GetWriterHasCopyPermission() => Call<bool>("getWriterHasCopyPermission");
+        public bool GetWriterHasCopyPermission() => CallAsBool("getWriterHasCopyPermission");
         public File SetWriterHasCopyPermission(bool var1) => CallAsWrapper<File>("WriterHasCopyPermission", var1);
 
-        public bool GetDirectlyRecycled() => Call<bool>("getDirectlyRecycled");
+        public bool GetDirectlyRecycled() => CallAsBool("getDirectlyRecycled");
         public File SetDirectlyRecycled(bool var1) => CallAsWrapper<File>("setDirectlyRecylcled", var1);
 
         public string GetFileSuffix() => Call<string>("getFileSuffix");
@@ -63,25 +63,25 @@ namespace HuaweiMobileServices.Drive
         public string GetIconDownloadLink() => Call<string>("getIconDownloadLink");
         public File SetIconDownloadLink(string var1) => CallAsWrapper<File>("setIconDownloadLink", var1);
 
-        public bool GetIsAppAuthorized() => Call<bool>("getIsAppAuthorized");
+        public bool GetIsAppAuthorized() => CallAsBool("getIsAppAuthorized");
         public File SetIsAppAuthorized(bool var1) => CallAsWrapper<File>("setIsAppAuthorized", var1);
 
-        public User GetLastEditor() => CallAsWrapper<User>("getLasEditor");
+        public User GetLastEditor() => CallAsWrapper<User>("getLastEditor");
         public File SetLastEditor(User var1) => CallAsWrapper<File>("setLastEditor", var1);
 
-        public bool GetEditedByMe() => Call<bool>("getEditedByMe");
+        public bool GetEditedByMe() => CallAsBool("getEditedByMe");
         public File SetEditedByMe(bool var1) => CallAsWrapper<File>("setEditedByMe", var1);
 
-        public bool GetOwnedByMe() => Call<bool>("getOwnedByMe");
+        public bool GetOwnedByMe() => CallAsBool("getOwnedByMe");
         public File SetOwnedByMe(bool var1) => CallAsWrapper<File>("setOwnedByMe", var1);
 
-        public long GetOccupiedSpace() => Call<long>("getOccupiedSpace");
+        public long? GetOccupiedSpace() => Call<AndroidJavaObject>("getOccupiedSpace").AsLong();
         public File SetOccupiedSpace(long var1) => CallAsWrapper<File>("setOccupiedSpace", var1);
 
         public string GetSha256() => Call<string>("getSha256");
         public File SetSha256(string var1) => CallAsWrapper<File>("setSha256", var1);
 
-        public bool GetHasShared() => Call<bool>("getHasShared");
+        public bool GetHasShared() => CallAsBool("getHasShared");
         public File SetHasShared(bool var1) => CallAsWrapper<File>("setHasShared", var1);
 
         public User GetSharer() => CallAsWrapper<User>("getSharer");
@@ -99,7 +99,7 @@ namespace HuaweiMobileServices.Drive
         public string GetContentDownloadLink() => Call<string>("getContentDownloadLink");
         public File SetContentDownloadLink(string var1) => CallAsWrapper<File>("setContentDownloadLink", var1);
 
-        public bool GetWritersHasSharePermission() => Call<bool>("getWritersHasSharePermission");
+        public bool GetWritersHasSharePermission() => CallAsBool("getWritersHasSharePermission");
         public File SetWritersHasSharePermission(bool var1) => CallAsWrapper<File>("setWritersHasSharePermission", var1);
 
         public string GetContentVersion() => Call<string>("getContentVersion");
@@ -111,7 +111,7 @@ namespace HuaweiMobileServices.Drive
         public string GetOriginalFilename() => Call<string>("getOriginalFilename");
         public File SetOriginalFilename(string var1) => CallAsWrapper<File>("setOriginalFilename", var1);
 
-        public long GetThumbnailVersion() => Call<long>("getThumbnailVersion");
+        public long? GetThumbnailVersion() => Call<AndroidJavaObject>("getThumbnailVersion").AsLong();
         public File SetThumbnailVersion(long var1) => CallAsWrapper<File>("setThumbnailVersion", var1);
 
         public long GetVersion() => Call<long>("getVersion");

@@ -105,8 +105,8 @@ namespace HuaweiMobileServices.Drive
                 public new Get SetQuotaId(string var1) => CallAsWrapper<Get>("setQuotaId", var1);
                 public string GetFileId() => Call<string>("getFileId");
                 public Get SetFileId(string var1) => CallAsWrapper<Get>("setFileId", var1);
-                public bool GetAcknowledgeDownloadRisk() => Call<bool>("getAcknowledgeDownloadRisk");
-                public bool IsAcknowledgeDownloadRisk() => Call<bool>("IsAcknowledgeDownloadRisk");
+                public bool GetAcknowledgeDownloadRisk() => CallAsBool("getAcknowledgeDownloadRisk");
+                public bool IsAcknowledgeDownloadRisk() => CallAsBool("IsAcknowledgeDownloadRisk");
                 public Get SetAcknowledgeDownloadRisk(bool var1) => CallAsWrapper<Get>("setAcknowledgeDownloadRisk", var1);
                 public new Get Set(string var1, AndroidJavaObject var2) => CallAsWrapper<Get>("set", var1, var2);
             }
@@ -218,7 +218,7 @@ namespace HuaweiMobileServices.Drive
                 public Get SetCommentId(string var1) => CallAsWrapper<Get>("setCommentId", var1);
                 public string GetFileId() => Call<string>("getFileId");
                 public Get SetFileId(string var1) => CallAsWrapper<Get>("setFileId", var1);
-                public bool IsIncludeDeleted() => Call<bool>("isIncludeDeleted");
+                public bool IsIncludeDeleted() => CallAsBool("isIncludeDeleted");
                 public Get SetIncludeDeleted(bool var1) => CallAsWrapper<Get>("isIncludeDeleted", var1);
                 public new Get Set(string var1, AndroidJavaObject var2) => CallAsWrapper<Get>("set", var1, var2);
                 public new Get SetForm(string var1) => CallAsWrapper<Get>("setForm", var1);
@@ -239,8 +239,8 @@ namespace HuaweiMobileServices.Drive
                 public List SetFileId(string var1) => CallAsWrapper<List>("setFileId", var1);
                 public string GetCommentId() => Call<string>("getCommentId");
                 public List SetCommentId(int var1) => CallAsWrapper<List>("setCommentId", var1);
-                public bool GetIncludeDeleted() => Call<bool>("getIncludeDeleted");
-                public bool IsIncludeDeleted() => Call<bool>("isIncludeDeleted");
+                public bool GetIncludeDeleted() => CallAsBool("getIncludeDeleted");
+                public bool IsIncludeDeleted() => CallAsBool("isIncludeDeleted");
                 public List SetIncludeDeleted(bool var1) => CallAsWrapper<List>("setIncludeDeleted", var1);
                 public int GetPageSize() => Call<int>("getPageSize");
                 public List SetPageSize(int var1) => CallAsWrapper<List>("setPageSize", var1);
@@ -315,8 +315,8 @@ namespace HuaweiMobileServices.Drive
                 public Get SetFileId(string var1) => CallAsWrapper<Get>("setFileId", var1);
                 public string GetCommentId() => Call<string>("getCommentId");
                 public Get SetCommentId(string var1) => CallAsWrapper<Get>("setCommentId", var1);
-                public bool GetIncludeDeleted() => Call<bool>("getIncludeDeleted");
-                public bool IsIncludeDeleted() => Call<bool>("isIncludeDeleted");
+                public bool GetIncludeDeleted() => CallAsBool("getIncludeDeleted");
+                public bool IsIncludeDeleted() => CallAsBool("isIncludeDeleted");
                 public Get SetIncludeDeleted(bool var1) => CallAsWrapper<Get>("isIncludeDeleted", var1);
             }
             public class List : DriveRequest<CommentList>
@@ -333,8 +333,8 @@ namespace HuaweiMobileServices.Drive
                 public List SetPageSize(int var1) => CallAsWrapper<List>("setPageSize", var1);
                 public string GetCursor() => Call<string>("getCursor");
                 public List SetCursor(string var1) => CallAsWrapper<List>("setCursor", var1);
-                public bool GetIncludeDeleted() => Call<bool>("getIncludeDeleted");
-                public bool IsIncludeDeleted() => Call<bool>("isIncludeDeleted");
+                public bool GetIncludeDeleted() => CallAsBool("getIncludeDeleted");
+                public bool IsIncludeDeleted() => CallAsBool("isIncludeDeleted");
                 public List SetIncludeDeleted(bool var1) => CallAsWrapper<List>("setIncludeDeleted", var1);
                 public string GetStartEditedTime() => Call<string>("getStartEditedTime");
                 public List SetStartEditedTime(string var1) => CallAsWrapper<List>("setStartEditedTime", var1);
@@ -393,8 +393,8 @@ namespace HuaweiMobileServices.Drive
                 public string GetFileId() => Call<string>("getFileId");
                 public Get SetFileId(string var1) => CallAsWrapper<Get>("setFileId", var1);
                 public Get SetAcknowledgeDownloadRisk(bool var1) => CallAsWrapper<Get>("setAcknowledgeDownloadRisk", var1);
-                public bool IsAcknowledgeDownloadRisk() => Call<bool>("isAcknowledgeDownloadRisk");
-                public bool GetAcknowledgeDownloadRisk() => Call<bool>("getAcknowledgeDownloadRisk");
+                public bool IsAcknowledgeDownloadRisk() => CallAsBool("isAcknowledgeDownloadRisk");
+                public bool GetAcknowledgeDownloadRisk() => CallAsBool("getAcknowledgeDownloadRisk");
                 public AndroidJavaObject ExecuteContentAsInputStream() => Call<AndroidJavaObject>("executeContentAsInputStream");
                 public void ExecuteContentAndDownloadTo(AndroidJavaObject var1) => Call("executeContentAndDownloadTo", var1);
                 public AndroidJavaObject ExecuteContent() => Call<AndroidJavaObject>("executeContent");
@@ -469,8 +469,8 @@ namespace HuaweiMobileServices.Drive
                 public Subscribe SetPageSize(int var1) => CallAsWrapper<Subscribe>("setPageSize", var1);
                 public string GetContainers() => Call<string>("getContainers");
                 public Subscribe SetContainers(string var1) => CallAsWrapper<Subscribe>("setContainers", var1);
-                public bool GetIncludeDeleted() => Call<bool>("getIncludeDeleted");
-                public bool IsIncludeDeleted() => Call<bool>("isIncludeDeleted");
+                public bool GetIncludeDeleted() => CallAsBool("getIncludeDeleted");
+                public bool IsIncludeDeleted() => CallAsBool("isIncludeDeleted");
                 public Subscribe SetIncludeDeleted(bool var1) => CallAsWrapper<Subscribe>("setIncludeDeleted", var1);
                 public new Channel Execute() => CallAsWrapper<Channel>("execute");
             }
@@ -489,8 +489,8 @@ namespace HuaweiMobileServices.Drive
                 public List SetPageSize(int var1) => CallAsWrapper<List>("setPageSize", var1);
                 public string GetContainers() => Call<string>("getContainers");
                 public List SetContainers(string var1) => CallAsWrapper<List>("setContainers", var1);
-                public bool GetIncludeDeleted() => Call<bool>("getIncludeDeleted");
-                public bool IsIncludeDeleted() => Call<bool>("isIncludeDeleted");
+                public bool GetIncludeDeleted() => CallAsBool("getIncludeDeleted");
+                public bool IsIncludeDeleted() => CallAsBool("isIncludeDeleted");
                 public List SetIncludeDeleted(bool var1) => CallAsWrapper<List>("setIncludeDeleted", var1);
                 public new ChangeList Execute() => CallAsWrapper<ChangeList>("execute");
             }

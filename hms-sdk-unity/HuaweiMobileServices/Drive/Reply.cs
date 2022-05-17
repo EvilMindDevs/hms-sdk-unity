@@ -20,13 +20,10 @@ namespace HuaweiMobileServices.Drive
         public string GetDescription() => Call<string>("getDescription");
         public Reply SetDescription(string var1) => CallAsWrapper<Reply>("setDescription", var1);
 
-        public string GetUrl() => Call<string>("getUrl");
-        public Reply SetUrl(string var1) => CallAsWrapper<Reply>("setUrl", var1);
-
         public DateTime GetCreatedTime() => CallAsWrapper<DateTime>("getCreatedTime");
         public Reply SetCreatedTime(DateTime var1) => CallAsWrapper<Reply>("setCreatedTime", var1);
 
-        public bool GetDeleted() => Call<bool>("getDeleted");
+        public bool GetDeleted() => CallAsBool("getDeleted");
         public Reply SetDeleted(bool var1) => CallAsWrapper<Reply>("setDeleted", var1);
 
         public string GetHtmlDescription() => Call<string>("getHtmlDescription");

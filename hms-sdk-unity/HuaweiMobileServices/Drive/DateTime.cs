@@ -14,6 +14,6 @@ namespace HuaweiMobileServices.Drive
         public long GetValue() => Call<long>("getValue");
         public bool IsDateOnly() => Call<bool>("isDateOnly");
         public int GetTimeZoneShift() => Call<int>("getTimeZoneShift");
-        public string ToStringRfc3339() => Call<string>("toStringRfc3339");
+        override public string ToString() => Call<string>("toString");
     }
 }

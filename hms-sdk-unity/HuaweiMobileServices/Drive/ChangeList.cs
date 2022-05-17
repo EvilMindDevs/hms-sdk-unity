@@ -21,7 +21,7 @@ namespace HuaweiMobileServices.Drive
         public string GetNewStartCursor() => Call<string>("getNewStartCursor");
         public ChangeList SetNewStartCursor(string var1) => CallAsWrapper<ChangeList>("setNewStartCursor", var1);
 
-        public Comment Set(string var1, AndroidJavaObject var2) => CallAsWrapper<Comment>("set", var1, var2);
-        public Comment Clone() => CallAsWrapper<Comment>("clone");
+        public ChangeList Set(string var1, AndroidJavaObject var2) => CallAsWrapper<ChangeList>("set", var1, var2);
+        public ChangeList Clone() => CallAsWrapper<ChangeList>("clone");
     }
 }

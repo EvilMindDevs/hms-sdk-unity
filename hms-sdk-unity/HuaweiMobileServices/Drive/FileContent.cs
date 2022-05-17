@@ -13,14 +13,14 @@ namespace HuaweiMobileServices.Drive
         public FileContent(String var1, FileInfo var2) : base("com.huawei.cloud.base.http.FileContent", var1, var2){}
         public FileContent(String var1, AndroidJavaObject var2) : base("com.huawei.cloud.base.http.FileContent", var1, var2) { }
 
-        public long Length
+        public long? Length
         {
-            get => Call<long>("getLength");
+            get => Call<AndroidJavaObject>("getLength").AsLong();
         }
 
         public bool RetrySupported
         {
-            get => Call<bool>("retrySupported");
+            get => CallAsBool("retrySupported");
         }
 
         public FileContent Type

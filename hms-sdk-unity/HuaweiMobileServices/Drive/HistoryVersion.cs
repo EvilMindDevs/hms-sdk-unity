@@ -14,7 +14,7 @@ namespace HuaweiMobileServices.Drive
         public string GetId() => Call<string>("getId");
         public HistoryVersion SetId(string var1) => CallAsWrapper<HistoryVersion>("setId", var1);
 
-        public bool GetKeepPermanent() => Call<bool>("getKeepPermanent");
+        public bool GetKeepPermanent() => CallAsBool("getKeepPermanent");
         public HistoryVersion SetKeepPermanent(bool var1) => CallAsWrapper<HistoryVersion>("setKeepPermanent", var1);
 
         public string GetCategory() => Call<string>("getCategory");
@@ -32,7 +32,7 @@ namespace HuaweiMobileServices.Drive
         public string GetOriginalFilename() => Call<string>("getOriginalFilename");
         public HistoryVersion SetOriginalFilename(string var1) => CallAsWrapper<HistoryVersion>("setOriginalFilename", var1);
 
-        public long GetSize() => Call<long>("getSize");
+        public long? GetSize() => Call<AndroidJavaObject>("getSize").AsLong();
         public HistoryVersion SetSize(long var1) => CallAsWrapper<HistoryVersion>("setSize", var1);
 
         public HistoryVersion Set(string var1, AndroidJavaObject var2) => CallAsWrapper<HistoryVersion>("set", var1, var2);

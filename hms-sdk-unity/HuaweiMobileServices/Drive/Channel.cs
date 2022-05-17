@@ -29,10 +29,10 @@ namespace HuaweiMobileServices.Drive
         public new string GetType() => Call<string>("getType");
         public Channel SetType(string var1) => CallAsWrapper<Channel>("setType", var1);
 
-        public long GetExpirationTime() => Call<long>("getExpirationTime");
+        public long? GetExpirationTime() => Call<AndroidJavaObject>("getExpirationTime").AsLong();
         public Channel SetExpirationTime(long var1) => CallAsWrapper<Channel>("setExpirationTime", var1);
 
-        public bool GetPayload() => Call<bool>("getPayload");
+        public bool GetPayload() => CallAsBool("getPayload");
         public Channel SetPayload(bool var1) => CallAsWrapper<Channel>("setPayload", var1);
 
         public Channel Set(string var1, AndroidJavaObject var2) => CallAsWrapper<Channel>("set", var1, var2);

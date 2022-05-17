@@ -13,7 +13,7 @@ namespace HuaweiMobileServices.Drive
         public InputStreamContent() : base("com.huawei.cloud.base.http.InputStreamContent"){}
 
         public InputStreamContent(String mimeType, AndroidJavaObject inputStream) : base("com.huawei.cloud.base.http.InputStreamContent", mimeType, inputStream){}
-        public long GetLength() => Call<long>("getLength");
+        public long? GetLength() => Call<AndroidJavaObject>("getLength").AsLong();
         public InputStreamContent SetLength(long var1) => CallAsWrapper<InputStreamContent>("setLength", var1);
     }
 }

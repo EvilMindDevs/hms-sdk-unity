@@ -21,7 +21,7 @@ namespace HuaweiMobileServices.Drive
         public DateTime GetCreatedTime() => CallAsWrapper<DateTime>("getCreatedTime");
         public Comment SetCreatedTime(DateTime var1) => CallAsWrapper<Comment>("setCreatedTime", var1);
 
-        public bool GetDeleted() => Call<bool>("getDeleted");
+        public bool GetDeleted() => CallAsBool("getDeleted");
         public Comment SetDeleted(bool var1) => CallAsWrapper<Comment>("setDeleted", var1);
 
         public string GetHtmlDescription() => Call<string>("getHtmlDescription");
@@ -42,7 +42,7 @@ namespace HuaweiMobileServices.Drive
         public QuotedContent GetQuotedContent() => CallAsWrapper<QuotedContent>("getQuotedContent");
         public Comment SetQuotedContent(QuotedContent var1) => CallAsWrapper<Comment>("setQuotedContent", var1);
 
-        public bool GetResolved() => Call<bool>("getResolved");
+        public bool GetResolved() => CallAsBool("getResolved");
         public Comment SetResolved(string var1, AndroidJavaObject var2) => CallAsWrapper<Comment>("setResolved", var1, var2);
 
         public Comment Set(string var1, AndroidJavaObject var2) => CallAsWrapper<Comment>("set", var1, var2);

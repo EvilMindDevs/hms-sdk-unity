@@ -18,7 +18,7 @@ namespace HuaweiMobileServices.Drive
         public IList<Comment> GetComments() => Call<AndroidJavaObject>("getComments").AsListFromWrappable<Comment>();
         public CommentList SetComments(IList<Comment> var1) => CallAsWrapper<CommentList>("setComments", var1);
 
-        public Comment Set(string var1, AndroidJavaObject var2) => CallAsWrapper<Comment>("set", var1, var2);
-        public Comment Clone() => CallAsWrapper<Comment>("clone");
+        public CommentList Set(string var1, AndroidJavaObject var2) => CallAsWrapper<CommentList>("set", var1, var2);
+        public CommentList Clone() => CallAsWrapper<CommentList>("clone");
     }
 }
