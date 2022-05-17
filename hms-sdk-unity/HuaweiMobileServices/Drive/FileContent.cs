@@ -8,20 +8,29 @@ using UnityEngine;
 namespace HuaweiMobileServices.Drive
 {
     public class FileContent : JavaObjectWrapper
-    {
-
-        
+    {        
         public FileContent(String javaObject) : base(javaObject) {}
-
-        
         public FileContent(String var1, FileInfo var2) : base("com.huawei.cloud.base.http.FileContent", var1, var2){}
+        public FileContent(String var1, AndroidJavaObject var2) : base("com.huawei.cloud.base.http.FileContent", var1, var2) { }
 
-        public long GetLength() => Call<long>("getLength");
+        public long? Length
+        {
+            get => Call<AndroidJavaObject>("getLength").AsLong();
+        }
 
-        public bool RetrySupported() => Call<bool>("retrySupported");
+        public bool RetrySupported
+        {
+            get => CallAsBool("retrySupported");
+        }
 
-        public FileContent SetType(String var1) => CallAsWrapper<FileContent>("setType", var1);
+        public FileContent Type
+        {
+            set => CallAsWrapper<FileContent>("setType", value);
+        }
 
-        public FileContent SetCloseInputStream(bool var1) => CallAsWrapper<FileContent>("setCloseInputStream", var1);
+        public FileContent CloseInputStream
+        {
+            set => CallAsWrapper<FileContent>("setCloseInputStream", value);
+        }
     }
 }

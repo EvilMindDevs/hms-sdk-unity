@@ -33,10 +33,7 @@
 
         public class Builder : JavaObjectWrapper
         {
-            
             public Builder() : base("com.huawei.cloud.base.auth.DriveCredential$Builder") { }
-
-            
             public Builder(String unionID, Func<String> refreshToken) : base("com.huawei.cloud.base.auth.DriveCredential$Builder", unionID, new AccessMethodWrapper(refreshToken)){}
            
             public DriveCredential Build() => CallAsWrapper<DriveCredential>("build");
