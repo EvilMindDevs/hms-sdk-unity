@@ -26,7 +26,7 @@
 
         public static void SetAppActivateStyle(int value) => sJavaClass.CallStatic("setAppActivateStyle", value);
 
-        public static bool GetAppInstalledNotify() => sJavaClass.CallStatic<bool>("isAppInstalledNotify");
+        public static bool IsAppInstalledNotify() => sJavaClass.CallStatic<bool>("isAppInstalledNotify");
 
         public static void SetAppInstalledNotify(bool value) => sJavaClass.CallStatic("setAppInstalledNotify", value);
 
