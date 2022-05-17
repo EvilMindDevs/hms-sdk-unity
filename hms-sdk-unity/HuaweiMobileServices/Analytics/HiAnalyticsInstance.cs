@@ -53,6 +53,10 @@ namespace HuaweiMobileServices.Analystics
         public void AddDefaultEventParams(Bundle androidBundle) => Call("addDefaultEventParams", androidBundle);
 
         public void SetCollectAdsIdEnabled(bool isEnabled) => Call("setCollectAdsIdEnabled", isEnabled);
+
+        public void SetChannel(String channel) => Call("setChannel", channel);
+
+        public void SetPropertyCollection(String property, bool enabled) => Call("setPropertyCollection", property, enabled);
     }
 }
 

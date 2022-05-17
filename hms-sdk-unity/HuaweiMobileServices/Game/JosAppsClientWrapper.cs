@@ -6,8 +6,6 @@ namespace HuaweiMobileServices.Game
 
     internal class JosAppsClientWrapper : JavaObjectWrapper, IJosAppsClient
     {
-
-        
         public JosAppsClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public ITask<string> AppId
@@ -19,9 +17,10 @@ namespace HuaweiMobileServices.Game
             }
         }
 
-        public void Init()
+        public ITask<Void> Init(AppParams appParams)
         {
-            JavaObject.Call("init");
+            var javaTask = JavaObject.Call<AndroidJavaObject>("init", appParams.JavaObject);
+            return new TaskVoidWrapper(javaTask);
         }
     }
 }
