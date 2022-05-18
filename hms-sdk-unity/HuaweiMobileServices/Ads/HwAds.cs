@@ -22,17 +22,14 @@
 
         public static void SetConsent(string param1String) => sJavaClass.CallStatic("setConsent", param1String);
 
-        public static int AppActivateStyle
-        {
-            get => sJavaClass.GetStatic<int>("getAppActivateStyle");   // get method
-            set => sJavaClass.CallStatic("setAppActivateStyle", value);  // set method
-        }
+        public static int GetAppActivateStyle() => sJavaClass.CallStatic<int>("getAppActivateStyle");
 
-        public static bool AppInstalledNotify
-        {
-            get => sJavaClass.GetStatic<bool>("isAppInstalledNotify");   // get method
-            set => sJavaClass.CallStatic("setAppInstalledNotify", value);  // set method
-        }
+        public static void SetAppActivateStyle(int value) => sJavaClass.CallStatic("setAppActivateStyle", value);
+
+        public static bool IsAppInstalledNotify() => sJavaClass.CallStatic<bool>("isAppInstalledNotify");
+
+        public static void SetAppInstalledNotify(bool value) => sJavaClass.CallStatic("setAppInstalledNotify", value);
+
     }
 
     // Wrapper for Constant-class => com.huawei.hms.ads.ActivateStyle
