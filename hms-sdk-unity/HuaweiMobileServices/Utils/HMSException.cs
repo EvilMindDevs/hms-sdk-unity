@@ -12,20 +12,35 @@ namespace HuaweiMobileServices.Utils
 
         internal HMSException(int errorCode) : base()
         {
-            ErrorCode = errorCode;
+            _errorCode = errorCode;
         }
 
         internal HMSException(AndroidJavaObject javaObject) : base()
         {
             JavaException = javaObject;
         }
-
+        private int _errorCode;
         private string _causeMessage;
         private string _exceptionMessage;
 
         internal AndroidJavaObject JavaException { get; }
 
-        public int ErrorCode { get; }
+        public int ErrorCode 
+        {
+            get 
+            {
+                try
+                {
+                    return JavaException.Call<int>("getStatusCode");
+                }
+                catch (Exception)
+                {
+                    Debug.LogError("HMSException getErrorCode exception");
+                    return _errorCode;
+                }
+            }   
+            set => ErrorCode = value;
+        }
 
         public string WrappedExceptionMessage
         {
