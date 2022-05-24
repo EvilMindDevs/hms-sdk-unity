@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace HuaweiMobileServices.AppLinking
 {
-    class ShortAppLinking : JavaObjectWrapper
+    public class ShortAppLinking : JavaObjectWrapper
     {
         public ShortAppLinking(AndroidJavaObject javaObject) : base(javaObject) { }
+
         private static readonly AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.agconnect.applinking.ShortAppLinking");
 
         public string GetShortUrl => CallAsUriString("getShortUrl");
@@ -16,6 +17,5 @@ namespace HuaweiMobileServices.AppLinking
             LONG,
             SHORT
         }
-
     }
 }
