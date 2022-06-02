@@ -9,14 +9,17 @@ namespace HuaweiMobileServices.AppLinking
 
         public CampaignInfo() : base("com.huawei.agconnect.applinking.AppLinking$CampaignInfo") { }
 
-        public Builder NewBuilder => CallAsWrapper<Builder>("newBuilder");
+        private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.applinking.AppLinking$CampaignInfo");
+
+        public static Builder NewBuilder() => javaClass.CallStaticAsWrapper<Builder>("newBuilder");
+
     }
 
     public class Builder : JavaObjectWrapper
     {
         public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public Builder() : base("com.huawei.agconnect.applinking.AppLinking$CampaignInfo") { }
+        public Builder() : base("com.huawei.agconnect.applinking.AppLinking$CampaignInfo$Builder") { }
 
         public CampaignInfo Build() => CallAsWrapper<CampaignInfo>("build");
 

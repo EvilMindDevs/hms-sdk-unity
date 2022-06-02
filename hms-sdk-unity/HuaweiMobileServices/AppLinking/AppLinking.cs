@@ -8,16 +8,17 @@ namespace HuaweiMobileServices.AppLinking
     {
 
         public AppLinking(AndroidJavaObject javaObject) : base(javaObject) { }
-        private static readonly AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.agconnect.applinking.AppLinking");
+        private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.applinking.AppLinking");
 
-        public string GetUri => CallAsUriString("getUri");
-        public Builder NewBuilder => CallAsWrapper<Builder>("newBuilder");
+        public string GetUri() => CallAsUriString("getUri");
+
+        public static Builder NewBuilder() => javaClass.CallStaticAsWrapper<Builder>("newBuilder");
+
         //public string GetResourceUri() => Call<string>("getResourceUri");
 
         // Wrapper for com.huawei.agconnect.applinking.AppLinking$Builder
         public class Builder : JavaObjectWrapper
         {
-
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public Builder() : base("com.huawei.agconnect.applinking.AppLinking$Builder") { }
@@ -26,13 +27,13 @@ namespace HuaweiMobileServices.AppLinking
 
             public ITask<ShortAppLinking> BuildShortAppLinking() => CallAsWrapper<TaskJavaObjectWrapper<ShortAppLinking>>("buildShortAppLinking");
 
-            public ITask<ShortAppLinking> BuildShortAppLinking(ShortAppLinking.LENGTH length) => CallAsWrapper<TaskJavaObjectWrapper<ShortAppLinking>>("buildShortAppLinking", length);
+            public ITask<ShortAppLinking> BuildShortAppLinking(ShortAppLinking.LENGTH length) => CallAsWrapper<TaskJavaObjectWrapper<ShortAppLinking>>("buildShortAppLinking", ShortAppLinking.LenghtWrapper.GetLinkingPreviewType(length));
 
-            public Builder SetAndroidLinkInfo(AndroidLinkInfo androidLinkInfo) => CallAsWrapper<Builder>("setAndroidLinkInfo");
+            public Builder SetAndroidLinkInfo(AndroidLinkInfo androidLinkInfo) => CallAsWrapper<Builder>("setAndroidLinkInfo", androidLinkInfo);
 
-            public Builder SetDeepLink(string deepLink) => CallAsWrapper<Builder>("setDeepLink", deepLink.AsJavaString()); //todo check
+            public Builder SetDeepLink(string deepLink) => CallAsWrapper<Builder>("setDeepLink", deepLink.AsJavaUri());
 
-            public Builder SetLongLink(string longLink) => CallAsWrapper<Builder>("setLongLink", longLink.AsJavaString()); //todo check
+            public Builder SetLongLink(string longLink) => CallAsWrapper<Builder>("setLongLink", longLink.AsJavaUri());
 
             public Builder SetSocialCardInfo(SocialCardInfo socialCardInfo) => CallAsWrapper<Builder>("setSocialCardInfo", socialCardInfo);
 
@@ -42,16 +43,31 @@ namespace HuaweiMobileServices.AppLinking
 
             public Builder SetExpireMinute(long expireMinute) => CallAsWrapper<Builder>("setExpireMinute", expireMinute);
 
-            public Builder SetPreviewType(LinkingPreviewType previewType) => CallAsWrapper<Builder>("setPreviewType", previewType);
+            public Builder SetPreviewType(LinkingPreviewType previewType) => CallAsWrapper<Builder>("setPreviewType", LinkingPreviewTypeWrapper.GetLinkingPreviewType(previewType));
 
             public Builder SetIsShowPreview(bool isShowPreview) => CallAsWrapper<Builder>("setIsShowPreview", isShowPreview);
-
         }
 
+        public class LinkingPreviewTypeWrapper : JavaObjectWrapper
+        {
+            public LinkingPreviewTypeWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
+
+            private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.applinking.AppLinking$LinkingPreviewType");
+
+            public static readonly LinkingPreviewTypeWrapper AppInfo = javaClass.GetStaticAsWrapper<LinkingPreviewTypeWrapper>("AppInfo");
+            public static readonly LinkingPreviewTypeWrapper SocialInfo = javaClass.GetStaticAsWrapper<LinkingPreviewTypeWrapper>("SocialInfo");
+
+
+            public static LinkingPreviewTypeWrapper GetLinkingPreviewType(LinkingPreviewType linkingPreviewType)
+            {
+                if (linkingPreviewType == 0) return AppInfo;
+                else return SocialInfo;
+            }
+        }
         public enum LinkingPreviewType
         {
-            AppInfo,
-            SocialInfo
+            AppInfo = 0,
+            SocialInfo = 1
         }
 
     }

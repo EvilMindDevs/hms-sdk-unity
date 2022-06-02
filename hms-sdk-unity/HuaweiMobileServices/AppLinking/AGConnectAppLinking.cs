@@ -1,16 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using HuaweiMobileServices.Utils;
+﻿using HuaweiMobileServices.Utils;
 using UnityEngine;
 
 namespace HuaweiMobileServices.AppLinking
 {
-    public class AGConnectAppLinking : JavaObjectWrapper
+    public class AGConnectAppLinking
     {
-        public AGConnectAppLinking(AndroidJavaObject javaObject) : base(javaObject) { }
+        private static AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.appLinking.AppLinking");
 
-        private static readonly AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.huawei.agconnect.applinking.AGConnectAppLinking");
+        public static IAGConnectAppLinking agc = null;
+
+        public static IAGConnectAppLinking GetInstance()
+        {
+            if (agc == null)
+            {
+                agc = sJavaClass.CallStaticAsWrapper<AGConnectAppLinkingWrapper>("getInstance");
+            }
+            return agc;
+        }
+
+        public static void ShareLink(string agcLink)
+        {
+            sJavaClass.CallStatic("shareLink", agcLink);
+        }
 
     }
 }

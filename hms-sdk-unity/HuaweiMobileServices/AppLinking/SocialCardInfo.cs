@@ -9,13 +9,16 @@ namespace HuaweiMobileServices.AppLinking
 
         public SocialCardInfo() : base("com.huawei.agconnect.applinking.AppLinking$SocialCardInfo") { }
 
-        public Builder NewBuilder => CallAsWrapper<Builder>("newBuilder");
+        private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.applinking.AppLinking$SocialCardInfo");
+
+        public static Builder NewBuilder() => javaClass.CallStaticAsWrapper<Builder>("newBuilder");
+
 
         public class Builder : JavaObjectWrapper
         {
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            public Builder() : base("com.huawei.agconnect.applinking.AppLinking$SocialCardInfo") { }
+            public Builder() : base("com.huawei.agconnect.applinking.AppLinking$SocialCardInfo$Builder") { }
 
             public SocialCardInfo Build() => CallAsWrapper<SocialCardInfo>("build");
 

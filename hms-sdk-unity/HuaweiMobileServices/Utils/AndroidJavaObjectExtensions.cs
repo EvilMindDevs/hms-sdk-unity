@@ -150,5 +150,12 @@ namespace HuaweiMobileServices.Utils
         }
 
         public static AndroidJavaObject AsJavaInteger(this int value) => new AndroidJavaObject("java.lang.Integer", value);
+
+        public static AndroidJavaObject AsJavaUri(this string value)
+        {
+            AndroidJavaClass uriObj = new AndroidJavaClass("android.net.Uri");
+            AndroidJavaObject uri = uriObj.CallStatic<AndroidJavaObject>("parse", value);
+            return uri;
+        }
     }
 }
