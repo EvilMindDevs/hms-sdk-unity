@@ -9,7 +9,5 @@ namespace HuaweiMobileServices.AppLinking
         public AGConnectAppLinkingWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public ITask<ResolvedLinkData> GetAppLinking() => CallAsWrapper<TaskJavaObjectWrapper<ResolvedLinkData>>("getAppLinking", AndroidContext.ActivityContext);
-
-        public void SetCustomReferrer(IReferrerProvider provider) => Call("setCustomReferrer", provider);
     }
 }

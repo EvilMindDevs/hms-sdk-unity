@@ -27,31 +27,14 @@ namespace HuaweiMobileServices.AppLinking
 
         public string GetCampaignSource() => Call<string>("getCampaignSource");
 
-        public LinkType GetLinkType() => LinkTypeWrapper.GetLinkingPreviewType(CallAsWrapper<LinkTypeWrapper>("getLinkType"));
+        public LinkType GetLinkType() => AGConnectAppLinking.GetLinkType(this);
 
         public string GetInstallSource() => Call<string>("getInstallSource");
 
-        public class LinkTypeWrapper : JavaObjectWrapper
-        {
-            public LinkTypeWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
-
-            private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.applinking.ResolvedLinkData$LinkType");
-
-            public static readonly LinkTypeWrapper AppLinking = javaClass.GetStaticAsWrapper<LinkTypeWrapper>("AppLinking");
-            public static readonly LinkTypeWrapper UnifiedLinking = javaClass.GetStaticAsWrapper<LinkTypeWrapper>("UnifiedLinking");
-
-            public static LinkType GetLinkingPreviewType(LinkTypeWrapper linkTypeWrapper)
-            {
-                if (linkTypeWrapper == AppLinking) return LinkType.AppLinking;
-                else return LinkType.UnifiedLinking;
-            }
-        }
-
         public enum LinkType
         {
-            AppLinking = 0,
-            UnifiedLinking = 1
+            AppLinking,
+            UnifiedLinking
         }
-
     }
 }

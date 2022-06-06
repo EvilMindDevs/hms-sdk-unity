@@ -1,5 +1,6 @@
 ﻿using HuaweiMobileServices.Utils;
 using UnityEngine;
+using static HuaweiMobileServices.AppLinking.ResolvedLinkData;
 
 namespace HuaweiMobileServices.AppLinking
 {
@@ -23,5 +24,12 @@ namespace HuaweiMobileServices.AppLinking
             sJavaClass.CallStatic("shareLink", agcLink);
         }
 
+        public static LinkType GetLinkType(ResolvedLinkData resolvedLinkData)
+        {
+            int linkType = sJavaClass.CallStatic<int>("getLinkType", resolvedLinkData.JavaObject);
+
+            if (linkType == 0) return LinkType.AppLinking;
+            else return LinkType.UnifiedLinking;
+        }
     }
 }

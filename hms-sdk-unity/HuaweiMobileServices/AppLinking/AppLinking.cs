@@ -14,8 +14,6 @@ namespace HuaweiMobileServices.AppLinking
 
         public static Builder NewBuilder() => javaClass.CallStaticAsWrapper<Builder>("newBuilder");
 
-        //public string GetResourceUri() => Call<string>("getResourceUri");
-
         // Wrapper for com.huawei.agconnect.applinking.AppLinking$Builder
         public class Builder : JavaObjectWrapper
         {
