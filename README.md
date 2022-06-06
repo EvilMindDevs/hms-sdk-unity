@@ -15,6 +15,7 @@ Currently these are the kits being integrated:
 - Drive Kit (https://developer.huawei.com/consumer/en/hms/huawei-drivekit/)
 - Aut Service (https://developer.huawei.com/consumer/en/agconnect/auth-service/)
 - Cloud DB (https://developer.huawei.com/consumer/en/agconnect/cloud-base/)
+- App Linking (https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-introduction)
 ## Setup
 
 You need to:
