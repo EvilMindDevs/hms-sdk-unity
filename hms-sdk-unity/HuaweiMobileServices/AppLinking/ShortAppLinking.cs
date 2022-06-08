@@ -21,7 +21,7 @@ namespace HuaweiMobileServices.AppLinking
             public static readonly LenghtWrapper LONG = javaClass.GetStaticAsWrapper<LenghtWrapper>("LONG");
             public static readonly LenghtWrapper SHORT = javaClass.GetStaticAsWrapper<LenghtWrapper>("SHORT");
 
-            public static LenghtWrapper GetLinkingPreviewType(LENGTH length)
+            public static LenghtWrapper GetShortAppLinkingLENGTH(LENGTH length)
             {
                 if (length == 0) return LONG;
                 else return SHORT;

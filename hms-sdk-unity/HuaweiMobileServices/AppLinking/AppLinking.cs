@@ -25,7 +25,7 @@ namespace HuaweiMobileServices.AppLinking
 
             public ITask<ShortAppLinking> BuildShortAppLinking() => CallAsWrapper<TaskJavaObjectWrapper<ShortAppLinking>>("buildShortAppLinking");
 
-            public ITask<ShortAppLinking> BuildShortAppLinking(ShortAppLinking.LENGTH length) => CallAsWrapper<TaskJavaObjectWrapper<ShortAppLinking>>("buildShortAppLinking", ShortAppLinking.LenghtWrapper.GetLinkingPreviewType(length));
+            public ITask<ShortAppLinking> BuildShortAppLinking(ShortAppLinking.LENGTH length) => CallAsWrapper<TaskJavaObjectWrapper<ShortAppLinking>>("buildShortAppLinking", ShortAppLinking.LenghtWrapper.GetShortAppLinkingLENGTH(length));
 
             public Builder SetAndroidLinkInfo(AndroidLinkInfo androidLinkInfo) => CallAsWrapper<Builder>("setAndroidLinkInfo", androidLinkInfo);
 
@@ -54,7 +54,6 @@ namespace HuaweiMobileServices.AppLinking
 
             public static readonly LinkingPreviewTypeWrapper AppInfo = javaClass.GetStaticAsWrapper<LinkingPreviewTypeWrapper>("AppInfo");
             public static readonly LinkingPreviewTypeWrapper SocialInfo = javaClass.GetStaticAsWrapper<LinkingPreviewTypeWrapper>("SocialInfo");
-
 
             public static LinkingPreviewTypeWrapper GetLinkingPreviewType(LinkingPreviewType linkingPreviewType)
             {

@@ -13,8 +13,6 @@ namespace HuaweiMobileServices.AppLinking
 
         public string GetDeepLink() => CallAsUriString("getDeepLink");
 
-        public string Instance() => Call<string>("getInstance");
-
         public string GetSocialTitle() => Call<string>("getSocialTitle");
 
         public string GetSocialDescription() => Call<string>("getSocialDescription");

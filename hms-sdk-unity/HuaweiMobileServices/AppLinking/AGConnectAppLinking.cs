@@ -1,20 +1,27 @@
-﻿using HuaweiMobileServices.Utils;
+﻿using HuaweiMobileServices.Base;
+using HuaweiMobileServices.Utils;
 using UnityEngine;
 using static HuaweiMobileServices.AppLinking.ResolvedLinkData;
 
+
 namespace HuaweiMobileServices.AppLinking
 {
-    public class AGConnectAppLinking
+    public class AGConnectAppLinking : JavaObjectWrapper
     {
         private static AndroidJavaClass sJavaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.appLinking.AppLinking");
 
-        public static IAGConnectAppLinking agc = null;
+        public AGConnectAppLinking(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public static IAGConnectAppLinking GetInstance()
+        public ITask<ResolvedLinkData> GetAppLinking() => CallAsWrapper<TaskJavaObjectWrapper<ResolvedLinkData>>("getAppLinking", AndroidContext.ActivityContext);
+
+
+        public static AGConnectAppLinking agc = null;
+
+        public static AGConnectAppLinking GetInstance()
         {
             if (agc == null)
             {
-                agc = sJavaClass.CallStaticAsWrapper<AGConnectAppLinkingWrapper>("getInstance");
+                agc = sJavaClass.CallStaticAsWrapper<AGConnectAppLinking>("getInstance");
             }
             return agc;
         }
@@ -31,5 +38,7 @@ namespace HuaweiMobileServices.AppLinking
             if (linkType == 0) return LinkType.AppLinking;
             else return LinkType.UnifiedLinking;
         }
+
+
     }
 }
