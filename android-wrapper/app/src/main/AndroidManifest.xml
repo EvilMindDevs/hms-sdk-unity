@@ -8,8 +8,9 @@
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="fullSensor"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-        </activity>
-        <activity android:name=".activity.NativeBridgeActivity" />
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name=".activity.NativeBridgeActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 </manifest>
