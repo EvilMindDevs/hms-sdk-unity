@@ -2,8 +2,11 @@ package org.m0skit0.android.hms.unity.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Window;
 
 import androidx.annotation.Nullable;
 
@@ -13,12 +16,12 @@ import org.m0skit0.android.hms.unity.BridgeType;
 import org.m0skit0.android.hms.unity.GenericBridge;
 import org.m0skit0.android.hms.unity.base.StatusBridge;
 import org.m0skit0.android.hms.unity.game.ArchiveBridge;
+import org.m0skit0.android.hms.unity.inAppComment.InAppCommentBridge;
 
 public class NativeBridgeActivity extends Activity {
 
-    private static final String TAG = NativeBridgeActivity.class.getSimpleName();
-
     public static final String TYPE = "TYPE";
+    private static final String TAG = NativeBridgeActivity.class.getSimpleName();
 
     public static void start(final String type) {
         final Intent intent = new Intent(UnityPlayer.currentActivity, NativeBridgeActivity.class)
@@ -49,6 +52,10 @@ public class NativeBridgeActivity extends Activity {
                         Log.d(TAG, "[HMS] onCreate type ArchiveBridge.SAVED");
                         ArchiveBridge.launchShow(this);
                         break;
+                    case InAppCommentBridge.IN_APP_COMMENT:
+                        Log.d(TAG, "[HMS] onCreate type ArchiveBridge.ANDROID");
+                        InAppCommentBridge.launchShow(this);
+                        break;
                     default:
                         Log.e(TAG, "Unknown type " + type);
                 }
@@ -71,9 +78,14 @@ public class NativeBridgeActivity extends Activity {
                 case BridgeType.ARCHIVE:
                     ArchiveBridge.returnShow(data);
                     break;
+                case BridgeType.IN_APP_COMMENT:
+                    InAppCommentBridge.returnShow(requestCode, resultCode);
+                    break;
                 default:
                     Log.e(TAG, "Unknown request code " + requestCode);
             }
+        } else {
+            Log.e(TAG, "onActivityResult data is null");
         }
         finish();
     }

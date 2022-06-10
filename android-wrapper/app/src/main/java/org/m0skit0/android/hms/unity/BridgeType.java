@@ -4,4 +4,5 @@ public interface BridgeType {
     int GENERIC = 0;
     int STATUS = 1;
 	int ARCHIVE = 2;
+	int IN_APP_COMMENT = 1001;
 }
