@@ -170,7 +170,7 @@ public class BannerAd extends AdListener {
                 new FrameLayout.LayoutParams(width, height);
         adParams.gravity = UnityBannerAdPositionCode.getLayoutGravityForPositionCode(positionCode);
         int safeInsetLeft = 0;
-        int safeInsetTop = (int)(height*0.3);
+        int safeInsetTop = (int)(height*0.35);
         if (positionCode == UnityBannerAdPositionCode.POSITION_CUSTOM) {
             int leftOffset = (int) convertDpToPx(horizontalOffset);
             if (leftOffset < safeInsetLeft) {
