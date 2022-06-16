@@ -60,13 +60,13 @@ public class BannerAd extends AdListener {
 
         if(width>height)
         {
-            bannerViewWidth = (int) (width*0.40);
+            bannerViewWidth = (int) (width*0.55);
             bannerViewHeight= (int) (height*0.20);
         }
         else
         {
             bannerViewWidth = (int) (width*0.8);
-            bannerViewHeight= (int) (height*0.10);
+            bannerViewHeight= FrameLayout.LayoutParams.WRAP_CONTENT;//(int) (height*0.10);
         }
     }
 
@@ -170,7 +170,7 @@ public class BannerAd extends AdListener {
                 new FrameLayout.LayoutParams(width, height);
         adParams.gravity = UnityBannerAdPositionCode.getLayoutGravityForPositionCode(positionCode);
         int safeInsetLeft = 0;
-        int safeInsetTop = (int)(height*0.35);
+        int safeInsetTop = 0;//(int)(height*0.35);
         if (positionCode == UnityBannerAdPositionCode.POSITION_CUSTOM) {
             int leftOffset = (int) convertDpToPx(horizontalOffset);
             if (leftOffset < safeInsetLeft) {
@@ -180,8 +180,8 @@ public class BannerAd extends AdListener {
             if (topOffset < safeInsetTop) {
                 topOffset = safeInsetTop;
             }
-            adParams.leftMargin = leftOffset;
-            adParams.topMargin = topOffset;
+            adParams.leftMargin = 0;//leftOffset;
+            adParams.topMargin = (int)(activity.getWindow().getDecorView().getHeight()*0.06);//topOffset;
         } else {
             adParams.leftMargin = safeInsetLeft;
             if (positionCode == UnityBannerAdPositionCode.POSITION_TOP

@@ -83,7 +83,7 @@ public class Constants {
                     gravity = Gravity.TOP | Gravity.LEFT;
                     break;
                 case POSITION_CUSTOM:
-                    gravity = Gravity.TOP;
+                    gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL; // Has margin on top
                     break;
                 case POSITION_TOP_RIGHT:
                     gravity = Gravity.TOP | Gravity.RIGHT;
