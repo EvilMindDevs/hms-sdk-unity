@@ -3,10 +3,6 @@ package org.m0skit0.android.hms.unity.inAppComment;
 import android.content.Intent;
 import android.util.Log;
 
-import com.unity3d.player.UnityPlayer;
-
-import org.m0skit0.android.hms.unity.activity.NativeBridgeActivity;
-
 public class InAppComment extends InAppCommentBridge {
 
     public static final int REQUEST_CODE = 1001;
@@ -15,17 +11,16 @@ public class InAppComment extends InAppCommentBridge {
     public static void showInAppComment() {
         Log.d(TAG, "showInAppComment called");
         try {
-            final Intent intent = new Intent(UnityPlayer.currentActivity, NativeBridgeActivity.class);
-            intent.setAction("com.huawei.appmarket.intent.action.guidecomment");
+            final Intent intent = new Intent("com.huawei.appmarket.intent.action.guidecomment");
             intent.setPackage("com.huawei.appmarket");
             receiveShow(intent, REQUEST_CODE);
         } catch (Exception e) {
-            Log.d(TAG, "Exception on showInAppComment: " + e.getMessage());
+            Log.e(TAG, "Exception on showInAppComment: " + e.getMessage());
         }
     }
 
     public static void checkResult(int resultCode) {
-        Log.d(TAG, "[HMS] returnShow");
+        Log.d(TAG, "[HMS] checkResult");
         switch (resultCode) {
             case 101:
                 Log.e(TAG, "Result Code: " + resultCode + ": The app has not been released on AppGallery.");
@@ -41,6 +36,9 @@ public class InAppComment extends InAppCommentBridge {
                 break;
             case 107:
                 Log.e(TAG, "Result Code: " + resultCode + ": The in-app commenting service is not supported. (Apps released in the Chinese mainland do not support this service.)");
+                break;
+            case 108:
+                Log.i(TAG, "Result Code: " + resultCode + ": The user canceled the comment.)");
                 break;
             default:
                 Log.e(TAG, "Result Code: " + resultCode);
