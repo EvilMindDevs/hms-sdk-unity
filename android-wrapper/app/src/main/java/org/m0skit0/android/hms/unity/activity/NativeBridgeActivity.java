@@ -2,11 +2,8 @@ package org.m0skit0.android.hms.unity.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Window;
 
 import androidx.annotation.Nullable;
 
@@ -57,7 +54,7 @@ public class NativeBridgeActivity extends Activity {
                         InAppCommentBridge.launchShow(this);
                         break;
                     default:
-                        Log.e(TAG, "Unknown type " + type);
+                        Log.e(TAG, "[HMS] Unknown type " + type);
                 }
             }
         }
@@ -65,9 +62,12 @@ public class NativeBridgeActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d(TAG, "[HMS] onActivityResult");
+        Log.d(TAG, "[HMS] onActivityResult resultCode: " + resultCode);
         super.onActivityResult(requestCode, resultCode, data);
-        if (data != null) {
+
+        if (requestCode == BridgeType.IN_APP_COMMENT) {
+            InAppCommentBridge.returnShow(requestCode, resultCode);
+        } else if (data != null) {
             switch (requestCode) {
                 case BridgeType.GENERIC:
                     GenericBridge.returnShow(data);
@@ -78,14 +78,11 @@ public class NativeBridgeActivity extends Activity {
                 case BridgeType.ARCHIVE:
                     ArchiveBridge.returnShow(data);
                     break;
-                case BridgeType.IN_APP_COMMENT:
-                    InAppCommentBridge.returnShow(requestCode, resultCode);
-                    break;
                 default:
-                    Log.e(TAG, "Unknown request code " + requestCode);
+                    Log.e(TAG, "[HMS] Unknown request code " + requestCode);
             }
         } else {
-            Log.e(TAG, "onActivityResult data is null");
+            Log.e(TAG, "[HMS] data on onActivityResult is null");
         }
         finish();
     }
