@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using UnityEngine;
+
+namespace HuaweiMobileServices.Utils.java.io
+{
+        public class File : JavaObjectWrapper
+        {
+
+            private const string CLASS_NAME = "java.io.File";
+
+            public File(AndroidJavaObject javaObject) : base(javaObject) { }
+            public File(string pathname) : base(CLASS_NAME, pathname.AsJavaString()) { }
+
+            public bool Exists() => Call<bool>("exists");
+        }
+}
