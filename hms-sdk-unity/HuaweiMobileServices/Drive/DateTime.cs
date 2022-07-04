@@ -9,6 +9,7 @@ namespace HuaweiMobileServices.Drive
     public class DateTime : JavaObjectWrapper
     {
         public DateTime(string var1) : base("com.huawei.cloud.base.util.DateTime", var1) { }
+        public DateTime(long var1) : base("com.huawei.cloud.base.util.DateTime", var1) { }
         public DateTime(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public long GetValue() => Call<long>("getValue");

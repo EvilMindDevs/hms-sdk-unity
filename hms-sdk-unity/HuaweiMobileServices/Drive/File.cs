@@ -8,7 +8,6 @@ namespace HuaweiMobileServices.Drive
 {
     public class File : JavaObjectWrapper
     {
-        
         public File(AndroidJavaObject javaObject) : base(javaObject) { }
         public File() : base("com.huawei.cloud.services.drive.model.File") { }
 
@@ -21,7 +20,7 @@ namespace HuaweiMobileServices.Drive
         public string GetFileName() => Call<string>("getFileName");
         public File SetFileName(string var1) => CallAsWrapper<File>("setFileName", var1);
 
-        public long? GetSize() => Call<AndroidJavaObject>("getSize").AsLong();
+        public long GetSize() => Call<AndroidJavaObject>("getSize").AsLong() ?? -1;
         public File SetSize(long var1) => CallAsWrapper<File>("setSize", var1);
 
         public string GetMimeType() => Call<string>("getMimeType");
@@ -39,8 +38,8 @@ namespace HuaweiMobileServices.Drive
         public bool GetRecycled() => CallAsBool("getRecycled");
         public File SetRecycled(bool var1) => CallAsWrapper<File>("setRecycled", var1);
 
-        public Dictionary<string, string> GetAppSettings() => Call<Dictionary<string, string>>("getAppSettings");
-        public File SetAppSettings(Dictionary<string, string> var1) => CallAsWrapper<File>("setAppSettings", var1);
+        public IMap<string, string> GetAppSettings() => Call<IMap<string, string>>("getAppSettings");
+        public File SetAppSettings(IMap<string, string> var1) => CallAsWrapper<File>("setAppSettings", var1);
 
         public Dictionary<string, string> GetProperties() => Call<Dictionary<string, string>>("getProperties");
         public File SetProperties(Dictionary<string, string> var1) => CallAsWrapper<File>("setProperties", var1);
@@ -120,6 +119,9 @@ namespace HuaweiMobileServices.Drive
         public string GetOnLineViewLink() => Call<string>("getOnLineViewLink");
         public File SetOnLineViewLink(string var1) => CallAsWrapper<File>("setOnLineViewLink", var1);
 
+        public File SetContentExtras(ContentExtras contentExtras) => CallAsWrapper<File>("setContentExtras", contentExtras.JavaObject);
+        public ContentExtras GetContentExtras() => CallAsWrapper<ContentExtras>("getContentExtras");
+
         public class Capabilities : JavaObjectWrapper
         {
             public Capabilities(AndroidJavaObject javaObject) : base(javaObject){}
@@ -136,7 +138,7 @@ namespace HuaweiMobileServices.Drive
             public class Thumbnail : JavaObjectWrapper
             {
                 public Thumbnail(AndroidJavaObject javaObject) : base(javaObject){}
-                public Thumbnail() : base("com.huawei.cloud.services.drive.model.File.ContentExtras$Thumbnail") { }
+                public Thumbnail() : base("com.huawei.cloud.services.drive.model.File$ContentExtras$Thumbnail") { }
 
                 public File.ContentExtras.Thumbnail SetThumbnailPublic(Boolean var1) => CallAsWrapper<File.ContentExtras.Thumbnail>("setThumbnailPublic", var1);
                 public File.ContentExtras.Thumbnail SetContent(String var1) => CallAsWrapper<File.ContentExtras.Thumbnail>("setContent", var1);

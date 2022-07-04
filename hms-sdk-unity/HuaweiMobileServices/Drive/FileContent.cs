@@ -11,7 +11,7 @@ namespace HuaweiMobileServices.Drive
     {        
         public FileContent(String javaObject) : base(javaObject) {}
         public FileContent(String var1, FileInfo var2) : base("com.huawei.cloud.base.http.FileContent", var1, var2){}
-        public FileContent(String var1, AndroidJavaObject var2) : base("com.huawei.cloud.base.http.FileContent", var1, var2) { }
+        public FileContent(String var1, Utils.java.io.File var2) : base("com.huawei.cloud.base.http.FileContent", var1, var2) { }
 
         public long? Length
         {
