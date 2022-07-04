@@ -96,7 +96,7 @@ namespace HuaweiMobileServices.Drive
             {
                 public Get(AndroidJavaObject javaObject) : base(javaObject) { }
                 public new File Execute() => CallAsWrapper<File>("execute");
-                public void ExecuteContentAndDownloadTo(AndroidJavaObject var1) => Call("executeContentAndDownloadTo", var1);
+                public void ExecuteContentAndDownloadTo(Utils.java.io.FileOutputStream var1) => Call("executeContentAndDownloadTo", var1.JavaObject);
                 public AndroidJavaObject ExecuteContentAsInputStream() => Call<AndroidJavaObject>("executeContentAsInputStream");
                 public AndroidJavaObject ExecuteContent() => Call<AndroidJavaObject>("executeContent");
                 public new Get SetFields(string var1) => CallAsWrapper<Get>("setFields", var1);

@@ -8,7 +8,6 @@ namespace HuaweiMobileServices.Drive
 {
     public class File : JavaObjectWrapper
     {
-        
         public File(AndroidJavaObject javaObject) : base(javaObject) { }
         public File() : base("com.huawei.cloud.services.drive.model.File") { }
 
@@ -21,7 +20,7 @@ namespace HuaweiMobileServices.Drive
         public string GetFileName() => Call<string>("getFileName");
         public File SetFileName(string var1) => CallAsWrapper<File>("setFileName", var1);
 
-        public long? GetSize() => Call<AndroidJavaObject>("getSize").AsLong();
+        public long GetSize() => Call<AndroidJavaObject>("getSize").AsLong() ?? -1;
         public File SetSize(long var1) => CallAsWrapper<File>("setSize", var1);
 
         public string GetMimeType() => Call<string>("getMimeType");
