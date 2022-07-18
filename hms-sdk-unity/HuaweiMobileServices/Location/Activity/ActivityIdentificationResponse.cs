@@ -14,30 +14,39 @@ namespace HuaweiMobileServices.Location
         public ActivityIdentificationResponse() : base("com.huawei.hms.location.ActivityIdentificationResponse") { }
 
         public ActivityIdentificationResponse(ActivityIdentificationData mostActivityIdentificationData, long time, long elapsedTimeFromReboot)
-            : base("com.huawei.hms.location.ActivityIdentificationResponse") { }
+            : base("com.huawei.hms.location.ActivityIdentificationResponse", mostActivityIdentificationData, time, elapsedTimeFromReboot) { }
 
         public ActivityIdentificationResponse(List<ActivityIdentificationData> activityIdentificationDatas, long time, long elapsedTimeFromReboot)
-            : base("com.huawei.hms.location.ActivityIdentificationResponse") { }
+            : base("com.huawei.hms.location.ActivityIdentificationResponse", activityIdentificationDatas.AsJavaList(), time, elapsedTimeFromReboot) { }
 
         public static bool ContainDataFromIntent(AndroidIntent intent)
             => javaClass.CallStatic<bool>("containDataFromIntent", intent);
 
-        public List<ActivityConversionData> GetActivityConversionDatas()
-            => Call<List<ActivityConversionData>>("getActivityConversionDatas");
+        /* public List<ActivityConversionData> GetActivityConversionDatas()
+             => Call<List<ActivityConversionData>>("getActivityConversionDatas"); */
+
+        public IList<ActivityIdentificationData> GetActivityIdentificationDatas()
+        {
+            Debug.Log("Enes Enter GetActivityList1");
+            var list = Call<AndroidJavaObject>("getActivityIdentificationDatas").AsListFromWrappable<ActivityIdentificationData>();
+            Debug.Log(list[0].ToString());
+            Debug.Log("Enes Enter GetActivityList2");
+            return list;
+        }
 
         public static ActivityConversionResponse GetDataFromIntent(AndroidIntent intent)
-            => javaClass.CallStatic<ActivityConversionResponse>("getDataFromIntent", intent);
+            => javaClass.CallStaticAsWrapper<ActivityConversionResponse>("getDataFromIntent", intent);
 
-        public int GetActivityPosibility(int activityType)
-            => Call<int>("getActivityPosibility");
+        public int GetActivityPossibility(int activityType)
+            => Call<int>("getActivityPossibility", activityType);
 
-        public ActivityIdentificationData GetMostActivityIdentificationData()
-            => Call<ActivityIdentificationData>("getMostActivityIdentificationData");
+        public ActivityIdentificationData GetMostActivityIdentification()
+            => CallAsWrapper<ActivityIdentificationData>("getMostActivityIdentification");
 
         public long GetElapsedTimeFromReboot()
             => Call<long>("getElapsedTimeFromReboot");
 
-        public long getTime() => Call<long>("getTime");
+        public long GetTime() => Call<long>("getTime");
 
         public void SetElapsedTimeFromReboot(long elapsedTimeFromReboot)
             => Call("setElapsedTimeFromReboot", elapsedTimeFromReboot);

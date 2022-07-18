@@ -1,22 +1,26 @@
 ﻿using HuaweiMobileServices.Utils;
 using UnityEngine;
 
-namespace HuaweiMobileServices.Location
+namespace HuaweiMobileServices.Location.Activity
 {
     public class ActivityConversionInfo : JavaObjectWrapper
     {
         public ActivityConversionInfo(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.location.ActivityConversionInfo");
 
-        public static int ENTER_ACTIVITY_CONVERSION = 0;
-        public static int EXIT_ACTIVITY_CONVERSION = 1;
+       // public static int ENTER_ACTIVITY_CONVERSION = 0;
+       // public static int EXIT_ACTIVITY_CONVERSION = 1;
+
+        public static int ENTER_ACTIVITY_CONVERSION => javaClass.GetStatic<int>("ENTER_ACTIVITY_CONVERSION");
+        public static int EXIT_ACTIVITY_CONVERSION => javaClass.GetStatic<int>("EXIT_ACTIVITY_CONVERSION");
+        
         //Creator public field CREATOR
 
         public ActivityConversionInfo() : base("com.huawei.hms.location.ActivityConversionInfo") { }
 
-        public ActivityConversionInfo(int activityType, int conversionType) : base("com.huawei.hms.location.ActivityConversionInfo") { }
+        public ActivityConversionInfo(int activityType, int conversionType) : base("com.huawei.hms.location.ActivityConversionInfo", activityType, conversionType) { }
 
-        public int getActivityType => Call<int>("getActivityType");
+        public int GetActivityType => Call<int>("getActivityType");
 
         public int GetConversionType => Call<int>("getConversionType");
 

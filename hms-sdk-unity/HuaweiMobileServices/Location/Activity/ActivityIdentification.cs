@@ -16,9 +16,6 @@ namespace HuaweiMobileServices.Location
 
         public static ActivityIdentificationService GetServiceWithContext() =>
             javaClass.CallStaticAsWrapper<ActivityIdentificationService>("getService", AndroidContext.ApplicationContext);
-
-
-
     }
 }
 

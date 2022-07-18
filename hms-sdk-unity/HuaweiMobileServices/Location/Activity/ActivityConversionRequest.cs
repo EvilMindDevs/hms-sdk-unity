@@ -1,6 +1,7 @@
 ﻿using HuaweiMobileServices.Utils;
 using System.Collections.Generic;
 using UnityEngine;
+using HuaweiMobileServices.Location.Activity;
 
 namespace HuaweiMobileServices.Location
 {
@@ -12,18 +13,15 @@ namespace HuaweiMobileServices.Location
         //Creator public field CREATOR
         //Creator public field Comparator
 
-
         public ActivityConversionRequest() : base("com.huawei.hms.location.ActivityConversionRequest") { }
 
-        public ActivityConversionRequest(List<ActivityConversionInfo> activityConversions) : base("com.huawei.hms.location.ActivityConversionInfo") { }
+        public ActivityConversionRequest(List<ActivityConversionInfo> activityConversions) : base("com.huawei.hms.location.ActivityConversionInfo", activityConversions) { }
 
         public List<ActivityConversionInfo> GetActivityConversions() => Call<List<ActivityConversionInfo>>("getActivityConversions");
-
-        public void SetActivityConversions(List<ActivityConversionInfo> activityConversions) => Call("setActivityConversions", activityConversions);
+        
+        public void SetActivityConversions(IList<ActivityConversionInfo> list) => Call("setActivityConversions", list.AsJavaListFromWrapper());
 
         public void SetDataToIntent(AndroidIntent intent) => Call("setDataToIntent", intent);
-
-
 
     }
 }

@@ -8,17 +8,17 @@ namespace HuaweiMobileServices.Location
         public ActivityIdentificationData(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.location.ActivityIdentificationData");
 
-        public ActivityIdentificationData(int identificationActivity, int possibility) : base("com.huawei.hms.location.ActivityIdentificationData") { }
+        public ActivityIdentificationData(int identificationActivity, int possibility) : base("com.huawei.hms.location.ActivityIdentificationData", identificationActivity,possibility) { }
 
         //TODO Creator field
 
-        public static int VEHICLE = 100;
-        public static int BIKE = 101;
-        public static int FOOT = 102;
-        public static int STILL = 103;
-        public static int OTHERS = 104;
-        public static int WALKING = 107;
-        public static int RUNNING = 108;
+        public static int VEHICLE = javaClass.GetStatic<int>("VEHICLE");
+        public static int BIKE = javaClass.GetStatic<int>("BIKE");
+        public static int FOOT = javaClass.GetStatic<int>("FOOT");
+        public static int STILL = javaClass.GetStatic<int>("STILL");
+        public static int OTHERS = javaClass.GetStatic<int>("OTHERS");
+        public static int WALKING = javaClass.GetStatic<int>("WALKING");
+        public static int RUNNING = javaClass.GetStatic<int>("RUNNING");
 
         public int GetIdentificationActivity()=> Call<int>("getIdentificationActivity");
         

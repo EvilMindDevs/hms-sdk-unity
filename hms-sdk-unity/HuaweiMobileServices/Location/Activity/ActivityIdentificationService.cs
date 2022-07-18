@@ -10,8 +10,6 @@ namespace HuaweiMobileServices.Location
         public ActivityIdentificationService(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.location.ActivityIdentificationService");
 
-        //Todo It has Constructors which gets Activity and Context but it is not recommended
-
         public ITask<Void> CreateActivityConversionUpdates(ActivityConversionRequest activityConversionRequest, AndroidPendingIntent pendingIntent)
             => CallAsWrapper<TaskVoidWrapper>("createActivityConversionUpdates", activityConversionRequest, pendingIntent);
 
@@ -23,7 +21,6 @@ namespace HuaweiMobileServices.Location
 
         public ITask<Void> DeleteActivityIdentificationUpdates(AndroidPendingIntent callbackIntent)
           => CallAsWrapper<TaskVoidWrapper>("deleteActivityIdentificationUpdates", callbackIntent);
-
     }
 
 }
