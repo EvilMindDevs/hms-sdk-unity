@@ -8,7 +8,7 @@
 
     public class Location : JavaObjectWrapper
     {
-        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("com.android.location.Location");
+        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("android.location.Location");
 
         public static int FORMAT_DEGREES = sJavaClass.GetStatic<int>("FORMAT_DEGREES");
         public static int FORMAT_MINUTES = sJavaClass.GetStatic<int>("FORMAT_MINUTES");

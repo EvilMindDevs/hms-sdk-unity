@@ -1,14 +1,13 @@
 package org.m0skit0.android.hms.unity.location;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
-
-import androidx.core.app.ActivityCompat;
 
 import com.huawei.hms.location.ActivityConversionData;
 import com.huawei.hms.location.ActivityConversionResponse;
@@ -26,38 +25,21 @@ public class LocationBroadcastReceiver extends BroadcastReceiver {
     public static List<ActivityConversionData> conversionDataList;
     public static ActivityIdentificationResponse activityIdentificationResponse;
     public static ActivityConversionResponse activityConversionResponse;
+    private static LocationBroadcastWrapper locationBroadcastWrapper;
 
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        Log.d(TAG, "Enes onReceive1 JAVA");
-        if (intent != null) {
-            final String action = intent.getAction();
-            if (ACTION_PROCESS_LOCATION.equals(action)) {
+    private static LocationCallbackListener callback;
+    private static Handler mainThreadHandler = new Handler(Looper.getMainLooper());
 
-                activityIdentificationResponse = ActivityIdentificationResponse.getDataFromIntent(intent);
-                activityConversionResponse = ActivityConversionResponse.getDataFromIntent(intent);
-                Log.d(TAG, "Enes onReceive2 JAVA");
-                if (activityIdentificationResponse != null) {
-                    Log.d(TAG, "activityRecognitionResult:: " + activityIdentificationResponse);
-                    activityList = activityIdentificationResponse.getActivityIdentificationDatas();
-                    Log.d(TAG, "Enes onReceive3 JAVA");
-                } else Log.e(TAG, "Enes activityIdentificationResponse is null JAVA");
-                if (activityConversionResponse != null) {
-                    conversionDataList = activityConversionResponse.getActivityConversionDatas();
-                    Log.d(TAG, "activityConversionResponse result:: " + activityConversionResponse);
-                } else Log.e(TAG, "Enes activityConversionResponse is null JAVA");
-            }
-        }
-    }
 
     public static ActivityConversionResponse getActivityConversionResponse() {
-        if (activityConversionResponse!=null)
-        Log.d(TAG, "Enes ActivityConversionResponse JAVA"+ activityConversionResponse.toString());
+        if (activityConversionResponse != null)
+            Log.d(TAG, "Enes ActivityConversionResponse JAVA" + activityConversionResponse.toString());
         return activityConversionResponse;
     }
+
     public static ActivityIdentificationResponse getActivityIdentificationResponse() {
-        if (activityIdentificationResponse!=null)
-            Log.d(TAG, "Enes ActivityIdentificationResponse JAVA"+ activityIdentificationResponse.toString());
+        if (activityIdentificationResponse != null)
+            Log.d(TAG, "Enes ActivityIdentificationResponse JAVA" + activityIdentificationResponse.toString());
         return activityIdentificationResponse;
     }
 
@@ -71,37 +53,67 @@ public class LocationBroadcastReceiver extends BroadcastReceiver {
     }
 
     public static List<ActivityConversionData> getConversionDataList() {
-        Log.d(TAG, "Enes getActivityList1 JAVA");
+        Log.d(TAG, "Enes1 getActivityList1 JAVA");
         if (conversionDataList == null) return null;
         for (int i = 0; i < conversionDataList.size(); i++) {
-            Log.d(TAG, "Enes getActivityList1 JAVA " + conversionDataList.get(i).toString());
+            Log.d(TAG, "Enes1 getActivityList1 JAVA " + conversionDataList.get(i).toString());
         }
         return conversionDataList;
     }
 
     // Obtain PendingIntent associated with the custom static broadcast class LocationBroadcastReceiver.
     public static PendingIntent getPendingIntent(Activity unityActivity) {
-        Log.d(TAG, "Enes PendingIntent2 JAVA");
+        Log.d(TAG, "Enes1 PendingIntent2 JAVA");
         Intent intent = new Intent(unityActivity, LocationBroadcastReceiver.class);
         intent.setAction(LocationBroadcastReceiver.ACTION_PROCESS_LOCATION);
-        Log.d(TAG, "Enes PendingIntent2 JAVA");
+        Log.d(TAG, "Enes1 PendingIntent2 JAVA");
 
         return PendingIntent.getBroadcast(unityActivity, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
-    public static void applyActivityRecognitionPermissions(Activity activity) {
-        Log.d(TAG, "Enes applyActivityRecognitionPermissions1 JAVA");
-        final String[] permissions = new String[]{Manifest.permission.ACTIVITY_RECOGNITION, "com.huawei.hms.permission.ACTIVITY_RECOGNITION"};
-        if (!ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.ACTIVITY_RECOGNITION)) {
-            ActivityCompat.requestPermissions(activity, permissions, 1);
-            Log.d(TAG, "Enes applyActivityRecognitionPermissions2 JAVA");
-        }
-        if (!ActivityCompat.shouldShowRequestPermissionRationale(activity, "com.huawei.hms.permission.ACTIVITY_RECOGNITION")) {
-            ActivityCompat.requestPermissions(activity, permissions, 1);
-            Log.d(TAG, "Enes applyActivityRecognitionPermissions3 JAVA");
-        }
-        Log.d(TAG, "Enes applyActivityRecognitionPermissions4 JAVA");
-
+    public static void setLocationBroadcastListener(final LocationBroadcastWrapper listener) {
+        Log.d(TAG, "setLocationBroadcastListener called");
+        mainThreadHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                locationBroadcastWrapper = listener;
+            }
+        });
     }
 
+    @Override
+    public void onReceive(Context context, final Intent intent) {
+        Log.d(TAG, "Enes1 onReceive1 JAVA");
+        StringBuilder sb = new StringBuilder();
+        if (intent != null) {
+            final String action = intent.getAction();
+            if (ACTION_PROCESS_LOCATION.equals(action)) {
+                Log.d(TAG, "Enes1 ACTION_PROCESS_LOCATION JAVA");
+                mainThreadHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (locationBroadcastWrapper != null) {
+                            locationBroadcastWrapper.onReceive(intent);
+                        }
+                    }
+                });
+/*
+                activityIdentificationResponse = ActivityIdentificationResponse.getDataFromIntent(intent);
+                activityConversionResponse = ActivityConversionResponse.getDataFromIntent(intent);
+                Log.d(TAG, "Enes1 onReceive2 JAVA");
+                if (activityIdentificationResponse != null) {
+                    Log.d(TAG, "Enes1 activityRecognitionResult:: " + activityIdentificationResponse);
+                    activityList = activityIdentificationResponse.getActivityIdentificationDatas();
+                    Log.d(TAG, "Enes1 onReceive3 JAVA");
+                } else Log.e(TAG, "Enes activityIdentificationResponse is null JAVA");
+                if (activityConversionResponse != null) {
+                    conversionDataList = activityConversionResponse.getActivityConversionDatas();
+                    Log.d(TAG, "Enes1 activityConversionResponse result:: " + activityConversionResponse);
+                } else Log.e(TAG, "Enes1 activityConversionResponse is null JAVA");
+            }
+*/
+
+            }
+        }
+    }
 }

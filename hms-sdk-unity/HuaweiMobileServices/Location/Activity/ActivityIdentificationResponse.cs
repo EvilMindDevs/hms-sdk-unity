@@ -35,7 +35,7 @@ namespace HuaweiMobileServices.Location
         }
 
         public static ActivityConversionResponse GetDataFromIntent(AndroidIntent intent)
-            => javaClass.CallStaticAsWrapper<ActivityConversionResponse>("getDataFromIntent", intent);
+            => javaClass.CallStaticAsWrapper<ActivityConversionResponse>("getDataFromIntent", intent.JavaObject);
 
         public int GetActivityPossibility(int activityType)
             => Call<int>("getActivityPossibility", activityType);

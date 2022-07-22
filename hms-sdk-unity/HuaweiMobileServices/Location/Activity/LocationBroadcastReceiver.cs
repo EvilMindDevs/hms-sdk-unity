@@ -18,7 +18,6 @@ namespace HuaweiMobileServices.Location
             AndroidPendingIntent androidIntent =
             sJavaClass.CallStaticAsWrapper<AndroidPendingIntent>("getPendingIntent", AndroidContext.ActivityContext);
             return androidIntent;
-
         }
 
         public static IList<ActivityIdentificationData> GetActivityList()
@@ -33,14 +32,13 @@ namespace HuaweiMobileServices.Location
             return list;
         }
 
-        public static void ApplyActivityRecognitionPermissions()
-            => sJavaClass.CallStatic("applyActivityRecognitionPermissions", AndroidContext.ActivityContext);
-
         public static ActivityConversionResponse GetActivityConversionResponse()
            => sJavaClass.CallStaticAsWrapper<ActivityConversionResponse>("getActivityConversionResponse");
 
         public static ActivityIdentificationResponse GetActivityIdentificationResponse()
            => sJavaClass.CallStaticAsWrapper<ActivityIdentificationResponse>("getActivityIdentificationResponse");
 
+        public static void SetLocationCallbackListener(LocationBroadcastListener listener) => sJavaClass.CallStatic("setLocationBroadcastListener", listener.JavaObject);
+        
     }
 }

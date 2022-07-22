@@ -10,8 +10,9 @@ namespace HuaweiMobileServices.Location
         public LocationBridge(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("org.m0skit0.android.hms.unity.location.LocationBridge");
 
-        public static void GetLocationResult() => javaClass.CallStatic("getLocationResult");
+        public static LocationCallback GetLocationResult() => javaClass.CallStaticAsWrapper<LocationCallback>("getLocationResult");
 
+        public static void SetLocationCallbackListener(LocationCallbackListener listener) => javaClass.CallStatic("setLocationCallbackListener", listener.JavaObject);
 
     }
 }

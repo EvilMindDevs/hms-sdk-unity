@@ -12,8 +12,6 @@ namespace HuaweiMobileServices.Location.Location
 
         public HWLocation() : base("com.huawei.hms.location.HWLocation") { }
 
-        public int GetConversionType => Call<int>("getConversionType");
-
         public float GetAccuracy => Call<float>("getAccuracy");
 
         public double GetAltitude => Call<double>("getAltitude");

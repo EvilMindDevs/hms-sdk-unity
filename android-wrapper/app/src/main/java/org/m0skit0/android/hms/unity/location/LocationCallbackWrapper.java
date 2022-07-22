@@ -4,7 +4,7 @@ import com.huawei.hms.location.LocationAvailability;
 import com.huawei.hms.location.LocationCallback;
 import com.huawei.hms.location.LocationResult;
 
-class LocationCallbackWrapper extends LocationCallback {
+public class LocationCallbackWrapper extends LocationCallback {
 
     private final LocationCallbackListener listener;
 
@@ -14,12 +14,15 @@ class LocationCallbackWrapper extends LocationCallback {
     }
 
     @Override
-    public void onLocationResult(LocationResult locationResult) {
-        listener.onLocationResult();
+    public void onLocationResult(LocationResult locationResult)
+    {
+        super.onLocationResult(locationResult);
+        listener.onLocationResult(locationResult);
     }
 
     @Override
     public void onLocationAvailability(LocationAvailability locationAvailability) {
-        listener.onLocationAvailability();
+        super.onLocationAvailability(locationAvailability);
+        listener.onLocationAvailability(locationAvailability);
     }
 }

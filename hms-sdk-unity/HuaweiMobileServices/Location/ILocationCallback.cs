@@ -1,7 +1,4 @@
 ﻿using HuaweiMobileServices.Location.Location;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace HuaweiMobileServices.Location
 {
@@ -11,3 +8,5 @@ namespace HuaweiMobileServices.Location
         void OnLocationAvailability(LocationAvailability availability);
     }
 }
+
+

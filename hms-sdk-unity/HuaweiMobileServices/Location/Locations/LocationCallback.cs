@@ -5,6 +5,9 @@ namespace HuaweiMobileServices.Location.Location
 {
     public class LocationCallback : JavaObjectWrapper
     {
+        public LocationCallback(AndroidJavaObject javaObject) : base(javaObject) { }
+        private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.location.LocationCallback");
+
         private class LocationCallbackInterface : AndroidJavaProxy
         {
             private readonly ILocationCallback mListener;
