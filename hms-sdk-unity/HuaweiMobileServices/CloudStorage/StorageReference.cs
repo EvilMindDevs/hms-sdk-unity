@@ -66,6 +66,7 @@ namespace HuaweiMobileServices.CloudStorage
 
         public int CompareTo(StorageReference other) => Call<int>("compareTo",other);
 
+        override
         public string ToString() => CallAsString("toString");
 
         public bool Equals(Object other) => CallAsBool("equals", other);
