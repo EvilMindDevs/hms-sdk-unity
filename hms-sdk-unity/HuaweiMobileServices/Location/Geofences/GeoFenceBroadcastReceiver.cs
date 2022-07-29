@@ -1,24 +1,19 @@
 ﻿using HuaweiMobileServices.Utils;
 using UnityEngine;
 
-
 namespace HuaweiMobileServices.Location.Geofences
 {
-    public class GeoFenceBroadcastReceiver : JavaObjectWrapper
+    public class GeofenceBroadcastReceiver : JavaObjectWrapper
     {
-        public GeoFenceBroadcastReceiver(AndroidJavaObject javaObject) : base(javaObject) { }
+        public GeofenceBroadcastReceiver(AndroidJavaObject javaObject) : base(javaObject) { }
 
         private static AndroidJavaClass sJavaClass =
-        new AndroidJavaClass("org.m0skit0.android.hms.unity.location.GeoFenceBroadcastReceiver");
+        new AndroidJavaClass("org.m0skit0.android.hms.unity.location.GeofenceBroadcastReceiver");
 
-        public static AndroidPendingIntent GetPendingIntent()
-        {
-            AndroidPendingIntent androidIntent =
+        public static AndroidPendingIntent GetPendingIntent() =>
             sJavaClass.CallStaticAsWrapper<AndroidPendingIntent>("getPendingIntent", AndroidContext.ActivityContext);
-            return androidIntent;
-        }
-        public static GeofenceData GetGeofenceData() =>
-            sJavaClass.CallStaticAsWrapper<GeofenceData>("getGeofenceData");
+
+        public static void SetGeofenceBroadcastListener(BroadcastListener listener) => sJavaClass.CallStatic("setGeofenceBroadcastListener", listener.JavaObject);
 
     }
 }

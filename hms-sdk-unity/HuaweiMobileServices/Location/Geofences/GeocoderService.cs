@@ -14,12 +14,8 @@ namespace HuaweiMobileServices.Location.Geofence.Geofences
 
         public GeocoderService() : base("com.huawei.hms.location.GeocoderService") { }
 
-          public GeocoderService(Locale locale)
-            : base("com.huawei.hms.location.GeocoderService",AndroidContext.ApplicationContext,locale) { }
-               
-          /* public GeocoderService(Locale locale)
-           : base("com.huawei.hms.location.GeocoderService", AndroidContext.ActivityContext, locale) { }  */
-
+        public GeocoderService(Locale locale)
+          : base("com.huawei.hms.location.GeocoderService", AndroidContext.ApplicationContext, locale) { }
 
         public ITask<IList<HWLocation>> GetFromLocation(GetFromLocationRequest getFromLocationRequest)
         {

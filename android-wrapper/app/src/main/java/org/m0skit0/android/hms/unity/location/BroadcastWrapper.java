@@ -2,11 +2,11 @@ package org.m0skit0.android.hms.unity.location;
 
 import android.content.Intent;
 
-public class LocationBroadcastWrapper implements LocationBroadcastListener {
+public class BroadcastWrapper implements BroadcastListener {
 
-    private final LocationBroadcastListener listener;
+    private final BroadcastListener listener;
 
-    public LocationBroadcastWrapper(LocationBroadcastListener listener) {
+    public BroadcastWrapper(BroadcastListener listener) {
         super();
         this.listener = listener;
     }

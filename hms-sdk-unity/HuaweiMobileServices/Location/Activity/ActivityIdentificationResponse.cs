@@ -9,8 +9,6 @@ namespace HuaweiMobileServices.Location
         public ActivityIdentificationResponse(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.location.ActivityIdentificationResponse");
 
-        //TODO Creator field
-
         public ActivityIdentificationResponse() : base("com.huawei.hms.location.ActivityIdentificationResponse") { }
 
         public ActivityIdentificationResponse(ActivityIdentificationData mostActivityIdentificationData, long time, long elapsedTimeFromReboot)
@@ -20,22 +18,13 @@ namespace HuaweiMobileServices.Location
             : base("com.huawei.hms.location.ActivityIdentificationResponse", activityIdentificationDatas.AsJavaList(), time, elapsedTimeFromReboot) { }
 
         public static bool ContainDataFromIntent(AndroidIntent intent)
-            => javaClass.CallStatic<bool>("containDataFromIntent", intent);
-
-        /* public List<ActivityConversionData> GetActivityConversionDatas()
-             => Call<List<ActivityConversionData>>("getActivityConversionDatas"); */
+            => javaClass.CallStatic<bool>("containDataFromIntent", intent.JavaObject);
 
         public IList<ActivityIdentificationData> GetActivityIdentificationDatas()
-        {
-            Debug.Log("Enes Enter GetActivityList1");
-            var list = Call<AndroidJavaObject>("getActivityIdentificationDatas").AsListFromWrappable<ActivityIdentificationData>();
-            Debug.Log(list[0].ToString());
-            Debug.Log("Enes Enter GetActivityList2");
-            return list;
-        }
+        => Call<AndroidJavaObject>("getActivityIdentificationDatas").AsListFromWrappable<ActivityIdentificationData>();
 
-        public static ActivityConversionResponse GetDataFromIntent(AndroidIntent intent)
-            => javaClass.CallStaticAsWrapper<ActivityConversionResponse>("getDataFromIntent", intent.JavaObject);
+        public static ActivityIdentificationResponse GetDataFromIntent(AndroidIntent intent)
+            => javaClass.CallStaticAsWrapper<ActivityIdentificationResponse>("getDataFromIntent", intent.JavaObject);
 
         public int GetActivityPossibility(int activityType)
             => Call<int>("getActivityPossibility", activityType);

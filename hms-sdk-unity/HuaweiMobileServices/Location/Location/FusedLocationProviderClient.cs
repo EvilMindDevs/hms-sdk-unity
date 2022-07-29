@@ -14,8 +14,6 @@ namespace HuaweiMobileServices.Location.Location
 
         public static string KEY_VERTICAL_ACCURACY => javaClass.GetStatic<string>("KEY_VERTICAL_ACCURACY");
 
-        public ITask<Void> FlushLocations() => CallAsWrapper<TaskVoidWrapper>("flushLocations");
-
         public ITask<Ads.Location> GetLastLocation() => CallAsWrapper<TaskJavaObjectWrapper<Ads.Location>>("getLastLocation");
 
         public ITask<HWLocation> GetLastLocationWithAddress(LocationRequest locationRequest) => CallAsWrapper<TaskJavaObjectWrapper<HWLocation>>("getLastLocationWithAddress", locationRequest);
@@ -26,7 +24,6 @@ namespace HuaweiMobileServices.Location.Location
 
         public ITask<Void> RemoveLocationUpdates(AndroidPendingIntent pendingIntent) => CallAsWrapper<TaskVoidWrapper>("removeLocationUpdates", pendingIntent);
 
-        //todo Looper farklı threadde calsıtırmak için silinebilir araştır. gerek varmı bak
         public ITask<Void> RequestLocationUpdates(LocationRequest request, LocationCallback callback, Looper looper) => CallAsWrapper<TaskVoidWrapper>("requestLocationUpdates", request, callback, looper);
 
         public ITask<Void> RequestLocationUpdates(LocationRequest request, AndroidPendingIntent callbackIntent) => CallAsWrapper<TaskVoidWrapper>("requestLocationUpdates", request, callbackIntent);
@@ -34,11 +31,6 @@ namespace HuaweiMobileServices.Location.Location
         public ITask<Void> SetMockLocation(Ads.Location mockLocation) => CallAsWrapper<TaskVoidWrapper>("setMockLocation", mockLocation);
 
         public ITask<Void> SetMockMode(bool isMockMode) => CallAsWrapper<TaskVoidWrapper>("setMockMode", isMockMode);
-
-
-
-
-
     }
 }
 

@@ -3,7 +3,7 @@ using HuaweiMobileServices.Utils;
 using System;
 using UnityEngine;
 
- namespace HuaweiMobileServices.Location
+namespace HuaweiMobileServices.Location
 {
     public class LocationCallbackListener : JavaObjectWrapper
     {

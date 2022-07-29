@@ -8,7 +8,7 @@ namespace HuaweiMobileServices.Location.Geofences
     {
         public GeofenceErrorCodes(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.location.Geofence");
+        private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.location.GeofenceErrorCodes");
 
         public static int GEOFENCE_INSUFFICIENT_PERMISSION => javaClass.GetStatic<int>("GEOFENCE_INSUFFICIENT_PERMISSION");
 
@@ -20,7 +20,7 @@ namespace HuaweiMobileServices.Location.Geofences
 
         public static int GEOFENCE_UNAVAILABLE => javaClass.GetStatic<int>("GEOFENCE_UNAVAILABLE");
 
-        public string GetErrorMessage(int statusCode) => CallAsString("getErrorMessage", statusCode);
+        public static string GetErrorMessage(int statusCode) => javaClass.CallStaticAsString("getErrorMessage", statusCode);
 
     }
 

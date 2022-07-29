@@ -1,7 +1,6 @@
 ﻿using HuaweiMobileServices.Utils;
 using UnityEngine;
 
-
 namespace HuaweiMobileServices.Location.Location
 {
     public class GetFromLocationRequest : JavaObjectWrapper
@@ -10,7 +9,7 @@ namespace HuaweiMobileServices.Location.Location
         private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.location.GetFromLocationRequest");
 
         public GetFromLocationRequest(double latitude, double longitude, int maxResults)
-   : base("com.huawei.hms.location.GeocoderService", latitude, longitude, maxResults) { }
+   : base("com.huawei.hms.location.GetFromLocationRequest", latitude, longitude, maxResults) { }
 
         public double GetLatitude => Call<double>("getLatitude");
 

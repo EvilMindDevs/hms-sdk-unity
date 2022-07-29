@@ -9,42 +9,41 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
-public class LocationBroadcastReceiver extends BroadcastReceiver {
+public class GeofenceBroadcastReceiver extends BroadcastReceiver {
+    public static final String ACTION_PROCESS_LOCATION =
+            "com.huawei.hmssample.geofence.GeoFenceBroadcastReceiver.ACTION_PROCESS_LOCATION";
 
-    public static final String ACTION_PROCESS_LOCATION = "com.huawei.hms.location.ACTION_PROCESS_LOCATION";
-    private static final String TAG = "LocationReceiver";
-
-    private static BroadcastWrapper locationBroadcastWrapper;
-
+    private static final String TAG = "GeofenceReceiver";
     private static Handler mainThreadHandler = new Handler(Looper.getMainLooper());
+    private static BroadcastWrapper geofenceBroadcastWrapper;
 
     public static PendingIntent getPendingIntent(Activity unityActivity) {
-        Intent intent = new Intent(unityActivity, LocationBroadcastReceiver.class);
-        intent.setAction(LocationBroadcastReceiver.ACTION_PROCESS_LOCATION);
-
+        Intent intent = new Intent(unityActivity, GeofenceBroadcastReceiver.class);
+        intent.setAction(GeofenceBroadcastReceiver.ACTION_PROCESS_LOCATION);
         return PendingIntent.getBroadcast(unityActivity, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
-    public static void setLocationBroadcastListener(final BroadcastWrapper listener) {
-        Log.d(TAG, "setLocationBroadcastListener called");
+    public static void setGeofenceBroadcastListener(final BroadcastWrapper listener) {
+        Log.d(TAG, "setGeofenceBroadcastListener called");
         mainThreadHandler.post(new Runnable() {
             @Override
             public void run() {
-                locationBroadcastWrapper = listener;
+                geofenceBroadcastWrapper = listener;
             }
         });
     }
 
     @Override
     public void onReceive(Context context, final Intent intent) {
+        Log.d(TAG, "onReceive");
         if (intent != null) {
             final String action = intent.getAction();
             if (ACTION_PROCESS_LOCATION.equals(action)) {
                 mainThreadHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        if (locationBroadcastWrapper != null) {
-                            locationBroadcastWrapper.onReceive(intent);
+                        if (geofenceBroadcastWrapper != null) {
+                            geofenceBroadcastWrapper.onReceive(intent);
                         }
                     }
                 });
@@ -52,3 +51,6 @@ public class LocationBroadcastReceiver extends BroadcastReceiver {
         }
     }
 }
+
+
+

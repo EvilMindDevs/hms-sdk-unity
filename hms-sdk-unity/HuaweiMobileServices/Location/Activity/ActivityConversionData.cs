@@ -10,10 +10,8 @@ namespace HuaweiMobileServices.Location
 
         public ActivityConversionData() : base("com.huawei.hms.location.ActivityConversionData") { }
 
-        //TODO Creator public field CREATOR
-
         public ActivityConversionData(int activityType, int conversionType, long elapsedTimeFromReboot)
-            : base("com.huawei.hms.location.ActivityConversionData",activityType,conversionType,elapsedTimeFromReboot) { }
+            : base("com.huawei.hms.location.ActivityConversionData", activityType, conversionType, elapsedTimeFromReboot) { }
 
         public int GetActivityType => Call<int>("getActivityType");
 

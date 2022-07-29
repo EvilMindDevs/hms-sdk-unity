@@ -6,6 +6,7 @@
     public class Geofence : JavaObjectWrapper
     {
         public Geofence(AndroidJavaObject javaObject) : base(javaObject) { }
+        
         private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.location.Geofence");
 
         public const int ENTER_GEOFENCE_CONVERSION = 1;
@@ -13,9 +14,7 @@
         public const int DWELL_GEOFENCE_CONVERSION = 4;
         public const long GEOFENCE_NEVER_EXPIRE = -1L;
 
-
         public string GetUniqueId() => CallAsString("getUniqueId");
-
 
         public class Builder : JavaObjectWrapper
         {

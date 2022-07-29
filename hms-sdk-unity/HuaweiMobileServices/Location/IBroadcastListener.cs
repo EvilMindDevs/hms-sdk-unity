@@ -1,11 +1,8 @@
 ﻿using HuaweiMobileServices.Utils;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace HuaweiMobileServices.Location
 {
-    public interface ILocationBroadcastListener
+    public interface IBroadcastListener
     {
         void OnReceive(AndroidIntent intent);
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace HuaweiMobileServices.Location
 {
-    public class LocationManager: JavaObjectWrapper
+    public class LocationManager : JavaObjectWrapper
     {
         public LocationManager(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("android.location.LocationManager");
@@ -16,7 +16,6 @@ namespace HuaweiMobileServices.Location
         public static string KEY_LOCATION_CHANGED => javaClass.GetStatic<string>("KEY_LOCATION_CHANGED");
         public static string KEY_PROVIDER_ENABLED => javaClass.GetStatic<string>("KEY_PROVIDER_ENABLED");
         public static string KEY_PROXIMITY_ENTERING => javaClass.GetStatic<string>("KEY_PROXIMITY_ENTERING");
-
 
     }
 }

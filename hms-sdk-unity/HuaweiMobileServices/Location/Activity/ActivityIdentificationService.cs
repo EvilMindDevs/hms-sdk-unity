@@ -8,6 +8,7 @@ namespace HuaweiMobileServices.Location
     public class ActivityIdentificationService : JavaObjectWrapper
     {
         public ActivityIdentificationService(AndroidJavaObject javaObject) : base(javaObject) { }
+        
         private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.location.ActivityIdentificationService");
 
         public ITask<Void> CreateActivityConversionUpdates(ActivityConversionRequest activityConversionRequest, AndroidPendingIntent pendingIntent)

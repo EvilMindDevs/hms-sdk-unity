@@ -9,7 +9,11 @@ namespace HuaweiMobileServices.Location.Location
         public GetFromLocationNameRequest(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.location.GetFromLocationNameRequest");
 
-        public GetFromLocationNameRequest() : base("com.huawei.hms.location.GetFromLocationNameRequest") { }
+        public GetFromLocationNameRequest(string locationName, int maxResult) : base("com.huawei.hms.location.GetFromLocationNameRequest", locationName, maxResult) { }
+
+        public GetFromLocationNameRequest
+            (string locationName, int maxResults, double lowerLeftLatitude, double lowerLeftLongitude, double upperRightLatitude, double upperRightLongitude)
+            : base("com.huawei.hms.location.GetFromLocationNameRequest", locationName, maxResults, lowerLeftLatitude, lowerLeftLongitude, upperRightLatitude, upperRightLongitude) { }
 
         public string GetLocationName => Call<string>("getLocationName");
 
@@ -34,7 +38,6 @@ namespace HuaweiMobileServices.Location.Location
         public void SetUpperRightLatitude(double upperRightLatitude) => Call("setUpperRightLatitude", upperRightLatitude);
 
         public void SetUpperRightLongitude(double upperRightLongitude) => Call("setUpperRightLongitude", upperRightLongitude);
-
 
     }
 }

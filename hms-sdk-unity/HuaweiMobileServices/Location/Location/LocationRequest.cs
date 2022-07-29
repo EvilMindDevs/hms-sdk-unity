@@ -6,11 +6,10 @@ namespace HuaweiMobileServices.Location.Location
     public class LocationRequest : JavaObjectWrapper
     {
         public LocationRequest(AndroidJavaObject javaObject) : base(javaObject) { }
+        
         public static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.location.LocationRequest");
 
         public LocationRequest() : base("com.huawei.hms.location.LocationRequest") { }
-
-        //Creator
 
         public static int PRIORITY_BALANCED_POWER_ACCURACY => javaClass.GetStatic<int>("PRIORITY_BALANCED_POWER_ACCURACY");
         public static int PRIORITY_HIGH_ACCURACY => javaClass.GetStatic<int>("PRIORITY_HIGH_ACCURACY");

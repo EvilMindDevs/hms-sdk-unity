@@ -1,6 +1,4 @@
-﻿using HuaweiMobileServices.AuthService;
-using HuaweiMobileServices.Location.Geofence.Geofences;
-using HuaweiMobileServices.Utils;
+﻿using HuaweiMobileServices.Utils;
 using UnityEngine;
 
 namespace HuaweiMobileServices.Location.Location
@@ -15,6 +13,5 @@ namespace HuaweiMobileServices.Location.Location
 
         public LocationSettingsStates GetLocationSettingsStates()
          => CallAsWrapper<LocationSettingsStates>("getLocationSettingsStates");
-
     }
 }

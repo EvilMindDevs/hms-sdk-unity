@@ -9,8 +9,6 @@ namespace HuaweiMobileServices.Location.Location
         public LocationSettingsResult(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.location.LocationSettingsResult");
 
-        //Creator
-
         public LocationSettingsResult() : base("com.huawei.hms.location.LocationSettingsResult") { }
 
         public LocationSettingsStates GetLocationSettingsStates()
@@ -20,8 +18,7 @@ namespace HuaweiMobileServices.Location.Location
 
         public void SetLocationSettingsStates(LocationSettingsStates locationSettingsStates) => Call("setLocationSettingsStates", locationSettingsStates);
 
-        public Status SetStatus(Status status) => CallAsWrapper<Status>("setStatus", status);
-
+        public void SetStatus(Status status) => Call("setStatus", status);
 
     }
 }

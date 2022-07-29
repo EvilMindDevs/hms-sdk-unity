@@ -8,8 +8,6 @@ namespace HuaweiMobileServices.Location.Geofences
     {
         public GeofenceRequest(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        //Creator 
-
         private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.location.GeofenceRequest");
 
         public static int COORDINATE_TYPE_GCJ_02 => javaClass.GetStatic<int>("COORDINATE_TYPE_GCJ_02");
@@ -24,17 +22,9 @@ namespace HuaweiMobileServices.Location.Geofences
 
         public int GetCoordinateType => Call<int>("getCoordinateType");
 
-        public static IList<Geofence> GetGeofences()
-        {
-            Debug.Log("Enes Enter GetGeofences");
-            var list = javaClass.CallStatic<AndroidJavaObject>("getConvertingGeogetGeofencesfenceList").AsListFromWrappable<Geofence>();
-            Debug.Log(list[0].ToString());
-            Debug.Log("Enes Enter GetGeofences");
-            return list;
-        }
+        public IList<Geofence> GetGeofences() => Call<AndroidJavaObject>("getGeofences").AsListFromWrappable<Geofence>();
 
         public int GetInitConversions => Call<int>("getInitConversions");
-
 
         public class Builder : JavaObjectWrapper
         {
@@ -47,7 +37,6 @@ namespace HuaweiMobileServices.Location.Geofences
             public Builder CreateGeofence(Geofence geofence) => CallAsWrapper<Builder>("createGeofence", geofence);
 
             public Builder CreateGeofenceList(IList<Geofence> geofences) => CallAsWrapper<Builder>("createGeofenceList", geofences.AsJavaListFromWrapper());
-            //Call<AndroidJavaObject>("getRankingVariants").AsListFromWrappable<RankingVariant>();
 
             public Builder SetCoordinateType(int coordinateType) => CallAsWrapper<Builder>("setCoordinateType", coordinateType);
 

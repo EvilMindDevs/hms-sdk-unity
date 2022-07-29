@@ -8,8 +8,6 @@ namespace HuaweiMobileServices.Location.Location
         public LocationSettingsStates(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.location.LocationSettingsStates");
 
-        //Creator
-
         public LocationSettingsStates() : base("com.huawei.hms.location.LocationSettingsStates") { }
 
         public static LocationSettingsStates FromIntent(AndroidIntent intent)
@@ -58,17 +56,6 @@ namespace HuaweiMobileServices.Location.Location
 
         public void SetNetworkLocationUsable(bool networkLocationUsable)
             => Call("setNetworkLocationUsable", networkLocationUsable);
-
-
-
-
-
-
-
-
-
-
-
     }
 }
 

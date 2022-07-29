@@ -12,26 +12,17 @@ namespace HuaweiMobileServices.Location.Geofences
 
         public int GetConversion => Call<int>("getConversion");
 
-        public IList<Geofence> GetConvertingGeofenceList()
-        {
-            Debug.Log("Enes Enter GetConvertingGeofenceList");
-            return javaClass.Call<AndroidJavaObject>("getConvertingGeofenceList").AsListFromWrappable<Geofence>();
-           // return list;
-        }
+        public IList<Geofence> GetConvertingGeofenceList() => CallAsWrapperList<Geofence>("getConvertingGeofenceList");
 
         public Ads.Location GetConvertingLocation() => CallAsWrapper<Ads.Location>("getConvertingLocation");
 
-        public GeofenceData GetDataFromIntent(AndroidIntent intent) => CallAsWrapper<GeofenceData>("getDataFromIntent", intent);
+        public static GeofenceData GetDataFromIntent(AndroidIntent intent) => javaClass.CallStaticAsWrapper<GeofenceData>("getDataFromIntent", intent);
 
         public int GetErrorCode => Call<int>("getErrorCode");
 
         public bool IsFailure => Call<bool>("isFailure");
 
         public bool IsSuccess => Call<bool>("isSuccess");
-
-
-
-
 
     }
 }

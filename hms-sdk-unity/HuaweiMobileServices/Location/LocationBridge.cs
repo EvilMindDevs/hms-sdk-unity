@@ -1,6 +1,5 @@
 ﻿using HuaweiMobileServices.Location.Location;
 using HuaweiMobileServices.Utils;
-using System;
 using UnityEngine;
 
 namespace HuaweiMobileServices.Location

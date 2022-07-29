@@ -8,8 +8,6 @@ namespace HuaweiMobileServices.Location.Location
         public HWLocation(AndroidJavaObject javaObject) : base(javaObject) { }
         private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.location.HWLocation");
 
-        //Creator field
-
         public HWLocation() : base("com.huawei.hms.location.HWLocation") { }
 
         public float GetAccuracy => Call<float>("getAccuracy");
