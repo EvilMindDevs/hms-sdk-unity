@@ -2,6 +2,7 @@
 {
 
     using HuaweiMobileServices.Utils;
+
     using UnityEngine;
 
     // Wrapper for com.huawei.hms.ads.RequestOptions
@@ -14,7 +15,7 @@
 
         public int TagForUnderAgeOfPromise => Call<int>("getTagForUnderAgeOfPromise");
 
-        public int NonPersonalizedAd => Call<int>("getNonPersonalizedAd");
+        public int NonPersonalizedAd => Call<AndroidJavaObject>("getNonPersonalizedAd").AsInt();
 
         public string AppLang => CallAsString("getAppLang");
 
@@ -29,7 +30,7 @@
         public class Builder : JavaObjectWrapper
         {
 
-            
+
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
             public RequestOptions Build() => CallAsWrapper<RequestOptions>("build");
@@ -48,7 +49,7 @@
 
             public Builder SetConsent(string Param1String) => CallAsWrapper<Builder>("setConsent", Param1String);
 
-            public Builder SetRequestLocation(bool requestLocation) => CallAsWrapper<Builder>("setRequestLocation", requestLocation);
+            public Builder SetRequestLocation(bool requestLocation) => CallAsWrapper<Builder>("setRequestLocation", requestLocation.AsJavaBoolean());
 
         }
     }
