@@ -83,7 +83,7 @@ namespace HuaweiMobileServices.Drive
                 public string GetOrderBy() => Call<string>("getOrderBy");
                 public List SetOrderBy(string var1) => CallAsWrapper<List>("setOrderBy", var1);
                 public int GetPageSize() => Call<int>("getPageSize");
-                public List SetPageSize(int var1) => CallAsWrapper<List>("setPageSize", var1);
+                public List SetPageSize(int var1) => CallAsWrapper<List>("setPageSize", var1.AsJavaInteger());
                 public string GetCursor() => Call<string>("getCursor");
                 public List SetCursor(string var1) => CallAsWrapper<List>("setCursor", var1);
                 public string GetQueryParam() => Call<string>("getQueryParam");
@@ -96,7 +96,7 @@ namespace HuaweiMobileServices.Drive
             {
                 public Get(AndroidJavaObject javaObject) : base(javaObject) { }
                 public new File Execute() => CallAsWrapper<File>("execute");
-                public void ExecuteContentAndDownloadTo(AndroidJavaObject var1) => Call("executeContentAndDownloadTo", var1);
+                public void ExecuteContentAndDownloadTo(Utils.java.io.FileOutputStream var1) => Call("executeContentAndDownloadTo", var1.JavaObject);
                 public AndroidJavaObject ExecuteContentAsInputStream() => Call<AndroidJavaObject>("executeContentAsInputStream");
                 public AndroidJavaObject ExecuteContent() => Call<AndroidJavaObject>("executeContent");
                 public new Get SetFields(string var1) => CallAsWrapper<Get>("setFields", var1);
@@ -330,7 +330,7 @@ namespace HuaweiMobileServices.Drive
                 public string GetFileId() => Call<string>("getFileId");
                 public List SetFileId(string var1) => CallAsWrapper<List>("setFileId", var1);
                 public int GetPageSize() => Call<int>("getPageSize");
-                public List SetPageSize(int var1) => CallAsWrapper<List>("setPageSize", var1);
+                public List SetPageSize(int var1) => CallAsWrapper<List>("setPageSize", var1.AsJavaInteger());
                 public string GetCursor() => Call<string>("getCursor");
                 public List SetCursor(string var1) => CallAsWrapper<List>("setCursor", var1);
                 public bool GetIncludeDeleted() => CallAsBool("getIncludeDeleted");
