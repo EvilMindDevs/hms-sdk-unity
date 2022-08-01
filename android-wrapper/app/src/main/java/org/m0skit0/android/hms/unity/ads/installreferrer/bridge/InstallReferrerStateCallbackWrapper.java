@@ -1,7 +1,5 @@
 package org.m0skit0.android.hms.unity.ads.installreferrer.bridge;
 
-import android.util.Log;
-
 import com.huawei.hms.ads.installreferrer.api.InstallReferrerStateListener;
 
 public class InstallReferrerStateCallbackWrapper implements InstallReferrerStateListener {
@@ -22,13 +20,4 @@ public class InstallReferrerStateCallbackWrapper implements InstallReferrerState
     public void onInstallReferrerServiceDisconnected() {
         listener.onInstallReferrerServiceDisconnected();
     }
-
-
 }
-
-
-
-
-
-
-

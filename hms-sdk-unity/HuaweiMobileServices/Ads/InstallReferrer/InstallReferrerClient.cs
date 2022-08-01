@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Ads.InstallReferrer
         public InstallReferrerClient(AndroidJavaObject javaObject) : base(javaObject) { }
         public InstallReferrerClient() : base("com.huawei.hms.ads.installreferrer.api.InstallReferrerClient") { }
 
-        private static AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.ads.installreferrer.api.InstallReferrerClient");
+        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.ads.installreferrer.api.InstallReferrerClient");
 
         public void EndConnection() => Call("endConnection");
 
@@ -17,18 +17,16 @@ namespace HuaweiMobileServices.Ads.InstallReferrer
 
         public void StartConnection(InstallReferrerStateListener listener) => Call("startConnection", listener);
 
-        public ReferrerDetails getInstallReferrer() => CallAsWrapper<ReferrerDetails>("getInstallReferrer");
+        public ReferrerDetails GetInstallReferrer() => CallAsWrapper<ReferrerDetails>("getInstallReferrer");
 
-        public static Builder newBuilder() => sJavaClass.CallStaticAsWrapper<Builder>("newBuilder", AndroidContext.ActivityContext);
-
-        public static bool IsHere => sJavaClass != null;
+        public static Builder NewBuilder() => sJavaClass.CallStaticAsWrapper<Builder>("newBuilder", AndroidContext.ActivityContext);
 
         public class Builder : JavaObjectWrapper
         {
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
             public Builder() : base("com.huawei.hms.ads.installreferrer.api.InstallReferrerClient$Builder") { }
-            public Builder setTest(bool isTest) => CallAsWrapper<Builder>("setTest", isTest);
-            public InstallReferrerClient build() => CallAsWrapper<InstallReferrerClient>("build");
+            public Builder SetTest(bool isTest) => CallAsWrapper<Builder>("setTest", isTest);
+            public InstallReferrerClient Build() => CallAsWrapper<InstallReferrerClient>("build");
         }
     }
 }
