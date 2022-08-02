@@ -26,6 +26,8 @@ dependencies {
     compileOnly 'com.huawei.hms:push:5.1.1.301'
     compileOnly 'com.huawei.hms:game:5.0.4.302'
     compileOnly 'com.huawei.hms:ads-lite:13.4.54.302'
+    compileOnly 'com.huawei.hms:ads-installreferrer:3.4.39.302'
+
     compileOnly 'com.huawei.hms:hianalytics:5.0.3.300'
     compileOnly 'com.huawei.agconnect:agconnect-remoteconfig:1.4.1.300'
     compileOnly 'com.huawei.agconnect:agconnect-applinking:1.6.5.300'
