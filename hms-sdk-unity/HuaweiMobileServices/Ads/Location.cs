@@ -1,8 +1,5 @@
 ﻿namespace HuaweiMobileServices.Ads
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
     using HuaweiMobileServices.Utils;
     using UnityEngine;
 
@@ -14,9 +11,9 @@
         public static int FORMAT_MINUTES = sJavaClass.GetStatic<int>("FORMAT_MINUTES");
         public static int FORMAT_SECONDS = sJavaClass.GetStatic<int>("FORMAT_SECONDS");
 
-        public Location(string provider) : base("com.android.location.Location", provider) { }
+        public Location(string provider) : base("android.location.Location", provider) { }
 
-        public Location(Location l) : base("com.android.location.Location", l.JavaObject) { }
+        public Location(Location l) : base("android.location.Location", l.JavaObject) { }
 
         public Location(AndroidJavaObject javaObject) : base(javaObject) { }
 
