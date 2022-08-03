@@ -15,8 +15,8 @@ namespace HuaweiMobileServices.Location
 
         public ActivityConversionRequest(List<ActivityConversionInfo> activityConversions) : base("com.huawei.hms.location.ActivityConversionInfo", activityConversions) { }
 
-        public List<ActivityConversionInfo> GetActivityConversions() => Call<List<ActivityConversionInfo>>("getActivityConversions");
-
+        public IList<ActivityConversionInfo> GetActivityConversions() => Call<AndroidJavaObject>("getActivityConversions").AsListFromWrappable<ActivityConversionInfo>();
+        
         public void SetActivityConversions(List<ActivityConversionInfo> list) => Call("setActivityConversions", list.AsJavaListFromWrapper());
 
         public void SetDataToIntent(AndroidIntent intent) => Call("setDataToIntent", intent.JavaObject);
