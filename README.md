@@ -16,6 +16,7 @@ Currently these are the kits being integrated:
 - Aut Service (https://developer.huawei.com/consumer/en/agconnect/auth-service/)
 - Cloud DB (https://developer.huawei.com/consumer/en/agconnect/cloud-base/)
 - App Linking (https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-introduction)
+- Location Kit (https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050706106)
 ## Setup
 
 You need to:

@@ -14,7 +14,6 @@ namespace HuaweiMobileServices.AppLinking
 
         public ITask<ResolvedLinkData> GetAppLinking() => CallAsWrapper<TaskJavaObjectWrapper<ResolvedLinkData>>("getAppLinking", AndroidContext.ActivityContext);
 
-
         public static AGConnectAppLinking agc = null;
 
         public static AGConnectAppLinking GetInstance()

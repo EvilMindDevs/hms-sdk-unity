@@ -56,6 +56,9 @@ namespace HuaweiMobileServices.Utils
         internal protected IList<T> CallAsWrapperList<T>(string methodName, params object[] args) where T : JavaObjectWrapper =>
             Call<AndroidJavaObject>(methodName, args.AsAutoParams())?.AsListFromWrappable<T>();
 
+        internal protected IList<T> CallStaticAsWrapperList<T>(string methodName, params object[] args) where T : JavaObjectWrapper =>
+          JavaObject.CallStatic<AndroidJavaObject>(methodName, args.AsAutoParams())?.AsListFromWrappable<T>();
+
         internal protected T[] CallAsWrapperArray<T>(string methodName, params object[] args) where T : JavaObjectWrapper =>
             Call<AndroidJavaObject>(methodName, args.AsAutoParams())?.AsArray<T>();
     }
