@@ -27,7 +27,7 @@ dependencies {
     compileOnly 'com.huawei.hms:game:5.0.4.302'
     compileOnly 'com.huawei.hms:ads-lite:13.4.54.302'
     compileOnly 'com.huawei.hms:ads-installreferrer:3.4.39.302'
-
+    compileOnly 'com.huawei.hms:scan:2.6.0.300'
     compileOnly 'com.huawei.hms:hianalytics:5.0.3.300'
     compileOnly 'com.huawei.agconnect:agconnect-remoteconfig:1.4.1.300'
     compileOnly 'com.huawei.agconnect:agconnect-applinking:1.6.5.300'
@@ -35,6 +35,5 @@ dependencies {
     compileOnly 'com.squareup.okhttp3:logging-interceptor:4.8.1'
     compileOnly 'com.squareup.okhttp3:okhttp:4.8.1'
     compileOnly 'com.huawei.hms:location:6.4.0.300'
-
 }
 apply plugin:'com.huawei.agconnect'

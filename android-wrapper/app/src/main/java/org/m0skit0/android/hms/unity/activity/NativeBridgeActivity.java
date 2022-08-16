@@ -7,6 +7,8 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import com.huawei.hms.hmsscankit.ScanUtil;
+import com.huawei.hms.ml.scan.HmsScan;
 import com.unity3d.player.UnityPlayer;
 
 import org.m0skit0.android.hms.unity.BridgeType;
@@ -14,6 +16,7 @@ import org.m0skit0.android.hms.unity.GenericBridge;
 import org.m0skit0.android.hms.unity.base.StatusBridge;
 import org.m0skit0.android.hms.unity.game.ArchiveBridge;
 import org.m0skit0.android.hms.unity.inAppComment.InAppCommentBridge;
+import org.m0skit0.android.hms.unity.scan.bridge.ScanKitBridge;
 
 public class NativeBridgeActivity extends Activity {
 
@@ -53,6 +56,10 @@ public class NativeBridgeActivity extends Activity {
                         Log.d(TAG, "[HMS] onCreate type ArchiveBridge.ANDROID");
                         InAppCommentBridge.launchShow(this);
                         break;
+                    case ScanKitBridge.SCAN:
+                        Log.d(TAG, "[HMS] onCreate type SCAN");
+                        ScanKitBridge.launchShow(this);
+                        break;
                     default:
                         Log.e(TAG, "[HMS] Unknown type " + type);
                 }
@@ -63,6 +70,7 @@ public class NativeBridgeActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d(TAG, "[HMS] onActivityResult resultCode: " + resultCode);
+
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == BridgeType.IN_APP_COMMENT) {
@@ -77,6 +85,9 @@ public class NativeBridgeActivity extends Activity {
                     break;
                 case BridgeType.ARCHIVE:
                     ArchiveBridge.returnShow(data);
+                    break;
+                case BridgeType.SCAN:
+                    ScanKitBridge.returnShow(data);
                     break;
                 default:
                     Log.e(TAG, "[HMS] Unknown request code " + requestCode);
