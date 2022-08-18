@@ -5,7 +5,7 @@
     using UnityEngine;
 
     // Wrapper for com.huawei.hms.hmsscankit.OnLightVisibleCallBack
-    internal class OnLightVisibleCallBack : JavaObjectWrapper
+    internal class OnLightVisibleCallBackWrapper : JavaObjectWrapper
     {
         private class OnLightVisibleCallBackInterfaceWrapper : AndroidJavaProxy
         {
@@ -23,7 +23,7 @@
             }
         }
 
-        public OnLightVisibleCallBack(IOnLightVisibleCallBack listener)
+        public OnLightVisibleCallBackWrapper(IOnLightVisibleCallBack listener)
             : base("org.m0skit0.android.hms.unity.scan.OnLightVisibleCallBackWrapper", new OnLightVisibleCallBackInterfaceWrapper(listener)) { }
     }
 }

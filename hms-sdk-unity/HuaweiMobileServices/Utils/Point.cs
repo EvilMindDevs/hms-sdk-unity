@@ -1,11 +1,7 @@
-using HuaweiMobileServices.Utils;
-
-using System.Collections;
-using System.Collections.Generic;
 
 using UnityEngine;
 
-namespace HuaweiMobileServices.Scan
+namespace HuaweiMobileServices.Utils
 {
     public class Point : JavaObjectWrapper
     {
@@ -13,8 +9,5 @@ namespace HuaweiMobileServices.Scan
         public Point() : base("android.graphics.Point") { }
 
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass("android.graphics.Point");
-
-
     }
-
 }

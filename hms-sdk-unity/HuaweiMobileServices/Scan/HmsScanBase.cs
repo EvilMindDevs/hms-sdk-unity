@@ -29,7 +29,7 @@ namespace HuaweiMobileServices.Scan
 
         public Rect GetBorderRect() => CallAsWrapper<Rect>("getBorderRect");
         public Point[] GetCornerPoints() => CallAsWrapperArray<Point>("getCornerPoints");
-        public Bitmap GetOriginalBitmap() => CallAsWrapper<Bitmap>("getOriginalBitmap");
+        public AndroidBitmap GetOriginalBitmap() => CallAsWrapper<AndroidBitmap>("getOriginalBitmap");
         public string GetOriginalValue() => CallAsString("getOriginalValue");
         public byte[] GetOriginValueByte() => Call<byte[]>("getOriginValueByte");
         public int GetScanType() => Call<int>("getScanType");

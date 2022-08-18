@@ -5,7 +5,7 @@
     using UnityEngine;
 
     // Wrapper for com.huawei.hms.hmsscankit.OnResultCallback
-    internal class OnResultCallback : JavaObjectWrapper
+    internal class OnResultCallbackWrapper : JavaObjectWrapper
     {
         private class OnResultCallbackInterfaceWrapper : AndroidJavaProxy
         {
@@ -22,7 +22,7 @@
             }
         }
 
-        public OnResultCallback(IOnResultCallback listener)
+        public OnResultCallbackWrapper(IOnResultCallback listener)
             : base("org.m0skit0.android.hms.unity.scan.OnResultCallbackWrapper", new OnResultCallbackInterfaceWrapper(listener)) { }
     }
 }

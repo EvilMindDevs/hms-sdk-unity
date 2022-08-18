@@ -22,8 +22,8 @@ namespace HuaweiMobileServices.Scan
         public void OnStop() => Call("onStop");
         public void PauseContinuouslyScan() => Call("pauseContinuouslyScan");
         public void ResumeContinuouslyScan() => Call("resumeContinuouslyScan");
-        public void SetOnLightVisibleCallback(OnLightVisibleCallBack onLightVisibleCallBack) => Call("setOnLightVisibleCallback", onLightVisibleCallBack);
-        public void SetOnResultCallback(OnResultCallback onResultCallback) => Call("setOnResultCallback", onResultCallback);
+        public void SetOnLightVisibleCallback(OnLightVisibleCallBackWrapper onLightVisibleCallBack) => Call("setOnLightVisibleCallback", onLightVisibleCallBack);
+        public void SetOnResultCallback(OnResultCallbackWrapper onResultCallback) => Call("setOnResultCallback", onResultCallback);
         public bool SwitchLight => Call<bool>("switchLight");
 
         public class Builder : JavaObjectWrapper

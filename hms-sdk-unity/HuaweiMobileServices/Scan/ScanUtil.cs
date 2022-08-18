@@ -18,10 +18,13 @@ namespace HuaweiMobileServices.Scan
         public static int SUCCESS => scanUtil.GetStatic<int>("SUCCESS");
         public static string RESULT => scanUtil.GetStatic<string>("RESULT");
         public static int ERROR_NO_CAMERA_PERMISSION => scanUtil.GetStatic<int>("ERROR_NO_CAMERA_PERMISSION");
+        public static int ERROR_NO_READ_PERMISSION => scanUtil.GetStatic<int>("ERROR_NO_READ_PERMISSION ");
+        public static int CAMERA_ININT_ERROR => scanUtil.GetStatic<int>("CAMERA_ININT_ERROR ");
 
-        public static Bitmap BuildBitmap(String content, int type, int width, int height, HmsBuildBitmapOption options) => scanUtil.CallStaticAsWrapper<Bitmap>("buildBitmap", content, type, width, height, options);
-        public static Bitmap CompressBitmap(String path) => scanUtil.CallStaticAsWrapper<Bitmap>("compressBitmap", AndroidContext.ActivityContext, path);
-        public static HmsScan[] DecodeWithBitmap(Bitmap bitmap, HmsScanAnalyzerOptions format) => scanUtil.Call<HmsScan[]>("decodeWithBitmap", AndroidContext.ActivityContext, bitmap, format);
+
+        public static AndroidBitmap BuildBitmap(String content, int type, int width, int height, HmsBuildBitmapOption options) => scanUtil.CallStaticAsWrapper<AndroidBitmap>("buildBitmap", content, type, width, height, options);
+        public static AndroidBitmap CompressBitmap(String path) => scanUtil.CallStaticAsWrapper<AndroidBitmap>("compressBitmap", AndroidContext.ActivityContext, path);
+        public static HmsScan[] DecodeWithBitmap(AndroidBitmap bitmap, HmsScanAnalyzerOptions format) => scanUtil.Call<HmsScan[]>("decodeWithBitmap", AndroidContext.ActivityContext, bitmap, format);
 
         public static void StartScan(Action<String, HmsScan> onSuccess, Action<HMSException> onFailure, HmsScanAnalyzerOptions options)
         {

@@ -49,7 +49,7 @@ namespace HuaweiMobileServices.Scan
         public EventInfo GetEventInfo => CallAsWrapper<EventInfo>("getEventInfo");
         public LinkUrl GetLinkUrl => CallAsWrapper<LinkUrl>("getLinkUrl");
         public LinkUrl GetLocationCoordinate => CallAsWrapper<LinkUrl>("getLocationCoordinate");
-        public Bitmap GetOriginalBitmap => CallAsWrapper<Bitmap>("getOriginalBitmap");
+        public AndroidBitmap GetOriginalBitmap => CallAsWrapper<AndroidBitmap>("getOriginalBitmap");
         public string GetOriginalValue => CallAsString("getOriginalValue");
         public byte[] GetOriginValueByte => Call<byte[]>("getOriginValueByte");
         public int GetScanType => Call<int>("getScanType");

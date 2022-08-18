@@ -2,13 +2,12 @@ package org.m0skit0.android.hms.unity.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.huawei.hms.hmsscankit.ScanUtil;
-import com.huawei.hms.ml.scan.HmsScan;
 import com.unity3d.player.UnityPlayer;
 
 import org.m0skit0.android.hms.unity.BridgeType;
@@ -58,7 +57,7 @@ public class NativeBridgeActivity extends Activity {
                         break;
                     case ScanKitBridge.SCAN:
                         Log.d(TAG, "[HMS] onCreate type SCAN");
-                        ScanKitBridge.launchShow(this);
+                        ScanKitBridge.RequestForPermission(this);
                         break;
                     default:
                         Log.e(TAG, "[HMS] Unknown type " + type);
@@ -97,4 +96,26 @@ public class NativeBridgeActivity extends Activity {
         }
         finish();
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+
+        if (permissions == null || grantResults == null ) {
+            finish();
+        }
+
+        if (requestCode == BridgeType.SCAN) {
+
+            boolean permissionCamera = this.checkCallingOrSelfPermission("android.permission.CAMERA") == PackageManager.PERMISSION_GRANTED;
+
+            if (permissionCamera ) {
+                ScanKitBridge.launchShow(this);
+            }
+            else
+            {
+                finish();
+            }
+        }
+    }
+
 }
