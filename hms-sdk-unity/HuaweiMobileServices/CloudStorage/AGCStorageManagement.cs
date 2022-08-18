@@ -41,11 +41,11 @@ namespace HuaweiMobileServices.CloudStorage
             return sJavaClass.CallStaticAsWrapper<AGCStorageManagement>("getInstance", instance, bucketName);
         }
 
-        public StorageReference GetStorageReference() => sJavaClass.Call<StorageReference>("getStorageReference"); //TODO call as wrapper ? test this
+        public StorageReference GetStorageReference() => CallAsWrapper<StorageReference>("getStorageReference");
 
-        public StorageReference GetStorageReference(string objectPath) => sJavaClass.Call<StorageReference>("getStorageReference", objectPath);
+        public StorageReference GetStorageReference(string objectPath) => CallAsWrapper<StorageReference>("getStorageReference", objectPath);
 
-        public StorageReference GetReferenceFromUrl(AGConnectInstance instance, string fullUrl) => sJavaClass.Call<StorageReference>("getReferenceFromUrl", instance, fullUrl);
+        public StorageReference GetReferenceFromUrl(AGConnectInstance instance, string fullUrl) => CallAsWrapper<StorageReference>("getReferenceFromUrl", instance, fullUrl);
 
         public long MaxUploadTimeout
         {

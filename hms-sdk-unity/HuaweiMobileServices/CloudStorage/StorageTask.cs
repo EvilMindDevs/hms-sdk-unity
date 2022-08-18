@@ -1,18 +1,20 @@
-﻿using HuaweiMobileServices.Utils;
+﻿using HuaweiMobileServices.Base;
+using HuaweiMobileServices.Utils;
 using System;
 using UnityEngine;
 
 namespace HuaweiMobileServices.CloudStorage
 {
-    class StorageTask<TResult> : JavaObjectWrapper where TResult : StorageTask<TResult>.IErrorResult 
+    public class StorageTask<TResult> : JavaObjectWrapper where TResult : StorageTask<TResult>.IErrorResult
     {
         public StorageTask(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        //private static AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.cloud.storage.core.StorageTask");
+        public StorageTask<TResult> AddOnSuccessListener(Action<TResult> action)
+        {
+            Debug.Log("[HMS StorageTask AddOnSuccessListener");
 
-        // public StorageTask<TResult> addOnCanceledListener(Action<HMSException> onCanceledListener) => CallAsWrapper<StorageTask<TResult>>("addOnCanceledListener", onCanceledListener);
-
-        public StorageTask<TResult> AddOnSuccessListener(Action<HMSException> OnSuccessListener) => CallAsWrapper<StorageTask<TResult>>("addOnSuccessListener", OnSuccessListener);
+            return CallAsWrapper<StorageTask<TResult>>("addOnSuccessListener", new OnSuccessListener<TResult>(new SuccessListener<TResult>(action)).JavaProxy);
+        }
 
         public StorageTask<TResult> AddOnFailureListener(Action<HMSException> OnFailureListener) => CallAsWrapper<StorageTask<TResult>>("addOnFailureListener", OnFailureListener);
 
@@ -42,7 +44,7 @@ namespace HuaweiMobileServices.CloudStorage
 
         public void SetException(HMSException exception) => Call("getException", exception.AsJavaException());
 
-        public class TimePointStateBase : JavaObjectWrapper
+        public class TimePointStateBase : JavaObjectWrapper, IErrorResult
         {
             public TimePointStateBase(AndroidJavaObject javaObject) : base(javaObject) { }
 
@@ -54,7 +56,12 @@ namespace HuaweiMobileServices.CloudStorage
 
             public StorageReference GetStorage() => CallAsWrapper<StorageReference>("getStorage");
 
-            public Exception GetError() => Call<AndroidJavaObject>("getError").AsException();
+            public Exception GetError() => getError().AsException();
+
+            public AndroidJavaObject getError()
+            {
+                return Call<AndroidJavaObject>("getError");
+            }
         }
 
         public interface IErrorResult
@@ -78,5 +85,21 @@ namespace HuaweiMobileServices.CloudStorage
             }
         }
 
+    }
+
+    internal class SuccessListener<TResult> : IOnSuccessListener<TResult>
+    {
+        readonly Action<TResult> action;
+        internal SuccessListener(Action<TResult> action) 
+        {
+            Debug.Log("[HMS StorageTask SuccessListener Constructor");
+            this.action = action;
+        }
+
+        public void onSuccess(TResult var1)
+        {
+            Debug.Log("[HMS StorageTask SuccessListener onSuccess");
+            action.Invoke(var1);
+        }
     }
 }
