@@ -2,6 +2,7 @@ package org.m0skit0.android.hms.unity.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -14,6 +15,7 @@ import org.m0skit0.android.hms.unity.GenericBridge;
 import org.m0skit0.android.hms.unity.base.StatusBridge;
 import org.m0skit0.android.hms.unity.game.ArchiveBridge;
 import org.m0skit0.android.hms.unity.inAppComment.InAppCommentBridge;
+import org.m0skit0.android.hms.unity.scan.bridge.ScanKitBridge;
 
 public class NativeBridgeActivity extends Activity {
 
@@ -53,6 +55,10 @@ public class NativeBridgeActivity extends Activity {
                         Log.d(TAG, "[HMS] onCreate type ArchiveBridge.ANDROID");
                         InAppCommentBridge.launchShow(this);
                         break;
+                    case ScanKitBridge.SCAN:
+                        Log.d(TAG, "[HMS] onCreate type SCAN");
+                        ScanKitBridge.RequestForPermission(this);
+                        break;
                     default:
                         Log.e(TAG, "[HMS] Unknown type " + type);
                 }
@@ -63,6 +69,7 @@ public class NativeBridgeActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d(TAG, "[HMS] onActivityResult resultCode: " + resultCode);
+
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == BridgeType.IN_APP_COMMENT) {
@@ -78,6 +85,9 @@ public class NativeBridgeActivity extends Activity {
                 case BridgeType.ARCHIVE:
                     ArchiveBridge.returnShow(data);
                     break;
+                case BridgeType.SCAN:
+                    ScanKitBridge.returnShow(data);
+                    break;
                 default:
                     Log.e(TAG, "[HMS] Unknown request code " + requestCode);
             }
@@ -86,4 +96,26 @@ public class NativeBridgeActivity extends Activity {
         }
         finish();
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+
+        if (permissions == null || grantResults == null ) {
+            finish();
+        }
+
+        if (requestCode == BridgeType.SCAN) {
+
+            boolean permissionCamera = this.checkCallingOrSelfPermission("android.permission.CAMERA") == PackageManager.PERMISSION_GRANTED;
+
+            if (permissionCamera ) {
+                ScanKitBridge.launchShow(this);
+            }
+            else
+            {
+                finish();
+            }
+        }
+    }
+
 }
