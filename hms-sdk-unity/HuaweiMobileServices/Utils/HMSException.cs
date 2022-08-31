@@ -72,5 +72,10 @@ namespace HuaweiMobileServices.Utils
             }
             private set { }
         }
+
+        override public string ToString()
+        {
+            return WrappedCauseMessage;
+        }
     }
 }
