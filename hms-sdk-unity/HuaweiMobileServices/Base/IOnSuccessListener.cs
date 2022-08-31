@@ -1,9 +1,9 @@
-﻿using HuaweiMobileServices.Utils;
+﻿using UnityEngine;
 
 namespace HuaweiMobileServices.Base
 {
 
-    public class OnSuccessListener<TResult> : JavaProxyWrapper
+    internal class OnSuccessListener<TResult> : AndroidJavaProxy
     {
 
         private readonly IOnSuccessListener<TResult> onSuccessListener;
@@ -13,7 +13,7 @@ namespace HuaweiMobileServices.Base
             this.onSuccessListener = onSuccessListener;
         }
 
-        public void OnSuccess(TResult result)
+        public void onSuccess(AndroidJavaObject result)
         {
             onSuccessListener.onSuccess(result);
         }
@@ -21,7 +21,7 @@ namespace HuaweiMobileServices.Base
 
     public interface IOnSuccessListener<TResult>
     {
-        void onSuccess(TResult var1);
+        void onSuccess(AndroidJavaObject var1);
     }
 
 }

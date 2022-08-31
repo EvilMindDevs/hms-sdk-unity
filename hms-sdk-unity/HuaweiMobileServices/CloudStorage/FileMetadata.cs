@@ -7,13 +7,13 @@ namespace HuaweiMobileServices.CloudStorage
     {
         public FileMetadata(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        private static AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.cloud.storage.core.FileMetadata");
+       // private static AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.cloud.storage.core.FileMetadata");
 
         public class Builder : JavaObjectWrapper 
         {
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            private static AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.cloud.storage.core.FileMetadata$Builder");
+           // private static AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.cloud.storage.core.FileMetadata$Builder");
 
             public FileMetadata Build() => CallAsWrapper<FileMetadata>("build");
         }

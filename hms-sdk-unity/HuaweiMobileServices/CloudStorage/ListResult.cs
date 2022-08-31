@@ -8,16 +8,16 @@ namespace HuaweiMobileServices.CloudStorage
     {
         public ListResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        private static AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.cloud.storage.core.ListResult");
+       // private static AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.cloud.storage.core.ListResult");
 
         public IList<StorageReference> FileList
         {
-            get => Call<IList<StorageReference>>("getFileList"); // TODO test CallAsWrapper this?
+            get => CallAsWrapperList<StorageReference>("getFileList");
         }
 
         public IList<StorageReference> DirList
         {
-            get => Call<IList<StorageReference>>("getDirList"); // TODO test CallAsWrapper this?
+            get => CallAsWrapperList<StorageReference>("getDirList");
         }
 
         public string PageMarker
@@ -29,7 +29,7 @@ namespace HuaweiMobileServices.CloudStorage
         {
             public Builder(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            private static AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.cloud.storage.core.ListResult$Builder");
+           // private static AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.cloud.storage.core.ListResult$Builder");
 
             public ListResult Build() => CallAsWrapper<ListResult>("build");
         }

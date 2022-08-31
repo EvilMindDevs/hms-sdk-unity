@@ -1,4 +1,5 @@
 ﻿using HuaweiMobileServices.Utils;
+using System;
 using UnityEngine;
 
 namespace HuaweiMobileServices.CloudStorage
@@ -14,9 +15,11 @@ namespace HuaweiMobileServices.CloudStorage
 
         public class UploadResult : TimePointStateBase
         {
+            //private static AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.cloud.storage.core.UploadTask$UploadResult");
+
             public UploadResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            //private static AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.cloud.storage.core.UploadTask$UploadResult");
+            public static explicit operator UploadResult(AndroidJavaObject v) => new UploadResult(v);
 
             public long BytesTransferred
             {

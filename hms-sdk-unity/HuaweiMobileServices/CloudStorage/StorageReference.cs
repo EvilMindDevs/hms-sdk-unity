@@ -10,7 +10,7 @@ namespace HuaweiMobileServices.CloudStorage
     {
         public StorageReference(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        private static AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.cloud.storage.core.StorageReference");
+        // private static AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.agconnect.cloud.storage.core.StorageReference");
 
         public AGCStorageManagement GetStorage() => CallAsWrapper<AGCStorageManagement>("getStorage");
 
@@ -26,17 +26,17 @@ namespace HuaweiMobileServices.CloudStorage
 
         public string GetPath() => CallAsString("getPath");
 
-        public ITask<FileMetadata> GetFileMetadata() => Call <TaskJavaObjectWrapper<FileMetadata>>("getFileMetadata");
+        public ITask<FileMetadata> GetFileMetadata() => CallAsWrapper<TaskJavaObjectWrapper<FileMetadata>>("getFileMetadata");
 
-        public ITask<FileMetadata> UpdateFileMetadata(FileMetadata attribute) => Call<TaskJavaObjectWrapper<FileMetadata>>("updateFileMetadata",attribute);
+        public ITask<FileMetadata> UpdateFileMetadata(FileMetadata attribute) => CallAsWrapper<TaskJavaObjectWrapper<FileMetadata>>("updateFileMetadata",attribute);
 
         public ITask<Void> Delete() => CallAsWrapper<TaskVoidWrapper>("delete");
 
-        public ITask<ListResult> List(int max, string marker) => Call<TaskJavaObjectWrapper<ListResult>>("list", max ,marker);
+        public ITask<ListResult> List(int max, string marker) => CallAsWrapper<TaskJavaObjectWrapper<ListResult>>("list", max ,marker);
 
-        public ITask<ListResult> List(int max) => Call<TaskJavaObjectWrapper<ListResult>>("list", max);
+        public ITask<ListResult> List(int max) => CallAsWrapper<TaskJavaObjectWrapper<ListResult>>("list", max);
 
-        public ITask<ListResult> ListAll() => Call<TaskJavaObjectWrapper<ListResult>>("listAll");
+        public ITask<ListResult> ListAll() => CallAsWrapper<TaskJavaObjectWrapper<ListResult>>("listAll");
 
         public UploadTask PutFile(File srcFile, FileMetadata attribute, long offset) => CallAsWrapper<UploadTask>("putFile", srcFile, attribute, offset);
 
@@ -66,8 +66,7 @@ namespace HuaweiMobileServices.CloudStorage
 
         public int CompareTo(StorageReference other) => Call<int>("compareTo",other);
 
-        override
-        public string ToString() => CallAsString("toString");
+        override public string ToString() => CallAsString("toString");
 
         public bool Equals(Object other) => CallAsBool("equals", other);
 

@@ -9,14 +9,15 @@ namespace HuaweiMobileServices.CloudStorage
     {
         public StorageTask(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public StorageTask<TResult> AddOnSuccessListener(Action<TResult> action)
+        public StorageTask<TResult> AddOnSuccessListener(Action<AndroidJavaObject> action)
         {
-            Debug.Log("[HMS StorageTask AddOnSuccessListener");
-
-            return CallAsWrapper<StorageTask<TResult>>("addOnSuccessListener", new OnSuccessListener<TResult>(new SuccessListener<TResult>(action)).JavaProxy);
+            return CallAsWrapper<StorageTask<TResult>>("addOnSuccessListener", new OnSuccessListener<TResult>(new SuccessListener<TResult>(action)));
         }
 
-        public StorageTask<TResult> AddOnFailureListener(Action<HMSException> OnFailureListener) => CallAsWrapper<StorageTask<TResult>>("addOnFailureListener", OnFailureListener);
+        public StorageTask<TResult> AddOnFailureListener(Action<HMSException> action)
+        {
+            return CallAsWrapper<StorageTask<TResult>>("addOnFailureListener", new OnFailureListener(new FailureListener(action)));
+        }
 
         public bool Cancel() => CallAsBool("cancel");
 
@@ -87,19 +88,31 @@ namespace HuaweiMobileServices.CloudStorage
 
     }
 
-    internal class SuccessListener<TResult> : IOnSuccessListener<TResult>
+    public class SuccessListener<TResult> : IOnSuccessListener<TResult>
     {
-        readonly Action<TResult> action;
-        internal SuccessListener(Action<TResult> action) 
+        readonly Action<AndroidJavaObject> action;
+        internal SuccessListener(Action<AndroidJavaObject> action) 
         {
-            Debug.Log("[HMS StorageTask SuccessListener Constructor");
             this.action = action;
         }
 
-        public void onSuccess(TResult var1)
+        public void onSuccess(AndroidJavaObject result)
         {
-            Debug.Log("[HMS StorageTask SuccessListener onSuccess");
-            action.Invoke(var1);
+            action.Invoke(result);
+        }
+    }
+
+    internal class FailureListener : IOnFailureListener
+    {
+        readonly Action<HMSException> action;
+        internal FailureListener(Action<HMSException> action)
+        {
+            this.action = action;
+        }
+
+        public void onFailure(AndroidJavaObject javaException)
+        {
+            action.Invoke(javaException.AsException());
         }
     }
 }
