@@ -74,6 +74,12 @@ namespace HuaweiMobileServices.Utils
 
         public static HMSException AsException(this AndroidJavaObject javaException) => new HMSException(javaException);
 
+        public static AndroidJavaObject AsJavaException(this HMSException hMSException) 
+        {
+            AndroidJavaClass javaClass = new AndroidJavaClass("java.lang.Exception");
+            return javaClass.Call<AndroidJavaObject>("Exception", hMSException.Message);
+        }
+
         public static AndroidJavaObject AsJavaSet<T>(this ISet<T> set)
         {
             if (set == null) return null;
