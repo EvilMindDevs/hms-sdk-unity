@@ -1,5 +1,7 @@
 ﻿using HuaweiMobileServices.Utils;
+
 using System;
+
 using UnityEngine;
 
 namespace HuaweiMobileServices.AppMessaging
@@ -9,6 +11,7 @@ namespace HuaweiMobileServices.AppMessaging
         private Action<AppMessage> mOnMessageClick;
         private Action<AppMessage> mOnMessageDisplay;
         private Action<AppMessage> monMessageError;
+        private Action<AppMessage> monMessageDismiss;
 
         public AGConnectAppMessagingCallbackWrapper(Action<AppMessage> onMessageClick, Action<AppMessage> OnMessageDisplay, Action<AppMessage> OnMessageError)
                 : base("com.huawei.agconnect.appmessaging.AGConnectAppMessagingCallback")
@@ -21,6 +24,10 @@ namespace HuaweiMobileServices.AppMessaging
         {
             this.CallOnMainThread(() => { mOnMessageClick.Invoke(appMessage.AsWrapper<AppMessage>()); });
         }
+        public void onMessageDismiss(AndroidJavaObject appMessage)
+        {
+            this.CallOnMainThread(() => { monMessageDismiss.Invoke(appMessage.AsWrapper<AppMessage>()); });
+        }
         public void onMessageDisplay(AndroidJavaObject appMessage)
         {
             this.CallOnMainThread(() => { mOnMessageDisplay.Invoke(appMessage.AsWrapper<AppMessage>()); });
@@ -31,4 +38,4 @@ namespace HuaweiMobileServices.AppMessaging
         }
     }
 }
- 
+

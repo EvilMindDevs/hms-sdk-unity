@@ -1,5 +1,7 @@
 ﻿using HuaweiMobileServices.Utils;
+
 using System;
+
 using UnityEngine;
 
 namespace HuaweiMobileServices.AppMessaging
@@ -30,6 +32,8 @@ namespace HuaweiMobileServices.AppMessaging
         public void AddOnDisplayListener(Action<AppMessage> listener) => Call("addOnDisplayListener", new AGConnectAppMessagingOnDisplayListenerWrapper(listener));
 
         public void SetForceFetch() => Call("setForceFetch");
+
+        public void AddCustomView() => Call("addCustomView");
 
         public void RemoveCustomView() => Call("removeCustomView");
 
