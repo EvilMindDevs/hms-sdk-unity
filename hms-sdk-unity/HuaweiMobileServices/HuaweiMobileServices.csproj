@@ -10,6 +10,10 @@
     <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Ads\NativeAd\" />
+  </ItemGroup>
+
   <Choose>
     <When Condition="'$(Configuration)'=='Unity2019'">
       <ItemGroup>
