@@ -159,6 +159,8 @@ namespace HuaweiMobileServices.Utils
 
         public static AndroidJavaObject AsJavaBoolean(this bool value) => new AndroidJavaObject("java.lang.Boolean", value);
 
+        public static AndroidJavaObject AsJavaLong(this long value) => new AndroidJavaObject("java.lang.Long", value);
+
         public static AndroidJavaObject AsJavaUri(this string value)
         {
             AndroidJavaClass uriObj = new AndroidJavaClass("android.net.Uri");

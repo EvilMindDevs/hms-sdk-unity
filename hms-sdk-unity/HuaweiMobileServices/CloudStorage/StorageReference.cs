@@ -1,7 +1,9 @@
 ﻿using HuaweiMobileServices.Base;
 using HuaweiMobileServices.Utils;
 using HuaweiMobileServices.Utils.java.io;
+
 using System.Collections.Generic;
+
 using UnityEngine;
 
 namespace HuaweiMobileServices.CloudStorage
@@ -28,17 +30,17 @@ namespace HuaweiMobileServices.CloudStorage
 
         public ITask<FileMetadata> GetFileMetadata() => CallAsWrapper<TaskJavaObjectWrapper<FileMetadata>>("getFileMetadata");
 
-        public ITask<FileMetadata> UpdateFileMetadata(FileMetadata attribute) => CallAsWrapper<TaskJavaObjectWrapper<FileMetadata>>("updateFileMetadata",attribute);
+        public ITask<FileMetadata> UpdateFileMetadata(FileMetadata attribute) => CallAsWrapper<TaskJavaObjectWrapper<FileMetadata>>("updateFileMetadata", attribute);
 
         public ITask<Void> Delete() => CallAsWrapper<TaskVoidWrapper>("delete");
 
-        public ITask<ListResult> List(int max, string marker) => CallAsWrapper<TaskJavaObjectWrapper<ListResult>>("list", max ,marker);
+        public ITask<ListResult> List(int max, string marker) => CallAsWrapper<TaskJavaObjectWrapper<ListResult>>("list", max, marker);
 
         public ITask<ListResult> List(int max) => CallAsWrapper<TaskJavaObjectWrapper<ListResult>>("list", max);
 
         public ITask<ListResult> ListAll() => CallAsWrapper<TaskJavaObjectWrapper<ListResult>>("listAll");
 
-        public UploadTask PutFile(File srcFile, FileMetadata attribute, long offset) => CallAsWrapper<UploadTask>("putFile", srcFile, attribute, offset);
+        public UploadTask PutFile(File srcFile, FileMetadata attribute, long offset) => CallAsWrapper<UploadTask>("putFile", srcFile, attribute, offset.AsJavaLong());
 
         public UploadTask PutFile(File srcFile, FileMetadata attribute) => CallAsWrapper<UploadTask>("putFile", srcFile, attribute);
 
@@ -46,7 +48,7 @@ namespace HuaweiMobileServices.CloudStorage
 
         public UploadTask PutBytes(byte[] bytes, FileMetadata attribute) => CallAsWrapper<UploadTask>("putBytes", bytes, attribute);
 
-        public UploadTask PutBytes(byte[] bytes, FileMetadata attribute, long offset) => CallAsWrapper<UploadTask>("putBytes", bytes, attribute, offset);
+        public UploadTask PutBytes(byte[] bytes, FileMetadata attribute, long offset) => CallAsWrapper<UploadTask>("putBytes", bytes, attribute, offset.AsJavaLong());
 
         public DownloadTask GetFile(File destFile) => CallAsWrapper<DownloadTask>("getFile", destFile);
 
@@ -56,7 +58,7 @@ namespace HuaweiMobileServices.CloudStorage
 
         public StreamDownloadTask GetStream(StreamDownloadTask.StreamHandler streamHandler) => CallAsWrapper<StreamDownloadTask>("getStream", streamHandler);
 
-        public ITask<byte[]> GetBytes(long maxDownloadBytes) => Call<TaskPrimitive<byte[]>>("getBytes", maxDownloadBytes);
+        public ITask<byte[]> GetBytes(long maxDownloadBytes) => CallAsWrapper<TaskPrimitive<byte[]>>("getBytes", maxDownloadBytes);
 
         public ITask<Uri> getDownloadUrl() => CallAsWrapper<TaskJavaObjectWrapper<Uri>>("getDownloadUrl");
 
@@ -64,7 +66,7 @@ namespace HuaweiMobileServices.CloudStorage
 
         public IList<DownloadTask> GetActiveDownloadTasks() => CallAsWrapperList<DownloadTask>("getActiveDownloadTasks");
 
-        public int CompareTo(StorageReference other) => Call<int>("compareTo",other);
+        public int CompareTo(StorageReference other) => Call<int>("compareTo", other);
 
         override public string ToString() => CallAsString("toString");
 
