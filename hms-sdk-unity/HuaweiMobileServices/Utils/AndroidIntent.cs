@@ -24,5 +24,13 @@
         public AndroidBundle GetParcelableExtra<T>(string name) => CallAsWrapper<AndroidBundle>("getParcelableExtra", name);
 
         public AndroidIntent SetPackage(string packageName) => CallAsWrapper<AndroidIntent>("setPackage", packageName);
+
+        public AndroidIntent PutExtra(string name, string value) => CallAsWrapper<AndroidIntent>("putExtra", name, value);
+
+        public AndroidIntent PutExtra(string name, bool value) => CallAsWrapper<AndroidIntent>("putExtra", name, value);
+
+        public AndroidIntent PutExtra(string name, byte value) => CallAsWrapper<AndroidIntent>("putExtra", name, value);
+
+        public AndroidIntent PutExtra(string name, int value) => CallAsWrapper<AndroidIntent>("putExtra", name, value);
     }
 }
