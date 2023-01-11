@@ -2,11 +2,14 @@
 {
     using UnityEngine;
 
+    //https://developer.android.com/reference/android/content/Intent
     public class AndroidIntent : JavaObjectWrapper
     {
         public AndroidIntent(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public AndroidIntent(AndroidJavaClass activityClass) : base("android.content.Intent", AndroidContext.ActivityContext, activityClass) { }
+        public AndroidIntent(string action) : base("android.content.Intent", action) { }
+        public AndroidIntent() : base("android.content.Intent") { }
 
         public AndroidJavaObject Intent => JavaObject;
 
@@ -19,5 +22,15 @@
         public bool GetBoolExtra(string name, bool defaultValue) => Call<bool>("getBooleanExtra", name, defaultValue);
 
         public AndroidBundle GetParcelableExtra<T>(string name) => CallAsWrapper<AndroidBundle>("getParcelableExtra", name);
+
+        public AndroidIntent SetPackage(string packageName) => CallAsWrapper<AndroidIntent>("setPackage", packageName);
+
+        public AndroidIntent PutExtra(string name, string value) => CallAsWrapper<AndroidIntent>("putExtra", name, value);
+
+        public AndroidIntent PutExtra(string name, bool value) => CallAsWrapper<AndroidIntent>("putExtra", name, value);
+
+        public AndroidIntent PutExtra(string name, byte value) => CallAsWrapper<AndroidIntent>("putExtra", name, value);
+
+        public AndroidIntent PutExtra(string name, int value) => CallAsWrapper<AndroidIntent>("putExtra", name, value);
     }
 }

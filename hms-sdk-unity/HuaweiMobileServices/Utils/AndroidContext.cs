@@ -21,6 +21,11 @@
                 return mApplicationContextJava;
             }
         }
+
+        public static void StartActivity(AndroidIntent intent) => ActivityContext.Call("startActivity", intent.Intent);
+
+        public static void StartActivityForResult(AndroidIntent intent, int requestCode) => ActivityContext.Call("startActivityForResult", intent.Intent, requestCode);
+
     }
 
 }
