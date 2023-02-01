@@ -3,6 +3,7 @@
 namespace HuaweiMobileServices.Id
 {
     using HuaweiMobileServices.Utils;
+    using System;
     using UnityEngine;
 
     // Wrapper for com.huawei.hms.support.account.result.AuthAccount
@@ -39,8 +40,10 @@ namespace HuaweiMobileServices.Id
 
         public string Email => CallAsString("getEmail");
 
+        [Obsolete("Deprecated")]
         public string GivenName => CallAsString("getGivenName");
 
+        [Obsolete("Deprecated")]
         public string FamilyName => CallAsString("getFamilyName");
 
         public int Gender => Call<int>("getGender");
