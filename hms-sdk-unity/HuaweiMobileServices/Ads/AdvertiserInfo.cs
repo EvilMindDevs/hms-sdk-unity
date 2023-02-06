@@ -5,12 +5,12 @@ namespace HuaweiMobileServices.Ads
 {
     public class AdvertiserInfo : JavaObjectWrapper
     {
-        //wrapper for com.huawei.hms.ads.AdSize
-        //https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/adsize-0000001050064882
+        //wrapper for com.huawei.hms.ads.AdvertiserInfo
+        //https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/advertiserinfo-0000001420607914
 
         public AdvertiserInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        private static AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.ads.AdvertiserInfo");
+        //private static AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.ads.AdvertiserInfo");
 
         public int Sequence
         {
