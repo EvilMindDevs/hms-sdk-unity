@@ -96,6 +96,10 @@ namespace HuaweiMobileServices.CloudDB
         public CloudDBZoneQuery StartAfter(AndroidJavaObject queryObject) => CallAsWrapper<CloudDBZoneQuery>("startAfter", queryObject);
         public CloudDBZoneQuery EndAt(AndroidJavaObject queryObject) => CallAsWrapper<CloudDBZoneQuery>("endAt", queryObject);
         public CloudDBZoneQuery EndBefore(AndroidJavaObject queryObject) => CallAsWrapper<CloudDBZoneQuery>("endBefore", queryObject);
+        public CloudDBZoneQuery And() => CallAsWrapper<CloudDBZoneQuery>("and");
+        public CloudDBZoneQuery Or() => CallAsWrapper<CloudDBZoneQuery>("or");
+        public CloudDBZoneQuery BeginGroup() => CallAsWrapper<CloudDBZoneQuery>("beginGroup");
+        public CloudDBZoneQuery EndGroup() => CallAsWrapper<CloudDBZoneQuery>("endGroup");
 
         public class CloudDBZoneQueryPolicy : JavaObjectWrapper
         {
@@ -109,6 +113,10 @@ namespace HuaweiMobileServices.CloudDB
             public static CloudDBZoneQueryPolicy CLOUDDBZONE_CLOUD_CACHE => sJavaClass.GetStaticAsWrapper<CloudDBZoneQueryPolicy>("POLICY_QUERY_FROM_CLOUD_ONLY");
             public static CloudDBZoneQueryPolicy CLOUDDBZONE_DEFAULT => sJavaClass.GetStaticAsWrapper<CloudDBZoneQueryPolicy>("POLICY_QUERY_DEFAULT");
 
+            public int Index 
+            { 
+                get => Call<int>("getIndex"); 
+            }
         }
     }
 }

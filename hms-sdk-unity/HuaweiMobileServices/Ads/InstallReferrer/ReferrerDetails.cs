@@ -11,5 +11,6 @@ namespace HuaweiMobileServices.Ads.InstallReferrer
         public long GetInstallBeginTimestampMillisecond() => Call<long>("getInstallBeginTimestampMillisecond");
         public long GetReferrerClickTimestampMillisecond() => Call<long>("getReferrerClickTimestampMillisecond");
         public string GetInstallReferrer() => Call<string>("getInstallReferrer");
+        public string GetInstallChannel() => Call<string>("getInstallChannel");
     }
 }

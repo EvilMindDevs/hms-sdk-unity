@@ -188,6 +188,12 @@ namespace HuaweiMobileServices.Ads.NativeAd
                 get => CallAsWrapperList<Image>("getIcons");
             }
 
+            public bool HasAdvertiserInfo() => Call<bool>("hasAdvertiserInfo");
+
+            public IList<AdvertiserInfo> AdvertiserInfo
+            {
+                get => CallAsWrapperList<AdvertiserInfo>("getAdvertiserInfo");
+            }
         }
     }
 }
