@@ -18,6 +18,10 @@ namespace HuaweiMobileServices.Game
 
         public ITask<string> CachePlayerId => CallAsWrapper<TaskStringWrapper>("getCachePlayerId");
 
+        public ITask<int> UserPlayState => CallAsWrapper<TaskPrimitive<int>>("getUserPlayState");
+
+        public ITask<bool> IsAllowContinuePlayGames => CallAsWrapper<TaskPrimitive<bool>>("isAllowContinuePlayGames");
+
         public ITask<PlayerExtraInfo> GetPlayerExtraInfo(string transactionId) =>
              CallAsWrapper<TaskJavaObjectWrapper<PlayerExtraInfo>>("getPlayerExtraInfo", transactionId.AsJavaString());
 

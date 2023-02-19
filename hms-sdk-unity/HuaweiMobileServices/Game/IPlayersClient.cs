@@ -13,6 +13,10 @@
 
         ITask<string> CachePlayerId { get; }
 
+        ITask<int> UserPlayState { get; }
+
+        ITask<bool> IsAllowContinuePlayGames { get; }
+
         ITask<Utils.Void> SavePlayerInfo(AppPlayerInfo paramAppPlayerInfo);
 
         ITask<Player> GetGamePlayer(bool isRequirePlayerId);
