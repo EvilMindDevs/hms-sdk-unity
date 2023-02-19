@@ -24,7 +24,7 @@ dependencies {
     compileOnly 'com.huawei.hms:nearby:5.2.0.301'
     compileOnly 'com.huawei.hms:iap:5.1.0.300'
     compileOnly 'com.huawei.hms:push:5.1.1.301'
-    compileOnly 'com.huawei.hms:game:5.0.4.302'
+    compileOnly 'com.huawei.hms:game:6.5.0.300'
     compileOnly 'com.huawei.hms:ads-lite:13.4.54.302'
     compileOnly 'com.huawei.hms:ads-installreferrer:3.4.39.302'
     compileOnly 'com.huawei.hms:scan:2.6.0.300'
