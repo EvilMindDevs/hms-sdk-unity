@@ -11,7 +11,7 @@ namespace HuaweiMobileServices.Ads.NativeAd
 
         public NativeAd(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        private static AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.ads.nativead.NativeAd");
+        //private static AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.ads.nativead.NativeAd");
 
         public static explicit operator NativeAd(AndroidJavaObject v) => new NativeAd(v);
 
