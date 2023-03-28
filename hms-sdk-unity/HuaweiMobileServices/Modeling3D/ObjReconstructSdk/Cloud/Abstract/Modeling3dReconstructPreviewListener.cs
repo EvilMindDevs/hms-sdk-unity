@@ -5,8 +5,8 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
 {
     public class Modeling3dReconstructPreviewListener : AndroidJavaProxy
     {
-        //wrapper for com.huawei.hms.objreconstructsdk.cloud.IModeling3dReconstructPreviewListener
-        //https://developer.huawei.com/consumer/en/doc/development/graphics-References/modeling3dreconstructdownloadlistener-0000001106613206
+        //wrapper for com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructPreviewListener
+        //https://developer.huawei.com/consumer/en/doc/development/graphics-References/modeling3dreconstructpreviewlistener-0000001149001208
 
         private readonly IModeling3dReconstructPreviewListener _IModeling3dReconstructPreviewListener;
 
@@ -15,12 +15,12 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
             _IModeling3dReconstructPreviewListener = IModeling3dReconstructPreviewListener;
         }
 
-        public void onError(String taskId, int errorCode, String errorMsg)
+        public void onError(string taskId, int errorCode, string errorMsg)
         {
             _IModeling3dReconstructPreviewListener.onError(taskId, errorCode, errorMsg);
         }
 
-        public void OnResult(String taskId, AndroidJavaObject javaObject)
+        public void OnResult(string taskId, AndroidJavaObject javaObject)
         {
             _IModeling3dReconstructPreviewListener.OnResult(taskId, javaObject);
         }
@@ -29,9 +29,9 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
 
     public interface IModeling3dReconstructPreviewListener
     {
-        void onError(String taskId, int errorCode, String message);
+        void onError(string taskId, int errorCode, string message);
 
-        void OnResult(String taskId, AndroidJavaObject javaObject);
+        void OnResult(string taskId, AndroidJavaObject javaObject);
 
     }
 }

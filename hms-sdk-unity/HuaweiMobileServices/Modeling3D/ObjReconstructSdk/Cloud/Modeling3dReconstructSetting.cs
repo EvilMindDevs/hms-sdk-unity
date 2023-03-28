@@ -1,4 +1,3 @@
-using System;
 using HuaweiMobileServices.Utils;
 using UnityEngine;
 
@@ -10,9 +9,6 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
     {
         //private static AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructSetting");
         public Modeling3dReconstructSetting(AndroidJavaObject javaObject) : base(javaObject) { }
-        public Modeling3dReconstructSetting(int mode) : base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructSetting", mode.AsJavaInteger()) { }
-        public Modeling3dReconstructSetting(int mode, int textureMode) : 
-                base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructSetting", mode.AsJavaInteger(), textureMode.AsJavaInteger()) { }
         public Modeling3dReconstructSetting(int mode, int textureMode, int taskType) : 
                 base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructSetting", mode.AsJavaInteger(), textureMode.AsJavaInteger(), taskType.AsJavaInteger()) { }
         public Modeling3dReconstructSetting(int mode, int textureMode, int taskType, string needRescan) : 
@@ -22,8 +18,12 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
         public Modeling3dReconstructSetting(int mode, int textureMode, int taskType, string needRescan, string taskId, int faceLevel) : 
                 base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructSetting", mode.AsJavaInteger(), textureMode.AsJavaInteger(), taskType.AsJavaInteger(),needRescan.AsJavaString(),taskId.AsJavaString(), faceLevel.AsJavaInteger()) { }
 
-        public int GetFaceLevel() => CallAsInt("getFaceLevel");
-        public void SetFaceLevel(int faceLevel) => Call("setFaceLevel", faceLevel.AsJavaInteger());
+        public int FaceLevel
+        {
+            get => CallAsInt("getFaceLevel");
+            set => Call("setFaceLevel", value.AsJavaInteger());
+        }
+
         /// <summary>
         /// Obtains the type of a 3D object reconstruction task.
         /// </summary>

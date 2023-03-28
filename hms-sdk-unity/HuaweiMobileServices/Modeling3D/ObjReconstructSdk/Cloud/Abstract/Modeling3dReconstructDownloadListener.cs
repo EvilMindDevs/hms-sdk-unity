@@ -5,7 +5,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
 {
     public class Modeling3dReconstructDownloadListener : AndroidJavaProxy
     {
-        //wrapper for com.huawei.hms.objreconstructsdk.cloud.IModeling3dReconstructDownloadListener
+        //wrapper for com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructDownloadListener
         //https://developer.huawei.com/consumer/en/doc/development/graphics-References/modeling3dreconstructdownloadlistener-0000001106613206
 
         private readonly IModeling3dReconstructDownloadListener _IModeling3dReconstructDownloadListener;
@@ -15,19 +15,19 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
             _IModeling3dReconstructDownloadListener = iModeling3dReconstructDownloadListener;
         }
 
-        public void onDownloadProgress(String taskId, double progress, AndroidJavaObject javaObject)
+        public void onDownloadProgress(string taskId, double progress, AndroidJavaObject javaObject)
         {
             _IModeling3dReconstructDownloadListener.onDownloadProgress(taskId, progress, javaObject);
         }
 
-        public void onError(String taskId, int errorCode, String errorMsg)
+        public void onError(string taskId, int errorCode, string errorMsg)
         {
             _IModeling3dReconstructDownloadListener.onError(taskId, errorCode, errorMsg);
         }
 
-        public void OnResult(String taskId, Modeling3dReconstructDownloadResult result, AndroidJavaObject javaObject)
+        public void onResult(string taskId, Modeling3dReconstructDownloadResult result, AndroidJavaObject javaObject)
         {
-            _IModeling3dReconstructDownloadListener.OnResult(taskId, result, javaObject);
+            _IModeling3dReconstructDownloadListener.onResult(taskId, result, javaObject);
         }
 
     }
@@ -35,11 +35,11 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
     public interface IModeling3dReconstructDownloadListener
     {
         //JavaObject maybe make problems be careful doing test.
-        void onDownloadProgress(String taskId, double progress, AndroidJavaObject javaObject);
+        void onDownloadProgress(string taskId, double progress, AndroidJavaObject javaObject);
 
-        void onError(String taskId, int errorCode, String errorMessage);
+        void onError(string taskId, int errorCode, string errorMessage);
 
-        void OnResult(String taskId, Modeling3dReconstructDownloadResult result, AndroidJavaObject javaObject);
+        void onResult(string taskId, Modeling3dReconstructDownloadResult result, AndroidJavaObject javaObject);
 
     }
 }

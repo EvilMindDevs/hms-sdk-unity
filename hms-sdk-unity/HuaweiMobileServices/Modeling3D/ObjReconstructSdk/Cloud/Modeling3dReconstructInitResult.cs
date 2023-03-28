@@ -9,8 +9,8 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
     //https://developer.huawei.com/consumer/en/doc/development/graphics-References/modeling3dreconstructinitresult-0000001106773056
     public class Modeling3dReconstructInitResult : JavaObjectWrapper
     {
-        public Modeling3dReconstructInitResult(String taskId, int retCode, String retMsg) : 
-                            base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructInitResult", taskId, retCode, retMsg) { }
+        public Modeling3dReconstructInitResult(string taskId, int retCode, string retMsg) : 
+                            base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructInitResult", taskId.AsJavaString(), retCode, retMsg.AsJavaString()) { }
         
 
         /// <summary>
@@ -26,7 +26,6 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
         /// Result code of a 3D object reconstruction task. 0: The task is initialized successfully. 1: The task fails to be initialized.
         /// </returns>
         public int RetCode => Call<int>("getRetCode");
-
 
         /// <summary>
         /// Obtains the result message of a 3D object reconstruction task.
