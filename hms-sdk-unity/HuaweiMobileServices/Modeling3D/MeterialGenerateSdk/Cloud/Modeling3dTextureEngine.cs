@@ -72,7 +72,7 @@ namespace  HuaweiMobileServices.Modeling3D.MeterialGenerateSdk.Cloud
         /// <param name="context">App context.</param>
         /// <param name="previewListener">Listener for the preview.</param>
         /// </summary>
-        public void PreviewTexture(string taskId, AndroidJavaObject context, Modeling3dTexturePreviewListener previewListener) => Call("previewTexture", taskId.AsJavaString(), context, previewListener);
+        public void PreviewTexture(string taskId, Modeling3dTexturePreviewListener previewListener) => Call("previewTexture", taskId.AsJavaString(), AndroidContext.ApplicationContext, previewListener);
         /// <summary>
         /// Sets the listener for texture map download.
         /// <param name="listener">Instance of the texture map download listener.</param>

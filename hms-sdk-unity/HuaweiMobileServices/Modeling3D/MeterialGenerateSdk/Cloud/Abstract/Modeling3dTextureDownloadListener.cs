@@ -20,27 +20,27 @@ namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk.Cloud
 
         public void onDownloadProgress(string taskId, double progress, AndroidJavaObject javaObject)
         {
-            _IModeling3dTextureDownloadListener.onDownloadProgress(taskId.AsJavaString(), progress, javaObject);
+            _IModeling3dTextureDownloadListener.onDownloadProgress(taskId, progress, javaObject);
         }
 
         public void onError(string taskId, int errorCode, string errorMsg)
         {
-            _IModeling3dTextureDownloadListener.onError(taskId.AsJavaString(), errorCode, errorMsg.AsJavaString());
+            _IModeling3dTextureDownloadListener.onError(taskId, errorCode, errorMsg);
         }
 
-        public void OnResult(string taskId, Modeling3dTextureDownloadResult result, AndroidJavaObject javaObject)
+        public void onResult(string taskId, Modeling3dTextureDownloadResult result, AndroidJavaObject javaObject)
         {
-            _IModeling3dTextureDownloadListener.OnResult(taskId.AsJavaString(), result, javaObject);
+            _IModeling3dTextureDownloadListener.onResult(taskId, result, javaObject);
         }
 
         public interface IModeling3dTextureDownloadListener
         {
-            //JavaObject maybe make problems be careful doing test.
-            void onDownloadProgress(AndroidJavaObject taskId, double progress, AndroidJavaObject javaObject);
+            //TODO: AndroidObject maybe make problems be careful doing test. AndroidObject = Android Object Class
+            void onDownloadProgress(string taskId, double progress, AndroidJavaObject javaObject);
 
-            void onError(AndroidJavaObject taskId, int errorCode, AndroidJavaObject errorMessage);
+            void onError(string taskId, int errorCode, string errorMessage);
 
-            void OnResult(AndroidJavaObject taskId, Modeling3dTextureDownloadResult result, AndroidJavaObject javaObject);
+            void onResult(string taskId, Modeling3dTextureDownloadResult result, AndroidJavaObject javaObject);
 
         }
 

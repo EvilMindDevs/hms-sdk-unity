@@ -15,26 +15,26 @@ namespace  HuaweiMobileServices.Modeling3D.MeterialGenerateSdk.Cloud
 
         /// <summary>
         /// Obtains the ID of a material generation task.
+        /// <param name="taskId">Task ID.</param>
         /// </summary>
         /// <returns>ID of a material generation task. A unique task ID is generated each time the material generation API is called.</returns>
-        public string TaskId => CallAsString("getTaskId");
+        public string TaskId
+        {
+            get => CallAsString("getTaskId");
+            set => Call("setTaskId", value.AsJavaString());
+        }
         /// <summary>
         /// Obtains the image upload result.
+        /// <param name="isComplate">Whether the task is complete.</param>
         /// </summary>
         /// <returns>
         /// Model Upload  result. true: The model is uploaded successfully. false: The model fails to be uploaded.
         /// </returns>
-        public bool IsComplate => Call<bool>("isComplate");
-        /// <summary>
-        /// Sets the ID of a material generation task.
-        /// <param name="taskId">Task ID.</param>
-        /// </summary>
-        public void SetTaskId(string taskId) => Call("setTaskId", taskId.AsJavaString());
-        /// <summary>
-        /// Obtains the ID of a material generation task.
-        /// <param name="isComplate">Whether the task is complete.</param>
-        /// </summary>
-        public void SetComplate(bool isComplate) => Call("setComplate", isComplate);
-
+        public bool Complate
+        {
+            get => Call<bool>("isComplate");
+            set => Call("setComplate", value);
+        }
     }
+
 }

@@ -1,10 +1,9 @@
-using System;
 using HuaweiMobileServices.Utils;
 using UnityEngine;
 
 namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk.Cloud
 {
-    
+
     /// <summary>
     /// Wrapper for com.huawei.hms.materialgeneratesdk.cloud.Modeling3dTextureUploadListener.
     /// <see cref="Modeling3dTextureUploadListener" link=" https://developer.huawei.com/consumer/en/doc/development/graphics-References/modeling3dtextureuploadlistener-0000001153013001"/>
@@ -18,25 +17,25 @@ namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk.Cloud
         }
         public void onUploadProgress(string taskId, double progress, AndroidJavaObject javaObject)
         {
-            _IModeling3dTextureUploadListener.onUploadProgress(taskId.AsJavaString(), progress, javaObject);
+            _IModeling3dTextureUploadListener.onUploadProgress(taskId, progress, javaObject);
         }
         public void onError(string taskId, int errorCode, string errorMsg)
         {
-            _IModeling3dTextureUploadListener.onError(taskId.AsJavaString(), errorCode, errorMsg.AsJavaString());
+            _IModeling3dTextureUploadListener.onError(taskId, errorCode, errorMsg);
         }
-        public void OnResult(string taskId, Modeling3dTextureUploadResult result, AndroidJavaObject javaObject)
+        public void onResult(string taskId, Modeling3dTextureUploadResult result, AndroidJavaObject javaObject)
         {
-            _IModeling3dTextureUploadListener.OnResult(taskId.AsJavaString(), result, javaObject);
+            _IModeling3dTextureUploadListener.onResult(taskId, result, javaObject);
         }
 
         public interface IModeling3dTextureUploadListener
         {
-            //JavaObject maybe make problems be careful doing test.
-            void onUploadProgress(AndroidJavaObject taskId, double progress, AndroidJavaObject javaObject);
+            //TODO: AndroidObject maybe make problems be careful doing test. AndroidObject = Android Object Class
+            void onUploadProgress(string taskId, double progress, AndroidJavaObject javaObject);
 
-            void onError(AndroidJavaObject taskId, int errorCode, AndroidJavaObject errorMessage);
+            void onError(string taskId, int errorCode, string errorMessage);
 
-            void OnResult(AndroidJavaObject taskId, Modeling3dTextureUploadResult result, AndroidJavaObject javaObject);
+            void onResult(string taskId, Modeling3dTextureUploadResult result, AndroidJavaObject javaObject);
 
         }
     }

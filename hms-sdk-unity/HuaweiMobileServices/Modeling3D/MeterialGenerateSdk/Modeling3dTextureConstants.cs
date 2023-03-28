@@ -20,6 +20,8 @@ namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk
         {
             public RestrictStatus(AndroidJavaObject javaObject) : base(javaObject) { }
 
+            public RestrictStatus() : base("com.huawei.hms.meterialgeneratesdk.Modeling3dTextureConstants$RestrictStatus") { }
+
             ///<returns>1</returns>
             public int RESTRICT => CallStatic<int>("RESTRICT");
             ///<returns>0</returns>
@@ -33,6 +35,8 @@ namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk
         public class ProgressStatus : JavaObjectWrapper
         {
             public ProgressStatus(AndroidJavaObject javaObject) : base(javaObject) { }
+            public ProgressStatus() : base("com.huawei.hms.meterialgeneratesdk.Modeling3dTextureConstants$ProgressStatus") { }
+
 
             ///<summary>
             ///Task initialization is complete.
@@ -68,6 +72,8 @@ namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk
         public class AlgorithmMode : JavaObjectWrapper
         {
             public AlgorithmMode(AndroidJavaObject javaObject) : base(javaObject) { }
+            public AlgorithmMode() : base("com.huawei.hms.meterialgeneratesdk.Modeling3dTextureConstants$AlgorithmMode") { }
+
 
             ///<summary>
             ///AI mode.

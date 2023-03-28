@@ -18,17 +18,17 @@ namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk.Cloud
         }
         public void onError(string taskId, int errorCode, string errorMsg)
         {
-            _IModeling3dTexturePreviewListener.onError(taskId.AsJavaString(), errorCode, errorMsg.AsJavaString());
+            _IModeling3dTexturePreviewListener.onError(taskId, errorCode, errorMsg);
         }
-        public void OnResult(string taskId, AndroidJavaObject javaObject)
+        public void onResult(string taskId, AndroidJavaObject javaObject)
         {
-            _IModeling3dTexturePreviewListener.OnResult(taskId.AsJavaString(), javaObject);
+            _IModeling3dTexturePreviewListener.onResult(taskId, javaObject);
         }
 
         public interface IModeling3dTexturePreviewListener
         {
-            void onError(AndroidJavaObject taskId, int errorCode, AndroidJavaObject errorMessage);
-            void OnResult(AndroidJavaObject taskId,  AndroidJavaObject javaObject);
+            void onError(string taskId, int errorCode, string errorMessage);
+            void onResult(string taskId,  AndroidJavaObject javaObject);
 
         }
     }
