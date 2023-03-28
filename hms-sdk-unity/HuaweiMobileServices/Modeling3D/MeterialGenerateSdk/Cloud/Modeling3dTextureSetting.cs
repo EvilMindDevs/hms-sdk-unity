@@ -12,14 +12,14 @@ namespace  HuaweiMobileServices.Modeling3D.MeterialGenerateSdk.Cloud
     public class Modeling3dTextureSetting : JavaObjectWrapper
     {
         public Modeling3dTextureSetting(AndroidJavaObject javaObject) : base(javaObject) { }
-        public Modeling3dTextureSetting(int mode) : base("com.huawei.hms.materialgeneratesdk.cloud.Modeling3dTextureSetting", mode.AsJavaInteger()) { }
+        public Modeling3dTextureSetting(int mode) : base("com.huawei.hms.materialgeneratesdk.cloud.Modeling3dTextureSetting", mode) { }
         /// <summary>
         /// Obtains the working mode for material generation.
         /// </summary>
         /// <returns>
         /// <see cref="Working mode" link=" https://developer.huawei.com/consumer/en/doc/development/graphics-References/algorithmmode-0000001117111976"/>
         ///</returns>    
-        public int GetTextureMode() => CallAsInt("getTextureMode");
+        public int TextureMode => Call<int>("getTextureMode");
     
         public class Factory : JavaObjectWrapper
         {
@@ -36,7 +36,7 @@ namespace  HuaweiMobileServices.Modeling3D.MeterialGenerateSdk.Cloud
             /// <param name="textureMode">/// Working mode for material generation. </param>
             /// </summary>
             /// <returns> Modeling3dTextureSetting.Factory instance.</returns>
-            public Factory SetTextureMode(int textureMode) => CallAsWrapper<Factory>("setTextureMode", textureMode.AsJavaInteger());
+            public Factory SetTextureMode(int textureMode) => CallAsWrapper<Factory>("setTextureMode", textureMode);
 
         }
     }

@@ -23,7 +23,7 @@ namespace  HuaweiMobileServices.Modeling3D.MeterialGenerateSdk.Cloud
         /// <returns>
         /// Model download result. true: The model is downloaded successfully. false: The model fails to be downloaded.
         /// </returns>
-        public bool IsComplate => Call<bool>("isComplate");
+        public bool Complate => Call<bool>("isComplate");
 
     }
 }

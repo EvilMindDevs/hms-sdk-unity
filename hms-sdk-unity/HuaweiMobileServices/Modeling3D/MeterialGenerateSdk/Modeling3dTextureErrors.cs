@@ -20,6 +20,9 @@ namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk
         /// <returns>1201</returns>
         public int ERR_AUTHORIZE_FAILED => CallStatic<int>("ERR_AUTHORIZE_FAILED");
         /// <summary>
+        /// The data processing location is not set.
+        /// </summary>
+        /// <return>1203</return>
         public int ERR_DATA_PROCESSING_LOCATION_NOT_SET => CallStatic<int>("ERR_DATA_PROCESSING_LOCATION_NOT_SET");
         /// <summary>
         /// Failed to delete the uploaded files from the cloud.
