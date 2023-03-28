@@ -13,9 +13,8 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
         /// <summary>
         /// Obtains a Modeling3dReconstructEngine instance.
         /// </summary>
-        /// <param name="context">Context.</param>
         /// <returns>Instance of Modeling3dReconstructEngine.</returns>
-        public Modeling3dReconstructEngine GetInstance(AndroidJavaObject context) => sJavaClass.CallStaticAsWrapper<Modeling3dReconstructEngine>("getInstance",context);
+        public Modeling3dReconstructEngine GetInstance() => sJavaClass.CallStaticAsWrapper<Modeling3dReconstructEngine>("getInstance",AndroidContext.ApplicationContext);
         /// <summary>
         /// Initializes a 3D object reconstruction task.
         /// </summary>
@@ -39,10 +38,9 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
         /// Downloads the 3D object reconstruction task result.
         /// </summary>
         /// <param name="taskId">Task ID.</param>
-        /// <param name="context">App context.</param>
         /// <param name="previewConfig">Preview configuration.</param>
         /// <param name="previewListener">Listener for the preview.</param>
-        public void PreviewModelWithConfig(string taskId, AndroidJavaObject context, Modeling3dReconstructPreviewConfig previewConfig, Modeling3dReconstructPreviewListener previewListener) => Call("previewModelWithConfig", taskId.AsJavaString(), context, previewConfig, previewListener);
+        public void PreviewModelWithConfig(string taskId, Modeling3dReconstructPreviewConfig previewConfig, Modeling3dReconstructPreviewListener previewListener) => Call("previewModelWithConfig", taskId.AsJavaString(), AndroidContext.ApplicationContext, previewConfig, previewListener);
         public void SetReconstructDownloadListener(Modeling3dReconstructDownloadListener listener) => Call("setReconstructDownloadListener", listener);
         public void SetReconstructUploadListener(Modeling3dReconstructUploadListener listener) => Call("setReconstructUploadListener", listener);
        

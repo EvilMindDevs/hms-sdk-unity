@@ -8,8 +8,8 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
     //https://developer.huawei.com/consumer/en/doc/development/graphics-References/modeling3dreconstructdownloadconfig-0000001208860367
     public class Modeling3dReconstructDownloadConfig : JavaObjectWrapper
     {
-        public Modeling3dReconstructDownloadConfig(String fileFormat, int textureMode) : 
-                                    base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructDownloadConfig", fileFormat, textureMode) { }
+        public Modeling3dReconstructDownloadConfig(string fileFormat, int textureMode) : 
+                                    base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructDownloadConfig", fileFormat.AsJavaString(), textureMode.AsJavaInteger()){ }
 
         /// <summary>
         /// Obtains the file format of the downloaded model.
@@ -41,7 +41,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
             /// </summary>
             /// <param name="textureMode">Texture map mode. NORMAL: normal mode. PBR: PBR mode.</param>
             /// <returns>Instance of Modeling3dReconstructDownloadConfig.Factory.</returns>
-            public Factory SetTextureMode(int textureMode) => CallAsWrapper<Factory>("setTextureMode", textureMode);
+            public Factory SetTextureMode(int textureMode) => CallAsWrapper<Factory>("setTextureMode", textureMode.AsJavaInteger());
 
             /// <summary>
             /// Creates an instance of Modeling3dReconstructDownloadConfig.

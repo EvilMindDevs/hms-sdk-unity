@@ -14,20 +14,22 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
         /// Obtains the ID of a 3D object reconstruction task.
         /// </summary>
         /// <returns>ID of a 3D object reconstruction task. A unique task ID is generated each time the 3D object reconstruction API is called.</returns>
-        public string TaskId => CallAsString("getTaskId");
+        public string TaskId
+        {
+            get => CallAsString("getTaskId");
+            set => Call("setTaskId", value.AsJavaString());
+        }
         /// <summary>
         /// Obtains the model download result.
         /// </summary>
         /// <returns>
         /// Model download result. true: The model is downloaded successfully. false: The model fails to be downloaded.
         /// </returns>
-        public bool IsComplate => Call<bool>("isComplate");
+        public bool Complate
+        {
+            get => Call<bool>("isComplate");
+            set => Call("setComplate", value);
+        }
 
-        public void SetTaskId(string taskId) => Call("setTaskId", taskId.AsJavaString());
-
-        public void SetComplate(bool isComplate) => Call("setComplate", isComplate);
-
-
-    
     }
 }
