@@ -14,7 +14,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
         /// Obtains a Modeling3dReconstructEngine instance.
         /// </summary>
         /// <returns>Instance of Modeling3dReconstructEngine.</returns>
-        public Modeling3dReconstructEngine GetInstance() => sJavaClass.CallStaticAsWrapper<Modeling3dReconstructEngine>("getInstance",AndroidContext.ApplicationContext);
+        public static Modeling3dReconstructEngine GetInstance() => sJavaClass.CallStaticAsWrapper<Modeling3dReconstructEngine>("getInstance",AndroidContext.ApplicationContext);
         /// <summary>
         /// Initializes a 3D object reconstruction task.
         /// </summary>
@@ -42,8 +42,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
         /// <param name="previewListener">Listener for the preview.</param>
         public void PreviewModelWithConfig(string taskId, Modeling3dReconstructPreviewConfig previewConfig, Modeling3dReconstructPreviewListener previewListener) => Call("previewModelWithConfig", taskId.AsJavaString(), AndroidContext.ApplicationContext, previewConfig, previewListener);
         public void SetReconstructDownloadListener(Modeling3dReconstructDownloadListener listener) => Call("setReconstructDownloadListener", listener);
-        public void SetReconstructUploadListener(Modeling3dReconstructUploadListener listener) => Call("setReconstructUploadListener", listener);
-       
+        public void SetReconstructUploadListener(Modeling3dReconstructUploadListener listener) => Call("setReconstructUploadListener", listener);  
         /// <summary>
         /// Uploads images and triggers a 3D object reconstruction task.
         /// </summary>

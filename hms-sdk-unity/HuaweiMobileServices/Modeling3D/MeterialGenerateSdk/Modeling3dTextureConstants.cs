@@ -11,75 +11,73 @@ namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk
     {
         public Modeling3dTextureConstants(AndroidJavaObject javaObject) : base(javaObject) { }
         
-        //private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.meterialgeneratesdk.Modeling3dTextureConstants");
-
         /// <summary>
         /// Restriction status of a material generation task, which is specified in Modeling3dTextureConstants.
         /// </summary>
         public class RestrictStatus : JavaObjectWrapper
         {
+            private const string CLASS_NAME = "com.huawei.hms.meterialgeneratesdk.Modeling3dTextureConstants$RestrictStatus";
             public RestrictStatus(AndroidJavaObject javaObject) : base(javaObject) { }
-
-            public RestrictStatus() : base("com.huawei.hms.meterialgeneratesdk.Modeling3dTextureConstants$RestrictStatus") { }
-
+            public RestrictStatus() : base(CLASS_NAME) { }
+            private static readonly AndroidJavaClass javaClass = new AndroidJavaClass(CLASS_NAME);
             ///<returns>1</returns>
-            public int RESTRICT => CallStatic<int>("RESTRICT");
+            public static int RESTRICT => javaClass.GetStatic<int>("RESTRICT");
             ///<returns>0</returns>
-            public int UNRESTRICT => CallStatic<int>("UNRESTRICT");
-
+            public static int UNRESTRICT => javaClass.GetStatic<int>("UNRESTRICT");
         }
-
         /// <summary>
         /// Status of a material generation task, which is specified in Modeling3dTextureConstants.
         /// </summary>
         public class ProgressStatus : JavaObjectWrapper
         {
+            private const string CLASS_NAME = "com.huawei.hms.meterialgeneratesdk.Modeling3dTextureConstants$ProgressStatus";
             public ProgressStatus(AndroidJavaObject javaObject) : base(javaObject) { }
-            public ProgressStatus() : base("com.huawei.hms.meterialgeneratesdk.Modeling3dTextureConstants$ProgressStatus") { }
+            public ProgressStatus() : base(CLASS_NAME) { }
 
+            private static readonly AndroidJavaClass javaClass = new AndroidJavaClass(CLASS_NAME);
 
             ///<summary>
             ///Task initialization is complete.
             ///</summary>
             ///<returns>0</returns>
-            public int INITED => CallStatic<int>("INITED");
+            public static int INITED => javaClass.GetStatic<int>("INITED");
             ///<summary>
             ///File upload is complete.
             ///</summary>
             ///<returns>1</returns>
-            public int UPLOAD_COMPLETED => CallStatic<int>("UPLOAD_COMPLETED");
+            public static int UPLOAD_COMPLETED => javaClass.GetStatic<int>("UPLOAD_COMPLETED");
             ///<summary>
             ///A material generation task starts.
             ///</summary>
             ///<returns>2</returns>
-            public int TEXTURE_START => CallStatic<int>("TEXTURE_START");
+            public static int TEXTURE_START => javaClass.GetStatic<int>("TEXTURE_START");
             ///<summary>
             ///A material generation task is complete.
             ///</summary>
             ///<returns>3</returns>
-            public int TEXTURE_COMPLETED => CallStatic<int>("TEXTURE_COMPLETED");
+            public static int TEXTURE_COMPLETED => javaClass.GetStatic<int>("TEXTURE_COMPLETED");
             ///<summary>
             ///A material generation task fails.
             ///</summary>
             ///<returns>4</returns>
-            public int TEXTURE_FAILED => CallStatic<int>("TEXTURE_FAILED");
+            public static int TEXTURE_FAILED => javaClass.GetStatic<int>("TEXTURE_FAILED");
 
         }
-
         /// <summary>
         /// Working mode for material generation, which is specified in Modeling3dTextureConstants.
         /// </summary>
         public class AlgorithmMode : JavaObjectWrapper
         {
+            private const string CLASS_NAME = "com.huawei.hms.meterialgeneratesdk.Modeling3dTextureConstants$AlgorithmMode";
             public AlgorithmMode(AndroidJavaObject javaObject) : base(javaObject) { }
-            public AlgorithmMode() : base("com.huawei.hms.meterialgeneratesdk.Modeling3dTextureConstants$AlgorithmMode") { }
-
+            public AlgorithmMode() : base(CLASS_NAME) { }
+            private static readonly AndroidJavaClass javaClass = new AndroidJavaClass(CLASS_NAME);
 
             ///<summary>
             ///AI mode.
             ///</summary>
             ///<returns>1</returns>
-            public int AI => CallStatic<int>("AI");
+            public static int AI => javaClass.GetStatic<int>("AI");
         }
     }
 }
