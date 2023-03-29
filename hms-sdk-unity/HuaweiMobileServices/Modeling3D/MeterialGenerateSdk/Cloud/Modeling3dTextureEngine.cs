@@ -22,7 +22,7 @@ namespace  HuaweiMobileServices.Modeling3D.MeterialGenerateSdk.Cloud
         /// Modeling3dTextureEngine instance
         /// <see cref="Modeling3dTextureEngine:" link=" https://developer.huawei.com/consumer/en/doc/development/graphics-References/modeling3dtextureengine-0000001106773052"/>
         /// </returns>
-        public Modeling3dTextureEngine GetInstance() => javaClass.CallStaticAsWrapper<Modeling3dTextureEngine>("getInstance",AndroidContext.ApplicationContext);
+        public static Modeling3dTextureEngine GetInstance() => javaClass.CallStaticAsWrapper<Modeling3dTextureEngine>("getInstance",AndroidContext.ApplicationContext);
         /// <summary>
         /// Initializes the texture generation task.
         /// <param name="taskId">Task ID.</param>

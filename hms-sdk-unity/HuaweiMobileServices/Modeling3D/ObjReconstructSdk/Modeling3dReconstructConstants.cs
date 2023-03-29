@@ -12,7 +12,6 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk
         public Modeling3dReconstructConstants(AndroidJavaObject javaObject) : base(javaObject)
         {
         }
-        public static explicit operator Modeling3dReconstructConstants(AndroidJavaObject javaObject) => javaObject == null ? null : new Modeling3dReconstructConstants(javaObject);
 
         /// <summary>
         /// Reason for a failed 3D object reconstruction task, which is specified in Modeling3dReconstructConstants.
@@ -20,43 +19,46 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk
         public class ReconstructFailCode : JavaObjectWrapper
         {
             //Not necessary to implement this because class name is the same as the java class name
-            //private static AndroidJavaClass sJavaClass = new AndroidJavaClass("com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants");
+
+            private const string CLASS_NAME = "com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$ReconstructFailCode";
+
+            private static AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
             public ReconstructFailCode(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            public ReconstructFailCode() : base("com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$ReconstructFailCode", AndroidContext.ActivityContext) { }
+            public ReconstructFailCode() : base(CLASS_NAME, AndroidContext.ActivityContext) { }
 
             /// <summary>
             /// Internal error.
             /// <returns>Error code = 1 </returns>
             /// </summary>
-            public int INNER_ERROR => CallStatic<int>("INNER_ERROR");
+            public static int INNER_ERROR => sJavaClass.GetStatic<int>("INNER_ERROR");
             /// <summary>
             /// Image file verification failed.
             /// <returns>Error code = 2 </returns>
             /// </summary>
-            public int FILE_CHECK_FAILED => CallStatic<int>("FILE_CHECK_FAILED");
+            public static int FILE_CHECK_FAILED => sJavaClass.GetStatic<int>("FILE_CHECK_FAILED");
             /// <summary>
             /// Invalid image.
             /// </summary>
             /// <returns>Error code = 3 </returns>
-            public int PICTURE_ILLEGAL => CallStatic<int>("PICTURE_ILLEGAL");
+            public static int PICTURE_ILLEGAL => sJavaClass.GetStatic<int>("PICTURE_ILLEGAL");
             /// <summary>
             /// The algorithm processing failed.
             /// </summary>
             /// <returns>Error code = 4 </returns>s
-            public int ALGORITHM_FAILED => CallStatic<int>("ALGORITHM_FAILED");
+            public static int ALGORITHM_FAILED => sJavaClass.GetStatic<int>("ALGORITHM_FAILED");
             /// <summary>
             /// The quota of API calls is used up.
             /// </summary>
             /// <returns>Error code = 5 </returns>
-            public int BILLING_QUOTA_EXHAUSTED => CallStatic<int>("BILLING_QUOTA_EXHAUSTED");
+            public static int BILLING_QUOTA_EXHAUSTED => sJavaClass.GetStatic<int>("BILLING_QUOTA_EXHAUSTED");
             /// <summary>
             /// The project is in arrears.
             /// </summary>
             /// <returns>Error code = 6 </returns>
-            public int BILLING_OVERDUE => CallStatic<int>("BILLING_OVERDUE");
-            public int MEP_CREATE_TASK_FAILED => CallStatic<int>("MEP_CREATE_TASK_FAILED");
-            public int MEP_QUERY_TASK_FAILED => CallStatic<int>("MEP_QUERY_TASK_FAILED");
+            public static int BILLING_OVERDUE => sJavaClass.GetStatic<int>("BILLING_OVERDUE");
+            public static int MEP_CREATE_TASK_FAILED => sJavaClass.GetStatic<int>("MEP_CREATE_TASK_FAILED");
+            public static int MEP_QUERY_TASK_FAILED => sJavaClass.GetStatic<int>("MEP_QUERY_TASK_FAILED");
 
         }
         /// <summary>
@@ -64,25 +66,28 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk
         /// </summary>
         public class FaceLevel : JavaObjectWrapper
         {
+            private const string CLASS_NAME = "com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$FaceLevel";
             public FaceLevel(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            public FaceLevel() : base("com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$FaceLevel", AndroidContext.ActivityContext) { }
+            public FaceLevel() : base(CLASS_NAME, AndroidContext.ActivityContext) { }
+
+            private static AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
 
             /// <summary>
             /// Low face level.
             /// </summary>
             /// <returns>Face level = 2 </returns>
-            public int LOW => CallStatic<int>("LOW");
+            public static int LOW => sJavaClass.GetStatic<int>("LOW");
             /// <summary>
             /// Medium face level.
             /// </summary>
             /// <returns>Face level = 1 </returns>
-            public int MEDIUM => CallStatic<int>("MEDIUM");
+            public static int MEDIUM => sJavaClass.GetStatic<int>("MEDIUM");
             /// <summary>
             /// High face level.
             /// </summary>
             /// <returns>Face level = 0 </returns>
-            public int HIGH => CallStatic<int>("HIGH");
+            public static int HIGH => sJavaClass.GetStatic<int>("HIGH");
 
         }
         /// <summary>
@@ -90,41 +95,48 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk
         /// </summary>
         public class NeedRescan : JavaObjectWrapper
         {
+            private const string CLASS_NAME = "com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$NeedRescan";
             public NeedRescan(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            public NeedRescan() : base("com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$NeedRescan", AndroidContext.ActivityContext) { }
+            public NeedRescan() : base(CLASS_NAME, AndroidContext.ActivityContext) { }
+
+            private static AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
+
 
             /// <summary>
             /// Enabled.
             /// </summary>
             /// <returns>true</returns>
-            public bool OPEN => Convert.ToBoolean(CallAsString("OPEN"));
+            public static bool OPEN => Convert.ToBoolean(sJavaClass.GetStatic<string>("OPEN"));        
             /// <summary>
             /// Disabled.
             /// </summary>
             /// <returns>false</returns>
-            public bool CLOSE => Convert.ToBoolean(CallAsString("CLOSE"));
-
+            public static bool CLOSE => Convert.ToBoolean(sJavaClass.GetStatic<string>("CLOSE"));
         }
         /// <summary>
         /// Texture map mode, which is specified in Modeling3dReconstructConstants.
         /// </summary>
         public class TextureMode : JavaObjectWrapper
         {
+            private const string CLASS_NAME = "com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$TextureMode";
+
             public TextureMode(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            public TextureMode() : base("com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$TextureMode", AndroidContext.ActivityContext) { }
+            public TextureMode() : base(CLASS_NAME, AndroidContext.ActivityContext) { }
+
+            private static AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
 
             /// <summary>
             /// Texture mode: NORMAL.
             /// </summary>
             /// <returns> 0 </returns>
-            public int NORMAL => CallStatic<int>("NORMAL");
+            public static int NORMAL => sJavaClass.GetStatic<int>("NORMAL");
             /// <summary>
             /// Texture mode: PBR.
             /// </summary>
             /// <returns> 1 </returns>
-            public int PBR => CallStatic<int>("PBR");
+            public static int PBR =>    sJavaClass.GetStatic<int>("PBR");
 
         }
         /// <summary>
@@ -132,45 +144,52 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk
         /// </summary>
         public class ModelFormat : JavaObjectWrapper
         {
+            private const string CLASS_NAME = "com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$ModelFormat";
+
             public ModelFormat(AndroidJavaObject javaObject) : base(javaObject) { }
-            public ModelFormat() : base("com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$ModelFormat", AndroidContext.ActivityContext) { }
+            public ModelFormat() : base(CLASS_NAME, AndroidContext.ActivityContext) { }
+
+            private static AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
             /// <summary>
             /// Model format: OBJ.
             /// </summary>
             /// <returns> OBJ </returns>
-            public string OBJ => CallAsString("OBJ");
+            public static string OBJ => sJavaClass.GetStatic<string>("OBJ");
             /// <summary>
             /// Model format: GLTF.
             /// </summary>
             /// <returns> GLTF </returns>
-            public string GLTF => CallAsString("GLTF");
+            public static string GLTF => sJavaClass.GetStatic<string>("OBJ");
             /// <summary>
             /// Model format: FBX.
             /// </summary>
             /// <returns> FBX </returns>
-            public string FBX => CallAsString("FBX");
-        
+            public static string FBX => sJavaClass.GetStatic<string>("FBX");
+
         }
         /// <summary>
         /// Type of a 3D object reconstruction task, which is specified in Modeling3dReconstructConstants.
         /// </summary>
         public class TaskType : JavaObjectWrapper
         {
+            private const string CLASS_NAME = "com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$TaskType";
+
             public TaskType(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            public TaskType() : base("com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$TaskType", AndroidContext.ActivityContext) { }
+            public TaskType() : base(CLASS_NAME, AndroidContext.ActivityContext) { }
+
+            private static AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
 
             /// <summary>
             /// Task type: 3D object reconstruction.
             /// </summary>
             /// <returns> 0 </returns>
-            public int OBJ_RECONSTRUCT => CallStatic<int>("OBJ_RECONSTRUCT");
+            public static int OBJ_RECONSTRUCT => sJavaClass.GetStatic<int>("OBJ_RECONSTRUCT");
             /// <summary>
             /// Task type: Auto rigging.
             /// </summary>
             /// <returns> 2 </returns>
-            public int AUTO_RIGGING =>  CallStatic<int>("AUTO_RIGGING");
-
+            public static int AUTO_RIGGING => sJavaClass.GetStatic<int>("AUTO_RIGGING");
 
         }
         /// <summary>
@@ -178,91 +197,101 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk
         /// </summary>
         public class RestrictStatus : JavaObjectWrapper
         {
+            private const string CLASS_NAME = "com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$RestrictStatus";
+
             public RestrictStatus(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            public RestrictStatus() : base("com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$RestrictStatus", AndroidContext.ActivityContext) { }
+            public RestrictStatus() : base(CLASS_NAME, AndroidContext.ActivityContext) { }
+
+            private static AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
 
             /// <summary>
             /// Restrict status: Not restricted.
             /// </summary>
             /// <returns> 0 </returns>
-            public int UNRESTRICT => CallStatic<int>("UNRESTRICT");
+            public static int UNRESTRICT =>sJavaClass.GetStatic<int>("UNRESTRICT");
             /// <summary>
             /// Restrict status: Restricted.
             /// </summary>
             /// <returns> 1 </returns>
-            public int RESTRICT => CallStatic<int>("RESTRICT");
-
+            public static int RESTRICT =>sJavaClass.GetStatic<int>("RESTRICT");
         }
         /// <summary>
         /// Status of a 3D object reconstruction task, which is specified in Modeling3dReconstructConstants.
         /// </summary>
         public class ProgressStatus : JavaObjectWrapper
         {
+            private const string CLASS_NAME = "com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$ProgressStatus";
+
             public ProgressStatus(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            public ProgressStatus() : base("com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$ProgressStatus", AndroidContext.ActivityContext) { }
+            public ProgressStatus() : base(CLASS_NAME, AndroidContext.ActivityContext) { }
+
+            private static AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
 
             /// <summary>
             /// Progress status: Task initialization is complete.
             /// </summary>
             /// <returns>Progress status = 0 </returns>
-            public int INITED => CallStatic<int>("INITED");
+            public static int INITED => sJavaClass.GetStatic<int>("INITED");
             /// <summary>
             /// Progress status: File upload is complete.
             /// </summary>
             /// <returns>Progress status = 1 </returns>
-            public int UPLOAD_COMPLETED => CallStatic<int>("UPLOAD_COMPLETED");
+            public static int UPLOAD_COMPLETED => sJavaClass.GetStatic<int>("UPLOAD_COMPLETED");
             /// <summary>
             /// Progress status: A 3D object reconstruction task starts.
             /// </summary>
             /// <returns>Progress status = 2 </returns>
-            public int RECONSTRUCT_START => CallStatic<int>("RECONSTRUCT_START");
+            public static int RECONSTRUCT_START => sJavaClass.GetStatic<int>("RECONSTRUCT_START");
             /// <summary>
             /// Progress status: A 3D object reconstruction task is complete.
             /// </summary>
             /// <returns>Progress status = 3 </returns>
-            public int RECONSTRUCT_COMPLETED => CallStatic<int>("RECONSTRUCT_COMPLETED");
+            public static int RECONSTRUCT_COMPLETED => sJavaClass.GetStatic<int>("RECONSTRUCT_COMPLETED");
             /// <summary>
             /// Progress status: A 3D object reconstruction task fails.
             /// </summary>
             /// <returns>Progress status = 4 </returns>
-            public int RECONSTRUCT_FAILED => CallStatic<int>("RECONSTRUCT_FAILED");
+            public static int RECONSTRUCT_FAILED => sJavaClass.GetStatic<int>("RECONSTRUCT_FAILED");
             /// <summary>
             /// Progress status: The 3D object reconstruction task is under risk control check.
             /// </summary>
             /// <returns>Progress status = 5 </returns>
-            public int RISK_CONTROL_AUDIT_IN_PROGRESS => CallStatic<int>("RISK_CONTROL_AUDIT_IN_PROGRESS");
+            public static int RISK_CONTROL_AUDIT_IN_PROGRESS => sJavaClass.GetStatic<int>("RISK_CONTROL_AUDIT_IN_PROGRESS");
             /// <summary>
             /// Progress status: The 3D object reconstruction task passes the risk control check.
             /// </summary>
             /// <returns>Progress status = 6 </returns>
-            public int RISK_CONTROL_PASSED => CallStatic<int>("RISK_CONTROL_PASSED");
+            public static int RISK_CONTROL_PASSED => sJavaClass.GetStatic<int>("RISK_CONTROL_PASSED");
             /// <summary>
             /// Progress status: The 3D object reconstruction task failed to pass the risk control check. Submit a ticket online, and Huawei technical support will handle it in time.
             /// </summary>
             /// <returns>Progress status = 7 </returns>
-            public int RISK_CONTROL_FAILED => CallStatic<int>("RISK_CONTROL_FAILED");
+            public static int RISK_CONTROL_FAILED => sJavaClass.GetStatic<int>("RISK_CONTROL_FAILED");
             /// <summary>
             /// Progress status: The task deleted.
             /// </summary>
             /// <returns>Progress status = 8 </returns>
-            public int TASK_DELETED => CallStatic<int>("TASK_DELETED");
+            public static int TASK_DELETED => sJavaClass.GetStatic<int>("TASK_DELETED");
         }
         /// <summary>
         /// Working mode for 3D object reconstruction, which is specified in Modeling3dReconstructConstants.
         /// </summary>
         public class ReconstructMode : JavaObjectWrapper
         {
+            private const string CLASS_NAME = "com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$ReconstructMode";
+
             public ReconstructMode(AndroidJavaObject javaObject) : base(javaObject) { }
 
-            public ReconstructMode() : base("com.huawei.hms.objreconstructsdk.Modeling3dReconstructConstants$ReconstructMode", AndroidContext.ActivityContext) { }
+            public ReconstructMode() : base(CLASS_NAME, AndroidContext.ActivityContext) { }
+            private static AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
 
             /// <summary>
             /// Reconstruct mode: PICTURE mode
             /// </summary>
             /// <returns>Reconstruct mode = 0 </returns>
-            public int PICTURE => CallStatic<int>("PICTURE");
+            public static int PICTURE => sJavaClass.GetStatic<int>("PICTURE");
 
         }
     }

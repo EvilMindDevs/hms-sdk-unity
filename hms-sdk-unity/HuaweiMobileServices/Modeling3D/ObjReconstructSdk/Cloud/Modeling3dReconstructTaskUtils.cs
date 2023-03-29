@@ -13,7 +13,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
 
         private static readonly AndroidJavaClass javaClass = new AndroidJavaClass("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructTaskUtils");
 
-        public Modeling3dReconstructTaskUtils GetInstance() => javaClass.CallStaticAsWrapper<Modeling3dReconstructTaskUtils>("getInstance",AndroidContext.ApplicationContext);
+        public static Modeling3dReconstructTaskUtils GetInstance() => javaClass.CallStaticAsWrapper<Modeling3dReconstructTaskUtils>("getInstance",AndroidContext.ApplicationContext);
 
         public int DeleteTask(string taskId) => Call<int>("deleteTask", taskId.AsJavaString());
         
