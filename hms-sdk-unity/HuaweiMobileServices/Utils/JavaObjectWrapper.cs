@@ -41,6 +41,9 @@ namespace HuaweiMobileServices.Utils
         internal protected int CallAsInt(string methodName, params object[] args) =>
             Call<AndroidJavaObject>(methodName, args.AsAutoParams()).AsInt();
 
+        internal protected long? CallAsLong(string methodName, params object[] args) =>
+            Call<AndroidJavaObject>(methodName, args.AsAutoParams()).AsLong();
+
         internal protected bool CallAsBool(string methodName, params object[] args) =>
             Call<AndroidJavaObject>(methodName, args.AsAutoParams()).AsBool();
 
