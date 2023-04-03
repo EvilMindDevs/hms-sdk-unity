@@ -20,7 +20,7 @@ namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk
         /// Obtains the default app instance.
         /// </summary>
         /// <returns>Default app instance.</returns>
-        public static MeterialGenApplication GetInstance() => sJavaClass.GetStaticAsWrapper<MeterialGenApplication>("getInstance");
+        public static MeterialGenApplication GetInstance() => sJavaClass.CallStaticAsWrapper<MeterialGenApplication>("getInstance");
         /// <summary>
         /// Sets the access token for your app.
         /// </summary>
