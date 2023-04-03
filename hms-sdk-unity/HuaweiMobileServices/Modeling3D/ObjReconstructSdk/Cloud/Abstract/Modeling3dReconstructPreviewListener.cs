@@ -20,9 +20,9 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
             _IModeling3dReconstructPreviewListener.onError(taskId, errorCode, errorMsg);
         }
 
-        public void OnResult(string taskId, AndroidJavaObject javaObject)
+        public void onResult(string taskId, AndroidJavaObject javaObject)
         {
-            _IModeling3dReconstructPreviewListener.OnResult(taskId, javaObject);
+            _IModeling3dReconstructPreviewListener.onResult(taskId, javaObject);
         }
 
     }
@@ -31,7 +31,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
     {
         void onError(string taskId, int errorCode, string message);
 
-        void OnResult(string taskId, AndroidJavaObject javaObject);
+        void onResult(string taskId, AndroidJavaObject javaObject);
 
     }
 }
