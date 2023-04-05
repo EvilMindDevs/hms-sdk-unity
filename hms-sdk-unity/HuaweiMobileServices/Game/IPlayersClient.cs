@@ -1,7 +1,6 @@
 ﻿namespace HuaweiMobileServices.Game
 {
     using HuaweiMobileServices.Base;
-    using HuaweiMobileServices.Utils;
     using System;
 
     // Wrapper for com.huawei.hms.jos.games.PlayersClient
@@ -12,6 +11,10 @@
         ITask<Player> GamePlayer { get; }
 
         ITask<string> CachePlayerId { get; }
+
+        ITask<int> UserPlayState { get; }
+
+        ITask<bool> IsAllowContinuePlayGames { get; }
 
         ITask<Utils.Void> SavePlayerInfo(AppPlayerInfo paramAppPlayerInfo);
 

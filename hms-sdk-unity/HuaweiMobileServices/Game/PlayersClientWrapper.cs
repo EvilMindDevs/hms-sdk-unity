@@ -6,8 +6,6 @@ namespace HuaweiMobileServices.Game
 
     internal class PlayersClientWrapper : JavaObjectWrapper, IPlayersClient
     {
-
-
         public PlayersClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public ITask<Player> CurrentPlayer => CallAsWrapper<TaskJavaObjectWrapper<Player>>("getCurrentPlayer");
@@ -17,6 +15,10 @@ namespace HuaweiMobileServices.Game
         public ITask<Player> GetGamePlayer(bool isRequirePlayerId) => CallAsWrapper<TaskJavaObjectWrapper<Player>>("getGamePlayer", isRequirePlayerId);
 
         public ITask<string> CachePlayerId => CallAsWrapper<TaskStringWrapper>("getCachePlayerId");
+
+        public ITask<int> UserPlayState => CallAsWrapper<TaskPrimitive<int>>("getUserPlayState");
+
+        public ITask<bool> IsAllowContinuePlayGames => CallAsWrapper<TaskPrimitive<bool>>("isAllowContinuePlayGames");
 
         public ITask<PlayerExtraInfo> GetPlayerExtraInfo(string transactionId) =>
              CallAsWrapper<TaskJavaObjectWrapper<PlayerExtraInfo>>("getPlayerExtraInfo", transactionId.AsJavaString());
