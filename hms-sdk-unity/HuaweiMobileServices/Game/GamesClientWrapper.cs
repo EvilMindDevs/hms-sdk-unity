@@ -7,8 +7,6 @@
 
     internal class GamesClientWrapper : JavaObjectWrapper, IGamesClient
     {
-
-        
         public GamesClientWrapper(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public ITask<string> AppId => CallAsWrapper<TaskStringWrapper>("getAppId");
