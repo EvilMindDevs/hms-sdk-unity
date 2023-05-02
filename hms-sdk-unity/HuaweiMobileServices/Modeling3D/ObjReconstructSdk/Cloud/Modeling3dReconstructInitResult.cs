@@ -9,6 +9,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
     //https://developer.huawei.com/consumer/en/doc/development/graphics-References/modeling3dreconstructinitresult-0000001106773056
     public class Modeling3dReconstructInitResult : JavaObjectWrapper
     {
+        public Modeling3dReconstructInitResult(AndroidJavaObject javaObject) : base(javaObject) { }
         public Modeling3dReconstructInitResult(string taskId, int retCode, string retMsg) : 
                             base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructInitResult", taskId.AsJavaString(), retCode, retMsg.AsJavaString()) { }
         

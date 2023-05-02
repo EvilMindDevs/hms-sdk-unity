@@ -8,6 +8,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
     //https://developer.huawei.com/consumer/en/doc/development/graphics-References/modeling3dreconstructdownloadconfig-0000001208860367
     public class Modeling3dReconstructDownloadConfig : JavaObjectWrapper
     {
+        public Modeling3dReconstructDownloadConfig(AndroidJavaObject javaObject) : base(javaObject) { }
         public Modeling3dReconstructDownloadConfig(string fileFormat, int textureMode) : 
                                     base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructDownloadConfig", fileFormat.AsJavaString(), textureMode.AsJavaInteger()){ }
 

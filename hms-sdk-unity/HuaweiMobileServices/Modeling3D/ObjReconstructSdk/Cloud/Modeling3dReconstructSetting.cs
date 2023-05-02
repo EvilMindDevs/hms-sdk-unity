@@ -32,7 +32,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
         ///    AUTO_RIGGING: auto rigging
         ///    OBJ_RECONSTRUCT: 3D object reconstruction
         /// </returns>
-        public int GetTaskType() => CallAsInt("getTaskType");
+        public int TaskType => CallAsInt("getTaskType");
         /// <summary>
         /// Obtains the texture map mode.
         /// </summary>
@@ -41,14 +41,14 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
         ///     NORMAL: normal mode
         ///     PBR: PBR mode
         /// </returns>
-        public int GetTextureMode() => CallAsInt("getTextureMode");
+        public int TextureMode => CallAsInt("getTextureMode");
         /// <summary>
         /// Obtains the working mode for 3D object reconstruction.
         /// </summary>
         /// <returns>Working mode.PICTURE: picture mode. Currently, only this mode is supported. <see cref="Status Link:" href=" https://developer.huawei.com/consumer/en/doc/development/graphics-References/capturemode-0000001117263174#section127055371184" /></returns>
-        public int GetReconstructMode() => CallAsInt("getReconstructMode");
-        public string GetNeedRescan() => CallAsString("getNeedRescan");
-        public string GetTaskId() => CallAsString("getTaskId");
+        public int ReconstructMode => CallAsInt("getReconstructMode");
+        public string NeedRescan => CallAsString("getNeedRescan");
+        public string TaskId => CallAsString("getTaskId");
 
         public class Factory : JavaObjectWrapper
         {

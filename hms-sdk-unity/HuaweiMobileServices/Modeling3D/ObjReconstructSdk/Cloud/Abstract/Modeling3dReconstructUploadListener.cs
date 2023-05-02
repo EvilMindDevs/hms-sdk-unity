@@ -17,7 +17,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
 
         public void onUploadProgress(string taskId, double progress, AndroidJavaObject javaObject)
         {
-            _IModeling3dReconstructUploadListener.onDownloadProgress(taskId, progress, javaObject);
+            _IModeling3dReconstructUploadListener.onUploadProgress(taskId, progress, javaObject);
         }
 
         public void onError(string taskId, int errorCode, string errorMsg)
@@ -25,9 +25,9 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
             _IModeling3dReconstructUploadListener.onError(taskId, errorCode, errorMsg);
         }
 
-        public void onResult(string taskId, Modeling3dReconstructUploadResult result, AndroidJavaObject javaObject)
+        public void onResult(string taskId, AndroidJavaObject result, AndroidJavaObject javaObject)
         {
-            _IModeling3dReconstructUploadListener.onResult(taskId, result, javaObject);
+            _IModeling3dReconstructUploadListener.onResult(taskId, (Modeling3dReconstructUploadResult)result, javaObject);
         }
 
     }
@@ -35,7 +35,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
     public interface IModeling3dReconstructUploadListener
     {
         //JavaObject maybe make problems be careful doing test.
-        void onDownloadProgress(string taskId, double progress, AndroidJavaObject javaObject);
+        void onUploadProgress(string taskId, double progress, AndroidJavaObject javaObject);
 
         void onError(string taskId, int errorCode, string errorMessage);
 

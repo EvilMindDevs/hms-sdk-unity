@@ -33,7 +33,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
         /// <param name="taskId">Task ID.</param>
         /// <param name="fileSavePath">Path to which the generated 3D object model is to be saved.</param>
         /// <param name="downloadConfig">Custom download configurations.</param>
-        public void DownloadModelWithConfig(string taskId, string fileSavePath, Modeling3dReconstructDownloadConfig downloadConfig) => Call("downloadModelWithConfig", taskId.AsJavaString(), fileSavePath.AsJavaString(), downloadConfig);
+        public void DownloadModelWithConfig(string taskId, string fileSavePath, Modeling3dReconstructDownloadConfig downloadConfig) => Call("downloadModelWithConfig", taskId, fileSavePath, downloadConfig);
         /// <summary>
         /// Downloads the 3D object reconstruction task result.
         /// </summary>
@@ -48,7 +48,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
         /// </summary>
         /// <param name="taskId">Task ID.</param>
         /// <param name="filePath">Path from which images are to be uploaded.</param>
-        public void UploadFile(string taskId, string filePath) => Call("uploadFile", taskId.AsJavaString(), filePath.AsJavaString());
+        public void UploadFile(string taskId, string filePath) => Call("uploadFile", taskId, filePath);
 
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using HuaweiMobileServices.Ads.NativeAd;
 using HuaweiMobileServices.Utils;
 using UnityEngine;
 
@@ -8,7 +9,11 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
     //https://developer.huawei.com/consumer/en/doc/development/graphics-References/modeling3dreconstructuploadresult-0000001106453244
     public class Modeling3dReconstructUploadResult : JavaObjectWrapper
     {
-        public Modeling3dReconstructUploadResult(string taskId, bool isComplate) : base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructUploadResult", taskId.AsJavaString(), isComplate) { }
+        public Modeling3dReconstructUploadResult(AndroidJavaObject javaObject) : base(javaObject) { }
+
+        public Modeling3dReconstructUploadResult(string taskId, bool isComplate) : base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructUploadResult", taskId, isComplate) { }
+
+        public static explicit operator Modeling3dReconstructUploadResult(AndroidJavaObject v) => new Modeling3dReconstructUploadResult(v);
 
         /// <summary>
         /// Obtains the ID of a 3D object reconstruction task.
@@ -17,7 +22,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
         public string TaskId
         {
             get => CallAsString("getTaskId");
-            set => Call("setTaskId", value.AsJavaString());
+            set => Call("setTaskId", value);
         }
         /// <summary>
         /// Obtains the model download result.
@@ -27,7 +32,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
         /// </returns>
         public bool Complate
         {
-            get => Call<bool>("isComplate");
+            get => Call<bool>("isComplete");
             set => Call("setComplate", value);
         }
 
