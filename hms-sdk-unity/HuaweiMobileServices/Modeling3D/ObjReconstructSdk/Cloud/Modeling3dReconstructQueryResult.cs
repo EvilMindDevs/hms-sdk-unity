@@ -22,27 +22,27 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
         /// Obtains the reason why the 3D object reconstruction task fails.
         /// </summary>
         /// <returns>Failure reason.</returns>
-        public string GetReconstructFailMessage() => CallAsString("getReconstructFailMessage");
+        public string ReconstructFailMessage => CallAsString("getReconstructFailMessage");
         /// <summary>
         /// Obtains the result code for a 3D object reconstruction task.
         /// </summary>
         /// <returns>Result code.</returns>
-        public int GetRetCode() => Call<int>("getRetCode");
+        public int RetCode => Call<int>("getRetCode");
         /// <summary>
         /// Obtains the description of the result code for a 3D object reconstruction task.
         /// </summary>
         /// <returns>Description of the result code.</returns>
-        public string GetRetMessage() => CallAsString("getRetMessage");
+        public string RetMessage => CallAsString("getRetMessage");
         /// <summary>
         /// Obtains the status of a 3D object reconstruction task.
         /// </summary>
         /// <returns>Status of a 3D object reconstruction task. <see cref="Status Link:" href=" https://developer.huawei.com/consumer/en/doc/development/graphics-References/modeling3dreconstructconstants-progressstatus-0000001153213065" /></returns>
-        public string GetStatus() => CallAsString("getStatus");
+        public int Status => Call<int>("getStatus");
         /// <summary>
         /// Obtains the task ID of a 3D object reconstruction task.
         /// </summary>
         /// <returns>ID of a 3D object reconstruction task. A unique task ID is generated each time the 3D object reconstruction API is called.</returns> 
-        public string GetTaskId() => CallAsString("getTaskId");
+        public string TaskId => CallAsString("getTaskId");
 
     }
 }

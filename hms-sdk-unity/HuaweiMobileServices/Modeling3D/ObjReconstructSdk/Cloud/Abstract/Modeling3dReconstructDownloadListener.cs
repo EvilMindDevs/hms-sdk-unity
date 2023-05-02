@@ -25,9 +25,9 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
             _IModeling3dReconstructDownloadListener.onError(taskId, errorCode, errorMsg);
         }
 
-        public void onResult(string taskId, Modeling3dReconstructDownloadResult result, AndroidJavaObject javaObject)
+        public void onResult(string taskId, AndroidJavaObject result, AndroidJavaObject javaObject)
         {
-            _IModeling3dReconstructDownloadListener.onResult(taskId, result, javaObject);
+            _IModeling3dReconstructDownloadListener.onResult(taskId, (Modeling3dReconstructDownloadResult)result, javaObject);
         }
 
     }

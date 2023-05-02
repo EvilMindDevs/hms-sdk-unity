@@ -8,7 +8,11 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
     //https://developer.huawei.com/consumer/en/doc/development/graphics-References/modeling3dreconstructdownloadresult-0000001106293440
     public class Modeling3dReconstructDownloadResult : JavaObjectWrapper
     {
-        public Modeling3dReconstructDownloadResult(string taskId, bool isComplate) : base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructDownloadResult", taskId.AsJavaString(), isComplate) { }
+        public Modeling3dReconstructDownloadResult(AndroidJavaObject javaObject) : base(javaObject) { }
+        public Modeling3dReconstructDownloadResult(string taskId, bool isComplate) : base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructDownloadResult", taskId, isComplate) { }
+
+        public static explicit operator Modeling3dReconstructDownloadResult(AndroidJavaObject v) => new Modeling3dReconstructDownloadResult(v);
+
 
         /// <summary>
         /// Obtains the model download result.

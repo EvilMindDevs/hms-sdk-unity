@@ -23,7 +23,7 @@ namespace HuaweiMobileServices.Modeling3D.ModelingCaptureSdk
         /// </summary>
         /// <param name="fileSavePath">Path for storing the collected image.</param>
         /// <param name="listener">Image collection listener.</param>
-        public void CaptureImage(string fileSavePath, Modeling3dCaptureImageListener listener) => Call("captureImage", fileSavePath, AndroidContext.ApplicationContext, listener);
+        public void CaptureImage(string fileSavePath, AndroidJavaObject context, Modeling3dCaptureImageListener listener) => Call("captureImage", fileSavePath, context, listener);
         /// <summary>
         /// Configures the real-time guide engine.
         /// </summary>
