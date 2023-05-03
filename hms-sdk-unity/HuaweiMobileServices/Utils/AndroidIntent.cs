@@ -6,7 +6,6 @@
     public class AndroidIntent : JavaObjectWrapper
     {
         public AndroidIntent(AndroidJavaObject javaObject) : base(javaObject) { }
-
         public AndroidIntent(AndroidJavaClass activityClass) : base("android.content.Intent", AndroidContext.ActivityContext, activityClass) { }
         public AndroidIntent(string action) : base("android.content.Intent", action) { }
         public AndroidIntent() : base("android.content.Intent") { }
@@ -32,5 +31,9 @@
         public AndroidIntent PutExtra(string name, byte value) => CallAsWrapper<AndroidIntent>("putExtra", name, value);
 
         public AndroidIntent PutExtra(string name, int value) => CallAsWrapper<AndroidIntent>("putExtra", name, value);
+        public AndroidIntent AddCategory(string name) => CallAsWrapper<AndroidIntent>("addCategory", name);
+        public AndroidIntent AddFlags(int flag) => CallAsWrapper<AndroidIntent>("addFlags", flag);
+        public AndroidIntent SetType(string type) => CallAsWrapper<AndroidIntent>("setType", type);
+        public Uri GetData() => CallAsWrapper<Uri>("getData");
     }
 }

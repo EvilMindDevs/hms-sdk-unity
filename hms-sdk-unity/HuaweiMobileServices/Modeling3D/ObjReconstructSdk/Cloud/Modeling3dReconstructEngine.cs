@@ -21,8 +21,8 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
         /// <param name="setting">3D object reconstruction task settings.</param>
         /// <returns>Initialization result.</returns>
         public Modeling3dReconstructInitResult InitTask(Modeling3dReconstructSetting setting) => CallAsWrapper<Modeling3dReconstructInitResult>("initTask", setting);
-        public int CancelDownload(string taskId) => Call<int>("cancelDownload", taskId.AsJavaString());
-        public int CancelUpload(string taskId) => Call<int>("cancelUpload", taskId.AsJavaString());
+        public int CancelDownload(string taskId) => Call<int>("cancelDownload", taskId);
+        public int CancelUpload(string taskId) => Call<int>("cancelUpload", taskId);
         /// <summary>
         /// Disables the 3D object reconstruction engine.
         /// </summary>

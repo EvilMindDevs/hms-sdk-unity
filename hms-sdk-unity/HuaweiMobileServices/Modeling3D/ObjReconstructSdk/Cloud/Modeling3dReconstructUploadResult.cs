@@ -11,7 +11,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
     {
         public Modeling3dReconstructUploadResult(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public Modeling3dReconstructUploadResult(string taskId, bool isComplate) : base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructUploadResult", taskId, isComplate) { }
+        public Modeling3dReconstructUploadResult(string taskId, bool isComplete) : base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructUploadResult", taskId, isComplete) { }
 
         public static explicit operator Modeling3dReconstructUploadResult(AndroidJavaObject v) => new Modeling3dReconstructUploadResult(v);
 

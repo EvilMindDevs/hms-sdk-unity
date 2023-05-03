@@ -9,7 +9,7 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
     public class Modeling3dReconstructDownloadResult : JavaObjectWrapper
     {
         public Modeling3dReconstructDownloadResult(AndroidJavaObject javaObject) : base(javaObject) { }
-        public Modeling3dReconstructDownloadResult(string taskId, bool isComplate) : base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructDownloadResult", taskId, isComplate) { }
+        public Modeling3dReconstructDownloadResult(string taskId, bool isComplete) : base("com.huawei.hms.objreconstructsdk.cloud.Modeling3dReconstructDownloadResult", taskId, isComplete) { }
 
         public static explicit operator Modeling3dReconstructDownloadResult(AndroidJavaObject v) => new Modeling3dReconstructDownloadResult(v);
 
@@ -20,8 +20,8 @@ namespace HuaweiMobileServices.Modeling3D.ObjReconstructSdk.Cloud
         /// <returns>
         /// Model download result. true: The model is downloaded successfully. false: The model fails to be downloaded.
         /// </returns>
-        public bool Complate {
-            get => Call<bool>("isComplate");
+        public bool Complete {
+            get => Call<bool>("isComplete");
             set => Call("setComplate", value);
         }
         /// <summary>
