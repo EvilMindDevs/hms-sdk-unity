@@ -24,7 +24,7 @@ namespace  HuaweiMobileServices.Modeling3D.MeterialGenerateSdk.Cloud
         public class Factory : JavaObjectWrapper
         {
             public Factory(AndroidJavaObject javaObject) : base(javaObject) { }
-            public Factory() : base("com.huawei.hms.materialgeneratesdk.cloud.materialgeneratesdk$Factory") { }
+            public Factory() : base("com.huawei.hms.materialgeneratesdk.cloud.Modeling3dTextureSetting$Factory") { }
 
             /// <summary>
             /// Creates a Modeling3dTextureSetting instance.

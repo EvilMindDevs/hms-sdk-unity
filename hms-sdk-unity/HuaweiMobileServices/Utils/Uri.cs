@@ -7,10 +7,10 @@ namespace HuaweiMobileServices.Utils
     {
 
         private const string CLASS_NAME = "android.net.Uri";
-
         public Uri(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public string ToString() => CallAsString("toString");
+        public override string ToString() => CallAsString("toString");
+        public string GetPath => CallAsString("getPath");
 
     }
 }

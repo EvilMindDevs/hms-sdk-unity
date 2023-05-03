@@ -16,7 +16,7 @@ namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk
         /// </summary>
         public class RestrictStatus : JavaObjectWrapper
         {
-            private const string CLASS_NAME = "com.huawei.hms.meterialgeneratesdk.Modeling3dTextureConstants$RestrictStatus";
+            private const string CLASS_NAME = "com.huawei.hms.materialgeneratesdk.Modeling3dTextureConstants$RestrictStatus";
             public RestrictStatus(AndroidJavaObject javaObject) : base(javaObject) { }
             public RestrictStatus() : base(CLASS_NAME) { }
             private static readonly AndroidJavaClass javaClass = new AndroidJavaClass(CLASS_NAME);
@@ -30,7 +30,7 @@ namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk
         /// </summary>
         public class ProgressStatus : JavaObjectWrapper
         {
-            private const string CLASS_NAME = "com.huawei.hms.meterialgeneratesdk.Modeling3dTextureConstants$ProgressStatus";
+            private const string CLASS_NAME = "com.huawei.hms.materialgeneratesdk.Modeling3dTextureConstants$ProgressStatus";
             public ProgressStatus(AndroidJavaObject javaObject) : base(javaObject) { }
             public ProgressStatus() : base(CLASS_NAME) { }
 
@@ -68,7 +68,7 @@ namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk
         /// </summary>
         public class AlgorithmMode : JavaObjectWrapper
         {
-            private const string CLASS_NAME = "com.huawei.hms.meterialgeneratesdk.Modeling3dTextureConstants$AlgorithmMode";
+            private const string CLASS_NAME = "com.huawei.hms.materialgeneratesdk.Modeling3dTextureConstants$AlgorithmMode";
             public AlgorithmMode(AndroidJavaObject javaObject) : base(javaObject) { }
             public AlgorithmMode() : base(CLASS_NAME) { }
             private static readonly AndroidJavaClass javaClass = new AndroidJavaClass(CLASS_NAME);
