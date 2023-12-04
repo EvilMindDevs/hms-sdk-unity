@@ -1,4 +1,5 @@
 using HuaweiMobileServices.Utils;
+using System;
 using UnityEngine;
 
 namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk.Cloud
@@ -15,7 +16,7 @@ namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk.Cloud
         {
             _IModeling3dTextureUploadListener = iModeling3dTextureUploadListener;
         }
-        public void onUploadProgress(string taskId, double progress, AndroidJavaObject javaObject)
+        public void onUploadProgress(string taskId, double progress, JavaObject javaObject)
         {
             _IModeling3dTextureUploadListener.onUploadProgress(taskId, progress, javaObject);
         }
@@ -23,19 +24,18 @@ namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk.Cloud
         {
             _IModeling3dTextureUploadListener.onError(taskId, errorCode, errorMsg);
         }
-        public void onResult(string taskId, Modeling3dTextureUploadResult result, AndroidJavaObject javaObject)
+        public void onResult(string taskId, AndroidJavaObject result, JavaObject javaObject)
         {
-            _IModeling3dTextureUploadListener.onResult(taskId, result, javaObject);
+            _IModeling3dTextureUploadListener.onResult(taskId, (Modeling3dTextureUploadResult)(result), javaObject);
         }
-
         public interface IModeling3dTextureUploadListener
         {
             //TODO: AndroidObject maybe make problems be careful doing test. AndroidObject = Android Object Class
-            void onUploadProgress(string taskId, double progress, AndroidJavaObject javaObject);
+            void onUploadProgress(string taskId, double progress, JavaObject a);
 
             void onError(string taskId, int errorCode, string errorMessage);
 
-            void onResult(string taskId, Modeling3dTextureUploadResult result, AndroidJavaObject javaObject);
+            void onResult(string taskId, Modeling3dTextureUploadResult result, JavaObject a);
 
         }
     }
