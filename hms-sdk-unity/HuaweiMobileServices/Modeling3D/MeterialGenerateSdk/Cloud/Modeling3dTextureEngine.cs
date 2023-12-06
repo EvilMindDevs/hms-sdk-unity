@@ -28,7 +28,7 @@ namespace  HuaweiMobileServices.Modeling3D.MeterialGenerateSdk.Cloud
         /// <param name="taskId">Task ID.</param>
         /// <param name="fileSavePath">Path to which the generated texture maps are to be saved.</param>
         /// </summary>
-        public void AsyncDownloadTexture(string taskId, string fileSavePath) =>   javaClass.Call("asyncDownloadTexture", taskId.AsJavaString(), fileSavePath.AsJavaString());
+        public void AsyncDownloadTexture(string taskId, string fileSavePath) => Call("asyncDownloadTexture", taskId, fileSavePath);
         /// <summary>
         /// Uploads images and triggers a material generation task.
         /// param name="taskId">Task ID.</param>

@@ -168,4 +168,16 @@ namespace HuaweiMobileServices.Utils
             return uri;
         }
     }
+
+    public class JavaObject : JavaObjectWrapper
+    {
+
+        private const string CLASS_NAME = "java.lang.Object";
+
+        public JavaObject(AndroidJavaObject javaObject) : base(javaObject) { }
+        public JavaObject() : base(CLASS_NAME) { }
+
+        override
+        public string ToString() => Call<string>("toString");
+    }
 }
