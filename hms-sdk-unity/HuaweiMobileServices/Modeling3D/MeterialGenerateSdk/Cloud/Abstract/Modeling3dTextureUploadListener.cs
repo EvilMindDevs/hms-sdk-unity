@@ -30,7 +30,6 @@ namespace HuaweiMobileServices.Modeling3D.MeterialGenerateSdk.Cloud
         }
         public interface IModeling3dTextureUploadListener
         {
-            //TODO: AndroidObject maybe make problems be careful doing test. AndroidObject = Android Object Class
             void onUploadProgress(string taskId, double progress, JavaObject a);
 
             void onError(string taskId, int errorCode, string errorMessage);
