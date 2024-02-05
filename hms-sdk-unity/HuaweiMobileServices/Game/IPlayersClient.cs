@@ -6,6 +6,7 @@
     // Wrapper for com.huawei.hms.jos.games.PlayersClient
     public interface IPlayersClient
     {
+        [Obsolete("Use GetGamePlayer instead.")]
         ITask<Player> CurrentPlayer { get; }
 
         ITask<Player> GamePlayer { get; }
@@ -26,6 +27,7 @@
 
         ITask<string> SubmitPlayerEvent(string eventId, string eventType);
 
+        [Obsolete("This method has been deprecated. ")]
         void SetGameTrialProcess(Action onTrialTimeOut, Action<bool> onCheckRealNameResult);
     }
 
