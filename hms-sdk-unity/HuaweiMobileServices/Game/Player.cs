@@ -7,8 +7,6 @@ namespace HuaweiMobileServices.Game
     // Wrapper for com.huawei.hms.jos.games.player.Player
     public class Player : JavaObjectWrapper
     {
-
-        
         public Player(AndroidJavaObject javaObject) : base(javaObject) { }
 
         public Player(string json, AuthHuaweiId authHuaweiId)
@@ -22,6 +20,7 @@ namespace HuaweiMobileServices.Game
 
         public virtual int Level => Call<int>("getLevel");
 
+        [System.Obsolete("The PlayerId field will be deprecated in the future. It is recommended that you use OpenId instead of PlayerId to uniquely identify a player in a game.")]
         public virtual string PlayerId => CallAsString("getPlayerId");
 
         public virtual bool HasHiResImage() => Call<bool>("hasHiResImage");
