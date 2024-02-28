@@ -2,7 +2,7 @@
 {
     using HuaweiMobileServices.Utils;
 
-    public class PurchaseIntentReq : JavaObjectWrapper
+    public class PurchaseIntentReq : BaseReq
     {
         public PurchaseIntentReq() : base("com.huawei.hms.iap.entity.PurchaseIntentReq") { }
 
@@ -24,11 +24,6 @@
             set => Call("setProductId", value.AsJavaString());
         }
 
-        public virtual string ReservedInfor
-        {
-            get => CallAsString("getReservedInfor");
-            set => Call("setReservedInfor", value.AsJavaString());
-        }
 
         public string SignatureAlgorithm
         {
