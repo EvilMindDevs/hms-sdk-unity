@@ -16,7 +16,7 @@
             mOnCheckRealNameResult = onCheckRealNameResult;
         }
 
-        public void onTrialTimeOut()
+        public void onTrialTimeout()
         {
             this.CallOnMainThread(() => { mOnTrialTimeOut.Invoke(); });
         }
