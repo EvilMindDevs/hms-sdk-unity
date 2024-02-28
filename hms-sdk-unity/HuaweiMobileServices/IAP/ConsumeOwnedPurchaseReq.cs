@@ -3,7 +3,7 @@
     using HuaweiMobileServices.Utils;
 
     // Wrapper for com.huawei.hms.iap.entity.ConsumeOwnedPurchaseReq
-    public class ConsumeOwnedPurchaseReq : JavaObjectWrapper
+    public class ConsumeOwnedPurchaseReq : BaseReq
     {
 
         public ConsumeOwnedPurchaseReq() : base("com.huawei.hms.iap.entity.ConsumeOwnedPurchaseReq") { }

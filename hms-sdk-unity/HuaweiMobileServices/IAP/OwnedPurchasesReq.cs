@@ -2,7 +2,7 @@
 {
     using HuaweiMobileServices.Utils;
 
-    public class OwnedPurchasesReq : JavaObjectWrapper
+    public class OwnedPurchasesReq : BaseReq
     {
 
         public OwnedPurchasesReq() : base("com.huawei.hms.iap.entity.OwnedPurchasesReq") { }

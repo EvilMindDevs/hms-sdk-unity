@@ -5,7 +5,7 @@
     using UnityEngine;
 
     // Wrapper for com.huawei.hms.iap.entity.PriceType
-    public class ProductInfoReq : JavaObjectWrapper
+    public class ProductInfoReq : BaseReq
     {
 
         public ProductInfoReq() : base("com.huawei.hms.iap.entity.ProductInfoReq") { }
