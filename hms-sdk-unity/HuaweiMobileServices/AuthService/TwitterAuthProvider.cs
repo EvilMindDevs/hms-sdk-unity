@@ -1,7 +1,4 @@
 ﻿using HuaweiMobileServices.Utils;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 
 namespace HuaweiMobileServices.AuthService
@@ -15,6 +12,9 @@ namespace HuaweiMobileServices.AuthService
 
         public static AGConnectAuthCredential CredentialWithToken(string paramString, bool paramBoolean)
             => javaClass.CallStaticAsWrapper<AGConnectAuthCredential>("credentialWithToken", paramString, paramBoolean);
+
+        public static AGConnectAuthCredential CredentialWithAuthCode(TwitterAuthParam twitterAuthParam, bool autoCreateUser)
+            => javaClass.CallStaticAsWrapper<AGConnectAuthCredential>("credentialWithAuthCode", twitterAuthParam, autoCreateUser);
 
     }
 }
