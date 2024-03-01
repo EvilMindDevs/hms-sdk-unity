@@ -87,7 +87,7 @@ namespace HuaweiMobileServices.Ads.NativeAd
 
         public void SetDislikeAdListener(DislikeAdListener listener) => Call("setAdListener", listener);
 
-        public Bundle ExtraBundle 
+        public Bundle ExtraBundle
         {
             get => CallAsWrapper<Bundle>("getExtraBundle");
         }
@@ -145,7 +145,7 @@ namespace HuaweiMobileServices.Ads.NativeAd
 
         public void SetRewardVerifyConfig(RewardVerifyConfig config) => Call("setRewardVerifyConfig", config);
 
-        public Map<string, string> Ext 
+        public Map<string, string> Ext
         {
             get => CallAsWrapper<Map<string, string>>("getExt");
         }
@@ -172,6 +172,24 @@ namespace HuaweiMobileServices.Ads.NativeAd
             get => Call<string>("getHwChannelId");
         }
 
+        public bool HasAdvertiserInfo() => Call<bool>("hasAdvertiserInfo");
+
+        public IList<AdvertiserInfo> AdvertiserInfo => CallAsWrapperList<AdvertiserInfo>("getAdvertiserInfo");
+
+        public void ShowAppDetailPage() => Call("showAppDetailPage", AndroidContext.ActivityContext);
+
+        public bool IsShowAppElement() => Call<bool>("isShowAppElement");
+
+        public bool IsTransparencyOpen() => Call<bool>("isTransparencyOpen");
+
+        public string GetTransparencyTplUrl() => Call<string>("getTransparencyTplUrl");
+
+        public AppInfo AppInfo => CallAsWrapper<AppInfo>("getAppInfo");
+
+        public PromoteInfo PromoteInfo => CallAsWrapper<PromoteInfo>("getPromoteInfo");
+
+
+
         public class ChoicesInfo : JavaObjectWrapper
         {
             public ChoicesInfo(AndroidJavaObject javaObject) : base(javaObject) { }
@@ -183,17 +201,11 @@ namespace HuaweiMobileServices.Ads.NativeAd
                 get => Call<string>("getContent");
             }
 
-           public IList<Image> Icons
+            public IList<Image> Icons
             {
                 get => CallAsWrapperList<Image>("getIcons");
             }
 
-            public bool HasAdvertiserInfo() => Call<bool>("hasAdvertiserInfo");
-
-            public IList<AdvertiserInfo> AdvertiserInfo
-            {
-                get => CallAsWrapperList<AdvertiserInfo>("getAdvertiserInfo");
-            }
         }
     }
 }
