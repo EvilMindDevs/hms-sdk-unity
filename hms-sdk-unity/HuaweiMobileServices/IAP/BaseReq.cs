@@ -17,6 +17,11 @@ namespace HuaweiMobileServices.IAP
         }
 
         /// <summary>
+        /// Default constructor.
+        /// </summary>
+        public BaseReq() : base("com.huawei.hms.iap.entity.BaseReq") { }
+        
+        /// <summary>
         /// Constructor that creates a new AndroidJavaObject.
         /// </summary>
         /// <param name="javaObjectCanonicalName">The canonical name of the Java object to create.</param>
