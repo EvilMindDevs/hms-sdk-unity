@@ -8,11 +8,12 @@ namespace HuaweiMobileServices.CloudDB
 {
     public class CloudDBZone : JavaObjectWrapper
     {
-        
         public CloudDBZone(AndroidJavaObject javaObject) : base(javaObject) { }
         public CloudDBZone(CloudDBZoneConfig paramCloudDBZoneConfig) : base("com.huawei.agconnect.cloud.database.CloudDBZone", paramCloudDBZoneConfig) { }
 
         public CloudDBZoneConfig GetCloudDBZoneConfig() => CallAsWrapper<CloudDBZoneConfig>("getCloudDBZoneConfig");
+
+        public ITask<ServerStatus> ExecuteServerStatusQuery() => CallAsWrapper<TaskJavaObjectWrapper<ServerStatus>>("executeServerStatusQuery");
 
         public ITask<int> ExecuteUpsert(IList<AndroidJavaObject> objectList) => CallAsWrapper<TaskPrimitive<int>>("executeUpsert", objectList.AsJavaList());
 
