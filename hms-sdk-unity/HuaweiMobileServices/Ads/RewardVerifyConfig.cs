@@ -1,6 +1,5 @@
 ﻿namespace HuaweiMobileServices.Ads
 {
-    using HuaweiMobileServices.Ads.InstallReferrer;
     using HuaweiMobileServices.Utils;
     using UnityEngine;
 
@@ -23,5 +22,4 @@
             public RewardVerifyConfig Build() => CallAsWrapper<RewardVerifyConfig>("build");
         }
     }
-
 }

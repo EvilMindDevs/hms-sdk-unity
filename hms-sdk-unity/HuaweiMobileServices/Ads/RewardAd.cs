@@ -75,6 +75,8 @@
             return task.Task;
         }
 
+        public void SetRewardVerifyConfig(RewardVerifyConfig config) => Call("setRewardVerifyConfig", config);
+
         public IOnMetadataChangedListener OnMetadataChangedListener
         {
             set
