@@ -1,14 +1,11 @@
 package org.m0skit0.android.hms.unity;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-
-import com.unity3d.player.UnityPlayer;
 import com.unity3d.player.UnityPlayerActivity;
+import org.m0skit0.android.hms.unity.inAppComment.InAppComment;
 
-public class HMSUnityPlayerActivity extends UnityPlayerActivity {
+public class HMSUnityPlayerActivity extends UnityPlayerActivity{
 
     private static final String TAG = "HMSUnityPlayerActivity";
 
@@ -19,6 +16,9 @@ public class HMSUnityPlayerActivity extends UnityPlayerActivity {
 
         if(requestCode == 1001)
         {
+            if(InAppComment.callBack != null)
+                InAppComment.callBack.onInAppCommentResult(resultCode);
+
             switch (resultCode) {
                 case 101:
                     Log.e(TAG, "Result Code: " + resultCode + ": The app has not been released on AppGallery.");
