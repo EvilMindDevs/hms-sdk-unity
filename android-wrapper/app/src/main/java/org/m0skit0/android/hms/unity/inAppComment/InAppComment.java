@@ -6,10 +6,13 @@ import android.util.Log;
 public class InAppComment extends InAppCommentBridge {
 
     public static final int REQUEST_CODE = 1001;
+
+    public static InAppCommentListener callBack;
     private static final String TAG = InAppComment.class.getSimpleName();
 
-    public static void showInAppComment() {
+    public static void showInAppComment(InAppCommentListener callback) {
         Log.d(TAG, "showInAppComment called");
+        callBack = callback;
         try {
             final Intent intent = new Intent("com.huawei.appmarket.intent.action.guidecomment");
             intent.setPackage("com.huawei.appmarket");
@@ -21,6 +24,7 @@ public class InAppComment extends InAppCommentBridge {
 
     public static void checkResult(int resultCode) {
         Log.d(TAG, "[HMS] checkResult");
+        callBack.onInAppCommentResult(resultCode);
         switch (resultCode) {
             case 101:
                 Log.e(TAG, "Result Code: " + resultCode + ": The app has not been released on AppGallery.");
