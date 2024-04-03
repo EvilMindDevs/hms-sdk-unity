@@ -107,6 +107,10 @@
 
         public string UserId => CallAsString("getUserId");
 
+        public void SetUserId(string paramString) => Call("setUserId", paramString);
+
+        public void SetData(string paramString) => Call("setData", paramString);
+
         public void LoadAd(string paramString, AdParam paramAdParam) => Call("loadAd", paramString, paramAdParam);
 
         public void Pause() => Call("pause", AndroidContext.ActivityContext);
