@@ -70,7 +70,7 @@ namespace HuaweiMobileServices.ML.TextToSpeech
         /// Sets the volume of the built-in player, in dBs. The value is in the range of [0, 100].
         /// </summary>
         /// <param name="volume">Volume of the internal player. The value ranges from 0 to 100. The default value is 50.</param>
-        public void SetVolumePlayer(int volume) => Call("setVolumePlayer", volume);
+        public void SetPlayerVolume(int volume) => Call("setPlayerVolume", volume);
         /// <summary>
         /// Sets the TTS callback.
         /// </summary>
@@ -85,6 +85,6 @@ namespace HuaweiMobileServices.ML.TextToSpeech
         /// <returns>ID of the audio synthesis task.</returns>
         /// <seealso cref="speak" href="https://developer.huawei.com/consumer/en/doc/hiai-References/mlttsengine-0000001050169553#section13330101397"/>
         public string Speak(string text, int mode) => Call<string>("speak", text, mode);
-        public void UpdateConfig(MLTtsConfig mLTtsConfig) => Call<string>("updateConfig", mLTtsConfig);
+        public void UpdateConfig(MLTtsConfig mLTtsConfig) => Call("updateConfig", mLTtsConfig);
     }
 }
