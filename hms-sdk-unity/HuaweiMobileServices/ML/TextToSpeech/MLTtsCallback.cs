@@ -14,7 +14,7 @@ namespace HuaweiMobileServices.ML.TextToSpeech
     {
         private readonly IMLTtsCallback _IMLTtsCallback;
 
-        public MLTtsCallback(IMLTtsCallback ICallback) : base("com.huawei.hms.mlsdk.tts.MLTtsCallbacK")
+        public MLTtsCallback(IMLTtsCallback ICallback) : base("com.huawei.hms.mlsdk.tts.MLTtsCallback")
         {
             _IMLTtsCallback = ICallback;
         }
@@ -37,6 +37,11 @@ namespace HuaweiMobileServices.ML.TextToSpeech
         public void onAudioAvailable(string taskId, MLTtsAudioFragment audioFragment, KeyValuePair<int, int> keyValuePairs, int offset, Bundle bundle)
         {
             _IMLTtsCallback.OnAudioAvailable(taskId, audioFragment, keyValuePairs, offset, bundle);
+        }
+
+        public void onEvent(string taskId, int eventId, AndroidJavaObject bundle)
+        {
+            _IMLTtsCallback.OnEvent(taskId, eventId, bundle);
         }
 
 
@@ -72,7 +77,7 @@ namespace HuaweiMobileServices.ML.TextToSpeech
             /// <param name="taskId">Task ID.</param>
             /// <param name="eventId">Event ID.</param>
             /// <param name="bundle">Result description.</param>
-            void OnEvent(string taskId, int eventId, Bundle bundle);
+            void OnEvent(string taskId, int eventId, AndroidJavaObject bundle);
 
         }
     }
