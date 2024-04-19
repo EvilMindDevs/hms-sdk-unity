@@ -2,8 +2,6 @@
 using HuaweiMobileServices.Nearby.Discovery;
 using HuaweiMobileServices.Utils;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 
 namespace HuaweiMobileServices.Analystics
@@ -11,6 +9,8 @@ namespace HuaweiMobileServices.Analystics
     public sealed class HiAnalyticsInstance : JavaObjectWrapper
     {
         public HiAnalyticsInstance(AndroidJavaObject hiAnalyticsInstance) : base(hiAnalyticsInstance) { }
+
+        public void SetCustomReferrer(string customReferrer) => Call("setCustomReferrer", customReferrer);
 
         public void SetAnalyticsEnabled(bool enabled) => Call("setAnalyticsEnabled", enabled);
 
