@@ -12,6 +12,8 @@ namespace HuaweiMobileServices.Analystics
 
         public void SetCustomReferrer(string customReferrer) => Call("setCustomReferrer", customReferrer);
 
+        public string GetDataUploadSiteInfo() => Call<string>("getDataUploadSiteInfo");
+
         public void SetAnalyticsEnabled(bool enabled) => Call("setAnalyticsEnabled", enabled);
 
         public void SetAutoCollectionEnabled(bool isEnabled) => Call("setAutoCollectionEnabled", isEnabled);
