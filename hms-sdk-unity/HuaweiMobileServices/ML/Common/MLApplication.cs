@@ -24,7 +24,7 @@ namespace HuaweiMobileServices.ML.Common
         public static MLApplication Instance => sJavaClass.CallStaticAsWrapper<MLApplication>("getInstance");
         public static MLApplication Initialize() => sJavaClass.CallStaticAsWrapper<MLApplication>("initialize", AndroidContext.ActivityContext);
         public void SetApiKey(string apiKey) => Call("setApiKey", apiKey);
-        public void SetUserRegion(int region) => Call("setUserRegion", region.AsJavaInteger());
+        public void SetUserRegion(int region) => Call("setUserRegion", region);
         public void SetAccessToken(string serviceUrl) => Call("setAccessToken", serviceUrl);
         public string GetCountryCode() => Call<string>("getCountryCode");
 

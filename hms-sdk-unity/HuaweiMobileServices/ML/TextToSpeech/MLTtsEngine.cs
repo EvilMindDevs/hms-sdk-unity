@@ -40,8 +40,8 @@ namespace HuaweiMobileServices.ML.TextToSpeech
         public static int OPEN_STREAM => sJavaClass.GetStatic<int>(nameof(OPEN_STREAM));
 
 
-        public IList<string> GetLanguages() => Call<List<string>>("getLanguages");
-        public IList<string> GetHQLanguages() => Call<List<string>>("getHqLanguages");
+        public IList<string> GetLanguages() => CallAsStringList("getLanguages");
+        public IList<string> GetHQLanguages() => CallAsStringList("getHqLanguages");
         /// <summary>
         /// Obtains the speaker list of the specified language.
         /// </summary>

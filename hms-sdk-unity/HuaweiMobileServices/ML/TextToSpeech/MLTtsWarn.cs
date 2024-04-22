@@ -10,7 +10,7 @@ namespace HuaweiMobileServices.ML.TextToSpeech
 
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
 
-        public static int WARN_INSUFFICIENT_BANDWIDTH => sJavaClass.CallStatic<int>(nameof(WARN_INSUFFICIENT_BANDWIDTH));
+        public static int WARN_INSUFFICIENT_BANDWIDTH => sJavaClass.GetStatic<int>(nameof(WARN_INSUFFICIENT_BANDWIDTH));
 
         public int GetWarnId() => Call<int>("getWarnId");
 

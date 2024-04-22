@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Text.RegularExpressions;
 using HuaweiMobileServices.Utils;
 using UnityEngine;
 
@@ -13,7 +12,6 @@ namespace HuaweiMobileServices.ML.TextToSpeech
     public class MLTtsCallback : AndroidJavaProxy
     {
         private readonly IMLTtsCallback _IMLTtsCallback;
-
         public MLTtsCallback(IMLTtsCallback ICallback) : base("com.huawei.hms.mlsdk.tts.MLTtsCallback")
         {
             _IMLTtsCallback = ICallback;
@@ -34,14 +32,50 @@ namespace HuaweiMobileServices.ML.TextToSpeech
             _IMLTtsCallback.OnRangeStart(taskId, start, end);
         }
 
-        public void onAudioAvailable(string taskId, MLTtsAudioFragment audioFragment, KeyValuePair<int, int> keyValuePairs, int offset, Bundle bundle)
+        public void onAudioAvailable(string taskId, AndroidJavaObject audioFragment, int offset , AndroidJavaObject keyValuePairs, AndroidJavaObject bundle)
         {
-            _IMLTtsCallback.OnAudioAvailable(taskId, audioFragment, keyValuePairs, offset, bundle);
+            // Initialize pairs as null
+            Tuple<int, int> pairs = null;
+
+            // Check if keyValuePairs is not null
+            if (keyValuePairs != null)
+            {
+                // Extract the pair values from keyValuePairs
+                pairs = ExtractPairFromKeyValuePairs(keyValuePairs);
+            }
+
+            // Call the OnAudioAvailable method with the extracted pair and other parameters
+            _IMLTtsCallback.OnAudioAvailable(taskId, new MLTtsAudioFragment(audioFragment), offset, pairs , new Bundle(bundle));
         }
 
         public void onEvent(string taskId, int eventId, AndroidJavaObject bundle)
         {
             _IMLTtsCallback.OnEvent(taskId, eventId, bundle);
+        }
+
+        private Tuple<int, int> ExtractPairFromKeyValuePairs(AndroidJavaObject keyValuePairs)
+        {
+            // Convert keyValuePairs to string
+            var stringData = keyValuePairs.Call<string>("toString");
+
+            // Define the regex pattern
+            string pattern = @"Pair\{(\d+)\s+(\d+)\}";
+
+            // Match the stringData with the pattern
+            var match = Regex.Match(stringData, pattern);
+
+            // If match is successful, parse the values and return as a Tuple
+            if (match.Success)
+            {
+                int firstValue = int.Parse(match.Groups[1].Value);
+                int secondValue = int.Parse(match.Groups[2].Value);
+
+                return new Tuple<int, int>(firstValue, secondValue);
+            }
+
+            // If no match is found, log it and return null
+            Console.WriteLine("No match found for keyValuePairs in MLTtsCallback");
+            return null;
         }
 
 
@@ -68,8 +102,16 @@ namespace HuaweiMobileServices.ML.TextToSpeech
             /// <param name="start"></param>
             /// <param name="end"></param>
             void OnRangeStart(string taskId, int start, int end);
-
-            void OnAudioAvailable(string taskId, MLTtsAudioFragment audioFragment, KeyValuePair<int,int> keyValuePairs, int offset, Bundle bundle);
+            
+            /// <summary>
+            /// Audio stream callback API, which is used to return the synthesized audio data to the app.
+            /// </summary>
+            /// <param name="taskId"></param>
+            /// <param name="audioFragment"></param>
+            /// <param name="offset"></param>
+            /// <param name="keyValuePairs"></param>
+            /// <param name="bundle"></param>
+            void OnAudioAvailable(string taskId, MLTtsAudioFragment audioFragment, int offset, Tuple<int, int> keyValuePairs, Bundle bundle);
 
             /// <summary>
             /// Audio synthesis task callback extension method.
