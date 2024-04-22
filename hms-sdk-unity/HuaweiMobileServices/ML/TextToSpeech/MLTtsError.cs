@@ -10,15 +10,15 @@ namespace HuaweiMobileServices.ML.TextToSpeech
         public MLTtsError(AndroidJavaObject androidJavaObject) : base(androidJavaObject) { }
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
 
-        public static int ERR_ILLEGAL_PARAMETER => sJavaClass.CallStatic<int>(nameof(ERR_ILLEGAL_PARAMETER));
-        public static int ERR_NET_CONNECT_FAILED => sJavaClass.CallStatic<int>(nameof(ERR_NET_CONNECT_FAILED));
-        public static int ERR_INSUFFICIENT_BALANCE => sJavaClass.CallStatic<int>(nameof(ERR_INSUFFICIENT_BALANCE));
-        public static int ERR_SPEECH_SYNTHESIS_FAILED => sJavaClass.CallStatic<int>(nameof(ERR_SPEECH_SYNTHESIS_FAILED));
-        public static int ERR_AUDIO_PLAYER_FAILED => sJavaClass.CallStatic<int>(nameof(ERR_AUDIO_PLAYER_FAILED));
-        public static int ERR_AUTHORIZE_FAILED => sJavaClass.CallStatic<int>(nameof(ERR_AUTHORIZE_FAILED));
-        public static int ERR_AUTHORIZE_TOKEN_INVALIDE => sJavaClass.CallStatic<int>(nameof(ERR_AUTHORIZE_TOKEN_INVALIDE));
-        public static int ERR_INTERNAL => sJavaClass.CallStatic<int>(nameof(ERR_INTERNAL));
-        public static int ERR_UNKNOWN => sJavaClass.CallStatic<int>(nameof(ERR_UNKNOWN));
+        public static int ERR_ILLEGAL_PARAMETER => sJavaClass.GetStatic<int>(nameof(ERR_ILLEGAL_PARAMETER));
+        public static int ERR_NET_CONNECT_FAILED => sJavaClass.GetStatic<int>(nameof(ERR_NET_CONNECT_FAILED));
+        public static int ERR_INSUFFICIENT_BALANCE => sJavaClass.GetStatic<int>(nameof(ERR_INSUFFICIENT_BALANCE));
+        public static int ERR_SPEECH_SYNTHESIS_FAILED => sJavaClass.GetStatic<int>(nameof(ERR_SPEECH_SYNTHESIS_FAILED));
+        public static int ERR_AUDIO_PLAYER_FAILED => sJavaClass.GetStatic<int>(nameof(ERR_AUDIO_PLAYER_FAILED));
+        public static int ERR_AUTHORIZE_FAILED => sJavaClass.GetStatic<int>(nameof(ERR_AUTHORIZE_FAILED));
+        public static int ERR_AUTHORIZE_TOKEN_INVALIDE => sJavaClass.GetStatic<int>(nameof(ERR_AUTHORIZE_TOKEN_INVALIDE));
+        public static int ERR_INTERNAL => sJavaClass.GetStatic<int>(nameof(ERR_INTERNAL));
+        public static int ERR_UNKNOWN => sJavaClass.GetStatic<int>(nameof(ERR_UNKNOWN));
 
         public int GetErrorId() => Call<int>("getErrorId");
         public string GetErrorMessage() => Call<string>("getErrorMsg");

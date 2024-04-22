@@ -10,13 +10,13 @@ namespace HuaweiMobileServices.ML.TextToSpeech
         public MLTtsAudioFragment(AndroidJavaObject androidJavaObject) : base(androidJavaObject) { }
         private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
 
-        public static int FORMAT_PCM_8BIT => sJavaClass.CallStatic<int>(nameof(FORMAT_PCM_8BIT));
+        public static int FORMAT_PCM_8BIT => sJavaClass.GetStatic<int>(nameof(FORMAT_PCM_8BIT));
 
-        public static int FORMAT_PCM_16BIT => sJavaClass.CallStatic<int>(nameof(FORMAT_PCM_16BIT));
+        public static int FORMAT_PCM_16BIT => sJavaClass.GetStatic<int>(nameof(FORMAT_PCM_16BIT));
 
-        public static int SAMPLE_RATE_16K => sJavaClass.CallStatic<int>(nameof(SAMPLE_RATE_16K));
+        public static int SAMPLE_RATE_16K => sJavaClass.GetStatic<int>(nameof(SAMPLE_RATE_16K));
 
-        public static int CHANNEL_OUT_MONO => sJavaClass.CallStatic<int>(nameof(CHANNEL_OUT_MONO));
+        public static int CHANNEL_OUT_MONO => sJavaClass.GetStatic<int>(nameof(CHANNEL_OUT_MONO));
 
         public byte[] GetAudioData() => Call<byte[]>("getAudioData");
 
