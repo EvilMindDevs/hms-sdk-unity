@@ -8,10 +8,8 @@ namespace HuaweiMobileServices.ML.TextToSpeech
 {
     public class MLTtsLocalModel: JavaObjectWrapper
     {
-        const string CLASS_NAME = "com.huawei.hms.mlsdk.tts.MLTtsLocalModel";
-        public MLTtsLocalModel(AndroidJavaObject androidJavaObject) : base(androidJavaObject) { }
-        public MLTtsLocalModel() : base(CLASS_NAME) { }
-
+        //const string CLASS_NAME = "com.huawei.hms.mlsdk.tts.MLTtsLocalModel";
+        private MLTtsLocalModel(AndroidJavaObject androidJavaObject) : base(androidJavaObject) { }
         public string GetSpeakerName() => Call<string>("getSpeakerName");
 
         public class Factory : JavaObjectWrapper

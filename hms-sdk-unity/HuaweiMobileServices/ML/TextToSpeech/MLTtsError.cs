@@ -20,9 +20,9 @@ namespace HuaweiMobileServices.ML.TextToSpeech
         public static int ERR_INTERNAL => sJavaClass.GetStatic<int>(nameof(ERR_INTERNAL));
         public static int ERR_UNKNOWN => sJavaClass.GetStatic<int>(nameof(ERR_UNKNOWN));
 
-        public int GetErrorId() => Call<int>("getErrorId");
-        public string GetErrorMessage() => Call<string>("getErrorMsg");
-        public JavaObject GetExtension() => Call<JavaObject>("getExtension");
+        public int ErrorId => Call<int>("getErrorId");
+        public string ErrorMessage() => Call<string>("getErrorMsg");
+        public JavaObject GetExtension() => CallAsWrapper<JavaObject>("getExtension");
         public override string ToString() => Call<string>("toString");
 
         public class Builder : JavaObjectWrapper

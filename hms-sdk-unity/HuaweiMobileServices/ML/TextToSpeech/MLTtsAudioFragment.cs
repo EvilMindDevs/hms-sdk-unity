@@ -24,7 +24,7 @@ namespace HuaweiMobileServices.ML.TextToSpeech
 
         public int GetSampleRateInHz() => Call<int>("getSampleRateInHz");
 
-        public int GetChannelConfig() => Call<int>("getChannelConfig");
+        public int GetChannelInfo() => Call<int>("getChannelInfo");
 
         public class Builder : JavaObjectWrapper
         {
@@ -38,7 +38,7 @@ namespace HuaweiMobileServices.ML.TextToSpeech
 
             public Builder SetSampleRateInHz(int param1Int) => CallAsWrapper<Builder>("setSampleRateInHz", param1Int);
 
-            public Builder SetChannelConfig(int param1Int) => CallAsWrapper<Builder>("setChannelConfig", param1Int);
+            public Builder SetChannelInfo(int param1Int) => CallAsWrapper<Builder>("setChannelInfo", param1Int);
 
             public MLTtsAudioFragment Build() => CallAsWrapper<MLTtsAudioFragment>("build");
         }

@@ -20,6 +20,8 @@ namespace HuaweiMobileServices.ML.Common
 
         public static int REGION_DR_GERMAN => sJavaClass.GetStatic<int>(nameof(REGION_DR_GERMAN));
 
+        public static int REGION_DR_SINGAPORE => sJavaClass.GetStatic<int>(nameof(REGION_DR_SINGAPORE));
+
 
         public static MLApplication Instance => sJavaClass.CallStaticAsWrapper<MLApplication>("getInstance");
         public static MLApplication Initialize() => sJavaClass.CallStaticAsWrapper<MLApplication>("initialize", AndroidContext.ActivityContext);

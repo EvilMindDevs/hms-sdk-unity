@@ -12,11 +12,11 @@ namespace HuaweiMobileServices.ML.TextToSpeech
 
         public static int WARN_INSUFFICIENT_BANDWIDTH => sJavaClass.GetStatic<int>(nameof(WARN_INSUFFICIENT_BANDWIDTH));
 
-        public int GetWarnId() => Call<int>("getWarnId");
+        public int WarnId => Call<int>("getWarnId");
 
-        public string GetWarnMessage() => Call<string>("getWarnMsg");
+        public string WarnMessage => Call<string>("getWarnMsg");
 
-        public JavaObject GetExtension() => Call<JavaObject>("getExtension");
+        public JavaObject GetExtension() => CallAsWrapper<JavaObject>("getExtension");
 
         public override string ToString() => Call<string>("toString");
 
