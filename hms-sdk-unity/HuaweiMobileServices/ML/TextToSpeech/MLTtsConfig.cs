@@ -18,10 +18,9 @@ namespace HuaweiMobileServices.ML.TextToSpeech
 
         public MLTtsConfig SetVolume(float paramFloat) => CallAsWrapper<MLTtsConfig>("setVolume", paramFloat);
 
-        public MLTtsConfig SetSynthesizeMode(int paramInt) => CallAsWrapper<MLTtsConfig>("setSynthesizeMode", paramInt);
+        public MLTtsConfig SetSynthesizeMode(string paramInt) => CallAsWrapper<MLTtsConfig>("setSynthesizeMode", paramInt);
 
-        public MLTtsConfig Attach(MLTtsConfig paramInt) => CallAsWrapper<MLTtsConfig>("attach", paramInt);
-
+        public MLTtsConfig Attach(MLTtsConfig paramConfig) => CallAsWrapper<MLTtsConfig>("attach", paramConfig);
 
 
         public string GetLanguage() => Call<string>("getLanguage");
@@ -32,7 +31,7 @@ namespace HuaweiMobileServices.ML.TextToSpeech
 
         public float GetVolume() => Call<float>("getVolume");
 
-        public int GetSynthesizeMode() => Call<int>("getSynthesizeMode");
+        public string GetSynthesizeMode() => Call<string>("getSynthesizeMode");
 
         public override string ToString() => Call<string>("toString");
 
