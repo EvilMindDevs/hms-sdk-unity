@@ -6,10 +6,18 @@
     // Wrapper for com.huawei.hms.iap.entity.ProductInfo
     public class ProductInfo : JavaObjectWrapper
     {
+        private string productId { get; set;}
         
         public ProductInfo(AndroidJavaObject javaObject) : base(javaObject) { }
 
-        public string ProductId => CallAsString("getProductId");
+        public string ProductId {
+            get {
+                if (productId == null) {
+                    productId = CallAsString("getProductId");
+                }
+                return productId;
+            }
+        }
 
         public PriceType PriceType => new PriceType(Call<int>("getPriceType"));
 
