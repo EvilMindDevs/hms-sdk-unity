@@ -1,8 +1,6 @@
 ﻿using HuaweiMobileServices.ML.Common;
+using HuaweiMobileServices.ML.Translate.Local;
 using HuaweiMobileServices.Utils;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 
 namespace HuaweiMobileServices.ML.Translate
@@ -19,7 +17,7 @@ namespace HuaweiMobileServices.ML.Translate
         public static MLTranslatorFactory Instance => sJavaClass.CallStaticAsWrapper<MLTranslatorFactory>("getInstance");
         public static MLTranslatorFactory GetInstance(MLApplication mLApplication) => sJavaClass.CallStaticAsWrapper<MLTranslatorFactory>("getInstance", mLApplication);
 
-        // Will be implemented in the future, GetLocalTranslator and GetRemoteTranslator will be added.
+        public MLLocalTranslator GetLocalTranslator(MLLocalTranslateSetting setting) => CallAsWrapper<MLLocalTranslator>("getLocalTranslator", setting);
 
     }
 }
