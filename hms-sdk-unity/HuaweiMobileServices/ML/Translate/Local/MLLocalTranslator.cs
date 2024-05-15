@@ -13,7 +13,7 @@ namespace HuaweiMobileServices.ML.Translate.Local
         public MLLocalTranslator(AndroidJavaObject javaObject) : base(javaObject) { }
         
         public int ModelLevel => Call<int>("getModelLevel");
-        public ITask<string> TranslateAsync(string text) => CallAsWrapper<TaskStringWrapper>("asyncTranslate", text);
+        public ITask<string> TranslateAsync(string text) => CallAsWrapper<TaskPrimitive<string>>("asyncTranslate", text);
         public string Translate(string text) => Call<string>("syncTranslate", text);
         public ITask<Void> PraparedModel() => CallAsWrapper<TaskVoidWrapper>("preparedModel");
         public ITask<Void> PraparedModel(MLModelDownloadStrategy downloadStrategy) => CallAsWrapper<TaskVoidWrapper>("preparedModel", downloadStrategy);

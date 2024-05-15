@@ -9,24 +9,25 @@ namespace HuaweiMobileServices.ML.Translate
     // https://developer.huawei.com/consumer/en/doc/hiai-References/mltranslatelanguage-0000001051136104
     public class MLTranslateLanguage: JavaObjectWrapper
     {
-        const string CLASS_NAME = "com.huawei.hms.mlsdk.translate.MLTranslateLanguage";
+        private const string CLASS_NAME = "com.huawei.hms.mlsdk.translate.MLTranslateLanguage";
+        private static readonly AndroidJavaClass sJavaClass = new AndroidJavaClass(CLASS_NAME);
         public MLTranslateLanguage(AndroidJavaObject androidJavaObject) : base(androidJavaObject) { }
         public MLTranslateLanguage() : base(CLASS_NAME) { }
 
-        public ITask<ISet<string>> GetCloudAllLanguagesAsync()
+        public static ITask<ISet<string>> GetCloudAllLanguagesAsync()
         {
-            var javaTask = Call<AndroidJavaObject>("getCloudAllLanguages");
+            var javaTask = sJavaClass.CallStatic<AndroidJavaObject>("getCloudAllLanguages");
             return new TaskWrapper<ISet<string>>(javaTask, AndroidJavaObjectExtensions.AsStringSet);
         }
-        public ITask<ISet<string>> GetLocalAllLanguagesAsync()
+        public static ITask<ISet<string>> GetLocalAllLanguagesAsync()
         {
-            var javaTask = Call<AndroidJavaObject>("getLocalAllLanguages");
+            var javaTask = sJavaClass.CallStatic<AndroidJavaObject>("getLocalAllLanguages");
             return new TaskWrapper<ISet<string>>(javaTask, AndroidJavaObjectExtensions.AsStringSet);
         }
 
-        public ISet<string> GetCloudAllLanguages() => Call<AndroidJavaObject>("syncGetCloudAllLanguages").AsStringSet();
+        public static ISet<string> GetCloudAllLanguages() => sJavaClass.CallStatic<AndroidJavaObject>("syncGetCloudAllLanguages").AsStringSet();
 
-        public ISet<string> GetLocalAllLanguages() => Call<AndroidJavaObject>("syncGetLocalAllLanguages").AsStringSet();
+        public static ISet<string> GetLocalAllLanguages() => sJavaClass.CallStatic<AndroidJavaObject>("syncGetLocalAllLanguages").AsStringSet();
 
     }
 }

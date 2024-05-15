@@ -26,7 +26,7 @@ namespace HuaweiMobileServices.ML.DownloadModel
         {
             private const string CLASS_NAME = "com.huawei.hms.mlsdk.model.download.MLModelDownloadStrategy$Factory";
             public Factory(AndroidJavaObject javaObject) : base(javaObject) { }
-            public Factory() : base("CLASS_NAME") { }
+            public Factory() : base(CLASS_NAME) { }
             public MLModelDownloadStrategy Create() => CallAsWrapper<MLModelDownloadStrategy>("create");
             public Factory NeedCharging() => CallAsWrapper<Factory>("needCharging");
             public Factory NeedDeviceIdle() => CallAsWrapper<Factory>("needDeviceIdle");
