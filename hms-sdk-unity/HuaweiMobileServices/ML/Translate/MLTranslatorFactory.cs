@@ -16,8 +16,9 @@ namespace HuaweiMobileServices.ML.Translate
 
         public static MLTranslatorFactory Instance => sJavaClass.CallStaticAsWrapper<MLTranslatorFactory>("getInstance");
         public static MLTranslatorFactory GetInstance(MLApplication mLApplication) => sJavaClass.CallStaticAsWrapper<MLTranslatorFactory>("getInstance", mLApplication);
-
         public MLLocalTranslator GetLocalTranslator(MLLocalTranslateSetting setting) => CallAsWrapper<MLLocalTranslator>("getLocalTranslator", setting);
+
+        ///TODO Will be add remote translator methods.
 
     }
 }
