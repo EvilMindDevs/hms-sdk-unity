@@ -1,11 +1,10 @@
 ﻿using HuaweiMobileServices.Utils;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 
 namespace HuaweiMobileServices.ML.Translate.Local
 {
+    // Wrapper for com.huawei.hms.mlsdk.translate.local.MLLocalTranslateSetting
+    // https://developer.huawei.com/consumer/en/doc/hiai-References/mllocaltranslatesetting-0000001050328790
     public class MLLocalTranslateSetting : JavaObjectWrapper
     {
         private const string CLASS_NAME = "com.huawei.hms.mlsdk.translate.local.MLLocalTranslateSetting";

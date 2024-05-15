@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace HuaweiMobileServices.ML.DownloadModel
 {
+    // Wrapper for com.huawei.hms.mlsdk.model.download.MLModelDownloadStrategy
+    // https://developer.huawei.com/consumer/en/doc/hiai-References/mlmodeldownloadstrategy-0000001050204147
     public class MLModelDownloadStrategy : JavaObjectWrapper
     {
         private const string CLASS_NAME = "com.huawei.hms.mlsdk.model.download.MLModelDownloadStrategy";

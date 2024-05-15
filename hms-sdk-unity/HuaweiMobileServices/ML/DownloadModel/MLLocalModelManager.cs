@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace HuaweiMobileServices.ML.DownloadModel
 {
+    // Wrapper for com.huawei.hms.mlsdk.model.download.MLLocalModelManager
+    // https://developer.huawei.com/consumer/en/doc/hiai-References/mllocalmodelmanager-0000001050328834
     public class MLLocalModelManager : JavaObjectWrapper
     {
         private const string CLASS_NAME = "com.huawei.hms.mlsdk.model.download.MLLocalModelManager";
