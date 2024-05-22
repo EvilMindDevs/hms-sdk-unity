@@ -1,5 +1,7 @@
-﻿using HuaweiMobileServices.ML.Common;
+﻿using HuaweiMobileServices.Base;
+using HuaweiMobileServices.ML.Common;
 using HuaweiMobileServices.Utils;
+using HuaweiMobileServices.Utils.java.io;
 using UnityEngine;
 
 namespace HuaweiMobileServices.ML.DownloadModel
@@ -17,6 +19,16 @@ namespace HuaweiMobileServices.ML.DownloadModel
 
         public static MLLocalModelManager GetInstance(MLApplication application) => sJavaClass.CallStaticAsWrapper<MLLocalModelManager>("getInstance", application);
 
-        // continue with the rest of the methods after adding remote model.
-    }   
+        public ITask<Void> DeleteModel(MLRemoteModel model) => CallAsWrapper<TaskVoidWrapper>("deleteModel", model);
+
+        public ITask<Void> DownloadModel(MLRemoteModel model) => CallAsWrapper<TaskVoidWrapper>("downloadModel", model);
+
+        public ITask<Void> DownloadModel(MLRemoteModel model, MLModelDownloadStrategy strategy) => CallAsWrapper<TaskVoidWrapper>("downloadModel", model, strategy);
+
+        public ITask<Void> DownloadModel(MLRemoteModel model, MLModelDownloadStrategy strategy, MLModelDownloadListener listener) => CallAsWrapper<TaskVoidWrapper>("downloadModel", model, strategy, listener);
+
+        public ITask<File> GetRecentModelFile(MLRemoteModel model) => CallAsWrapper<TaskJavaObjectWrapper<File>>("getRecentModelFile", model);
+
+        public ITask<bool> IsModelExist(MLRemoteModel model) => CallAsWrapper<TaskPrimitive<bool>>("isModelExist", model);
+    }
 }
