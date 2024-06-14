@@ -1,15 +1,13 @@
-﻿using HuaweiMobileServices.Utils;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using HuaweiMobileServices.ML.DownloadModel;
+using HuaweiMobileServices.Utils;
 using UnityEngine;
 
 namespace HuaweiMobileServices.ML.TextToSpeech
 {
-    public class MLTtsLocalModel: JavaObjectWrapper
+    public class MLTtsLocalModel: MLRemoteModel
     {
         //const string CLASS_NAME = "com.huawei.hms.mlsdk.tts.MLTtsLocalModel";
-        private MLTtsLocalModel(AndroidJavaObject androidJavaObject) : base(androidJavaObject) { }
+        public MLTtsLocalModel(AndroidJavaObject androidJavaObject) : base(androidJavaObject) { }
         public string GetSpeakerName() => Call<string>("getSpeakerName");
 
         public class Factory : JavaObjectWrapper

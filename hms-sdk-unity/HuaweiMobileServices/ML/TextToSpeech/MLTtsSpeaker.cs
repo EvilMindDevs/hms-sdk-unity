@@ -22,7 +22,7 @@ namespace HuaweiMobileServices.ML.TextToSpeech
 
         public string ModelSize => Call<string>("getModelSize");
 
-        public string SpeakerDescription => Call<string>("getSpeakerDescription");
+        public string SpeakerDescription => Call<string>("getSpeakerDesc");
 
         public override string ToString() => Call<string>("toString");
 
