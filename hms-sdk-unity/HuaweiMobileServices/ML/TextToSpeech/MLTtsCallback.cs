@@ -50,7 +50,7 @@ namespace HuaweiMobileServices.ML.TextToSpeech
 
         public void onEvent(string taskId, int eventId, AndroidJavaObject bundle)
         {
-            _IMLTtsCallback.OnEvent(taskId, eventId, bundle);
+            _IMLTtsCallback.OnEvent(taskId, eventId, new Bundle(bundle));
         }
 
         private Tuple<int, int> ExtractPairFromKeyValuePairs(AndroidJavaObject keyValuePairs)
@@ -119,7 +119,7 @@ namespace HuaweiMobileServices.ML.TextToSpeech
             /// <param name="taskId">Task ID.</param>
             /// <param name="eventId">Event ID.</param>
             /// <param name="bundle">Result description.</param>
-            void OnEvent(string taskId, int eventId, AndroidJavaObject bundle);
+            void OnEvent(string taskId, int eventId, Bundle bundle);
 
         }
     }
