@@ -34,7 +34,7 @@ namespace HuaweiMobileServices.ML.Common
         private static int HASH_MISS => sJavaClass.GetStatic<int>(nameof(HASH_MISS));
         private static int TOKEN_INVALID => sJavaClass.GetStatic<int>(nameof(TOKEN_INVALID));
 
-        public int ErrorCode => Call<int>("getErrorCode");
+        public int ErrorCode => Call<int>("getErrCode");
 
 
     }
