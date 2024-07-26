@@ -7,19 +7,53 @@ namespace HuaweiMobileServices.Utils
 
     internal static class AndroidJavaObjectExtensions
     {
-
         private static readonly AndroidJavaClass sJavaArrays = new AndroidJavaClass("java.util.Arrays");
+
+        #region Wrappers and Converters
 
         public static T AsWrapper<T>(this AndroidJavaObject javaObject) where T : JavaObjectWrapper =>
             Activator.CreateInstance(typeof(T), javaObject) as T;
 
-        public static AndroidJavaObject AsJavaString(this string value) => new AndroidJavaObject("java.lang.String", value);
+        public static HMSException AsException(this AndroidJavaObject javaException) => new HMSException(javaException);
 
-        public static string AsString(this AndroidJavaObject javaString) => javaString?.Call<string>("toString");
+        public static AndroidJavaObject AsJavaException(this HMSException hMSException)
+        {
+            AndroidJavaClass javaClass = new AndroidJavaClass("java.lang.Exception");
+            return javaClass.Call<AndroidJavaObject>("Exception", hMSException.Message);
+        }
 
-        public static int AsInt(this AndroidJavaObject javaInt) => javaInt.Call<int>("intValue");
+        #endregion
 
-        public static bool AsBool(this AndroidJavaObject javaBool) => javaBool.Call<bool>("booleanValue");
+        #region Primitive Type Converters
+
+        public static AndroidJavaObject AsJavaString(this string value) => value.ToJavaObject();
+
+        public static string AsString(this AndroidJavaObject javaString) => javaString.FromJavaObject<string>();
+
+        public static int AsInt(this AndroidJavaObject javaInt) => javaInt.FromJavaObject<int>();
+
+        public static bool AsBool(this AndroidJavaObject javaBool) => javaBool.FromJavaObject<bool>();
+
+        public static long? AsLong(this AndroidJavaObject javaLongObject) => javaLongObject.FromJavaObject<long?>();
+
+        public static double? AsDouble(this AndroidJavaObject javaDoubleObject) => javaDoubleObject.FromJavaObject<double?>();
+
+        public static AndroidJavaObject AsJavaInteger(this int value) => value.ToJavaObject();
+
+        public static AndroidJavaObject AsJavaBoolean(this bool value) => value.ToJavaObject();
+
+        public static AndroidJavaObject AsJavaLong(this long value) => value.ToJavaObject();
+
+        public static AndroidJavaObject AsJavaUri(this string value)
+        {
+            AndroidJavaClass uriObj = new AndroidJavaClass("android.net.Uri");
+            AndroidJavaObject uri = uriObj.CallStatic<AndroidJavaObject>("parse", value);
+            return uri;
+        }
+
+        #endregion
+
+        #region Collections
 
         public static AndroidJavaObject AsJavaList<T>(this IList<T> list)
         {
@@ -47,19 +81,6 @@ namespace HuaweiMobileServices.Utils
             }
             return list;
         }
-        public static long? AsLong(this AndroidJavaObject javaLongObject)
-        {
-            if (javaLongObject == null)
-                return null;
-            return javaLongObject.Call<long>("longValue");
-        }
-
-        public static double? AsDouble(this AndroidJavaObject javaLongObject)
-        {
-            if (javaLongObject == null)
-                return null;
-            return javaLongObject.Call<double>("doubleValue");
-        }
 
         public static IList<T> AsListFromWrappable<T>(this AndroidJavaObject javaList) where T : JavaObjectWrapper =>
             javaList?.AsList<AndroidJavaObject>().Map(AsWrapper<T>);
@@ -68,17 +89,9 @@ namespace HuaweiMobileServices.Utils
             javaList?.AsList<AndroidJavaObject>().Map(AsString);
 
         public static IList<int> AsIntList(this AndroidJavaObject javaList) =>
-          javaList?.AsList<AndroidJavaObject>().Map(AsInt);
+            javaList?.AsList<AndroidJavaObject>().Map(AsInt);
 
         public static AndroidJavaObject AsJavaStringList(this IList<string> list) => list?.Map(AsJavaString).AsJavaList();
-
-        public static HMSException AsException(this AndroidJavaObject javaException) => new HMSException(javaException);
-
-        public static AndroidJavaObject AsJavaException(this HMSException hMSException) 
-        {
-            AndroidJavaClass javaClass = new AndroidJavaClass("java.lang.Exception");
-            return javaClass.Call<AndroidJavaObject>("Exception", hMSException.Message);
-        }
 
         public static AndroidJavaObject AsJavaSet<T>(this ISet<T> set)
         {
@@ -110,6 +123,10 @@ namespace HuaweiMobileServices.Utils
             var list = new AndroidJavaObject("java.util.ArrayList", javaSet).AsStringList();
             return new HashSet<string>(list);
         }
+
+        #endregion
+
+        #region Arrays
 
         public static AndroidJavaObject AsJavaArray<T>(this T[] array, Func<T, AndroidJavaObject> converter)
         {
@@ -146,38 +163,37 @@ namespace HuaweiMobileServices.Utils
             return array;
         }
 
-        public static string[] AsStringArray(this AndroidJavaObject javaObject)
+        // Generic method to convert AndroidJavaObject to an array of T
+        private static T[] ConvertToArray<T>(AndroidJavaObject javaObject, Func<AndroidJavaObject, IList<T>> conversionMethod)
         {
             if (javaObject == null) return null;
-            var list = sJavaArrays.CallStatic<AndroidJavaObject>("asList", javaObject).AsStringList();
-            var array = new string[list.Count];
+            var list = conversionMethod(javaObject);
+            var array = new T[list.Count];
             list.CopyTo(array, 0);
             return array;
         }
 
-        public static AndroidJavaObject AsJavaInteger(this int value) => new AndroidJavaObject("java.lang.Integer", value);
-
-        public static AndroidJavaObject AsJavaBoolean(this bool value) => new AndroidJavaObject("java.lang.Boolean", value);
-
-        public static AndroidJavaObject AsJavaLong(this long value) => new AndroidJavaObject("java.lang.Long", value);
-
-        public static AndroidJavaObject AsJavaUri(this string value)
+        // Updated methods using the generic conversion method
+        public static string[] AsStringArray(this AndroidJavaObject javaObject)
         {
-            AndroidJavaClass uriObj = new AndroidJavaClass("android.net.Uri");
-            AndroidJavaObject uri = uriObj.CallStatic<AndroidJavaObject>("parse", value);
-            return uri;
+            return ConvertToArray(javaObject, jo => sJavaArrays.CallStatic<AndroidJavaObject>("asList", jo).AsStringList());
         }
+
+        public static byte[] AsByteArray(this AndroidJavaObject javaObject)
+        {
+            return ConvertToArray(javaObject, jo => sJavaArrays.CallStatic<AndroidJavaObject>("asList", jo).AsList<byte>());
+        }
+
+        #endregion
     }
 
     public class JavaObject : JavaObjectWrapper
     {
-
         private const string CLASS_NAME = "java.lang.Object";
 
         public JavaObject(AndroidJavaObject javaObject) : base(javaObject) { }
         public JavaObject() : base(CLASS_NAME) { }
 
-        override
-        public string ToString() => Call<string>("toString");
+        public override string ToString() => Call<string>("toString");
     }
 }
