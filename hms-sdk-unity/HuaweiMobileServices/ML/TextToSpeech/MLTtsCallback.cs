@@ -40,8 +40,9 @@ namespace HuaweiMobileServices.ML.TextToSpeech
             // Check if keyValuePairs is not null
             if (keyValuePairs != null)
             {
+                var resultPair = Pair<int,int>.FromJavaObject(keyValuePairs);
                 // Extract the pair values from keyValuePairs
-                pairs = ExtractPairFromKeyValuePairs(keyValuePairs);
+                pairs = new Tuple<int, int>(resultPair.First, resultPair.Second);
             }
 
             // Call the OnAudioAvailable method with the extracted pair and other parameters
@@ -72,9 +73,7 @@ namespace HuaweiMobileServices.ML.TextToSpeech
 
                 return new Tuple<int, int>(firstValue, secondValue);
             }
-
-            // If no match is found, log it and return null
-            Console.WriteLine("No match found for keyValuePairs in MLTtsCallback");
+            
             return null;
         }
 

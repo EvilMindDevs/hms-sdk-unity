@@ -10,33 +10,37 @@ namespace HuaweiMobileServices.Utils
         public static Action<AndroidIntent> mOnSuccessListener;
         public static Action<HMSException> mOnFailureListener;
 
-        public static void ShowFolderPicker(AndroidJavaObject intent) {
+        public static void ShowFolderPicker(AndroidJavaObject intent)
+        {
 
             var callback = new GenericBridgeCallbackWrapper()
             .AddOnFailureListener(mOnFailureListener)
             .AddOnSuccessListener((nothing) =>
             {
-               HMSDispatcher.InvokeAsync(() => { mOnSuccessListener.Invoke(nothing); });    
+                HMSDispatcher.InvokeAsync(() => { mOnSuccessListener.Invoke(nothing); });
             });
             sJavaClass.CallStatic("receiveShow", intent, callback);
         }
 
         public static void OpenFolderPicker()
         {
-            mOnSuccessListener += (data) => {
+            mOnSuccessListener += (data) =>
+            {
                 Debug.Log("[HMS] FolderPicker: Success: " + data.GetData()?.GetPath);
             };
 
-            mOnFailureListener += (exception) => {
+            mOnFailureListener += (exception) =>
+            {
                 Debug.Log("[HMS] FolderPicker: Failure: " + exception.Message);
             };
             AndroidIntent openFolderIntent = new AndroidIntent(OPEN_DOCUMENT_TREE)
-            .AddFlags(1)
-            .AddFlags(2)
-            .AddFlags(4)
-            .AddFlags(64);
+            .AddFlags(AndroidIntent.FLAG_GRANT_READ_URI_PERMISSION)
+            .AddFlags(AndroidIntent.FLAG_GRANT_WRITE_URI_PERMISSION)
+            .AddFlags(AndroidIntent.URI_ALLOW_UNSAFE)
+            .AddFlags(AndroidIntent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
 
             ShowFolderPicker(openFolderIntent.JavaObject);
+
         }
     }
 
