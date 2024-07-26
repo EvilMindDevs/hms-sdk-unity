@@ -6,4 +6,5 @@ public interface BridgeType {
 	int ARCHIVE = 2;
 	int IN_APP_COMMENT = 1001;
     int SCAN = 1002;
+    int FILE_PICKER = 1003;
 }
