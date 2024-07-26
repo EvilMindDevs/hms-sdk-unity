@@ -15,8 +15,8 @@ namespace HuaweiMobileServices.ML.LanguageDetection
         public bool Equals(AndroidJavaObject obj) => Call<bool>("equals", obj);
         public string GetLangCode() => Call<string>("getLangCode");
         public float GetProbability() => Call<float>("getProbability");
-        public int HashCode() => Call<int>("hashCode");
-        public string toString() => Call<string>("toString");
+        public override int GetHashCode() => Call<int>("hashCode");
+        public override string ToString() => Call<string>("toString");
 
 
     }
