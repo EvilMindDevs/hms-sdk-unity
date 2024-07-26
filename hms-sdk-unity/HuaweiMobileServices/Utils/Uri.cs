@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HuaweiMobileServices.Utils
@@ -11,6 +12,9 @@ namespace HuaweiMobileServices.Utils
 
         public override string ToString() => CallAsString("toString");
         public string GetPath => CallAsString("getPath");
+        public string LastPathSegment => CallAsString("getLastPathSegment");
+        public IList<string> PathSegments => CallAsStringList("getPathSegments");
+        public string GetScheme => CallAsString("getScheme");
 
     }
 }
