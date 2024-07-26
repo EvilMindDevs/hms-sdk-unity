@@ -1,9 +1,13 @@
 package org.m0skit0.android.hms.unity.activity;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -14,8 +18,12 @@ import org.m0skit0.android.hms.unity.BridgeType;
 import org.m0skit0.android.hms.unity.GenericBridge;
 import org.m0skit0.android.hms.unity.base.StatusBridge;
 import org.m0skit0.android.hms.unity.game.ArchiveBridge;
+import org.m0skit0.android.hms.unity.helper.FilePicker.FilePickerBridge;
 import org.m0skit0.android.hms.unity.inAppComment.InAppCommentBridge;
 import org.m0skit0.android.hms.unity.scan.bridge.ScanKitBridge;
+
+import java.io.IOException;
+import java.util.Objects;
 
 public class NativeBridgeActivity extends Activity {
 
@@ -59,6 +67,9 @@ public class NativeBridgeActivity extends Activity {
                         Log.d(TAG, "[HMS] onCreate type SCAN");
                         ScanKitBridge.RequestForPermission(this);
                         break;
+                    case FilePickerBridge.FILE_PICKER:
+                        Log.d(TAG, "[HMS] onCreate type FILE_PICKER");
+                        FilePickerBridge.RequestForPermission(this);
                     default:
                         Log.e(TAG, "[HMS] Unknown type " + type);
                 }
@@ -88,6 +99,24 @@ public class NativeBridgeActivity extends Activity {
                 case BridgeType.SCAN:
                     ScanKitBridge.returnShow(data);
                     break;
+                case BridgeType.FILE_PICKER:
+                    Uri uri = data.getData();
+                    if(uri == null){
+                        Log.e(TAG, "[HMS] Data is Empty. Intent data not found. " + requestCode);
+                        return;
+                    }
+                    ContentResolver cr = this.getContentResolver();
+                    Log.d(TAG, "[HMS] FILE_PICKER data type: " + cr.getType(uri));
+                    boolean intentType = Objects.requireNonNull(cr.getType(uri)).contains("image");
+                    Bitmap bitmap = null;
+                    if(intentType) {
+                        try {
+                            bitmap = MediaStore.Images.Media.getBitmap(cr, uri);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                    FilePickerBridge.returnShow(data,bitmap);
                 default:
                     Log.e(TAG, "[HMS] Unknown request code " + requestCode);
             }
