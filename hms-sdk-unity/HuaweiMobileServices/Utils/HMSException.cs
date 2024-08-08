@@ -39,7 +39,7 @@ namespace HuaweiMobileServices.Utils
                     return _errorCode;
                 }
             }   
-            set => ErrorCode = value;
+            set => _errorCode = value;
         }
 
         public string WrappedExceptionMessage
